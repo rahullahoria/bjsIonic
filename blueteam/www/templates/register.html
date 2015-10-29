@@ -1,0 +1,24 @@
+<ion-view view-title="Welcome to BlueTeam">
+ <ion-content>
+<div class="card">
+    <form ng-submit="regUser()">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Full Name</span>
+        <input type="text" name="name" 
+                        placeholder="enter full name" ng-model="data.name">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Mobile No.</span>
+        <input type="text" name="mobile" 
+                        placeholder="enter mobile no." ng-model="data.mobile">
+      </label>
+
+
+   <input class="button button-block button-positive" 
+                    type="submit" name="submit" value="Go Blue"> 
+
+   </form>
+   </div>
+  </ion-content>
+</ion-view>

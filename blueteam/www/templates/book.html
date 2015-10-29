@@ -1,0 +1,27 @@
+<ion-view view-title="{{scope.service}}">
+  <ion-content class="padding">
+  {{service}}<br/>
+  {{type}}<br/>
+  {{position.coords.latitude}}
+
+    <img ng-src="{{}}" style="width: 64px; height: 64px">
+    <p>
+      {{location}}
+    </p>
+   Charges for 1hour will be 129 Rs/hr<br/><br/>
+
+   <button class="button" ng-click="conf()">need now</button>
+
+<form ng-submit="conf()">
+<label class="item item-input item-stacked-label">
+                        <span class="input-label">Address</span>
+                        <input type="text" name="address" 
+                        placeholder="enter address" ng-model="data.address">
+                    </label>
+
+   <input class="button button-block button-positive" 
+                    type="submit" name="need now" value="Need Now"> 
+
+   </form>
+  </ion-content>
+</ion-view>

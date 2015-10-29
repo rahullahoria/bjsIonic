@@ -1,0 +1,19 @@
+<ion-view view-title="BlueTeam">
+  <ion-content class="padding">
+ 
+
+
+    <div class="row responsive-sm">
+      <div class="col" ng-repeat="service in services" > 
+      <a href="#/tab/service-list/{{service.name}}">
+        <center><img ng-src="{{service.img}}" class="img-rounded" width="65" height="65" >
+        <h5>{{service.name  | uppercase}}</h5></center>
+        </a>
+      </div>
+
+    </div>
+
+
+
+  </ion-content>
+</ion-view>
