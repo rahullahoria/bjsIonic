@@ -22,7 +22,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
   
   
-  if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined 
+  if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('email') === undefined 
       || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
 
   }
@@ -67,6 +67,7 @@ angular.module('starter.controllers', ['ngCordova'])
         //setObject
         $localstorage.set('name', $scope.data.name);
         $localstorage.set('mobile', $scope.data.mobile);
+        $localstorage.set('email', $scope.data.email);
 
     });
   };
