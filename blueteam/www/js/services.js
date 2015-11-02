@@ -7,7 +7,7 @@ angular.module('starter.services', [])
   return {
     getServices: function() {
       // $http returns a promise, which has a then function, which also returns a promise
-      var promise = $http.get('http://loc.api.blueteam.in/v0/services').then(function (response) {
+      var promise = $http.get('http://api.blueteam.in/v0/services').then(function (response) {
         // The then function here is an opportunity to modify the response
         console.log(response);
         // The return value gets picked up by the then in the controller.
@@ -18,7 +18,7 @@ angular.module('starter.services', [])
     },
     makeServiceRequest: function(data) {
       // $http returns a promise, which has a then function, which also returns a promise
-      var promise = $http.post('http://loc.api.blueteam.in/v0/service_request', data ).then(function (response) {
+      var promise = $http.post('http://api.blueteam.in/v0/service_request', data ).then(function (response) {
         // The then function here is an opportunity to modify the response
         console.log(response);
         // The return value gets picked up by the then in the controller.
@@ -29,7 +29,7 @@ angular.module('starter.services', [])
     },
     regUser: function(data) {
       // $http returns a promise, which has a then function, which also returns a promise
-      var promise = $http.post('http://loc.api.blueteam.in/v0/user', data ).then(function (response) {
+      var promise = $http.post('http://api.blueteam.in/v0/user', data ).then(function (response) {
         // The then function here is an opportunity to modify the response
         console.log(response);
         // The return value gets picked up by the then in the controller.

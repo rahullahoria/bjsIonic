@@ -95,7 +95,11 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('FinishCtrl', function($scope, $state, $timeout, $stateParams) {
 
- $timeout(function(){$state.go('tab.service-list');}, 5000);
+    $scope.$on('$ionicView.enter', function() {
+     // Code you want executed every time view is opened
+     $timeout(function(){$state.go('tab.service-list');}, 5000)
+  })
+    
 })
 
 .controller('BookCtrl', function($scope, $state, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
