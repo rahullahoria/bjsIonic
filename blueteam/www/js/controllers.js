@@ -3,7 +3,7 @@
 angular.module('starter.controllers', ['ngCordova'])
 
 .controller('ServiceListCtrl', function($scope, $state, $ionicHistory, $localstorage, BlueTeam) {
-  if($localstorage.get('name') === "undefined" || $localstorage.get('mobile') === "undefined" 
+  if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined 
       || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
     $ionicHistory.clearHistory();
     $state.go('reg');
@@ -22,7 +22,10 @@ angular.module('starter.controllers', ['ngCordova'])
 
   
   
-  if($localstorage.get('name') === "undefined" || $localstorage.get('mobile') === "undefined"){}
+  if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined 
+      || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
+
+  }
     else{
     $ionicHistory.clearHistory();
     $state.go('tab.service-list');
