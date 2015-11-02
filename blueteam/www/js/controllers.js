@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['ngCordova'])
     $state.go('reg');
   }
   var temp = BlueTeam.getServices().then(function(d) {
-    console.log($localstorage.get('name'));
+    
     $ionicHistory.clearHistory();
     $scope.services = window.services = d['data']['services'];
 
@@ -20,7 +20,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('RegCtrl', function($scope, $state, $ionicHistory, $cordovaGeolocation, $localstorage, BlueTeam) {
 
-  console.log($localstorage.get('name'));
+  
   
   if($localstorage.get('name') === "undefined" || $localstorage.get('mobile') === "undefined"){}
     else{
@@ -37,12 +37,10 @@ angular.module('starter.controllers', ['ngCordova'])
   $cordovaGeolocation
     .getCurrentPosition(posOptions)
     .then(function (position) {
-      console.log(position);
+      
 
       $scope.position = position;
       
-      //var lat  = position.coords.latitude;
-      //var long = position.coords.longitude;
     }, function(err) {
       // error
           $scope.position =  { "coords" : { "longitude" : null, "latitude" : null}};
@@ -56,7 +54,8 @@ angular.module('starter.controllers', ['ngCordova'])
                                 "root":{
                                         "gpsLocation" : $scope.position.coords.latitude + ',' + $scope.position.coords.longitude   ,
                                         "name": $scope.data.name, 
-                                        "mobile": $scope.data.mobile 
+                                        "mobile": $scope.data.mobile,
+                                        "email" : $scope.data.email 
                                       }
                     })
       .then(function(d) {
@@ -66,19 +65,13 @@ angular.module('starter.controllers', ['ngCordova'])
         $localstorage.set('name', $scope.data.name);
         $localstorage.set('mobile', $scope.data.mobile);
 
-
-        //$localstorage.set('name', 'Max');
-        //console.log($localstorage.get('namea'));
-
-
-        //$scope.services = d['data']['services'];
     });
   };
 })
 
 
 .controller('ServiceTypeCtrl', function($scope, $state, $stateParams) {
-  console.log($stateParams, window.services);
+  
   
   if(window.services === undefined)
     $state.go('tab.service-list');
@@ -88,7 +81,7 @@ angular.module('starter.controllers', ['ngCordova'])
       $scope.plans = window.services[i].plans;    
     }
   }
-  console.log($scope.plans);
+ 
   $scope.service = $stateParams.id;
 
 })
@@ -99,36 +92,62 @@ angular.module('starter.controllers', ['ngCordova'])
      // Code you want executed every time view is opened
      $timeout(function(){$state.go('tab.service-list');}, 5000)
   })
-    
+
 })
 
 .controller('BookCtrl', function($scope, $state, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
   $scope.data = {};
-  console.log($stateParams);
+  
+
+  if(window.services === undefined)
+    $state.go('tab.service-list');
+  
+  for(i=0; i < window.services.length; i++){
+
+    if(window.services[i].name == $stateParams.id){
+
+      for(j=0; j < window.services[i].plans.length; j++){
+        
+        if(window.services[i].plans[j].name == $stateParams.type){
+ 
+        $scope.price = window.services[i].plans[j].price;
+        }
+      }    
+    }
+  }
+  
   $scope.service = $stateParams.id;
   $scope.type = $stateParams.type;
 
+  $scope.data.name = $localstorage.get('name');
+  $scope.data.mobile = $localstorage.get('mobile');
+  $scope.data.address = $localstorage.get('address');
+  ;
   // to get current location of the user
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation
     .getCurrentPosition(posOptions)
     .then(function (position) {
-      console.log(position);
+      
       $scope.position = position;
-      //var lat  = position.coords.latitude;
-      //var long = position.coords.longitude;
+      
     }, function(err) {
       // error
         $scope.position =  { "coords" : { "longitude" : null, "latitude" : null}};
     });
 
     // making post api call to the server by using angular based service
-
+    
     $scope.conf = function() {
+    
+    $localstorage.set('name', $scope.data.name );
+    $localstorage.set('mobile', $scope.data.mobile );
+    $localstorage.set('address', $scope.data.address );
+
     BlueTeam.makeServiceRequest({
                                 "root":{
-                                        "name" : $localstorage.get('name'),
-                                        "mobile" : $localstorage.get('mobile'),
+                                        "name" : $scope.data.name,
+                                        "mobile" : $scope.data.mobile,
                                         "location" : $scope.position.coords.latitude + ',' + $scope.position.coords.longitude   ,
                                         "service": $scope.service,
                                         "type": $scope.type, 

@@ -9,16 +9,16 @@ navigation history that also transitions its views in and out.
  
 
   <!-- Chats Tab -->
-  <ion-tab title="Services" icon-off="ion-eyes-active" icon-on="ion-eye"  >
+  <ion-tab title="Services" icon-off="ion-eyes-active" icon-on="ion-eye"  ng-click="e.stopPropagation()">
     <ion-nav-view name="service-list" ></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Plan" icon-off="ion-ios-gear-active" icon-on="ion-ios-gear" >
+  <ion-tab title="Plan" icon-off="ion-ios-gear-active" icon-on="ion-ios-gear" ng-click="e.stopPropagation()">
     <ion-nav-view name="service-type"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Confirm" icon-off="ion-checkmark-active" icon-on="ion-checkmark" >
+  <ion-tab title="Confirm" icon-off="ion-checkmark-active" icon-on="ion-checkmark" ng-click="e.stopPropagation()">
     <ion-nav-view name="book"></ion-nav-view>
   </ion-tab>
 

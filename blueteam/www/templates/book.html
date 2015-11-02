@@ -1,27 +1,40 @@
 <ion-view view-title="{{service}} - {{type}}">
-  <ion-content class="padding">
+<ion-content class="padding">
+<div class="card">
+
   I need a {{service}} on {{type}} bases.<br/>
   
-  <!-- {{position.coords.latitude}} -->
 
-   Charges for 1hour will be 129 Rs/hr<br/><br/>
+  <i>On price of {{price}}.</i><br/><br/>
+ 
+ <form ng-submit="conf()"> 
+  <div class="list">
+  <label class="item item-input item-floating-label">
+      <span class="input-label"> My name is</span>
+      <input type="text"  placeholder="enter name" ng-model="data.name" ng-minlength="1" required />
+  </label>
 
+  <label class="item item-input item-floating-label">
+      <span class="input-label"> My Mobile no. is</span>
+      <input type="text" placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" required />
 
-<div class="card">
+  </label>
+
+    <label class="item item-input item-floating-label">
+      <span class="input-label"> My Address is</span>
+      <textarea placeholder="enter address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
+  </label>
+</div>
+
+<input class="button button-block button-positive" type="submit" name="need now" value="Confirm"> 
+
+</form>
+
   
+    
+    
 
-<form ng-submit="conf()">
-<label class="item item-input item-stacked-label">
-                        <span class="input-label"> Please give your Address</span>
-                        <textarea name="address" 
-                        placeholder="enter address" ng-model="data.address" rows="4" ng-minlength="10" required>
-                        </textarea>
-                    </label>
-
-   <input class="button button-block button-positive" 
-                    type="submit" name="need now" value="Confirm"> 
-
-   </form>
-   </div>
-  </ion-content>
+  
+</div>
+</ion-content>
 </ion-view>
