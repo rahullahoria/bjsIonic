@@ -1,14 +1,14 @@
 <ion-view view-title="{{service}} - {{type}}">
 <ion-content class="padding">
-<div class="card">
 
-  I need a {{service}} on {{type}} bases.<br/>
-  
-
-  <i>On price of {{price}}.</i><br/><br/>
  
  <form ng-submit="conf()"> 
   <div class="list">
+<label class="item item-input item-floating-label">
+   I need a <b> {{service}}</b> on <i>{{type}}</i> bases.<br/>
+   
+  <i>On price of {{price}}.</i>
+</label>
   <label class="item item-input item-floating-label">
       <span class="input-label"> My name is</span>
       <input type="text"  placeholder="enter name" ng-model="data.name" ng-minlength="1" required />
@@ -35,6 +35,6 @@
     
 
   
-</div>
+
 </ion-content>
 </ion-view>
