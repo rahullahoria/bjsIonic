@@ -1,18 +1,39 @@
-<ion-view view-title="BlueTeam">
+<ion-view view-title="Hire Now" >
   <ion-content class="padding">
  
+ <center>
+ <p>
 
 
-    <div class="row responsive-sm">
-      <div class="col" ng-repeat="service in services" > 
-      <a href="#/tab/service-list/{{service.name}}">
-        <center><img ng-src="{{service.img}}" class="img-rounded" width="65" height="65" >
-        <h5>{{service.name  | uppercase}}</h5></center>
+High skilled, Background verified, experienced and certified professional.
+</p>
+</center>
+
+<div class="row gallery ">
+
+      <div class="col col-50"  ng-repeat="service in services" style="float: left; display: block;"> 
+        <div class="card">
+        <a href="#/tab/service-list/{{service.name}}" >
+          <center>
+            <img ng-src="{{service.img}}" class="img-rounded" width="65" height="65" >
+            <h5>{{service.name  | uppercase}}</h5>
+          </center>
         </a>
+        </div>
       </div>
 
     </div>
 
+ 
+<div class='card'>
+ <center>
+    <i> In case of any problem. Please contact use at<br/>
+    <b> +91 - 9599075355 </b> <br />
+    blueteam@collap.com<br />
+    WWW.blueteam.in
+    </i>
+    </center>
+</div>
 
 
   </ion-content>

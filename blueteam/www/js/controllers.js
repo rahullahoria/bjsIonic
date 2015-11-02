@@ -1,33 +1,32 @@
+
+
 angular.module('starter.controllers', ['ngCordova'])
 
-.controller('ServiceListCtrl', function($scope, BlueTeam) {
-
+.controller('ServiceListCtrl', function($scope, $state, $ionicHistory, $localstorage, BlueTeam) {
+  if($localstorage.get('name') === "undefined" || $localstorage.get('mobile') === "undefined" 
+      || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
+    $ionicHistory.clearHistory();
+    $state.go('reg');
+  }
   var temp = BlueTeam.getServices().then(function(d) {
+    console.log($localstorage.get('name'));
+    $ionicHistory.clearHistory();
+    $scope.services = window.services = d['data']['services'];
 
-    $scope.services = d['data']['services'];
   });
 
-  $scope.remove = function() {
-    Chats.remove(chat);
-  };
 
 })
 
-.controller('RegCtrl', function($scope, $state, $cordovaGeolocation, $localstorage, BlueTeam) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  /*var temp = Chats.all();
-  console.log(temp['data']['services']);
-  $scope.chats = temp['data']['services'];
+.controller('RegCtrl', function($scope, $state, $ionicHistory, $cordovaGeolocation, $localstorage, BlueTeam) {
 
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };*/
+  console.log($localstorage.get('name'));
+  
+  if($localstorage.get('name') === "undefined" || $localstorage.get('mobile') === "undefined"){}
+    else{
+    $ionicHistory.clearHistory();
+    $state.go('tab.service-list');
+  }
 
   $scope.data = {};
   
@@ -63,19 +62,33 @@ angular.module('starter.controllers', ['ngCordova'])
       .then(function(d) {
 
         $state.go('tab.service-list');
+        //setObject
+        $localstorage.set('name', $scope.data.name);
+        $localstorage.set('mobile', $scope.data.mobile);
+
 
         //$localstorage.set('name', 'Max');
-  //console.log($localstorage.get('namea'));
+        //console.log($localstorage.get('namea'));
 
 
-      //$scope.services = d['data']['services'];
+        //$scope.services = d['data']['services'];
     });
   };
 })
 
 
-.controller('ServiceTypeCtrl', function($scope, $stateParams) {
-  console.log($stateParams);
+.controller('ServiceTypeCtrl', function($scope, $state, $stateParams) {
+  console.log($stateParams, window.services);
+  
+  if(window.services === undefined)
+    $state.go('tab.service-list');
+
+  for(i=0; i < window.services.length; i++){
+    if(window.services[i].name == $stateParams.id){
+      $scope.plans = window.services[i].plans;    
+    }
+  }
+  console.log($scope.plans);
   $scope.service = $stateParams.id;
 
 })
@@ -85,7 +98,7 @@ angular.module('starter.controllers', ['ngCordova'])
  $timeout(function(){$state.go('tab.service-list');}, 5000);
 })
 
-.controller('BookCtrl', function($scope, $state, $stateParams, $cordovaGeolocation, BlueTeam) {
+.controller('BookCtrl', function($scope, $state, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
   $scope.data = {};
   console.log($stateParams);
   $scope.service = $stateParams.id;
@@ -102,8 +115,7 @@ angular.module('starter.controllers', ['ngCordova'])
       //var long = position.coords.longitude;
     }, function(err) {
       // error
-      $scope.position.coords.longitude = null;
-      $scope.position.coords.latitude = null;
+        $scope.position =  { "coords" : { "longitude" : null, "latitude" : null}};
     });
 
     // making post api call to the server by using angular based service
@@ -111,14 +123,17 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.conf = function() {
     BlueTeam.makeServiceRequest({
                                 "root":{
-                                        'location' : $scope.position.coords.latitude + ',' + $scope.position.coords.longitude   ,
+                                        "name" : $localstorage.get('name'),
+                                        "mobile" : $localstorage.get('mobile'),
+                                        "location" : $scope.position.coords.latitude + ',' + $scope.position.coords.longitude   ,
                                         "service": $scope.service,
                                         "type": $scope.type, 
                                         "address": $scope.data.address 
                                       }
                                 })
       .then(function(d) {
-        $state.go('tab.finish');
+        $ionicHistory.clearHistory();
+        $state.go('finish');
       //$scope.services = d['data']['services'];
     });
   };

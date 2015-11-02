@@ -1,27 +1,27 @@
-<ion-view view-title="{{scope.service}}">
+<ion-view view-title="{{service}} - {{type}}">
   <ion-content class="padding">
-  {{service}}<br/>
-  {{type}}<br/>
-  {{position.coords.latitude}}
+  I need a {{service}} on {{type}} bases.<br/>
+  
+  <!-- {{position.coords.latitude}} -->
 
-    <img ng-src="{{}}" style="width: 64px; height: 64px">
-    <p>
-      {{location}}
-    </p>
    Charges for 1hour will be 129 Rs/hr<br/><br/>
 
-   <button class="button" ng-click="conf()">need now</button>
+
+<div class="card">
+  
 
 <form ng-submit="conf()">
 <label class="item item-input item-stacked-label">
-                        <span class="input-label">Address</span>
-                        <input type="text" name="address" 
-                        placeholder="enter address" ng-model="data.address">
+                        <span class="input-label"> Please give your Address</span>
+                        <textarea name="address" 
+                        placeholder="enter address" ng-model="data.address" rows="4" ng-minlength="10" required>
+                        </textarea>
                     </label>
 
    <input class="button button-block button-positive" 
-                    type="submit" name="need now" value="Need Now"> 
+                    type="submit" name="need now" value="Confirm"> 
 
    </form>
+   </div>
   </ion-content>
 </ion-view>

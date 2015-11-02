@@ -40,14 +40,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.reg', {
+  .state('reg', {
     url: '/reg',
-    views: {
-      'tab-reg': {
-        templateUrl: 'templates/register.html',
+    
+      
+        templateUrl: 'register.html',
         controller: 'RegCtrl'
-      }
-    }
+      
+    
   })
 
   .state('tab.service-list', {
@@ -80,27 +80,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.finish', {
+  .state('finish', {
       url: '/finish',
-      views: {
-        'finish': {
-          templateUrl: 'templates/finish.html',
+      
+          templateUrl: 'finish.html',
           controller: 'FinishCtrl'
-      }
-    }
+      
+    
   })
 
-  .state('tab.account', {
-    url: '/account/:id',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/register.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/reg');
+  $urlRouterProvider.otherwise('/reg');
 
 });

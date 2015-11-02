@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+
+a {text-decoration: none;}
+
+.gallery {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
