@@ -2,25 +2,45 @@
 
 angular.module('starter.controllers', ['ngCordova'])
 
-.controller('ServiceListCtrl', function($scope, $state, $ionicHistory, $localstorage, BlueTeam) {
+.controller('ServiceListCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
+  
   if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined 
       || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
     $ionicHistory.clearHistory();
     $state.go('reg');
   }
+
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+  
+  $scope.show();
+
   var temp = BlueTeam.getServices().then(function(d) {
     
     $ionicHistory.clearHistory();
     $scope.services = window.services = d['data']['services'];
-
+    $scope.hide();
   });
 
 
 })
 
-.controller('RegCtrl', function($scope, $state, $ionicHistory, $cordovaGeolocation, $localstorage, BlueTeam) {
+.controller('RegCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage, BlueTeam) {
 
-  
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };  
   
   if($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('email') === undefined 
       || $localstorage.get('name') === "" || $localstorage.get('mobile') === ""){
@@ -53,6 +73,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   $scope.regUser = function() {
+    $scope.show();
     BlueTeam.regUser({
                                 "root":{
                                         "gpsLocation" : $scope.position.coords.latitude + ',' + $scope.position.coords.longitude   ,
@@ -63,11 +84,13 @@ angular.module('starter.controllers', ['ngCordova'])
                     })
       .then(function(d) {
 
-        $state.go('tab.service-list');
         //setObject
         $localstorage.set('name', $scope.data.name);
         $localstorage.set('mobile', $scope.data.mobile);
         $localstorage.set('email', $scope.data.email);
+
+        $scope.hide();
+        $state.go('tab.service-list');
 
     });
   };
@@ -90,16 +113,17 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('FinishCtrl', function($scope, $state, $timeout, $stateParams) {
+.controller('FinishCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
     $scope.$on('$ionicView.enter', function() {
      // Code you want executed every time view is opened
-     $timeout(function(){$state.go('tab.service-list');}, 5000)
+     $ionicHistory.clearHistory();
+     $timeout(function(){$state.go('tab.service-list');}, 10000)
   })
 
 })
 
-.controller('BookCtrl', function($scope, $state, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
+.controller('BookCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
   $scope.data = {};
   
 
@@ -140,10 +164,21 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.position =  { "coords" : { "longitude" : null, "latitude" : null}};
     });
 
+    $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+    $timeout(function(){$scope.hide();}, 5000);
+    
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+
     // making post api call to the server by using angular based service
     
     $scope.conf = function() {
-    
+    $scope.show();
     $localstorage.set('name', $scope.data.name );
     $localstorage.set('mobile', $scope.data.mobile );
     $localstorage.set('address', $scope.data.address );
@@ -159,6 +194,7 @@ angular.module('starter.controllers', ['ngCordova'])
                                       }
                                 })
       .then(function(d) {
+        $scope.hide();
         $ionicHistory.clearHistory();
         $state.go('finish');
       //$scope.services = d['data']['services'];

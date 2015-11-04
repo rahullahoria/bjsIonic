@@ -13,7 +13,7 @@ High skilled, Background verified, Experienced and Certified professional.
 
       <div class="col col-50"  ng-repeat="service in services" style="float: left; display: block;"> 
         <div class="card">
-        <a href="#/tab/service-list/{{service.name}}" >
+        <a href="#/tab/service-list/{{service.name}}" nav-direction="forward" >
           <center>
             <img ng-src="{{service.img}}" class="img-rounded" width="65" height="65" >
             <h5>{{service.name  | uppercase}}</h5>
@@ -28,9 +28,9 @@ High skilled, Background verified, Experienced and Certified professional.
 <div class='card'>
  <center>
     <i> In case of any problem. Please contact us at<br/>
-    <b> +91 - 9599075355 </b> <br />
-    blueteam@collap.com<br />
-    www.BlueTeam.in
+    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+    <a href="#" onclick="window.open('mailto:blueteam@collap.com','_system')" >info@blueteam.in</a><br />
+    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
     </i>
     </center>
 </div>

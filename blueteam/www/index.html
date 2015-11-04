@@ -29,7 +29,7 @@
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-positive">
-    <ion-nav-back-button>
+    <ion-nav-back-button nav-direction="back">
   </ion-nav-back-button>
 </ion-nav-bar>
     <!--
@@ -39,14 +39,16 @@
     -->
     
     <script type="text/ng-template" id="register.html">
-<ion-view view-title="Welcome to BlueTeam">
+<ion-view view-title="Welcome to BlueTeam" >
     <ion-content >
      <div class="card ">
-       <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" ></center>
+       <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" >
+       <p><i style="font-style: italic;font-size: 0.8em;">to serve you better</i></p>
+       </center>
      </div>
      <div class="card">
 
-      <form ng-submit="regUser()">
+      <form ng-submit="regUser()" name="register" >
         <label class="item item-input item-stacked-label">
           <span class="input-label">Full Name</span>
           <input type="text" name="name" 
@@ -56,7 +58,7 @@
         <label class="item item-input item-stacked-label">
           <span class="input-label">Mobile No.</span>
           <input type="number" name="mobile" 
-          placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" required>
+          placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required>
         </label>
 
         <label class="item item-input item-stacked-label">
@@ -65,14 +67,21 @@
           placeholder="enter email id" ng-model="data.email" required>
         </label>
 
+        <div class="padding">
+            
+            <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+            
+            
+        </div>
 
         <input class="button button-block button-positive" 
-        type="submit" name="submit" value="Go Blue"> 
+        type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid"> 
 
       </form>
     </div>
   </ion-content>
   </ion-view>
+
 </script>
 
 <script type="text/ng-template" id="finish.html">
@@ -81,17 +90,24 @@
  <div class="card">
   <center>
     <b>Thank You</b><br/> 
-    your request has been submitted.<br/>
-    BlueTeam will respond to you within 30 minutes.<br/>
-    <i> In case of any problem. Please contact use at<br/>
-      <b> +91 - 9599075355 </b> <br />
-      blueteam@collap.com<br />
-      WWW.blueteam.in
+    <p>
+    Your request has been submitted.<br/>
+    BlueTeam will respond to you within 30 minutes.
+    </p>
+
+
+
+
+  </center>   
+</div>
+
+<div class="card">
+  <center>
+  <i> In case of any problem. Please contact us at<br/>
+    <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+    <a href="#" onclick="window.open('mailto:blueteam@collap.com','_system')" >info@blueteam.in</a><br />
+    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
     </i>
-
-
-
-
   </center>   
 </div>
 
