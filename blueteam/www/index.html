@@ -1,121 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; font-src data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <title></title>
 
-  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
   -->
 
-  <!-- ionic/angularjs js -->
-  <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-  <!-- cordova script (this will be a 404 during development) -->
-  <script src="cordova.js"></script>
-  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- cordova script (this will be a 404 during development)  -->
 
-  <!-- your app's js -->
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/services.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/phonecontacts.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
 </head>
 <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-positive">
+<!--
+  The nav bar that will be updated as we navigate between views.
+-->
+<ion-nav-bar class="bar-positive">
     <ion-nav-back-button nav-direction="back">
-  </ion-nav-back-button>
+    </ion-nav-back-button>
 </ion-nav-bar>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    
-    <script type="text/ng-template" id="register.html">
-<ion-view view-title="Welcome to BlueTeam" >
-    <ion-content >
-     <div class="card ">
-       <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" >
-       <p><i style="font-style: italic;font-size: 0.8em;">to serve you better</i></p>
-       </center>
-     </div>
-     <div class="card">
+<!--
+  The views will be rendered in the <ion-nav-view> directive below
+  Templates are in the /templates folder (but you could also
+  have templates inline in this html file if you'd like).
+-->
 
-      <form ng-submit="regUser()" name="register" >
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Full Name</span>
-          <input type="text" name="name" 
-          placeholder="enter full name" ng-model="data.name"  required>
-        </label>
+<script type="text/ng-template" id="register.html">
+    <ion-view hide-nav-bar="true" style="background-color: #069ea9">
 
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Mobile No.</span>
-          <input type="number" name="mobile" 
-          placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required>
-        </label>
 
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Email</span>
-          <input type="email" name="email" 
-          placeholder="enter email id" ng-model="data.email" required>
-        </label>
 
-        <div class="padding">
-            
-            <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
-            
-            
-        </div>
+        <ion-content >
 
-        <input class="button button-block button-positive" 
-        type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid"> 
 
-      </form>
-    </div>
-  </ion-content>
-  </ion-view>
+
+            <div class="card " style="background-color: #058d98">
+                <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" >
+                    <p><i style="font-style: italic;font-size: 0.8em;color: #fff">to give you Releif</i></p>
+
+                </center>
+
+            </div>
+            <div class="card" style="background-color: #058d98;color: #fff">
+
+                <form ng-submit="regUser()" name="register" >
+                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label">Full Name</span>
+                        <input type="text" name="name"
+                               placeholder="enter full name" ng-model="data.name"  required style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label">Mobile No.</span>
+                        <input type="number" name="mobile"
+                               placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label">Email</span>
+                        <input type="email" name="email"
+                               placeholder="enter email id" ng-model="data.email" required style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <div class="padding">
+
+                        <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+
+
+                    </div>
+
+                    <input class="button button-block button-positive"
+                           type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+
+                </form>
+            </div>
+        </ion-content>
+    </ion-view>
 
 </script>
 
 <script type="text/ng-template" id="finish.html">
-<ion-view view-title="Request Sent">
- <ion-content>
- <div class="card">
-  <center>
-    <b>Thank You</b><br/> 
-    <p>
-    Your request has been submitted.<br/>
-    BlueTeam will respond to you within 30 minutes.
-    </p>
+    <ion-view view-title="Request Sent">
+        <ion-content>
+            <div class="card">
+                <center>
+                    <b>Thank You</b><br/>
+                    <p>
+                        Your request has been submitted.<br/>
+                        BlueTeam will respond to you within 30 minutes.
+                    </p>
 
 
 
 
-  </center>   
-</div>
+                </center>
+            </div>
 
-<div class="card">
-  <center>
-  <i> In case of any problem. Please contact us at<br/>
-    <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
-    <a href="#" onclick="window.open('mailto:blueteam@collap.com','_system')" >info@blueteam.in</a><br />
-    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
-    </i>
-  </center>   
-</div>
+            <div class="card">
+                <center>
+                    <i> In case of any problem. Please contact us at<br/>
+                        <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+                        <a href="#" onclick="window.open('mailto:blueteam@collap.com','_system')" >info@blueteam.in</a><br />
+                        <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                    </i>
+                </center>
+            </div>
 
-</ion-content>
-</ion-view>
+        </ion-content>
+    </ion-view>
 </script>
 
 <ion-nav-view></ion-nav-view>
+
+
+<script src="cordova.js"></script>
 
 </body>
 </html>
