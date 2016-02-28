@@ -60,32 +60,33 @@
 
                 <form ng-submit="regUser()" name="register" >
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label">Full Name</span>
+                        <span class="input-label" style="color: #ffffff;">Full Name</span>
                         <input type="text" name="name"
-                               placeholder="enter full name" ng-model="data.name"  required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Full Name" ng-model="data.name"  required style="background-color: #fff;padding-right: 16px;">
                     </label>
 
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label">Mobile No.</span>
+                        <span class="input-label" style="color: #ffffff;">Mobile</span>
                         <input type="number" name="mobile"
-                               placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required style="background-color: #fff;padding-right: 16px;">
                     </label>
 
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label">Email</span>
+
+                        <span class="input-label" style="color: #ffffff;">Email</span>
                         <input type="email" name="email"
-                               placeholder="enter email id" ng-model="data.email" required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Email" ng-model="data.email" required style="background-color: #fff;padding-right: 16px;">
                     </label>
 
                     <div class="padding">
 
-                        <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+                        <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" style="color: red">* Mobile No. show be of 10 digit.</p>
 
-
+                        <input class="button button-block button-positive"
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
                     </div>
 
-                    <input class="button button-block button-positive"
-                           type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+
 
                 </form>
             </div>
@@ -115,7 +116,7 @@
                 <center>
                     <i> In case of any problem. Please contact us at<br/>
                         <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
-                        <a href="#" onclick="window.open('mailto:blueteam@collap.com','_system')" >info@blueteam.in</a><br />
+                        <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
                         <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
                     </i>
                 </center>
