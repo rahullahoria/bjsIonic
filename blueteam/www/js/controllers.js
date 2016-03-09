@@ -33,11 +33,160 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         $scope.contacts = Contactlist.getAllContacts();
     })
 
+    .controller('WorkerTimerCtrl', function($scope, $state, $ionicLoading, $window,$ionicHistory, $cordovaGeolocation,
+                                            $cordovaDevice, $localstorage, PhoneContactsFactory, $timeout, $ionicPlatform, BlueTeam) {
+        $scope.stop = true;
+
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function(position) {
+
+
+                $scope.position = position;
+
+            }, function(err) {
+
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+
+
+            });
+
+
+        BlueTeam.getWork("1").then(function(d) {
+
+
+            $scope.work = d['root'].work;
+            /*{"root":
+             {"work":
+             {
+             "user_worker_id":"1",
+             "service_request_id":"1",
+             "start_time":"18:25:38",
+             "end_time":"10:36:38",
+             "customer_name":"rahul need maid",
+             "customer_mobile": "8989898911",
+             "customer_address":"sdaf"
+             }
+             }
+             }*/
+
+        });
+
+        $scope.reload = function(){
+            $window.location.reload(true);
+        }
+
+        $scope.startTimer = function(){
+            var d = new Date();
+            $scope.startTime = ""+new Date();
+            $scope.startTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+                d.getFullYear() + " at " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+            $scope.stop = true;
+            console.log($scope.startTime);
+
+            $scope.upTime($scope.startTime);
+            /*{
+             "root":{
+             "id": 2,
+             "start_time": "Mon Mar 07 2016 19:37:59 GMT+0530 (IST)",
+             "service_request_id": 1,
+             "device_id": "safd",
+             "gps_location":"21.132,123.231"
+
+             }
+
+             }*/
+            BlueTeam.postWork(1,{
+                    "root": {
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        "start_time": $scope.startTime,
+                        "service_request_id": $scope.work.service_request_id/*,
+                         "device_id": $cordovaDevice.getUUID()*/
+                    }
+                })
+                .then(function (d) {
+
+                    $scope.work.log_id = d['root'].id;
+
+                });
+        };
+
+        $scope.stopTimer = function(){
+            var d = new Date();
+            $scope.stop = false;
+            $scope.endTime = ""+new Date();
+            $scope.endTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+                d.getFullYear() + " at " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+
+            BlueTeam.postWork(1,{
+                    "root": {
+                        "id": $scope.work.log_id,
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        "end_time": $scope.endTime,
+                        "service_request_id": $scope.work.service_request_id/*,
+                         "device_id": $cordovaDevice.getUUID()*/
+                    }
+                })
+                .then(function (d) {
+                    $timeout(function() {
+                        $window.location.reload(true);
+                    }, 10000);
+                    $scope.work.log_id = d['root'].id;
+
+                });
+        };
+
+        $scope.now = null;
+        $scope.upTime = function (countTo) {
+            if($scope.stop==true) {
+                now = new Date();
+                //*console.log(''+now*/);
+                countTo = new Date(countTo);
+                difference = (now - countTo);
+
+                $scope.days = Math.floor(difference / (60 * 60 * 1000 * 24) * 1);
+                $scope.hours = Math.floor((difference % (60 * 60 * 1000 * 24)) / (60 * 60 * 1000) * 1);
+                $scope.mins = Math.floor(((difference % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) / (60 * 1000) * 1);
+                $scope.secs = Math.floor((((difference % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) % (60 * 1000)) / 1000 * 1);
+
+                /*document.getElementById('days').firstChild.nodeValue = days;
+                 document.getElementById('hours').firstChild.nodeValue = hours;
+                 document.getElementById('minutes').firstChild.nodeValue = mins;
+                 document.getElementById('seconds').firstChild.nodeValue = secs;*/
+
+                clearTimeout($scope.upTime.to);
+                $scope.upTime.to = $timeout(function () {
+                    $scope.upTime(countTo);
+                }, 1000);
+            }
+        }
+    })
+
     .controller('RegCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage, PhoneContactsFactory, $ionicPlatform, $cordovaDevice, BlueTeam) {
 
 
         $scope.data = {"name":"","email":"","mobile":""};
 
+        console.log("regcont");
+        $scope.registered = true;
+        $scope.checked = false;
 
         $scope.position = {
             "coords": {
@@ -80,6 +229,58 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
             $ionicLoading.hide();
         };
 
+        $scope.login = function(){
+
+
+            $scope.show();
+            BlueTeam.loginUser({
+                    "root": {
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        "mobile": $scope.data.mobile,
+                        "password": $scope.data.password,
+                        "device_id": $cordovaDevice.getUUID()
+
+                    }
+                })
+                .then(function(d) {
+
+                    //setObject
+                    $scope.user = d['root'].user;
+                    $localstorage.set('name', $scope.user.name);
+                    $localstorage.set('mobile', $scope.user.mobile);
+                    $localstorage.set('email', $scope.user.email);
+                    $localstorage.set('email', $scope.user.type);
+
+                    $scope.hide();
+                    $state.go('tab.service-list');
+
+                });
+
+
+        }
+        $scope.checkReg = function(){
+            if($scope.checked == false && $scope.data.mobile != undefined) {
+                BlueTeam.checkMobile( $scope.data.mobile )
+                    .then(function(d) {
+                        $scope.checked = true;
+                        console.log(d['root'].user.user_exist);
+                        $scope.registered = d['root'].user.user_exist;
+
+                    });
+
+
+            } /*else $scope.data.password = "";*/
+        };
+        $scope.pwdError = false;
+        $scope.checkSamePwd = function(){
+
+            if( $scope.data.password != $scope.data.conf_password){
+                $scope.pwdError = true;
+            }
+            $scope.pwdError = false;
+
+
+        };
 
         $ionicPlatform.ready(function() {
             $scope.findContact = function() {
@@ -180,26 +381,31 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
         $scope.regUser = function() {
 
-            $scope.show();
-            BlueTeam.regUser({
-                    "root": {
-                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                        "name": $scope.data.name,
-                        "mobile": $scope.data.mobile,
-                        "email": ""+$scope.data.email
-                    }
-                })
-                .then(function(d) {
+            if($scope.data.password == $scope.data.conf_password) {
+                $scope.show();
+                BlueTeam.regUser({
+                        "root": {
+                            "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                            "name": $scope.data.name,
+                            "mobile": $scope.data.mobile,
+                            "password": $scope.data.password,
+                            "conf_password": $scope.data.conf_password,
+                            "email": ""+$scope.data.email,
+                            "device_id": $cordovaDevice.getUUID()
+                        }
+                    })
+                    .then(function(d) {
 
-                    //setObject
-                    $localstorage.set('name', $scope.data.name);
-                    $localstorage.set('mobile', $scope.data.mobile);
-                    $localstorage.set('email', $scope.data.email);
+                        //setObject
+                        $localstorage.set('name', $scope.data.name);
+                        $localstorage.set('mobile', $scope.data.mobile);
+                        $localstorage.set('email', $scope.data.email);
 
-                    $scope.hide();
-                    $state.go('tab.service-list');
+                        $scope.hide();
+                        $state.go('tab.service-list');
 
-                });
+                    });
+            }else $scope.pwdError = ture;
         };
     })
 
@@ -346,7 +552,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         },{
             title: 'What are your charges  ? or what is your contract charges ?',
             text: 'We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .'+
-           'For renewal process we discount 50% for another six month.'
+            'For renewal process we discount 50% for another six month.'
         },{
             title: 'Does worker are verified / skilled ?',
             text: 'Yes, they are verified both personally and by police. They are skilled and know about the responsibilities of their job. (Specify their job responsibilities)'

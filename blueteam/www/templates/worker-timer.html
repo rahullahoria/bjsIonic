@@ -1,0 +1,35 @@
+<ion-view view-title="Work Time">
+    <ion-content class="padding">
+        <div ng-hide=!work>
+            <div style="text-align: center;">
+                <p> Customer Name: <b>{{work.customer_name}}</b></p>
+                <p> Customer Mobile: <b>{{work.customer_mobile}}</b></p>
+                <p> Customer Address: <b>{{work.customer_address}}</b></p>
+                <p>Timer Started on <b>{{startTimeShow}}</b></p>
+
+            <div id="countup" >
+
+                <h1>
+
+                    <p id="hours">{{hours ?hours:"00"}}</p>
+                    <p class="timeRefHours">:</p>
+                    <p id="minutes">{{mins?mins:"00"}}</p>
+                    <p class="timeRefMinutes">:</p>
+                    <p id="seconds">{{secs?secs:"00"}}</p>
+
+                </h1>
+            </div>
+            <p>Timer Ended on <b>{{endTimeShow}}</b></p>
+            <span>
+            </div>
+            <button class="button button-large button-balanced" ng-click="startTimer()">Start</button>
+
+            <button class="button button-large button-assertive pull-right" ng-click="stopTimer()">Stop</button>
+            </span>
+
+        </div>
+        <div ng-hide=work>
+            <div style="text-align: center;"><h1>NO WORK</h1><button class="button button-large button-balanced" ng-click="reload()">Check Now</button></div>
+        </div>
+    </ion-content>
+</ion-view>

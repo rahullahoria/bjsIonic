@@ -63,3 +63,10 @@ a {text-decoration: none;}
 .item-expand-footer i {
     margin-right: 10px;
 }
+
+#countup p {
+    display: inline-block;
+    padding: 5px;
+    background: #FFA500;
+    margin: 0 0 20px;
+}

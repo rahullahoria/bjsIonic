@@ -99,6 +99,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
+
+            .state('tab.worker-timer', { //8588824759
+                url: '/worker-timer',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/worker-timer.html',
+                        controller: 'WorkerTimerCtrl'
+                    }
+                }
+            })
+
             .state('tab.service-type', {
                 url: '/service-list/:id',
                 views: {
@@ -141,6 +152,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         ;
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/reg');
-
+        //$urlRouterProvider.otherwise('/reg');
+        $urlRouterProvider.otherwise('/tab/worker-timer');
     });

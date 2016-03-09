@@ -3,11 +3,45 @@ angular.module('starter.services', [])
     .factory('BlueTeam', function($http) {
       // Might use a resource here that returns a JSON array
 
-
+      var url = "https://blueteam.in/api";
       return {
         getServices: function() {
           // $http returns a promise, which has a then function, which also returns a promise
-          var promise = $http.get('http://api.bluenet.blueteam.in/services').then(function (response) {
+          var promise = $http.get(url+'/services').then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
+        getWork: function(worker_id) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          var promise = $http.get(url+'/work/'+worker_id+"?current_time="+new Date()).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
+        postWork: function(worker_id, data) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          console.log(JSON.stringify(data));
+          var promise = $http.post(url+'/work/'+worker_id, data ).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
+        checkMobile: function(mobile) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          var promise = $http.get(url+'/check-mobile/'+mobile).then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.
@@ -19,7 +53,7 @@ angular.module('starter.services', [])
         makeServiceRequest: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise
           console.log(JSON.stringify(data));
-          var promise = $http.post('http://api.bluenet.blueteam.in/service_request', data ).then(function (response) {
+          var promise = $http.post(url+'/service_request', data ).then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.
@@ -31,7 +65,7 @@ angular.module('starter.services', [])
         postFeedback: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise
           console.log(JSON.stringify(data));
-          var promise = $http.post('http://api.bluenet.blueteam.in/feedback', data ).then(function (response) {
+          var promise = $http.post(url+'/feedback', data ).then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.
@@ -43,7 +77,7 @@ angular.module('starter.services', [])
         postRaw: function(data, type) {
           // $http returns a promise, which has a then function, which also returns a promise
           console.log(JSON.stringify(data));
-          var promise = $http.post('http://api.bluenet.blueteam.in/raw?type='+type, data ).then(function (response) {
+          var promise = $http.post(url+'/raw?type='+type, data ).then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.
@@ -55,8 +89,21 @@ angular.module('starter.services', [])
         regUser: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise
 
-            console.log(JSON.stringify(data));
-            var promise = $http.post('http://api.bluenet.blueteam.in/client', data ).then(function (response) {
+          console.log(JSON.stringify(data));
+          var promise = $http.post(url+'/client', data ).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
+        loginUser: function(data) {
+          // $http returns a promise, which has a then function, which also returns a promise
+
+          console.log(JSON.stringify(data));
+          var promise = $http.post(url+'/login', data ).then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.

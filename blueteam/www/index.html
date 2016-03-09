@@ -59,11 +59,7 @@
             <div class="card" style="background-color: #058d98;color: #fff">
 
                 <form ng-submit="regUser()" name="register" >
-                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label" style="color: #ffffff;">Full Name</span>
-                        <input type="text" name="name"
-                               placeholder="Full Name" ng-model="data.name"  required style="background-color: #fff;padding-right: 16px;">
-                    </label>
+
 
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
                         <span class="input-label" style="color: #ffffff;">Mobile</span>
@@ -72,15 +68,41 @@
                     </label>
 
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label" style="color: #ffffff;">Password</span>
+                        <input type="password" name="password" id="password" ng-keypress="checkReg()"
+                               placeholder="Password" ng-model="data.password" ng-minlength="3"  required style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <label class="item item-input item-floating-label" ng-hide=registered ng-keypress="checkSamePwd()" style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label" style="color: #ffffff;">Conf. Password</span>
+                        <input type="password" name="conf_password" id="conf_password"
+                               placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <label class="item item-input item-floating-label" ng-hide=registered style="padding-right: 16px;padding-bottom: 35px;">
+                        <span class="input-label" style="color: #ffffff;">Full Name</span>
+                        <input type="text"  name="name"
+                               placeholder="Full Name" ng-model="data.name"  style="background-color: #fff;padding-right: 16px;">
+                    </label>
+
+                    <label class="item item-input item-floating-label" ng-hide=registered style="padding-right: 16px;padding-bottom: 35px;">
 
                         <span class="input-label" style="color: #ffffff;">Email</span>
                         <input type="email" name="email"
-                               placeholder="Email" ng-model="data.email" required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Email" ng-model="data.email" style="background-color: #fff;padding-right: 16px;">
                     </label>
+
+
 
                     <div class="padding">
 
-                        <p ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" style="color: red">* Mobile No. show be of 10 digit.</p>
+                        <div  ng-show="register.$error">
+                          <span class="msg-error" ng-show="pwdError">
+                            Passwords don't match.
+                          </span>
+                            <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. show be of 10 digit.</p>
+
+                        </div>
 
                         <input class="button button-block button-positive"
                                type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
