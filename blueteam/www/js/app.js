@@ -152,6 +152,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         ;
 
         // if none of the above states are matched, use this as the fallback
-        //$urlRouterProvider.otherwise('/reg');
-        $urlRouterProvider.otherwise('/tab/worker-timer');
+        $urlRouterProvider.otherwise('/reg');
+        //$urlRouterProvider.otherwise('/tab/worker-timer');
     });

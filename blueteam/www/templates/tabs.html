@@ -41,8 +41,8 @@ navigation history that also transitions its views in and out.
     <ion-content>
       <ion-list>
 
-        <ion-item menu-close href="#/tab/service-list">
-          <span class="ion-home large"></span>
+        <ion-item menu-close href="#/tab/service-list" ng-show="customer">
+          <span class="ion-home large" ></span>
           Home
         </ion-item>
 
@@ -71,7 +71,7 @@ navigation history that also transitions its views in and out.
           Website
         </ion-item>
 
-        <ion-item menu-close href="#/tab/feedback">
+        <ion-item menu-close href="#/tab/feedback" ng-show="customer">
           <span class="ion-log-in large"></span>
           Feedback
         </ion-item>
@@ -86,7 +86,7 @@ navigation history that also transitions its views in and out.
           About
         </ion-item>
 
-        <ion-item menu-close href="#/tab/t&c">
+        <ion-item menu-close href="#/tab/t&c" ng-show="customer">
           <span class="ion-alert-circled large"></span>
           Terms & Conditions
         </ion-item>

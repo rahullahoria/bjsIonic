@@ -1,24 +1,24 @@
 angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
-    .controller('ServiceListCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
+    .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
         if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
             $ionicHistory.clearHistory();
             $state.go('reg');
         }
 
-        $scope.show = function() {
+        $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
             });
         };
-        $scope.hide = function() {
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
         $scope.show();
 
-        var temp = BlueTeam.getServices().then(function(d) {
+        var temp = BlueTeam.getServices().then(function (d) {
 
             $ionicHistory.clearHistory();
             $scope.services = window.services = d['root'];
@@ -29,12 +29,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
     })
 
-    .controller('ContactCtrl', function($scope, Contactlist) {
+    .controller('ContactCtrl', function ($scope, Contactlist) {
         $scope.contacts = Contactlist.getAllContacts();
     })
 
-    .controller('WorkerTimerCtrl', function($scope, $state, $ionicLoading, $window,$ionicHistory, $cordovaGeolocation,
-                                            $cordovaDevice, $localstorage, PhoneContactsFactory, $timeout, $ionicPlatform, BlueTeam) {
+    .controller('WorkerTimerCtrl', function ($scope, $state, $ionicLoading, $window, $ionicHistory, $cordovaGeolocation,
+                                             $cordovaDevice, $localstorage, PhoneContactsFactory, $timeout, $ionicPlatform, BlueTeam) {
         $scope.stop = true;
 
         $scope.position = {
@@ -50,12 +50,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
-            .then(function(position) {
+            .then(function (position) {
 
 
                 $scope.position = position;
 
-            }, function(err) {
+            }, function (err) {
 
                 console.log(JSON.stringify(err));
                 $scope.position = {
@@ -69,7 +69,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
             });
 
 
-        BlueTeam.getWork("1").then(function(d) {
+        BlueTeam.getWork($localstorage.get('user_id')).then(function (d) {
 
 
             $scope.work = d['root'].work;
@@ -89,14 +89,14 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
         });
 
-        $scope.reload = function(){
+        $scope.reload = function () {
             $window.location.reload(true);
         }
 
-        $scope.startTimer = function(){
+        $scope.startTimer = function () {
             var d = new Date();
-            $scope.startTime = ""+new Date();
-            $scope.startTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+            $scope.startTime = "" + new Date();
+            $scope.startTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" +
                 d.getFullYear() + " at " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
             $scope.stop = true;
             console.log($scope.startTime);
@@ -113,7 +113,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
              }
 
              }*/
-            BlueTeam.postWork(1,{
+            BlueTeam.postWork($localstorage.get('user_id'), {
                     "root": {
                         "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "start_time": $scope.startTime,
@@ -128,14 +128,14 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                 });
         };
 
-        $scope.stopTimer = function(){
+        $scope.stopTimer = function () {
             var d = new Date();
             $scope.stop = false;
-            $scope.endTime = ""+new Date();
-            $scope.endTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+            $scope.endTime = "" + new Date();
+            $scope.endTimeShow = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" +
                 d.getFullYear() + " at " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
 
-            BlueTeam.postWork(1,{
+            BlueTeam.postWork($localstorage.get('user_id'), {
                     "root": {
                         "id": $scope.work.log_id,
                         "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
@@ -145,7 +145,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                     }
                 })
                 .then(function (d) {
-                    $timeout(function() {
+                    $timeout(function () {
                         $window.location.reload(true);
                     }, 10000);
                     $scope.work.log_id = d['root'].id;
@@ -155,7 +155,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
         $scope.now = null;
         $scope.upTime = function (countTo) {
-            if($scope.stop==true) {
+            if ($scope.stop == true) {
                 now = new Date();
                 //*console.log(''+now*/);
                 countTo = new Date(countTo);
@@ -179,12 +179,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         }
     })
 
-    .controller('RegCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage, PhoneContactsFactory, $ionicPlatform, $cordovaDevice, BlueTeam) {
+    .controller('RegCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage, PhoneContactsFactory, $ionicPlatform, $cordovaDevice, BlueTeam) {
 
 
-        $scope.data = {"name":"","email":"","mobile":""};
+        $scope.data = {"name": "", "email": "", "mobile": ""};
 
-        console.log("regcont");
+        console.log("regcont started");
         $scope.registered = true;
         $scope.checked = false;
 
@@ -201,12 +201,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
-            .then(function(position) {
+            .then(function (position) {
 
 
                 $scope.position = position;
 
-            }, function(err) {
+            }, function (err) {
 
                 console.log(JSON.stringify(err));
                 $scope.position = {
@@ -220,16 +220,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
             });
 
 
-        $scope.show = function() {
+        $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
             });
         };
-        $scope.hide = function() {
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
-        $scope.login = function(){
+        $scope.login = function () {
 
 
             $scope.show();
@@ -242,26 +242,37 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
                     }
                 })
-                .then(function(d) {
+                .then(function (d) {
 
                     //setObject
                     $scope.user = d['root'].user;
-                    $localstorage.set('name', $scope.user.name);
-                    $localstorage.set('mobile', $scope.user.mobile);
-                    $localstorage.set('email', $scope.user.email);
-                    $localstorage.set('email', $scope.user.type);
-
+                    console.log($scope.user);
                     $scope.hide();
-                    $state.go('tab.service-list');
+                    if ($scope.user.user_exist == true) {
+                        $localstorage.set('name', $scope.user.name);
+                        $localstorage.set('user_id', $scope.user.id);
+                        $localstorage.set('mobile', $scope.user.mobile);
+                        $localstorage.set('email', $scope.user.email);
+                        $localstorage.set('type', $scope.user.type);
+
+                        if ($scope.user.type == "worker")
+                            $state.go('tab.worker-timer');
+                        else
+                            $state.go('tab.service-list');
+
+                    } else {
+                        $scope.pwdError = true;
+                    }
 
                 });
 
 
         }
-        $scope.checkReg = function(){
-            if($scope.checked == false && $scope.data.mobile != undefined) {
-                BlueTeam.checkMobile( $scope.data.mobile )
-                    .then(function(d) {
+        $scope.checkReg = function () {
+            console.log("trying to check");
+            if ($scope.checked == false && $scope.data.mobile != undefined) {
+                BlueTeam.checkMobile($scope.data.mobile)
+                    .then(function (d) {
                         $scope.checked = true;
                         console.log(d['root'].user.user_exist);
                         $scope.registered = d['root'].user.user_exist;
@@ -269,12 +280,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                     });
 
 
-            } /*else $scope.data.password = "";*/
+            }
+            /*else $scope.data.password = "";*/
         };
         $scope.pwdError = false;
-        $scope.checkSamePwd = function(){
+        $scope.checkSamePwd = function () {
 
-            if( $scope.data.password != $scope.data.conf_password){
+            if ($scope.data.password != $scope.data.conf_password) {
                 $scope.pwdError = true;
             }
             $scope.pwdError = false;
@@ -282,14 +294,14 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
         };
 
-        $ionicPlatform.ready(function() {
-            $scope.findContact = function() {
+        $ionicPlatform.ready(function () {
+            $scope.findContact = function () {
                 // var fields = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses", "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
 
-                PhoneContactsFactory.find().then(function(contacts) {
+                PhoneContactsFactory.find().then(function (contacts) {
                     $arr = [];
                     $buff = [];
-                    if($localstorage.get('lastContactId'))
+                    if ($localstorage.get('lastContactId'))
                         lastContactId = parseInt($localstorage.get('lastContactId'));
                     else
                         lastContactId = -1;
@@ -299,7 +311,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                     var i = 0
                     for (i = 0; i < contacts.length; i++) {
 
-                        if(lastContactId < contacts[i].id) {
+                        if (lastContactId < contacts[i].id) {
                             $arr.push({
                                 /*name: contacts[i].name.formatted,*/
                                 id: contacts[i].id,
@@ -313,7 +325,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                                 all: contacts[i]
                             });
 
-                            if(lastContactId < contacts[i].id )
+                            if (lastContactId < contacts[i].id)
                                 newlastContactId = contacts[i].id;
 
                             j++;
@@ -341,7 +353,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
 
                     $localstorage.set('lastContactId', newlastContactId);
-                    if($buff.length > 0) {
+                    if ($buff.length > 0) {
                         BlueTeam.postRaw({
                                 "root": {
                                     "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
@@ -365,52 +377,60 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
             $scope.findContact();
 
 
-
-
         });
 
 
-
-        if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('email') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
+        if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('email') === undefined ||
+                $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
 
         } else {
             $ionicHistory.clearHistory();
-            $state.go('tab.service-list');
+            if ($localstorage.get('type') == "worker")
+                $state.go('tab.worker-timer');
+            else
+                $state.go('tab.service-list');
         }
 
 
-        $scope.regUser = function() {
+        $scope.regUser = function () {
+            $scope.checkReg();
+            if ($scope.registered){
+                $scope.login();
+                return;
+            }
 
-            if($scope.data.password == $scope.data.conf_password) {
+            if ($scope.data.password == $scope.data.conf_password) {
                 $scope.show();
                 BlueTeam.regUser({
                         "root": {
                             "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                             "name": $scope.data.name,
                             "mobile": $scope.data.mobile,
+                            "type": "customer",
                             "password": $scope.data.password,
                             "conf_password": $scope.data.conf_password,
-                            "email": ""+$scope.data.email,
+                            "email": "" + $scope.data.email,
                             "device_id": $cordovaDevice.getUUID()
                         }
                     })
-                    .then(function(d) {
+                    .then(function (d) {
 
                         //setObject
                         $localstorage.set('name', $scope.data.name);
                         $localstorage.set('mobile', $scope.data.mobile);
                         $localstorage.set('email', $scope.data.email);
+                        $localstorage.set('type', "customer");
 
                         $scope.hide();
                         $state.go('tab.service-list');
 
                     });
-            }else $scope.pwdError = ture;
+            } else $scope.pwdError = true;
         };
     })
 
 
-    .controller('ServiceTypeCtrl', function($scope, $state, $stateParams) {
+    .controller('ServiceTypeCtrl', function ($scope, $state, $stateParams) {
 
 
         if (window.services === undefined)
@@ -426,43 +446,42 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
     })
 
-    .controller('FinishCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
+    .controller('FinishCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.enter', function () {
             // Code you want executed every time view is opened
             $ionicHistory.clearHistory();
-            $timeout(function() {
+            $timeout(function () {
                 $state.go('tab.service-list');
             }, 10000)
         })
 
     })
 
-    .controller('AboutCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
-
+    .controller('AboutCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
 
     })
 
-    .controller('FeedbackCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $timeout, $stateParams, $localstorage, $cordovaGeolocation, BlueTeam ) {
+    .controller('FeedbackCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $timeout, $stateParams, $localstorage, $cordovaGeolocation, BlueTeam) {
         $scope.data = {};
 
-        $scope.show = function() {
+        $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
             });
-            $timeout(function() {
+            $timeout(function () {
                 $scope.hide();
             }, 5000);
 
         };
-        $scope.hide = function() {
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
         $scope.data.name = $localstorage.get('name');
         $scope.data.mobile = parseInt($localstorage.get('mobile'));
-        $scope.data.email = ""+$localstorage.get('email');
+        $scope.data.email = "" + $localstorage.get('email');
         $scope.position = {
             "coords": {
                 "longitude": null,
@@ -476,11 +495,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
-            .then(function(position) {
+            .then(function (position) {
 
                 $scope.position = position;
 
-            }, function(err) {
+            }, function (err) {
                 // error
                 console.log(JSON.stringify(err));
                 $scope.position = {
@@ -491,20 +510,20 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                 };
             });
 
-        $scope.feedback = function() {
+        $scope.feedback = function () {
             $scope.show();
 
 
             BlueTeam.postFeedback({
                     "root": {
                         "name": $scope.data.name,
-                        "mobile": ""+$scope.data.mobile,
+                        "mobile": "" + $scope.data.mobile,
                         "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "email": $scope.data.email,
                         "feedback": $scope.data.feedback_text
                     }
                 })
-                .then(function(d) {
+                .then(function (d) {
                     $scope.hide();
                     $ionicHistory.clearHistory();
                     $state.go('finish');
@@ -514,115 +533,116 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
     })
 
-    .controller('T&CCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
-
-
-
-    })
-
-    .controller('BlueteamVerifiedTypeCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
-
+    .controller('T&CCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
 
     })
-    .controller('F&QCtrl', function($scope, $state, $ionicHistory, $timeout, $stateParams) {
+
+    .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
+
+
+    })
+    .controller('F&QCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
         $scope.items = [{
             title: 'What is your recruitment/working process ?',
-            text: 'First of all client/customer sent a request by phone, mobile App or through website with all requirements.'+
+            text: 'First of all client/customer sent a request by phone, mobile App or through website with all requirements.' +
 
-            'Then we search a person fulfilling client requirements according to given specifications in our database, if we found exact match profile we check worker’s availability and Client Engagement Manager (CEM) fix a meeting with client, if not found in our database our marketing executives (ME) search for required worker from field and CEM fixes meeting with client.'+
+            'Then we search a person fulfilling client requirements according to given specifications in our database, if we found exact match profile we check worker’s availability and Client Engagement Manager (CEM) fix a meeting with client, if not found in our database our marketing executives (ME) search for required worker from field and CEM fixes meeting with client.' +
 
-            'If meeting is successfully done, worker starts working from next day and customer have to pay 20% advance of our service charges with service tax .'+
+            'If meeting is successfully done, worker starts working from next day and customer have to pay 20% advance of our service charges with service tax .' +
 
-            'If meeting is unsuccessful we search for another person and follow same process as above.'+
+            'If meeting is unsuccessful we search for another person and follow same process as above.' +
 
-            'Worker remains in paid demo period for 3 days. After 3 days we take feedback from client and worker.'+
+            'Worker remains in paid demo period for 3 days. After 3 days we take feedback from client and worker.' +
 
-            'If worker or client is not satisfied we search for another person and follow same process as above but if client not satisfied and decline or cancel the request we give money back after deducting 3 days charges of worker.'+
+            'If worker or client is not satisfied we search for another person and follow same process as above but if client not satisfied and decline or cancel the request we give money back after deducting 3 days charges of worker.' +
 
-            'If both are satisfied worker continue working  and customer pay remaining 80% of our charges with service tax.'+
+            'If both are satisfied worker continue working  and customer pay remaining 80% of our charges with service tax.' +
 
-            'In our contract for first six month we claim/guarantee that for our charge which is as much as worker’s one month salary plus service tax we provide worker for six month with replacement which are upto 3 times. If worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .'+
+            'In our contract for first six month we claim/guarantee that for our charge which is as much as worker’s one month salary plus service tax we provide worker for six month with replacement which are upto 3 times. If worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
 
             'In renewal process we give 50% discount for next six month and same facility as in contract.'
-        },{
+        }, {
             title: 'What type of services you provide ?',
             text: 'We provide Monthly and On demand services of Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter.'
-        },{
+        }, {
             title: 'What are your charges  ? or what is your contract charges ?',
-            text: 'We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .'+
+            text: 'We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
             'For renewal process we discount 50% for another six month.'
-        },{
+        }, {
             title: 'Does worker are verified / skilled ?',
             text: 'Yes, they are verified both personally and by police. They are skilled and know about the responsibilities of their job. (Specify their job responsibilities)'
-        },{
+        }, {
             title: 'Tell about your company ?',
-            text: 'BlueTeam is startup from IIT, NIPER and PEC Alumini, which is 6 months old. We provide Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter both Monthly and On-demand bases. We want to improve reliability in domestic services. We give replacement for the day on which worker takes holiday. And we maintain continuous services for the period we are serving customers.'+
+            text: 'BlueTeam is startup from IIT, NIPER and PEC Alumini, which is 6 months old. We provide Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter both Monthly and On-demand bases. We want to improve reliability in domestic services. We give replacement for the day on which worker takes holiday. And we maintain continuous services for the period we are serving customers.' +
             'BlueTeam is to serve you better, give you relief from maid on leave'
-        },{
+        }, {
             title: 'How it is different from agency ?',
-            text: 'BlueTeam is a Pvt. Ltd. company not an agency. BlueTeam is a subsidiary of IT/R&D company ‘Shatkon Labs Pvt Ltd’. So, it is operated by well educated and managed by professional and hard working persons.'+
-            'Agencies have their clients in workers native area. Agencies guys pick workers from their Native place only for having Domestic work only.'+
+            text: 'BlueTeam is a Pvt. Ltd. company not an agency. BlueTeam is a subsidiary of IT/R&D company ‘Shatkon Labs Pvt Ltd’. So, it is operated by well educated and managed by professional and hard working persons.' +
+            'Agencies have their clients in workers native area. Agencies guys pick workers from their Native place only for having Domestic work only.' +
 
-            'BlueTeam focus on employment as well as improving their lifestyle, providing education, sending their children to school and awareness.'+
+            'BlueTeam focus on employment as well as improving their lifestyle, providing education, sending their children to school and awareness.' +
 
-            'BlueTeam keep in touch with both client as well as worker and having feedback from both parties with regular time interval.'+
+            'BlueTeam keep in touch with both client as well as worker and having feedback from both parties with regular time interval.' +
 
-            'BlueTeam also focus on flexibility of workers also so that worker should give time to their children for sending them to school.'+
+            'BlueTeam also focus on flexibility of workers also so that worker should give time to their children for sending them to school.' +
 
-            'Agencies having one time payment but BlueTeam provides flexibility in service charges with monthly basis also.'+
+            'Agencies having one time payment but BlueTeam provides flexibility in service charges with monthly basis also.' +
 
             'BlueTeam process 3 phase for providing worker: Interview/Meetup/Demo/Done. Agencies directly give worker to client without having interview with worker.'
-        },{
+        }, {
             title: 'Do you take commissions from workers ?',
             text: 'No, it’s not an agency. We give them their complete salary with salary slip. They are our recruited employees.'
-        },{
+        }, {
             title: 'Do you have 24 hours maid/cook/driver ?',
             text: 'Currently we do not deal in it but if we found someone ready for this, we will inform you.'
-        },{
+        }, {
             title: 'From where these maid/cook/driver come to you ?',
             text: 'Our ME find these peoples from fields.'
-        },{
+        }, {
             title: 'Driver working hours  ?',
             text: '10-12 Hours'
-        },{
+        }, {
             title: 'What maid can do ?',
             text: 'Maid can do floor brooming and wiping, dusting and all types of cleaning.'
-        },{
+        }, {
             title: 'What cook can do ? or what type of food he/she can cook ?',
             text: 'Cook can cook North Indian, South Indian, Continental, Chinese and Italian . Salary is proposing to their skill set.'
         }];
 
-        $scope.toggleItem= function(item) {
+        $scope.toggleItem = function (item) {
             if ($scope.isItemShown(item)) {
                 $scope.shownItem = null;
             } else {
                 $scope.shownItem = item;
             }
         };
-        $scope.isItemShown = function(item) {
+        $scope.isItemShown = function (item) {
             return $scope.shownItem === item;
         };
 
 
-
     })
-    .controller('TabCtrl', function($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicModal, $timeout, $ionicHistory, $localstorage) {
-
-        $scope.logout = function() {
+    .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicModal, $timeout, $ionicHistory, $localstorage) {
+        $scope.customer = false;
+        $scope.type = $localstorage.get('type');
+        if($scope.type == "customer")
+            $scope.customer = true;
+        $scope.logout = function () {
             var logoutConfirmPopup = $ionicPopup.confirm({
                 title: 'Confirm Logout',
                 template: 'Are you sure to LogOut?'
             });
 
-            logoutConfirmPopup.then(function(res) {
-                if(res) {
+            logoutConfirmPopup.then(function (res) {
+                if (res) {
                     console.log('You are sure');
                     //setObject
                     $localstorage.set('name', "");
                     $localstorage.set('mobile', "");
                     $localstorage.set('email', "");
+                    $localstorage.set('type', "");
 
                     $ionicHistory.clearHistory();
                     $state.go('reg');
@@ -633,7 +653,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
 
         // Open the login modal
-        $scope.share = function() {
+        $scope.share = function () {
             $cordovaSocialSharing.share("Get relief from Cook/Maid/Driver/Babysitter on leave. " +
                 "Book Now on-demand/monthly to get reliable and Blueteam verified worker. " +
                 "www.BlueTeam.in / 9599075355", "Book Now BlueTeam Verified Workers",
@@ -643,7 +663,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
 
     })
-    .controller('BookCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
+    .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
         $scope.data = {};
 
 
@@ -683,11 +703,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
-            .then(function(position) {
+            .then(function (position) {
 
                 $scope.position = position;
 
-            }, function(err) {
+            }, function (err) {
                 // error
                 console.log(JSON.stringify(err));
                 $scope.position = {
@@ -698,22 +718,22 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                 };
             });
 
-        $scope.show = function() {
+        $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
             });
-            $timeout(function() {
+            $timeout(function () {
                 $scope.hide();
             }, 5000);
 
         };
-        $scope.hide = function() {
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
         // making post api call to the server by using angular based service
 
-        $scope.conf = function() {
+        $scope.conf = function () {
             $scope.show();
             $localstorage.set('name', $scope.data.name);
             $localstorage.set('mobile', $scope.data.mobile);
@@ -722,15 +742,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
             BlueTeam.makeServiceRequest({
                     "root": {
                         "name": $scope.data.name,
-                        "mobile": ""+$scope.data.mobile,
+                        "mobile": "" + $scope.data.mobile,
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
-                        "remarks": $scope.type+" this is request by mobile app",
+                        "remarks": $scope.type + " this is request by mobile app",
                         "address": $scope.data.address,
-                        "priority": ""+3
+                        "priority": "" + 3
                     }
                 })
-                .then(function(d) {
+                .then(function (d) {
                     $scope.hide();
                     $ionicHistory.clearHistory();
                     $state.go('finish');

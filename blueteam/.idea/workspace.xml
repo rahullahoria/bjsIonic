@@ -2,345 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/worker-timer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-144x144.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-144x144.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-192x192.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-192x192.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-36x36.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-36x36.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-48x48.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-48x48.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-72x72.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-72x72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/android-icon-96x96.png" afterPath="$PROJECT_DIR$/resources/android/icon/android-icon-96x96.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon-1024x500.png" afterPath="$PROJECT_DIR$/resources/icon-1024x500.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon-512x512.png" afterPath="$PROJECT_DIR$/resources/icon-512x512.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon.png" afterPath="$PROJECT_DIR$/resources/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-144x144.png" afterPath="$PROJECT_DIR$/www/img/android-icon-144x144.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-192x192.png" afterPath="$PROJECT_DIR$/www/img/android-icon-192x192.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-36x36.png" afterPath="$PROJECT_DIR$/www/img/android-icon-36x36.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-48x48.png" afterPath="$PROJECT_DIR$/www/img/android-icon-48x48.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-72x72.png" afterPath="$PROJECT_DIR$/www/img/android-icon-72x72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/android-icon-96x96.png" afterPath="$PROJECT_DIR$/www/img/android-icon-96x96.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-114x114.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-114x114.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-120x120.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-120x120.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-144x144.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-144x144.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-152x152.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-152x152.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-180x180.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-180x180.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-57x57.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-57x57.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-60x60.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-60x60.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-72x72.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-72x72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-76x76.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-76x76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon-precomposed.png" afterPath="$PROJECT_DIR$/www/img/apple-icon-precomposed.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/apple-icon.png" afterPath="$PROJECT_DIR$/www/img/apple-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/favicon-16x16.png" afterPath="$PROJECT_DIR$/www/img/favicon-16x16.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/favicon-32x32.png" afterPath="$PROJECT_DIR$/www/img/favicon-32x32.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/favicon-96x96.png" afterPath="$PROJECT_DIR$/www/img/favicon-96x96.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/favicon.ico" afterPath="$PROJECT_DIR$/www/img/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ionic.png" afterPath="$PROJECT_DIR$/www/img/ionic.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ionic11.png" afterPath="$PROJECT_DIR$/www/img/ionic11.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ms-icon-144x144.png" afterPath="$PROJECT_DIR$/www/img/ms-icon-144x144.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ms-icon-150x150.png" afterPath="$PROJECT_DIR$/www/img/ms-icon-150x150.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ms-icon-310x310.png" afterPath="$PROJECT_DIR$/www/img/ms-icon-310x310.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/ms-icon-70x70.png" afterPath="$PROJECT_DIR$/www/img/ms-icon-70x70.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/angular.min.js.gzip" afterPath="$PROJECT_DIR$/www/lib/angular/angular.min.js.gzip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.eot" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.ttf" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.woff" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.min.gz" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.min.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.editorconfig" afterPath="$PROJECT_DIR$/.editorconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/blueteam.iml" afterPath="$PROJECT_DIR$/.idea/blueteam.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hooks/README.md" afterPath="$PROJECT_DIR$/hooks/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic.project" afterPath="$PROJECT_DIR$/ionic.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/ionic.app.scss" afterPath="$PROJECT_DIR$/scss/ionic.app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/browserconfig.xml" afterPath="$PROJECT_DIR$/www/img/browserconfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/manifest.json" afterPath="$PROJECT_DIR$/www/img/manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/phonecontacts.js" afterPath="$PROJECT_DIR$/www/js/phonecontacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/sideMenus.js" afterPath="$PROJECT_DIR$/www/js/sideMenus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/.bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-animate/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/README.md" afterPath="$PROJECT_DIR$/www/lib/angular-animate/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.js" afterPath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.min.js" afterPath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.min.js.map" afterPath="$PROJECT_DIR$/www/lib/angular-animate/angular-animate.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-animate/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/index.js" afterPath="$PROJECT_DIR$/www/lib/angular-animate/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-animate/package.json" afterPath="$PROJECT_DIR$/www/lib/angular-animate/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/.bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/README.md" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.js" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.min.js" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.min.js.map" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/angular-sanitize.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/index.js" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-sanitize/package.json" afterPath="$PROJECT_DIR$/www/lib/angular-sanitize/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/.bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/CHANGELOG.md" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/LICENSE" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/README.md" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/api/angular-ui-router.d.ts" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/api/angular-ui-router.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/bower.json" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/release/angular-ui-router.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/release/angular-ui-router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/release/angular-ui-router.min.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/release/angular-ui-router.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/common.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/resolve.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/resolve.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/state.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/state.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/stateDirectives.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/stateDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/stateFilters.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/stateFilters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/templateFactory.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/templateFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/urlMatcherFactory.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/urlMatcherFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/urlRouter.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/urlRouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/view.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/viewDirective.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/viewDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular-ui-router/src/viewScroll.js" afterPath="$PROJECT_DIR$/www/lib/angular-ui-router/src/viewScroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/.bower.json" afterPath="$PROJECT_DIR$/www/lib/angular/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/README.md" afterPath="$PROJECT_DIR$/www/lib/angular/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/angular-csp.css" afterPath="$PROJECT_DIR$/www/lib/angular/angular-csp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/angular.js" afterPath="$PROJECT_DIR$/www/lib/angular/angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/angular.min.js" afterPath="$PROJECT_DIR$/www/lib/angular/angular.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/www/lib/angular/angular.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/bower.json" afterPath="$PROJECT_DIR$/www/lib/angular/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/index.js" afterPath="$PROJECT_DIR$/www/lib/angular/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/angular/package.json" afterPath="$PROJECT_DIR$/www/lib/angular/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/.bower.json" afterPath="$PROJECT_DIR$/www/lib/ionic/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/README.md" afterPath="$PROJECT_DIR$/www/lib/ionic/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/bower.json" afterPath="$PROJECT_DIR$/www/lib/ionic/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" afterPath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.min.css" afterPath="$PROJECT_DIR$/www/lib/ionic/css/ionic.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.svg" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.min.js" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_action-sheet.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_action-sheet.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_animations.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_animations.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_backdrop.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_backdrop.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_badge.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_badge.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_bar.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_bar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_button-bar.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_button-bar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_button.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_checkbox.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_checkbox.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_form.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_form.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_grid.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_grid.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_items.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_items.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_list.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_loaders.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_loaders.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_loading.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_loading.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_menu.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_menu.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_mixins.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_modal.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_modal.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_platform.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_platform.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_popover.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_popover.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_popup.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_popup.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_progress.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_progress.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_radio.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_radio.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_range.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_range.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_refresher.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_refresher.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_scaffolding.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_scaffolding.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_select.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_select.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_slide-box.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_slide-box.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_spinner.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_spinner.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_split-pane.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_split-pane.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_tabs.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_tabs.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_toggle.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_toggle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_transitions.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_transitions.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_type.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_type.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_util.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_util.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionic.scss" afterPath="$PROJECT_DIR$/www/lib/ionic/scss/ionic.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/.bower.json" afterPath="$PROJECT_DIR$/www/lib/ngCordova/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/CHANGELOG.md" afterPath="$PROJECT_DIR$/www/lib/ngCordova/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/LICENSE" afterPath="$PROJECT_DIR$/www/lib/ngCordova/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/README.md" afterPath="$PROJECT_DIR$/www/lib/ngCordova/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/bower.json" afterPath="$PROJECT_DIR$/www/lib/ngCordova/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.js" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.js" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.min.js" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/ngCordova/package.json" afterPath="$PROJECT_DIR$/www/lib/ngCordova/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/platform.js/.bower.json" afterPath="$PROJECT_DIR$/www/lib/platform.js/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/platform.js/LICENSE.txt" afterPath="$PROJECT_DIR$/www/lib/platform.js/LICENSE.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/platform.js/bower.json" afterPath="$PROJECT_DIR$/www/lib/platform.js/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/platform.js/platform.js" afterPath="$PROJECT_DIR$/www/lib/platform.js/platform.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/.bower.json" afterPath="$PROJECT_DIR$/www/lib/plugin/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/.gitignore" afterPath="$PROJECT_DIR$/www/lib/plugin/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/CHANGELOG" afterPath="$PROJECT_DIR$/www/lib/plugin/CHANGELOG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/www/lib/plugin/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/Gruntfile.js" afterPath="$PROJECT_DIR$/www/lib/plugin/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/LICENSE" afterPath="$PROJECT_DIR$/www/lib/plugin/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/README.md" afterPath="$PROJECT_DIR$/www/lib/plugin/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/bower.json" afterPath="$PROJECT_DIR$/www/lib/plugin/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/circle.yml" afterPath="$PROJECT_DIR$/www/lib/plugin/circle.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/dist/plugin.js" afterPath="$PROJECT_DIR$/www/lib/plugin/dist/plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/dist/plugin.min.js" afterPath="$PROJECT_DIR$/www/lib/plugin/dist/plugin.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.bower.json" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.gitignore" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.travis.yml" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/CONTRIBUTING.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/MIT-LICENSE" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/MIT-LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/README.md" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.min.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/dist/zepto.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/anim.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/anim.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/iphone/index.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/iphone/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/iphone/iphone.css" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/iphone/iphone.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/load_jquery_on_ie.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/load_jquery_on_ie.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/snow/index.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/snow/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/touch_events.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/examples/touch_events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/package.json" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ajax.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/assets.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/assets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/callbacks.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/callbacks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/data.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/deferred.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/deferred.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/detect.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/detect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/event.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/form.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/fx.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/fx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/fx_methods.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/fx_methods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/gesture.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/gesture.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ie.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ios3.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/ios3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/selector.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/selector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/stack.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/stack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/touch.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/touch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/zepto.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/src/zepto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ajax.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ajax_deferred.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ajax_deferred.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/callbacks.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/callbacks.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/data.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/data.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/deferred.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/deferred.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/detect.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/detect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/event.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/event.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/evidence_runner.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/evidence_runner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_javascript.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_javascript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_selector.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_selector.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_selector_javascript.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_selector_javascript.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_simple.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/ajax_load_simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/iframe_document.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/iframe_document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/zepto.json" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fixtures/zepto.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/form.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/assets.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/assets.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/fx.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/fx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/gesture.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/gesture.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/touch.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/touch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/touchcancel.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/functional/touchcancel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fx.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/fx.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/index.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ios3.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/ios3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/runner.coffee" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/runner.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/selector.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/selector.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/server.coffee" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/server.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/stack.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/stack.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/test.css" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/test.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/touch.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/touch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/zepto.html" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/test/zepto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/vendor/evidence.js" afterPath="$PROJECT_DIR$/www/lib/plugin/lib/zeptojs/vendor/evidence.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/package.json" afterPath="$PROJECT_DIR$/www/lib/plugin/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/src/js/plugin.js" afterPath="$PROJECT_DIR$/www/lib/plugin/src/js/plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/concurrent.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/concurrent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/connect.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/connect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/copy.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/copy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/jscs.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/jscs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/jshint.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/jshint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/mocha_phantomjs.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/mocha_phantomjs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/open.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/open.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/shell.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/shell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/uglify.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/uglify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/version.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/version.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/config/watch.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/config/watch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/jscs/tasks.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/jscs/tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/jshint/tasks.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/jshint/tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/jslinting.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/jslinting.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/lint/tasks.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/lint/tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tasks/version/tasks.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tasks/version/tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/runner/config.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/runner/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/runner/index.html" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/runner/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/runner/main.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/runner/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/unit/factory.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/unit/factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/unit/plugin.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/unit/plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/plugin/tests/unit/uuid.js" afterPath="$PROJECT_DIR$/www/lib/plugin/tests/unit/uuid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/.bower.json" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/LICENSE" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/README.md" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/bower.json" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/package.json" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs-text/text.js" afterPath="$PROJECT_DIR$/www/lib/requirejs-text/text.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs/.bower.json" afterPath="$PROJECT_DIR$/www/lib/requirejs/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs/README.md" afterPath="$PROJECT_DIR$/www/lib/requirejs/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs/bower.json" afterPath="$PROJECT_DIR$/www/lib/requirejs/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib/requirejs/require.js" afterPath="$PROJECT_DIR$/www/lib/requirejs/require.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/about.html" afterPath="$PROJECT_DIR$/www/templates/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/blueteam_verified.html" afterPath="$PROJECT_DIR$/www/templates/blueteam_verified.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/book.html" afterPath="$PROJECT_DIR$/www/templates/book.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/f&amp;qs.html" afterPath="$PROJECT_DIR$/www/templates/f&amp;qs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/feedback.html" afterPath="$PROJECT_DIR$/www/templates/feedback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/menu.html" afterPath="$PROJECT_DIR$/www/templates/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/service-list.html" afterPath="$PROJECT_DIR$/www/templates/service-list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/service-type.html" afterPath="$PROJECT_DIR$/www/templates/service-type.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/t&amp;c.html" afterPath="$PROJECT_DIR$/www/templates/t&amp;c.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/worker-timer.html" afterPath="$PROJECT_DIR$/www/templates/worker-timer.html" />
     </list>
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -369,38 +37,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="feedback.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/feedback.html">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="11" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="e#1008#1071#0" expanded="false" />
+                <element signature="e#1329#6385#0" expanded="false" />
+                <element signature="e#9912#13089#0" expanded="false" />
+                <element signature="e#13326#13338#0" expanded="false" />
+                <element signature="e#15112#15450#0" expanded="false" />
+                <element signature="e#15548#15831#0" expanded="false" />
+                <element signature="e#16098#18163#0" expanded="false" />
+                <element signature="e#18482#24303#0" expanded="false" />
+                <element signature="e#26006#29106#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service-type.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/templates/service-type.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23156089">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <file leaf-file-name="service-list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34596375">
-              <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
-              <folding>
-                <element signature="e#178#939#0" expanded="false" />
-                <element signature="e#1003#1066#0" expanded="false" />
-                <element signature="e#1321#6271#0" expanded="false" />
-                <element signature="e#6456#13998#0" expanded="false" />
-                <element signature="e#9272#12446#0" expanded="false" />
-                <element signature="e#12668#12680#0" expanded="false" />
-                <element signature="e#14076#14414#0" expanded="false" />
-                <element signature="e#14511#14792#0" expanded="false" />
-                <element signature="e#15059#17113#0" expanded="false" />
-                <element signature="e#17431#23223#0" expanded="false" />
-                <element signature="e#23366#24559#0" expanded="false" />
-                <element signature="e#24714#27801#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-13.416667">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="36" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -408,7 +82,7 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.625">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="26" selection-end-column="57" />
               <folding />
             </state>
@@ -418,7 +92,7 @@
       <file leaf-file-name="worker-timer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/worker-timer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-12.416667">
               <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -428,21 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="59" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
+            <state vertical-scroll-proportion="-8.125">
+              <caret line="78" column="156" selection-start-line="78" selection-start-column="156" selection-end-line="78" selection-end-column="156" />
               <folding />
             </state>
           </provider>
@@ -452,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+              <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -462,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -481,8 +145,8 @@
       <file leaf-file-name="tabs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="17" />
+            <state vertical-scroll-proportion="-19.916666">
+              <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -511,17 +175,18 @@
         <option value="$PROJECT_DIR$/www/templates/f&amp;qs.html" />
         <option value="$PROJECT_DIR$/www/templates/feedback.html" />
         <option value="$PROJECT_DIR$/www/templates/service-list.html" />
-        <option value="$PROJECT_DIR$/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/www/templates/t&amp;c.html" />
         <option value="$PROJECT_DIR$/www/templates/blueteam_verified.html" />
         <option value="$PROJECT_DIR$/www/templates/about.html" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/templates/worker-timer.html" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
+        <option value="$PROJECT_DIR$/www/templates/tabs.html" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/templates/service-type.html" />
       </list>
     </option>
   </component>
@@ -569,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -616,6 +280,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blueteam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blueteam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -623,10 +305,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="/var/www/html/dpower4/bjs" />
+    <property name="last_opened_file_path" value="/var/www/html/dpower4/bluenetV0" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
@@ -690,7 +373,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457010165097</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sysnking code">
+      <created>1457508953136</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1457508953136</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -730,9 +419,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="add side menu" />
     <MESSAGE value="pushing to google app store" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushing to google app store" />
+    <MESSAGE value="sysnking code" />
+    <option name="LAST_COMMIT_MESSAGE" value="sysnking code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -796,18 +488,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
           <folding>
-            <element signature="e#178#939#0" expanded="false" />
-            <element signature="e#1003#1066#0" expanded="false" />
-            <element signature="e#1321#6271#0" expanded="false" />
-            <element signature="e#6456#13998#0" expanded="false" />
-            <element signature="e#9272#12446#0" expanded="false" />
-            <element signature="e#12668#12680#0" expanded="false" />
-            <element signature="e#14076#14414#0" expanded="false" />
-            <element signature="e#14511#14792#0" expanded="false" />
-            <element signature="e#15059#17113#0" expanded="false" />
-            <element signature="e#17431#23223#0" expanded="false" />
-            <element signature="e#23366#24559#0" expanded="false" />
-            <element signature="e#24714#27801#0" expanded="false" />
+            <element signature="e#1008#1071#0" expanded="false" />
+            <element signature="e#1329#6385#0" expanded="false" />
+            <element signature="e#9912#13089#0" expanded="false" />
+            <element signature="e#13326#13338#0" expanded="false" />
+            <element signature="e#15112#15450#0" expanded="false" />
+            <element signature="e#15548#15831#0" expanded="false" />
+            <element signature="e#16098#18163#0" expanded="false" />
+            <element signature="e#18482#24303#0" expanded="false" />
+            <element signature="e#26006#29106#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,18 +556,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="307" column="37" selection-start-line="307" selection-start-column="37" selection-end-line="307" selection-end-column="37" />
           <folding>
-            <element signature="e#178#939#0" expanded="false" />
-            <element signature="e#1003#1066#0" expanded="false" />
-            <element signature="e#1321#6271#0" expanded="false" />
-            <element signature="e#6456#13998#0" expanded="false" />
-            <element signature="e#9272#12446#0" expanded="false" />
-            <element signature="e#12668#12680#0" expanded="false" />
-            <element signature="e#14076#14414#0" expanded="false" />
-            <element signature="e#14511#14792#0" expanded="false" />
-            <element signature="e#15059#17113#0" expanded="false" />
-            <element signature="e#17431#23223#0" expanded="false" />
-            <element signature="e#23366#24559#0" expanded="false" />
-            <element signature="e#24714#27801#0" expanded="false" />
+            <element signature="e#1008#1071#0" expanded="false" />
+            <element signature="e#1329#6385#0" expanded="false" />
+            <element signature="e#9912#13089#0" expanded="false" />
+            <element signature="e#13326#13338#0" expanded="false" />
+            <element signature="e#15112#15450#0" expanded="false" />
+            <element signature="e#15548#15831#0" expanded="false" />
+            <element signature="e#16098#18163#0" expanded="false" />
+            <element signature="e#18482#24303#0" expanded="false" />
+            <element signature="e#26006#29106#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -916,18 +602,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="63" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="65" />
           <folding>
-            <element signature="e#178#939#0" expanded="false" />
-            <element signature="e#1003#1066#0" expanded="false" />
-            <element signature="e#1321#6271#0" expanded="false" />
-            <element signature="e#6456#13998#0" expanded="false" />
-            <element signature="e#9272#12446#0" expanded="false" />
-            <element signature="e#12668#12680#0" expanded="false" />
-            <element signature="e#14076#14414#0" expanded="false" />
-            <element signature="e#14511#14792#0" expanded="false" />
-            <element signature="e#15059#17113#0" expanded="false" />
-            <element signature="e#17431#23223#0" expanded="false" />
-            <element signature="e#23366#24559#0" expanded="false" />
-            <element signature="e#24714#27801#0" expanded="false" />
+            <element signature="e#1008#1071#0" expanded="false" />
+            <element signature="e#1329#6385#0" expanded="false" />
+            <element signature="e#9912#13089#0" expanded="false" />
+            <element signature="e#13326#13338#0" expanded="false" />
+            <element signature="e#15112#15450#0" expanded="false" />
+            <element signature="e#15548#15831#0" expanded="false" />
+            <element signature="e#16098#18163#0" expanded="false" />
+            <element signature="e#18482#24303#0" expanded="false" />
+            <element signature="e#26006#29106#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -965,18 +648,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
-            <element signature="e#178#939#0" expanded="false" />
-            <element signature="e#1003#1066#0" expanded="false" />
-            <element signature="e#1321#6271#0" expanded="false" />
-            <element signature="e#6456#13998#0" expanded="false" />
-            <element signature="e#9272#12446#0" expanded="false" />
-            <element signature="e#12668#12680#0" expanded="false" />
-            <element signature="e#14076#14414#0" expanded="false" />
-            <element signature="e#14511#14792#0" expanded="false" />
-            <element signature="e#15059#17113#0" expanded="false" />
-            <element signature="e#17431#23223#0" expanded="false" />
-            <element signature="e#23366#24559#0" expanded="false" />
-            <element signature="e#24714#27801#0" expanded="false" />
+            <element signature="e#1008#1071#0" expanded="false" />
+            <element signature="e#1329#6385#0" expanded="false" />
+            <element signature="e#9912#13089#0" expanded="false" />
+            <element signature="e#13326#13338#0" expanded="false" />
+            <element signature="e#15112#15450#0" expanded="false" />
+            <element signature="e#15548#15831#0" expanded="false" />
+            <element signature="e#16098#18163#0" expanded="false" />
+            <element signature="e#18482#24303#0" expanded="false" />
+            <element signature="e#26006#29106#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/service-type.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/img/apple-icon-72x72.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1027,13 +700,6 @@
     <entry file="file://$PROJECT_DIR$/www/img/favicon.ico">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2083335">
-          <caret line="32" column="61" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="61" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/about.html">
@@ -1097,33 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/worker-timer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/phonecontacts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1132,17 +771,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="59" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="26" selection-end-column="57" />
           <folding />
         </state>
@@ -1151,28 +782,78 @@
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/worker-timer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.416667">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="78" column="156" selection-start-line="78" selection-start-column="156" selection-end-line="78" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.916666">
+          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34596375">
-          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#178#939#0" expanded="false" />
-            <element signature="e#1003#1066#0" expanded="false" />
-            <element signature="e#1321#6271#0" expanded="false" />
-            <element signature="e#6456#13998#0" expanded="false" />
-            <element signature="e#9272#12446#0" expanded="false" />
-            <element signature="e#12668#12680#0" expanded="false" />
-            <element signature="e#14076#14414#0" expanded="false" />
-            <element signature="e#14511#14792#0" expanded="false" />
-            <element signature="e#15059#17113#0" expanded="false" />
-            <element signature="e#17431#23223#0" expanded="false" />
-            <element signature="e#23366#24559#0" expanded="false" />
-            <element signature="e#24714#27801#0" expanded="false" />
+            <element signature="e#1008#1071#0" expanded="false" />
+            <element signature="e#1329#6385#0" expanded="false" />
+            <element signature="e#9912#13089#0" expanded="false" />
+            <element signature="e#13326#13338#0" expanded="false" />
+            <element signature="e#15112#15450#0" expanded="false" />
+            <element signature="e#15548#15831#0" expanded="false" />
+            <element signature="e#16098#18163#0" expanded="false" />
+            <element signature="e#18482#24303#0" expanded="false" />
+            <element signature="e#26006#29106#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.416667">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="36" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/service-type.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23156089">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
