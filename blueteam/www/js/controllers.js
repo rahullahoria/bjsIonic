@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker'])
 
     .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
@@ -393,7 +393,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
 
         $scope.regUser = function () {
-            $scope.checkReg();
+            if ($scope.checked == false) {
+                $scope.checkReg();
+                return;
+            }
             if ($scope.registered){
                 $scope.login();
                 return;
@@ -624,7 +627,17 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
 
     })
-    .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicModal, $timeout, $ionicHistory, $localstorage) {
+    .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicPlatform, $ionicModal, $timeout, $ionicHistory, $localstorage) {
+
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if($state.current.name=="tab.service-list"){
+                navigator.app.exitApp();
+            }
+            else {
+                navigator.app.backHistory();
+            }
+        }, 100);
+
         $scope.customer = false;
         $scope.type = $localstorage.get('type');
         if($scope.type == "customer")
@@ -683,6 +696,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
                 }
             }
         }
+        $scope.data.time = "8:00 AM";
+        $scope.data.time24 = "";
+        $scope.timePickerCallback = function (val) {
+            if (typeof (val) === 'undefined') {
+                console.log('Time not selected');
+            } else {
+                var selectedTime = new Date(val * 1000);
+                console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
+                $scope.data.time24 = selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes() + ':00' ;
+                
+                console.log($scope.data.time24);
+            }
+        };
 
         $scope.service = $stateParams.id;
         $scope.type = $stateParams.type;
@@ -729,6 +755,20 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
         };
         $scope.hide = function () {
             $ionicLoading.hide();
+        };
+
+        $scope.timePickerObject = {
+            inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+            step: 15,  //Optional
+            format: 12,  //Optional
+            titleLabel: '12-hour Format',  //Optional
+            setLabel: 'Set',  //Optional
+            closeLabel: 'Close',  //Optional
+            setButtonType: 'button-positive',  //Optional
+            closeButtonType: 'button-stable',  //Optional
+            callback: function (val) {    //Mandatory
+                $scope.timePickerCallback(val);
+            }
         };
 
         // making post api call to the server by using angular based service

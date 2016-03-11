@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.phonecontacts'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.phonecontacts', 'ionic-timepicker'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.F&Q', {
                 url: '/F&Q',
                 views: {
-                    'service-list': {
+                    'information': {
                         templateUrl: 'templates/f&qs.html',
                         controller: 'F&QCtrl'
                     }
@@ -73,7 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.about', {
                 url: '/about',
                 views: {
-                    'service-list': {
+                    'information': {
                         templateUrl: 'templates/about.html',
                         controller: 'AboutCtrl'
                     }
@@ -83,7 +83,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.feedback', {
                 url: '/feedback',
                 views: {
-                    'service-list': {
+                    'information': {
                         templateUrl: 'templates/feedback.html',
                         controller: 'FeedbackCtrl'
                     }
@@ -93,7 +93,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.t&c', {
                 url: '/t&c',
                 views: {
-                    'service-list': {
+                    'information': {
                         templateUrl: 'templates/t&c.html',
                         controller: 'T&CCtrl'
                     }
@@ -103,7 +103,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.worker-timer', { //8588824759
                 url: '/worker-timer',
                 views: {
-                    'service-list': {
+                    'information': {
                         templateUrl: 'templates/worker-timer.html',
                         controller: 'WorkerTimerCtrl'
                     }
@@ -123,7 +123,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.blueteam_verified', {
                 url: '/blueteam_verified',
                 views: {
-                    'service-type': {
+                    'information': {
                         templateUrl: 'templates/blueteam_verified.html',
                         controller: 'BlueteamVerifiedTypeCtrl'
                     }

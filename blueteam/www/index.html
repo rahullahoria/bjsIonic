@@ -20,6 +20,9 @@
 
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/phonecontacts.js"></script>
@@ -56,9 +59,20 @@
                 </center>
 
             </div>
+
+
+            <div class="card "  style="background-color: #058d98;color: #fff">
+                <button class="button button-large button-balanced" ng-disabled=registered ng-click="registered = true">Login</button>
+                <button class="button button-large button-balanced pull-right" ng-disabled=!registered ng-click="registered = false">Register</button
+
+            </div>
+
             <div class="card" style="background-color: #058d98;color: #fff">
 
+
+
                 <form ng-submit="regUser()" name="register" >
+
 
 
                     <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
