@@ -1,0 +1,78 @@
+<ion-view view-title="Price Calculator by Shatkon Labs Pvt. Ltd." style="background-color: #069ea9">
+    <ion-content class="padding">
+
+
+        <div class="card" style="background-color: #058d98;color: #fff">
+            <form ng-submit="cal()" name="confirm">
+                <div class="list">
+
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Service
+                        </div>
+                        <select name="service" ng-model="data.service">
+                            <option value="maid">Maid</option>
+                            <option value="cook">Cook</option>
+                            <option value="expert-cook">Expert Cook</option>
+                            <option value="babysitter">BabySitter</option>
+                            <option value="auto-driver">Automatic Driver</option>
+                            <option value="man-driver">Manual Driver</option>
+                        </select>
+                    </label>
+
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Days</span>
+                        <input type="number" name="days" placeholder="Days" ng-model="data.days" ng-minlength="1" ng-maxlength="2" required />
+
+                    </label>
+
+                    <label class="item item-input item-floating-label">
+
+                        <ionic-timepicker input-obj="timePickerObject">
+
+                            <button class="button button-block button-positive overflowShow">
+                                <standard-time-meridian etime='timePickerObject.inputEpochTime'>Start Time : {{data.time}}</standard-time-meridian>
+                            </button>
+                        </ionic-timepicker>
+                    </label>
+
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">No. of hours</span>
+                        <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="3" required />
+
+                    </label>
+
+
+                </div>
+
+
+
+                <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                       ng-disabled="confirm.$invalid">
+
+            </form>
+
+
+
+        </div>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                Max Charges : {{max}}<br/>
+                Min Charges : {{min}}<br/>
+                <b>Avg Charges : {{avg}}</b><br/>
+                For {{data.days}} days Charges : {{forDays}}
+            </div>
+        </div>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> In case of any problem. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

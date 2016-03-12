@@ -29,6 +29,12 @@
                 </label>
 
                 <label class="item item-input item-floating-label">
+                    <span class="input-label">No. of hours</span>
+                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="3" required />
+
+                </label>
+
+                <label class="item item-input item-floating-label">
                     <span class="input-label"> My Address is</span>
                     <textarea placeholder="enter address" name="address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
                 </label>

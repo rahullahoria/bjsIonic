@@ -80,6 +80,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
+            .state('tab.price_cal', {
+                url: '/price_cal',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/price-cal.html',
+                        controller: 'PriceCalCtrl'
+                    }
+                }
+            })
+
             .state('tab.feedback', {
                 url: '/feedback',
                 views: {

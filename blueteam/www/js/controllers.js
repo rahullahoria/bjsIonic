@@ -466,6 +466,128 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
     })
 
+    .controller('PriceCalCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
+        $scope.data = {};
+
+
+
+        $scope.data.hours = "";
+        $scope.selectedTime = new Date();
+        $scope.data.time = ("0"+(parseInt( $scope.selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+$scope.selectedTime.getUTCMinutes()).slice(-2) + " " + (($scope.selectedTime.getUTCHours()>12)?"PM":"AM");
+        $scope.selectedTime = new Date();
+        $scope.data.time24 = "";
+
+        $scope.timePickerCallback = function (val) {
+            if (typeof (val) === 'undefined') {
+                console.log('Time not selected');
+            } else {
+                var selectedTime = $scope.selectedTime = new Date(val * 1000);
+                console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
+                $scope.data.time24 = ("0"+selectedTime.getUTCHours()).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + ':00' ;
+                $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
+                console.log($scope.data.time24);
+            }
+        };
+
+
+        $scope.data.name = $localstorage.get('name');
+        $scope.data.mobile = parseInt($localstorage.get('mobile'));
+        $scope.data.address = $localstorage.get('address');
+
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+        // to get current location of the user
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+
+                $scope.position = position;
+
+            }, function (err) {
+                // error
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+            });
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.timePickerObject = {
+            inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+            step: 15,  //Optional
+            format: 12,  //Optional
+            titleLabel: 'Start time',  //Optional
+            setLabel: 'Set',  //Optional
+            closeLabel: 'Close',  //Optional
+            setButtonType: 'button-positive',  //Optional
+            closeButtonType: 'button-stable',  //Optional
+            callback: function (val) {    //Mandatory
+                $scope.timePickerCallback(val);
+            }
+        };
+
+        // making post api call to the server by using angular based service
+
+        $scope.cal = function () {
+            $scope.show();
+
+
+            BlueTeam.getPrice($scope.data.service)
+                .then(function (d) {
+                    $scope.hide();
+
+                    $scope.prices = d['root'].cost;
+                    $scope.max = 26*parseInt($scope.prices[0].cost)   ;
+                    for(var i = 1;i < $scope.data.hours;i++) {
+                        $scope.max = $scope.max + (26 * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
+                        console.log($scope.selectedTime.getUTCHours() + i);
+                    }
+
+                    $scope.min = 21*parseInt($scope.prices[0].cost)   ;
+                    for(var i = 1;i < $scope.data.hours;i++) {
+                        $scope.min = $scope.min + (21 * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
+                        console.log($scope.selectedTime.getUTCHours() + i);
+                    }
+
+                    $scope.data.days = (parseInt($scope.data.days)<21)?21:$scope.data.days;
+                    $scope.forDays = parseInt($scope.data.days)*parseInt($scope.prices[0].cost)   ;
+                    for(var i = 1;i < $scope.data.hours;i++) {
+                        $scope.forDays = $scope.forDays + (parseInt($scope.data.days) * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
+                        console.log($scope.selectedTime.getUTCHours() + i);
+                    }
+
+
+                    $scope.avg = ($scope.max + $scope.min)/2;
+
+                    console.log("max",$scope.max,$scope.min,$scope.avg,$scope.forDays);
+                });
+        };
+
+    })
+
     .controller('FeedbackCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $timeout, $stateParams, $localstorage, $cordovaGeolocation, BlueTeam) {
         $scope.data = {};
 
@@ -669,9 +791,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         $scope.share = function () {
             $cordovaSocialSharing.share("Get relief from Cook/Maid/Driver/Babysitter on leave. " +
                 "Book Now on-demand/monthly to get reliable and Blueteam verified worker. " +
-                "www.BlueTeam.in / 9599075355", "Book Now BlueTeam Verified Workers",
+                "https://goo.gl/EGxeu3", "Book Now BlueTeam Verified Workers",
                 "www/img/apple-icon-72x72.png",
-                "http://www.blueteam.in");
+                "https://goo.gl/EGxeu3");
         };
 
 
@@ -696,16 +818,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 }
             }
         }
-        $scope.data.time = "8:00 AM";
+        $scope.data.hours = "";
+        $scope.selectedTime = new Date();
+        $scope.data.time = ("0"+(parseInt( $scope.selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+$scope.selectedTime.getUTCMinutes()).slice(-2) + " " + (($scope.selectedTime.getUTCHours()>12)?"PM":"AM");
+        $scope.selectedTime = new Date();
         $scope.data.time24 = "";
         $scope.timePickerCallback = function (val) {
             if (typeof (val) === 'undefined') {
                 console.log('Time not selected');
             } else {
-                var selectedTime = new Date(val * 1000);
+                 var selectedTime = $scope.selectedTime = new Date(val * 1000);
                 console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
-                $scope.data.time24 = selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes() + ':00' ;
-                
+                $scope.data.time24 = ("0"+selectedTime.getUTCHours()).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + ':00' ;
+                $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
                 console.log($scope.data.time24);
             }
         };
@@ -761,7 +886,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
             inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
             step: 15,  //Optional
             format: 12,  //Optional
-            titleLabel: '12-hour Format',  //Optional
+            titleLabel: 'Start time',  //Optional
             setLabel: 'Set',  //Optional
             closeLabel: 'Close',  //Optional
             setButtonType: 'button-positive',  //Optional
@@ -786,6 +911,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
                         "remarks": $scope.type + " this is request by mobile app",
+                        "start_time": $scope.data.time24,
+                        "end_time": ""+("0"+($scope.selectedTime.getUTCHours()+parseInt($scope.data.hours))).slice(-2) + ":00:00",
                         "address": $scope.data.address,
                         "priority": "" + 3
                     }
