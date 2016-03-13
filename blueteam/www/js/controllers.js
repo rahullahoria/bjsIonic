@@ -22,7 +22,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
             $ionicHistory.clearHistory();
             $scope.services = window.services = d['root'];
-            console.log($scope.services[0].img_url);
+            console.log(JSON.stringify($scope.services));
             $scope.hide();
         });
 
@@ -419,10 +419,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                     .then(function (d) {
 
                         //setObject
+                        $scope.user = d['root'];
                         $localstorage.set('name', $scope.data.name);
                         $localstorage.set('mobile', $scope.data.mobile);
                         $localstorage.set('email', $scope.data.email);
                         $localstorage.set('type', "customer");
+                        $localstorage.set('user_id', $scope.user.id);
 
                         $scope.hide();
                         $state.go('tab.service-list');
@@ -560,9 +562,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                     $scope.hide();
 
                     $scope.prices = d['root'].cost;
-                    $scope.max = 26*parseInt($scope.prices[0].cost)   ;
+                    var noOfMaxDays = (parseInt($scope.data.days)>26)?26:(parseInt($scope.data.days));
+
+                    $scope.max = noOfMaxDays*parseInt($scope.prices[0].cost)   ;
                     for(var i = 1;i < $scope.data.hours;i++) {
-                        $scope.max = $scope.max + (26 * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
+                        $scope.max = $scope.max + (noOfMaxDays * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
                         console.log($scope.selectedTime.getUTCHours() + i);
                     }
 
@@ -900,8 +904,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
         $scope.conf = function () {
             $scope.show();
-            $localstorage.set('name', $scope.data.name);
-            $localstorage.set('mobile', $scope.data.mobile);
+            //$localstorage.set('name', $scope.data.name);
+            //$localstorage.set('mobile', $scope.data.mobile);
             $localstorage.set('address', $scope.data.address);
 
             BlueTeam.makeServiceRequest({
