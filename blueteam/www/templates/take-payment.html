@@ -1,0 +1,48 @@
+<ion-view view-title="Payment Powered by Shatkon Labs">
+    <ion-content class="padding">
+
+
+        <form ng-submit="confPayment()" name="confirmPayment">
+            <div class="list">
+
+                <label class="item item-input ">
+                    <span class="input-label">Service Request Id</span>
+                    <input type="number" name="sr_id" placeholder="Service Request Id" ng-model="data.sr_id" ng-minlength="1" required />
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Amount</span>
+                    <input type="number" name="amount" placeholder="Amount"
+                           ng-model="data.amount" ng-minlength="3" ng-maxlength="10" required />
+
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Customer ID</span>
+                    <input type="number" name="customer_id" placeholder="Customer Id" ng-model="data.customer_id"
+                            ng-minlength="1" ng-maxlength="16" required />
+
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Check No.</span>
+                    <input type="number" name="customer_id" placeholder="Check No." ng-model="data.check_no"
+                           ng-minlength="5" ng-maxlength="16"  />
+
+                </label>
+
+
+                <input class="button button-block button-positive" type="submit" name="SUBMIT" value="Confirm" nav-direction="forward"
+                       ng-disabled="confirm.$invalid">
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

@@ -110,6 +110,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
+            .state('tab.take-payment', {
+                url: '/take-payment',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/take-payment.html',
+                        controller: 'TakePaymentCtrl'
+                    }
+                }
+            })
+
             .state('tab.worker-timer', { //8588824759
                 url: '/worker-timer',
                 views: {

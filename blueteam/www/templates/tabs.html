@@ -50,6 +50,16 @@ navigation history that also transitions its views in and out.
           Home
         </ion-item>
 
+        <ion-item menu-close href="#/tab/service-requests" ng-show="customer">
+          <span class="ion-home large" ></span>
+          Service Requests
+        </ion-item>
+
+        <ion-item menu-close href="#/tab/take-payment" ng-show="customer">
+          <span class="ion-checkmark-round large"></span>
+          Take Payment
+        </ion-item>
+
         <ion-item menu-close href="#/tab/blueteam_verified">
           <span class="ion-checkmark-round large"></span>
           BlueTeam Verified

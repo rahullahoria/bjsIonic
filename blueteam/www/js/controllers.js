@@ -246,7 +246,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
                     //setObject
                     $scope.user = d['root'].user;
-                    console.log($scope.user);
+                    console.log(JSON.stringify($scope.user));
                     $scope.hide();
                     if ($scope.user.user_exist == true) {
                         $localstorage.set('name', $scope.user.name);
@@ -475,8 +475,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
-        $scope.data.time = ("0"+(parseInt( $scope.selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+$scope.selectedTime.getUTCMinutes()).slice(-2) + " " + (($scope.selectedTime.getUTCHours()>12)?"PM":"AM");
-        $scope.selectedTime = new Date();
+        $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
+            + "00" + " "
+            + (($scope.selectedTime.getHours()>12)?"PM":"AM");
         $scope.data.time24 = "";
 
         $scope.timePickerCallback = function (val) {
@@ -562,9 +563,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                     $scope.hide();
 
                     $scope.prices = d['root'].cost;
-                    var noOfMaxDays = (parseInt($scope.data.days)>26)?26:(parseInt($scope.data.days));
 
-                    $scope.max = noOfMaxDays*parseInt($scope.prices[0].cost)   ;
+                    var noOfMaxDays = (parseInt($scope.data.days)>26 || parseInt($scope.data.days)<21)?26:(parseInt($scope.data.days));
+
+                    $scope.max = noOfMaxDays*parseInt($scope.prices[0].cost);
                     for(var i = 1;i < $scope.data.hours;i++) {
                         $scope.max = $scope.max + (noOfMaxDays * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
                         console.log($scope.selectedTime.getUTCHours() + i);
@@ -583,7 +585,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                         console.log($scope.selectedTime.getUTCHours() + i);
                     }
 
-
+                    //<strike>
+                    $scope.discount = ($scope.forDays>$scope.max)?$scope.forDays:false ;
+                    $scope.forDays = ($scope.forDays>$scope.max)?$scope.max:$scope.forDays;
                     $scope.avg = ($scope.max + $scope.min)/2;
 
                     console.log("max",$scope.max,$scope.min,$scope.avg,$scope.forDays);
@@ -662,8 +666,29 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
     })
 
-    .controller('T&CCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
+    .controller('T&CCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
 
+
+        BlueTeam.getTnc()
+            .then(function (d) {
+
+                //$scope.hide();
+                //$ionicHistory.clearHistory();
+                //$state.go('finish');
+                $scope.conditions = d['root']['conditions'];
+                $scope.TERMS = d['root']['TERMS'];
+            });
+
+        $scope.toggleItem = function (item) {
+            if ($scope.isItemShown(item)) {
+                $scope.shownItem = null;
+            } else {
+                $scope.shownItem = item;
+            }
+        };
+        $scope.isItemShown = function (item) {
+            return $scope.shownItem === item;
+        };
 
     })
 
@@ -671,74 +696,116 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
 
     })
-    .controller('F&QCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
-        $scope.items = [{
-            title: 'What is your recruitment/working process ?',
-            text: 'First of all client/customer sent a request by phone, mobile App or through website with all requirements.' +
+    .controller('TakePaymentCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
+                                             $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
+        $scope.data = {};
 
-            'Then we search a person fulfilling client requirements according to given specifications in our database, if we found exact match profile we check worker’s availability and Client Engagement Manager (CEM) fix a meeting with client, if not found in our database our marketing executives (ME) search for required worker from field and CEM fixes meeting with client.' +
 
-            'If meeting is successfully done, worker starts working from next day and customer have to pay 20% advance of our service charges with service tax .' +
+        $scope.data.name = $localstorage.get('name');
+        $scope.data.mobile = parseInt($localstorage.get('mobile'));
+        $scope.data.address = $localstorage.get('address');
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+        // to get current location of the user
+        var posOptions = {
+            timeout: 1000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
 
-            'If meeting is unsuccessful we search for another person and follow same process as above.' +
+                $scope.position = position;
+                console.log(JSON.stringify(position))
 
-            'Worker remains in paid demo period for 3 days. After 3 days we take feedback from client and worker.' +
+            }, function (err) {
+                // error
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+            });
 
-            'If worker or client is not satisfied we search for another person and follow same process as above but if client not satisfied and decline or cancel the request we give money back after deducting 3 days charges of worker.' +
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
 
-            'If both are satisfied worker continue working  and customer pay remaining 80% of our charges with service tax.' +
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
 
-            'In our contract for first six month we claim/guarantee that for our charge which is as much as worker’s one month salary plus service tax we provide worker for six month with replacement which are upto 3 times. If worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
 
-            'In renewal process we give 50% discount for next six month and same facility as in contract.'
-        }, {
-            title: 'What type of services you provide ?',
-            text: 'We provide Monthly and On demand services of Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter.'
-        }, {
-            title: 'What are your charges  ? or what is your contract charges ?',
-            text: 'We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
-            'For renewal process we discount 50% for another six month.'
-        }, {
-            title: 'Does worker are verified / skilled ?',
-            text: 'Yes, they are verified both personally and by police. They are skilled and know about the responsibilities of their job. (Specify their job responsibilities)'
-        }, {
-            title: 'Tell about your company ?',
-            text: 'BlueTeam is startup from IIT, NIPER and PEC Alumini, which is 6 months old. We provide Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter both Monthly and On-demand bases. We want to improve reliability in domestic services. We give replacement for the day on which worker takes holiday. And we maintain continuous services for the period we are serving customers.' +
-            'BlueTeam is to serve you better, give you relief from maid on leave'
-        }, {
-            title: 'How it is different from agency ?',
-            text: 'BlueTeam is a Pvt. Ltd. company not an agency. BlueTeam is a subsidiary of IT/R&D company ‘Shatkon Labs Pvt Ltd’. So, it is operated by well educated and managed by professional and hard working persons.' +
-            'Agencies have their clients in workers native area. Agencies guys pick workers from their Native place only for having Domestic work only.' +
 
-            'BlueTeam focus on employment as well as improving their lifestyle, providing education, sending their children to school and awareness.' +
+        // making post api call to the server by using angular based service
 
-            'BlueTeam keep in touch with both client as well as worker and having feedback from both parties with regular time interval.' +
+        /*
+        * {"root":
+         {
+         "sr_id": "2",
+         "amount": "2000",
+         "user_id": "10",
+         "name": "vikas nagar",
+         "mobile": "9560625626",
+         "device_id": "sdafd",
+         "gps_location": "123.123,1231.13",
+         "customer_id": "20",
+         "check_no": "31232123"
 
-            'BlueTeam also focus on flexibility of workers also so that worker should give time to their children for sending them to school.' +
 
-            'Agencies having one time payment but BlueTeam provides flexibility in service charges with monthly basis also.' +
+         }}*/
 
-            'BlueTeam process 3 phase for providing worker: Interview/Meetup/Demo/Done. Agencies directly give worker to client without having interview with worker.'
-        }, {
-            title: 'Do you take commissions from workers ?',
-            text: 'No, it’s not an agency. We give them their complete salary with salary slip. They are our recruited employees.'
-        }, {
-            title: 'Do you have 24 hours maid/cook/driver ?',
-            text: 'Currently we do not deal in it but if we found someone ready for this, we will inform you.'
-        }, {
-            title: 'From where these maid/cook/driver come to you ?',
-            text: 'Our ME find these peoples from fields.'
-        }, {
-            title: 'Driver working hours  ?',
-            text: '10-12 Hours'
-        }, {
-            title: 'What maid can do ?',
-            text: 'Maid can do floor brooming and wiping, dusting and all types of cleaning.'
-        }, {
-            title: 'What cook can do ? or what type of food he/she can cook ?',
-            text: 'Cook can cook North Indian, South Indian, Continental, Chinese and Italian . Salary is proposing to their skill set.'
-        }];
+        $scope.confPayment = function () {
+            $scope.show();
+
+            BlueTeam.makePayment({
+                    "root": {
+                        "name": $scope.data.name,
+                        "sr_id": $scope.data.sr_id,
+                        "amount": $scope.data.amount,
+                        "customer_id": "" + $scope.data.customer_id,
+                        "check_no": $scope.data.check_no,
+                        "mobile": "" + $scope.data.mobile,
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+
+                        "user_id": $localstorage.get('user_id'),
+                        "device_id": $cordovaDevice.getUUID()
+                    }
+                })
+                .then(function (d) {
+                    $scope.hide();
+                    $ionicHistory.clearHistory();
+                    $state.go('finish');
+                    //$scope.services = d['data']['services'];
+                });
+        };
+
+    })
+
+    .controller('F&QCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+        $scope.items = null;
+
+        BlueTeam.getFaq()
+            .then(function (d) {
+
+                //$scope.hide();
+                //$ionicHistory.clearHistory();
+                //$state.go('finish');
+                $scope.items = d['root']['faqs'];
+            });
 
         $scope.toggleItem = function (item) {
             if ($scope.isItemShown(item)) {
@@ -795,16 +862,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         $scope.share = function () {
             $cordovaSocialSharing.share("Get relief from Cook/Maid/Driver/Babysitter on leave. " +
                 "Book Now on-demand/monthly to get reliable and Blueteam verified worker. " +
-                "https://goo.gl/EGxeu3", "Book Now BlueTeam Verified Workers",
-                "www/img/apple-icon-72x72.png",
-                "https://goo.gl/EGxeu3");
+                "https://goo.gl/EGxeu3", "Book Now BlueTeam Verified Workers");
         };
 
 
     })
-    .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
+    .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
+                                      $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
         $scope.data = {};
-
+        $scope.data.hours = "";
 
         if (window.services === undefined)
             $state.go('tab.service-list');
@@ -824,8 +890,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         }
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
-        $scope.data.time = ("0"+(parseInt( $scope.selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+$scope.selectedTime.getUTCMinutes()).slice(-2) + " " + (($scope.selectedTime.getUTCHours()>12)?"PM":"AM");
-        $scope.selectedTime = new Date();
+        console.log(parseInt( $scope.selectedTime.getHours()));
+        $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
+                            + "00" + " "
+                            + (($scope.selectedTime.getHours()>12)?"PM":"AM");
+
         $scope.data.time24 = "";
         $scope.timePickerCallback = function (val) {
             if (typeof (val) === 'undefined') {
@@ -853,7 +922,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         };
         // to get current location of the user
         var posOptions = {
-            timeout: 10000,
+            timeout: 1000,
             enableHighAccuracy: false
         };
         $cordovaGeolocation
@@ -861,6 +930,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
             .then(function (position) {
 
                 $scope.position = position;
+                console.log(JSON.stringify(position))
 
             }, function (err) {
                 // error
@@ -907,18 +977,21 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
             //$localstorage.set('name', $scope.data.name);
             //$localstorage.set('mobile', $scope.data.mobile);
             $localstorage.set('address', $scope.data.address);
-
+            console.log(JSON.stringify($scope.position));
             BlueTeam.makeServiceRequest({
                     "root": {
                         "name": $scope.data.name,
                         "mobile": "" + $scope.data.mobile,
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
+                        "user_id": $localstorage.get('user_id'),
+                        "service_type": $scope.type,
                         "remarks": $scope.type + " this is request by mobile app",
                         "start_time": $scope.data.time24,
-                        "end_time": ""+("0"+($scope.selectedTime.getUTCHours()+parseInt($scope.data.hours))).slice(-2) + ":00:00",
+                        "end_time": ""+("0"+($scope.selectedTime.getUTCHours()+parseInt($scope.data.hours))%24 ).slice(-2) + ":00:00",
                         "address": $scope.data.address,
-                        "priority": "" + 3
+                        "priority": "" + 3,
+                        "device_id": $cordovaDevice.getUUID()
                     }
                 })
                 .then(function (d) {
@@ -929,7 +1002,4 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 });
         };
 
-        $scope.settings = {
-            enableFriends: true
-        };
     });

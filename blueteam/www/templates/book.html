@@ -9,36 +9,39 @@
 
                     <i style="font-style: italic;">at price of {{price}}.</i>
                 </label>
-                <label class="item item-input item-floating-label">
-                    <span class="input-label"> My Name is</span>
+                <label class="item item-input ">
+                    <span class="input-label">Name</span>
                     <input type="text" name="name" placeholder="enter name" ng-model="data.name" ng-minlength="1" required />
                 </label>
 
-                <label class="item item-input item-floating-label">
-                    <span class="input-label"> My Mobile No. is</span>
-                    <input type="number" name="mobile" placeholder="enter mobile no." ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
+                <label class="item item-input ">
+                    <span class="input-label">Mobile</span>
+                    <input type="number" name="mobile" placeholder="mobile"
+                           ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
 
                 </label>
 
-                <label class="item item-input item-floating-label">
+                <label class="item item-input ">
                     <ionic-timepicker input-obj="timePickerObject">
                         <button class="button button-block button-positive overflowShow">
-                            <standard-time-meridian etime='timePickerObject.inputEpochTime'>{{data.time}}</standard-time-meridian>
+                            <standard-time-meridian etime='timePickerObject.inputEpochTime'>
+                                Start Time: {{data.time}}
+                            </standard-time-meridian>
                         </button>
                     </ionic-timepicker>
                 </label>
 
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">No. of hours</span>
-                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="3" required />
+                <label class="item item-input ">
+                    <span class="input-label">Hours</span>
+                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" required />
 
                 </label>
 
-                <label class="item item-input item-floating-label">
-                    <span class="input-label"> My Address is</span>
+                <label class="item item-input ">
+                    <span class="input-label">Address</span>
                     <textarea placeholder="enter address" name="address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
                 </label>
-            </div>
+
 
             <div class="padding">
 
@@ -50,6 +53,7 @@
             <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
                    ng-disabled="confirm.$invalid">
 
+            </div>
         </form>
 
 

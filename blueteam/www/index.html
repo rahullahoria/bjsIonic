@@ -44,30 +44,18 @@
 -->
 
 <script type="text/ng-template" id="register.html">
-    <ion-view hide-nav-bar="true" style="background-color: #069ea9">
-
-
+    <ion-view hide-nav-bar="true" >
 
         <ion-content >
-
-
-
-            <div class="card " style="background-color: #058d98">
+            <div class="card " >
                 <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" >
-                    <p><i style="font-style: italic;font-size: 0.8em;color: #fff">to give you Releif</i></p>
+                    <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
 
                 </center>
 
             </div>
 
-
-            <div class="card "  style="background-color: #058d98;color: #fff">
-                <button class="button button-large button-balanced" ng-disabled=registered ng-click="registered = true">Login</button>
-                <button class="button button-large button-balanced pull-right" ng-disabled=!registered ng-click="registered = false">Register</button
-
-            </div>
-
-            <div class="card" style="background-color: #058d98;color: #fff">
+            <div class="card" >
 
 
 
@@ -75,35 +63,35 @@
 
 
 
-                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label" style="color: #ffffff;">Mobile</span>
+                    <label class="item item-input " >
+                        <span class="input-label" >Mobile</span>
                         <input type="number" name="mobile"
-                               placeholder="Mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required >
                     </label>
 
-                    <label class="item item-input item-floating-label" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label" style="color: #ffffff;">Password</span>
+                    <label class="item item-input " >
+                        <span class="input-label" >Password</span>
                         <input type="password" name="password" id="password" ng-keypress="checkReg()"
-                               placeholder="Password" ng-model="data.password" ng-minlength="3"  required style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Password" ng-model="data.password" ng-minlength="3"  required >
                     </label>
 
-                    <label class="item item-input item-floating-label" ng-hide=registered ng-keypress="checkSamePwd()" style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label" style="color: #ffffff;">Conf. Password</span>
+                    <label class="item item-input " ng-hide=registered ng-keypress="checkSamePwd()" >
+                        <span class="input-label" >Conf. Password</span>
                         <input type="password" name="conf_password" id="conf_password"
-                               placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" >
                     </label>
 
-                    <label class="item item-input item-floating-label" ng-hide=registered style="padding-right: 16px;padding-bottom: 35px;">
-                        <span class="input-label" style="color: #ffffff;">Full Name</span>
+                    <label class="item item-input " ng-hide=registered >
+                        <span class="input-label" >Full Name</span>
                         <input type="text"  name="name"
-                               placeholder="Full Name" ng-model="data.name"  style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Full Name" ng-model="data.name"  >
                     </label>
 
-                    <label class="item item-input item-floating-label" ng-hide=registered style="padding-right: 16px;padding-bottom: 35px;">
+                    <label class="item item-input " ng-hide=registered >
 
-                        <span class="input-label" style="color: #ffffff;">Email</span>
+                        <span class="input-label" >Email</span>
                         <input type="email" name="email"
-                               placeholder="Email" ng-model="data.email" style="background-color: #fff;padding-right: 16px;">
+                               placeholder="Email" ng-model="data.email" >
                     </label>
 
 
@@ -111,7 +99,7 @@
                     <div class="padding">
 
                         <div  ng-show="register.$error">
-                          <span class="msg-error" ng-show="pwdError">
+                          <span class="item item-assertive msg-error" ng-show="pwdError">
                             Passwords don't match.
                           </span>
                             <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>

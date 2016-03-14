@@ -1,8 +1,7 @@
-<ion-view view-title="Price Calculator by Shatkon Labs Pvt. Ltd." style="background-color: #069ea9">
+<ion-view view-title="Price Calculator by Shatkon Labs Pvt. Ltd." >
     <ion-content class="padding">
 
-
-        <div class="card" style="background-color: #058d98;color: #fff">
+        <div class="card" >
             <form ng-submit="cal()" name="confirm">
                 <div class="list">
 
@@ -20,13 +19,13 @@
                         </select>
                     </label>
 
-                    <label class="item item-input item-floating-label">
+                    <label class="item item-input ">
                         <span class="input-label">Days</span>
                         <input type="number" name="days" placeholder="Days" ng-model="data.days" ng-minlength="1" ng-maxlength="2" required />
 
                     </label>
 
-                    <label class="item item-input item-floating-label">
+                    <label class="item item-input ">
 
                         <ionic-timepicker input-obj="timePickerObject">
 
@@ -36,32 +35,32 @@
                         </ionic-timepicker>
                     </label>
 
-                    <label class="item item-input item-floating-label">
+                    <label class="item item-input ">
                         <span class="input-label">No. of hours</span>
                         <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="3" required />
 
                     </label>
 
-
+                    <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
                 </div>
 
-
-
-                <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                       ng-disabled="confirm.$invalid">
-
             </form>
-
-
 
         </div>
 
         <div class='card'>
             <div style="text-align: center;">
-                Max Charges : {{max}}<br/>
-                Min Charges : {{min}}<br/>
-                <b>Avg Charges : {{avg}}</b><br/>
-                For {{data.days}} days Charges : {{forDays}}
+                <h4>
+                Max Charges : <span class="large">&#8377;</span>{{max}}<br/>
+                Min Charges : <span class="large">&#8377;</span>{{min}}<br/>
+                <b>Avg Charges : <span class="large">&#8377;</span>{{avg}}</b><br/>
+
+                For {{data.days}} days Charges :
+                        <span style="text-decoration: line-through;" ng-show=discount>
+                            <span class="large">&#8377;</span>{{discount}}</span>
+                                    <span class="large">&#8377;</span>{{forDays}}
+                </h4>
             </div>
         </div>
 
