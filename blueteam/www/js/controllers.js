@@ -691,16 +691,17 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         };
 
     })
-    .controller('ServiceRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+    .controller('ServiceRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, $localstorage, BlueTeam) {
 
 
-        BlueTeam.getMysr()
+        BlueTeam.getMysr($localstorage.get('mobile'))
             .then(function (d) {
 
                 //$scope.hide();
                 //$ionicHistory.clearHistory();
                 //$state.go('finish');
                 $scope.srs = d['root']['srs'];
+                console.log(JSON.stringify($scope.srs));
             });
 
         $scope.toggleItem = function (item) {
