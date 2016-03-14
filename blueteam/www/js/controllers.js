@@ -691,6 +691,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         };
 
     })
+
     .controller('ServiceRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, $localstorage, BlueTeam) {
 
         $scope.user_id = $localstorage.get('user_id');
@@ -928,6 +929,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
 
     })
+
+    .controller('AddworkerCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+    })
+
     .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
                                       $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
         $scope.data = {};
