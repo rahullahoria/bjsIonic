@@ -716,8 +716,28 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
     })
 
-    .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
+    .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
 
+        BlueTeam.getVerification()
+            .then(function (d) {
+
+                //$scope.hide();
+                //$ionicHistory.clearHistory();
+                //$state.go('finish');
+                $scope.pre = d['root']['pre'];
+                $scope.process = d['root']['process'];
+            });
+
+        $scope.toggleItem = function (item) {
+            if ($scope.isItemShown(item)) {
+                $scope.shownItem = null;
+            } else {
+                $scope.shownItem = item;
+            }
+        };
+        $scope.isItemShown = function (item) {
+            return $scope.shownItem === item;
+        };
 
     })
 
