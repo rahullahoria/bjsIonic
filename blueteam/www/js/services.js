@@ -85,6 +85,18 @@ angular.module('starter.services', [])
           return promise;
         },
 
+        getVerification: function() {
+          // $http returns a promise, which has a then function, which also returns a promise
+          var promise = $http.get(url+'/verification_process').then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(JSON.stringify(response));
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
+
         makeServiceRequest: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise
           console.log(JSON.stringify(data));

@@ -10,5 +10,35 @@
                 </i>
             </div>
         </div>
+        <ion-list>
+
+            <ion-item ng-repeat="item in pre" class="item item-text-wrap">
+                <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+
+                    <p>{{ item }}</p>
+                </div>
+                <div ng-click="toggleItem(item)" class="item-expand-footer">
+                    <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+                    {{ isGroupShown(item) ? 'Less' : 'More' }}
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list>
+
+            <ion-item ng-repeat="item in process" class="item item-text-wrap">
+                <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+
+                    <p>{{ item }}</p>
+                </div>
+                <div ng-click="toggleItem(item)" class="item-expand-footer">
+                    <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+                    {{ isGroupShown(item) ? 'Less' : 'More' }}
+                </div>
+            </ion-item>
+
+        </ion-list>
+
     </ion-content>
 </ion-view>
