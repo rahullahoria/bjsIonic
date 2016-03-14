@@ -691,6 +691,30 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         };
 
     })
+    .controller('ServiceRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+
+        BlueTeam.getMysr()
+            .then(function (d) {
+
+                //$scope.hide();
+                //$ionicHistory.clearHistory();
+                //$state.go('finish');
+                $scope.srs = d['root']['srs'];
+            });
+
+        $scope.toggleItem = function (item) {
+            if ($scope.isItemShown(item)) {
+                $scope.shownItem = null;
+            } else {
+                $scope.shownItem = item;
+            }
+        };
+        $scope.isItemShown = function (item) {
+            return $scope.shownItem === item;
+        };
+
+    })
 
     .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 

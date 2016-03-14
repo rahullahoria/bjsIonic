@@ -61,6 +61,17 @@ angular.module('starter.services', [])
           // Return the promise to the controller
           return promise;
         },
+        getMysr: function(mobile) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          var promise = $http.get(url+'/mysr/'+mobile).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
         getFaq: function() {
           // $http returns a promise, which has a then function, which also returns a promise
           var promise = $http.get(url+'/FAQ').then(function (response) {

@@ -1,0 +1,27 @@
+<ion-view view-title="Your Service Requests">
+    <ion-content class="padding">
+
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sr in srs "
+                      type="item-text-wrap" >
+                <!-- <img ng-src="{{service.img}}"> -->
+                <h2>{{sr.id}}</h2>
+                <i style="font-style: italic;font-size: 0.8em;">{{sr.service}}</i>
+            </ion-item>
+
+
+        </ion-list>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> In case of any problem. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span
+                            class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br/>
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')">info@blueteam.in</a><br/>
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -119,6 +119,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
+            .state('tab.service-requests', {
+                url: '/service-requests',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/service-requests.html',
+                        controller: 'ServiceRequestCtrl'
+                    }
+                }
+            })
 
             .state('tab.worker-timer', { //8588824759
                 url: '/worker-timer',
