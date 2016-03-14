@@ -1,16 +1,30 @@
 <ion-view view-title="Your Service Requests">
     <ion-content class="padding">
-
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        All request are for User_id: {{user_id}}
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sr in srs "
-                      type="item-text-wrap" >
-                <!-- <img ng-src="{{service.img}}"> -->
-                <h2>{{sr.id}}</h2>
-                <i style="font-style: italic;font-size: 0.8em;">{{sr.service}}</i>
-            </ion-item>
+        <ion-item ng-repeat="sr in srs " class="item item-text-wrap">
+            <div>
+                <h2>Service Request Id: {{sr.id}}</h2>
+                <h3>Service : {{sr.service}}</h3>
+                <h3>Service Type: {{sr.service_type}}</h3>
+                <h3>Start Time: {{sr.start_time}}</h3>
+                <h3>End Time: {{sr.end_time}}</h3>
+                <h3 ng-show="!sr.cem_name">No CEM Allotted</h3>
+                <h3 ng-show="sr.cem_name">CEM ID: BT-15-{{sr.user_cem_id}}</h3>
+                <h3 ng-show="sr.cem_name">CEM Name: {{sr.cem_name}}</h3>
+                <h3 ng-show="sr.cem_name">CEM Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.cem_mobile}}"><span
+                        class="ion-android-call large"></span><b> +91 {{sr.cem_mobile}} </b> </a> </h3>
 
+
+            </div>
+        </ion-item>
 
         </ion-list>
+
 
         <div class='card'>
             <div style="text-align: center;">

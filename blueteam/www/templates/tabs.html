@@ -51,11 +51,11 @@ navigation history that also transitions its views in and out.
         </ion-item>
 
         <ion-item menu-close href="#/tab/service-requests" ng-show="customer">
-          <span class="ion-home large" ></span>
+          <span class="ion-calendar large" ></span>
           Service Requests
         </ion-item>
 
-        <ion-item menu-close href="#/tab/take-payment" ng-show="customer">
+        <ion-item menu-close href="#/tab/take-payment" ng-hide="customer">
           <span class="ion-checkmark-round large"></span>
           Take Payment
         </ion-item>

@@ -2,7 +2,7 @@
     <ion-content class="padding">
 
 
-        <form ng-submit="conf()" name="confirm">
+        <form ng-submit="conf()" name="confirm" >
             <div class="list">
                 <label class="item item-input item-floating-label">
                     I need a <b> {{service}}</b> on <i style="font-style: italic;">{{type}}</i> bases,<br/>
@@ -51,7 +51,7 @@
             </div>
 
             <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                   ng-disabled="confirm.$invalid">
+                   ng-disabled="confirm.$invalid||!data.time24">
 
             </div>
         </form>

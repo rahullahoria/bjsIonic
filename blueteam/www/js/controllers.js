@@ -693,7 +693,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
     })
     .controller('ServiceRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, $localstorage, BlueTeam) {
 
-
+        $scope.user_id = $localstorage.get('user_id');
         BlueTeam.getMysr($localstorage.get('mobile'))
             .then(function (d) {
 
@@ -703,6 +703,22 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 $scope.srs = d['root']['srs'];
                 console.log(JSON.stringify($scope.srs));
             });
+
+        $scope.doRefresh = function() {
+            BlueTeam.getMysr($localstorage.get('mobile'))
+                .then(function (d) {
+
+                    //$scope.hide();
+                    //$ionicHistory.clearHistory();
+                    //$state.go('finish');
+                    $scope.srs = d['root']['srs'];
+                    console.log(JSON.stringify($scope.srs));
+                })
+                .finally(function() {
+                    // Stop the ion-refresher from spinning
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
+        };
 
         $scope.toggleItem = function (item) {
             if ($scope.isItemShown(item)) {
@@ -940,7 +956,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                             + "00" + " "
                             + (($scope.selectedTime.getHours()>12)?"PM":"AM");
 
-        $scope.data.time24 = "";
+        $scope.data.time24 = false;
         $scope.timePickerCallback = function (val) {
             if (typeof (val) === 'undefined') {
                 console.log('Time not selected');
@@ -951,6 +967,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
                 console.log($scope.data.time24);
             }
+            return false;
         };
 
         $scope.service = $stateParams.id;
@@ -1018,6 +1035,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
         // making post api call to the server by using angular based service
 
         $scope.conf = function () {
+            if(!$scope.data.time24)
+                return false;
             $scope.show();
             //$localstorage.set('name', $scope.data.name);
             //$localstorage.set('mobile', $scope.data.mobile);

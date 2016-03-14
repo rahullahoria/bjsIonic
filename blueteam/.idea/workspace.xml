@@ -4,6 +4,9 @@
     <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/book.html" afterPath="$PROJECT_DIR$/www/templates/book.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/service-requests.html" afterPath="$PROJECT_DIR$/www/templates/service-requests.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
     </list>
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43467337">
-              <caret line="703" column="53" selection-start-line="703" selection-start-column="53" selection-end-line="703" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1038" column="29" selection-start-line="1038" selection-start-column="29" selection-end-line="1038" selection-end-column="29" />
               <folding>
                 <element signature="e#1033#1096#0" expanded="false" />
                 <element signature="e#6596#15278#0" expanded="false" />
@@ -50,10 +53,10 @@
                 <element signature="e#18254#18411#0" expanded="false" />
                 <element signature="e#18464#18652#0" expanded="false" />
                 <element signature="e#21578#23643#0" expanded="false" />
-                <element signature="e#26595#26671#0" expanded="false" />
-                <element signature="e#26783#26898#0" expanded="false" />
-                <element signature="e#27026#27183#0" expanded="false" />
-                <element signature="e#27236#27424#0" expanded="false" />
+                <element signature="e#27243#27319#0" expanded="false" />
+                <element signature="e#27431#27546#0" expanded="false" />
+                <element signature="e#27674#27831#0" expanded="false" />
+                <element signature="e#27884#28072#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -85,8 +88,18 @@
       <file leaf-file-name="service-requests.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/service-requests.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+            <state vertical-scroll-proportion="-22.416666">
+              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blueteam_verified.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/blueteam_verified.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="5" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -97,16 +110,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.875">
               <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="f&amp;qs.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/f&amp;qs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="16" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -132,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="take-payment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/take-payment.html">
+      <file leaf-file-name="book.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="36" />
+            <state vertical-scroll-proportion="-1.875">
+              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -152,11 +155,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.541667">
-              <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.64">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -192,16 +195,16 @@
         <option value="$PROJECT_DIR$/www/templates/profile.html" />
         <option value="$PROJECT_DIR$/www/templates/price-cal.html" />
         <option value="$PROJECT_DIR$/www/templates/service-list.html" />
-        <option value="$PROJECT_DIR$/www/templates/book.html" />
         <option value="$PROJECT_DIR$/www/templates/blueteam_verified.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/templates/take-payment.html" />
-        <option value="$PROJECT_DIR$/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/www/templates/t&amp;c.html" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
-        <option value="$PROJECT_DIR$/www/templates/service-requests.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/templates/service-requests.html" />
+        <option value="$PROJECT_DIR$/www/templates/book.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/templates/tabs.html" />
       </list>
     </option>
   </component>
@@ -430,7 +433,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457946608972</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add rupee icon and change link https://goo.gl/EGxeu3">
+      <created>1457946825160</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1457946825160</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -438,12 +447,12 @@
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22800587" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22800587" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22800587" sideWeight="0.5055118" order="3" side_tool="true" content_ui="tabs" />
@@ -478,7 +487,8 @@
     <MESSAGE value="stable, tested working great" />
     <MESSAGE value="addeing time" />
     <MESSAGE value="add rupee icon and change link https://goo.gl/EGxeu3" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rupee icon and change link https://goo.gl/EGxeu3" />
+    <MESSAGE value="new version" />
+    <option name="LAST_COMMIT_MESSAGE" value="new version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,10 +535,10 @@
             <element signature="e#18254#18411#0" expanded="false" />
             <element signature="e#18464#18652#0" expanded="false" />
             <element signature="e#21578#23643#0" expanded="false" />
-            <element signature="e#26595#26671#0" expanded="false" />
-            <element signature="e#26783#26898#0" expanded="false" />
-            <element signature="e#27026#27183#0" expanded="false" />
-            <element signature="e#27236#27424#0" expanded="false" />
+            <element signature="e#27243#27319#0" expanded="false" />
+            <element signature="e#27431#27546#0" expanded="false" />
+            <element signature="e#27674#27831#0" expanded="false" />
+            <element signature="e#27884#28072#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -599,10 +609,10 @@
             <element signature="e#18254#18411#0" expanded="false" />
             <element signature="e#18464#18652#0" expanded="false" />
             <element signature="e#21578#23643#0" expanded="false" />
-            <element signature="e#26595#26671#0" expanded="false" />
-            <element signature="e#26783#26898#0" expanded="false" />
-            <element signature="e#27026#27183#0" expanded="false" />
-            <element signature="e#27236#27424#0" expanded="false" />
+            <element signature="e#27243#27319#0" expanded="false" />
+            <element signature="e#27431#27546#0" expanded="false" />
+            <element signature="e#27674#27831#0" expanded="false" />
+            <element signature="e#27884#28072#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,10 +662,10 @@
             <element signature="e#18254#18411#0" expanded="false" />
             <element signature="e#18464#18652#0" expanded="false" />
             <element signature="e#21578#23643#0" expanded="false" />
-            <element signature="e#26595#26671#0" expanded="false" />
-            <element signature="e#26783#26898#0" expanded="false" />
-            <element signature="e#27026#27183#0" expanded="false" />
-            <element signature="e#27236#27424#0" expanded="false" />
+            <element signature="e#27243#27319#0" expanded="false" />
+            <element signature="e#27431#27546#0" expanded="false" />
+            <element signature="e#27674#27831#0" expanded="false" />
+            <element signature="e#27884#28072#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -705,10 +715,10 @@
             <element signature="e#18254#18411#0" expanded="false" />
             <element signature="e#18464#18652#0" expanded="false" />
             <element signature="e#21578#23643#0" expanded="false" />
-            <element signature="e#26595#26671#0" expanded="false" />
-            <element signature="e#26783#26898#0" expanded="false" />
-            <element signature="e#27026#27183#0" expanded="false" />
-            <element signature="e#27236#27424#0" expanded="false" />
+            <element signature="e#27243#27319#0" expanded="false" />
+            <element signature="e#27431#27546#0" expanded="false" />
+            <element signature="e#27674#27831#0" expanded="false" />
+            <element signature="e#27884#28072#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -822,26 +832,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/blueteam_verified.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.125">
           <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75">
-          <caret line="37" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -886,22 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/service-requests.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.541667">
-          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -931,10 +909,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/blueteam_verified.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/service-requests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.416666">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43467337">
-          <caret line="703" column="53" selection-start-line="703" selection-start-column="53" selection-end-line="703" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1038" column="29" selection-start-line="1038" selection-start-column="29" selection-end-line="1038" selection-end-column="29" />
           <folding>
             <element signature="e#1033#1096#0" expanded="false" />
             <element signature="e#6596#15278#0" expanded="false" />
@@ -948,11 +950,19 @@
             <element signature="e#18254#18411#0" expanded="false" />
             <element signature="e#18464#18652#0" expanded="false" />
             <element signature="e#21578#23643#0" expanded="false" />
-            <element signature="e#26595#26671#0" expanded="false" />
-            <element signature="e#26783#26898#0" expanded="false" />
-            <element signature="e#27026#27183#0" expanded="false" />
-            <element signature="e#27236#27424#0" expanded="false" />
+            <element signature="e#27243#27319#0" expanded="false" />
+            <element signature="e#27431#27546#0" expanded="false" />
+            <element signature="e#27674#27831#0" expanded="false" />
+            <element signature="e#27884#28072#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
