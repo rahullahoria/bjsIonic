@@ -45,72 +45,72 @@ navigation history that also transitions its views in and out.
     <ion-content>
       <ion-list>
 
-        <ion-item menu-close href="#/tab/service-list" ng-show="customer">
-          <span class="ion-home large" ></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/service-list" ng-show="customer">
+          <i class="icon ion-home large" ></i>
           Home
         </ion-item>
 
-        <ion-item menu-close href="#/tab/service-requests" ng-show="customer">
-          <span class="ion-calendar large" ></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/service-requests" ng-show="customer">
+          <span class="icon ion-calendar large" ></span>
           Service Requests
         </ion-item>
 
-        <ion-item menu-close href="#/tab/take-payment" ng-hide="customer">
-          <span class="ion-checkmark-round large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/take-payment" ng-hide="customer">
+          <span class="icon ion-cash large"></span>
           Take Payment
         </ion-item>
 
-        <ion-item menu-close href="#/tab/blueteam_verified">
-          <span class="ion-checkmark-round large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/blueteam_verified">
+          <i class="icon ion-checkmark-round large"></i>
           BlueTeam Verified
         </ion-item>
 
-        <ion-item menu-close href="#/tab/price_cal">
-          <span class="large">&#8377;</span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/price_cal">
+          <span class="icon large">&nbsp;&#8377;</span>
           Price Calculator
         </ion-item>
 
-        <ion-item menu-close ng-click="share()">
-          <span class="ion-navigate large"></span>
+        <ion-item menu-close class="item item-icon-left" ng-click="share()">
+          <span class="icon ion-navigate large"></span>
           Share
         </ion-item>
 
-        <ion-item menu-close class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355" >
+        <ion-item menu-close class="item item-icon-left" ng-href="tel: +91 9599075355" >
           <span class="icon ion-android-call large"> </span>
           Call Us
         </ion-item>
 
-        <ion-item menu-close onclick="window.open('mailto:info@blueteam.in','_system')">
-          <span class="ion-email large"></span>
+        <ion-item menu-close class="item item-icon-left" onclick="window.open('mailto:info@blueteam.in','_system')">
+          <span class="icon ion-email large"></span>
           Email Us
         </ion-item>
 
-        <ion-item menu-close onclick="window.open('http://www.BlueTeam.in','_system')" >
-          <span class="ion-cloud large"></span>
+        <ion-item menu-close class="item item-icon-left" onclick="window.open('http://www.BlueTeam.in','_system')" >
+          <span class="icon ion-cloud large"></span>
           Website
         </ion-item>
 
-        <ion-item menu-close href="#/tab/feedback" ng-show="customer">
-          <span class="ion-log-in large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/feedback" ng-show="customer">
+          <span class="icon ion-log-in large"></span>
           Feedback
         </ion-item>
 
-        <ion-item menu-close href="#/tab/F&Q">
-          <span class="ion-help large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/F&Q">
+          <span class="icon ion-help large"></span>
           F.A.Qs
         </ion-item>
 
-        <ion-item menu-close href="#/tab/about">
-          <span class="ion-information-circled large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/about">
+          <span class="icon ion-information-circled large"></span>
           About
         </ion-item>
 
-        <ion-item menu-close href="#/tab/t&c" ng-show="customer">
-          <span class="ion-alert-circled large"></span>
+        <ion-item menu-close class="item item-icon-left" href="#/tab/t&c" ng-show="customer">
+          <span class="icon ion-alert-circled large"></span>
           Terms & Conditions
         </ion-item>
-        <ion-item menu-close ng-click="logout()">
-          <span class="ion-power large"></span>
+        <ion-item menu-close class="item item-icon-left" ng-click="logout()">
+          <span class="icon ion-power large"></span>
           Logout
         </ion-item>
 

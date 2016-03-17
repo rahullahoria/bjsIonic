@@ -467,6 +467,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
 
     })
+    .controller('SurveyCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
+
+        $scope.goodAns = ["B","A","B","B","B","B","B","A"];
+        $scope.showQ = true;
+        $scope.postSurvey = function(){
+            $scope.showQ = false;
+
+        };
+    })
 
     .controller('PriceCalCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
         $scope.data = {};
@@ -578,7 +587,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         console.log($scope.selectedTime.getUTCHours() + i);
                     }
 
-                    $scope.data.days = (parseInt($scope.data.days)<21)?21:$scope.data.days;
+                    $scope.data.days = (parseInt($scope.data.days)<15)?15:$scope.data.days;
                     $scope.forDays = parseInt($scope.data.days)*parseInt($scope.prices[0].cost)   ;
                     for(var i = 1;i < $scope.data.hours;i++) {
                         $scope.forDays = $scope.forDays + (parseInt($scope.data.days) * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
@@ -912,7 +921,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     $localstorage.set('type', "");
                     $localstorage.set('user_id', "");
 
-                    $ionicHistory.clearHistory();
+                    $timeout(function () {
+                        $ionicHistory.clearCache();
+                        $ionicHistory.clearHistory();
+
+                    },300);
                     $state.go('reg');
                 } else {
                     console.log('You are not sure');

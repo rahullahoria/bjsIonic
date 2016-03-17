@@ -50,6 +50,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 
             })
+            .state('survey', {
+                url: '/survey',
+
+
+                templateUrl: 'survey.html',
+                controller: 'SurveyCtrl'
+
+
+            })
 
             .state('tab.service-list', {
                 url: '/service-list',
