@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker','ion-datetime-picker'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker','ion-datetime-picker','ionic.rating'])
 
     .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
@@ -713,6 +713,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 console.log(JSON.stringify($scope.srs));
             });
 
+        // set the rate and max variables
+        $scope.rating = {};
+
+        $scope.rating.max = 5;
+
         $scope.doRefresh = function() {
             BlueTeam.getMysr($localstorage.get('mobile'))
                 .then(function (d) {
@@ -721,6 +726,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     //$ionicHistory.clearHistory();
                     //$state.go('finish');
                     $scope.srs = d['root']['srs'];
+
                     console.log(JSON.stringify($scope.srs));
                 })
                 .finally(function() {
@@ -903,6 +909,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.customer = false;
         $scope.type = $localstorage.get('type');
+        $scope.name = $localstorage.get('name');
         if($scope.type == "customer")
             $scope.customer = true;
         $scope.logout = function () {
