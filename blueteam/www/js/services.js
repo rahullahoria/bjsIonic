@@ -120,6 +120,18 @@ angular.module('starter.services', [])
           // Return the promise to the controller
           return promise;
         },
+        updateRating: function(data) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          console.log(JSON.stringify(data));
+          var promise = $http.post(url+'/ratings', data ).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(response);
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
         makePayment: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise
           console.log(JSON.stringify(data));

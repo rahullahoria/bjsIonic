@@ -1,10 +1,10 @@
-<ion-view view-title="Your Service Requests" >
+<ion-view view-title="Your Service Requests ( ID: {{user_id}} )" >
     <ion-content class="padding" style="margin-top: -50px" >
         <ion-refresher
                 pulling-text="Pull to refresh..."
                 on-refresh="doRefresh()">
         </ion-refresher>
-        All request are for User_id: {{user_id}}
+
         <ion-list>
         <ion-item ng-repeat="sr in srs " class="item item-text-wrap">
             <div>

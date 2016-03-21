@@ -718,6 +718,20 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.rating.max = 5;
 
+        $scope.updateRating = function($user_id,$rating){
+            BlueTeam.updateRating({
+                    "root": {
+                        "customer_id": $scope.user_id,
+                        "user_id": $user_id,
+                        "rating": "" + $rating/*,
+                        "device_id": $cordovaDevice.getUUID()*/
+                    }
+                })
+                .then(function (d) {
+                    //$scope.services = d['data']['services'];
+                    $scope.doRefresh();
+                });
+        };
         $scope.doRefresh = function() {
             BlueTeam.getMysr($localstorage.get('mobile'))
                 .then(function (d) {
