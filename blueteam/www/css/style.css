@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
+
+
 a {text-decoration: none;}
 
 .gallery {
@@ -69,4 +71,22 @@ a {text-decoration: none;}
     padding: 5px;
     background: #FFA500;
     margin: 0 0 20px;
+}
+
+.mynavbar{
+    height: 100px !important;
+}
+
+.has-header {
+    top: 100px;
+}
+
+ul.rating li {
+    display: inline;
+    border: 0px;
+    background: none;
+    padding: 5px 10px;
+}
+ul.rating li i {
+    font-size: 30px;
 }

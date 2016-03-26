@@ -23,6 +23,10 @@
     <!-- path to ionic/angularjs js -->
     <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 
+    <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+    <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+    <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/phonecontacts.js"></script>
@@ -48,7 +52,7 @@
 
         <ion-content >
             <div class="card " >
-                <center><img ng-src="img/ms-icon-70x70.png" class="img-rounded" style="max-width: 100%;" >
+                <center><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
                     <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
 
                 </center>
@@ -105,6 +109,122 @@
                             <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>
 
                         </div>
+
+                        <input class="button button-block button-positive"
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                    </div>
+
+
+
+                </form>
+            </div>
+        </ion-content>
+    </ion-view>
+
+</script>
+
+
+<script type="text/ng-template" id="survey.html">
+    <ion-view hide-nav-bar="true" >
+
+        <ion-content >
+            <div class="card " ng-show="showQ">
+                <center>
+                    <p><i style="font-style: italic;font-size: 0.8em">1 min survey please...</i></p>
+
+                </center>
+
+            </div>
+
+            <div class="card " ng-hide="showQ">
+                <center><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
+                    <p>
+                        <i style="font-style: italic;font-size: 2.0em">Welcome To BlueTeam</i></p>
+                    You will Not face any problem with BlueTeam Family
+
+                </center>
+                Such as:
+                <ol>
+                    <li ng-show="!q1">Timing problem</li>
+                    <li ng-show="q2">No Holidays</li>
+                </ol>
+
+            </div>
+
+
+            <div class="card" ng-show="showQ">
+
+
+
+                <form ng-submit="postSurvey()" name="survey" >
+
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook is coming on time daily?<br/>
+                        <ion-list>
+                            <ion-radio name="q1" ng-model="q1" ng-value=true>yes</ion-radio>
+                            <ion-radio name="q1" ng-model="q1" ng-value=false>no</ion-radio>
+                        </ion-list>
+
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook taking uninformed holidays/leave?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q2" ng-model="q2" ng-value=true>yes</ion-radio>
+                            <ion-radio name="q2" ng-model="q2" ng-value=false>no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook provide replacement while taking leave?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q3" ng-model="q3" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q3" ng-model="q3" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your cook/maid work as per as your needs?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q4" ng-model="q4" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q4" ng-model="q4" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your worker is police verified and previous employment verified?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q5" ng-model="q5" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q5" ng-model="q5" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your worker is trained?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q6" ng-model="q6" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q6" ng-model="q6" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Are you satisfied with the cook/maid work at your home?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q7" ng-model="q7" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q7" ng-model="q7" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Have you paid service or security charges to any agency/agent for cook/maid?<br/>
+                        <ion-list>
+                            <ion-radio name="q8" ng-model="q8" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q8" ng-model="q8" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+
+                    <div class="padding">
+
+
 
                         <input class="button button-block button-positive"
                                type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">

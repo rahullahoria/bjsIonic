@@ -1,4 +1,4 @@
-<ion-view view-title="{{service}} - {{type}}">
+<ion-view view-title="{{service | uppercase}} - {{type}}">
     <ion-content class="padding">
 
 
@@ -21,15 +21,14 @@
 
                 </label>
 
-                <label class="item item-input ">
-                    <ionic-timepicker input-obj="timePickerObject">
-                        <button class="button button-block button-positive overflowShow">
-                            <standard-time-meridian etime='timePickerObject.inputEpochTime'>
-                                Start Time: {{data.time}}
-                            </standard-time-meridian>
-                        </button>
-                    </ionic-timepicker>
-                </label>
+
+                <div class="item " ion-datetime-picker am-pm ng-model="datetimeValue" ng-click="takeStartTime()">
+
+                    Start Date and Time
+                    {{datetimeValue| date: "dd-MM-yyyy h:mm a"}}
+                </div>
+
+
 
                 <label class="item item-input ">
                     <span class="input-label">Hours</span>
@@ -51,7 +50,7 @@
             </div>
 
             <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                   ng-disabled="confirm.$invalid||!data.time24">
+                   ng-disabled="confirm.$invalid||!data.startTimeSet">
 
             </div>
         </form>

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker','ion-datetime-picker','ionic.rating'])
 
     .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
@@ -467,6 +467,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
 
     })
+    .controller('SurveyCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
+
+        $scope.goodAns = ["B","A","B","B","B","B","B","A"];
+        $scope.showQ = true;
+        $scope.postSurvey = function(){
+            $scope.showQ = false;
+
+        };
+    })
 
     .controller('PriceCalCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams, $cordovaGeolocation, $localstorage, BlueTeam) {
         $scope.data = {};
@@ -578,7 +587,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                         console.log($scope.selectedTime.getUTCHours() + i);
                     }
 
-                    $scope.data.days = (parseInt($scope.data.days)<21)?21:$scope.data.days;
+                    $scope.data.days = (parseInt($scope.data.days)<15)?15:$scope.data.days;
                     $scope.forDays = parseInt($scope.data.days)*parseInt($scope.prices[0].cost)   ;
                     for(var i = 1;i < $scope.data.hours;i++) {
                         $scope.forDays = $scope.forDays + (parseInt($scope.data.days) * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
@@ -705,6 +714,25 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 console.log(JSON.stringify($scope.srs));
             });
 
+        // set the rate and max variables
+        $scope.rating = {};
+
+        $scope.rating.max = 5;
+
+        $scope.updateRating = function($user_id,$rating){
+            BlueTeam.updateRating({
+                    "root": {
+                        "customer_id": $scope.user_id,
+                        "user_id": $user_id,
+                        "rating": "" + $rating/*,
+                        "device_id": $cordovaDevice.getUUID()*/
+                    }
+                })
+                .then(function (d) {
+                    //$scope.services = d['data']['services'];
+                    $scope.doRefresh();
+                });
+        };
         $scope.doRefresh = function() {
             BlueTeam.getMysr($localstorage.get('mobile'))
                 .then(function (d) {
@@ -713,6 +741,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                     //$ionicHistory.clearHistory();
                     //$state.go('finish');
                     $scope.srs = d['root']['srs'];
+
                     console.log(JSON.stringify($scope.srs));
                 })
                 .finally(function() {
@@ -895,6 +924,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
         $scope.customer = false;
         $scope.type = $localstorage.get('type');
+        $scope.name = $localstorage.get('name');
         if($scope.type == "customer")
             $scope.customer = true;
         $scope.logout = function () {
@@ -911,8 +941,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                     $localstorage.set('mobile', "");
                     $localstorage.set('email', "");
                     $localstorage.set('type', "");
+                    $localstorage.set('user_id', "");
 
-                    $ionicHistory.clearHistory();
+                    $timeout(function () {
+                        $ionicHistory.clearCache();
+                        $ionicHistory.clearHistory();
+
+                    },300);
                     $state.go('reg');
                 } else {
                     console.log('You are not sure');
@@ -935,6 +970,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
 
     .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
                                       $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
+        //for datetime picker
+        $scope.datetimeValue = new Date();
+
         $scope.data = {};
         $scope.data.hours = "";
 
@@ -954,26 +992,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                 }
             }
         }
-        $scope.data.hours = "";
-        $scope.selectedTime = new Date();
-        console.log(parseInt( $scope.selectedTime.getHours()));
-        $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
-                            + "00" + " "
-                            + (($scope.selectedTime.getHours()>12)?"PM":"AM");
 
-        $scope.data.time24 = false;
-        $scope.timePickerCallback = function (val) {
-            if (typeof (val) === 'undefined') {
-                console.log('Time not selected');
-            } else {
-                 var selectedTime = $scope.selectedTime = new Date(val * 1000);
-                console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
-                $scope.data.time24 = ("0"+selectedTime.getUTCHours()).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + ':00' ;
-                $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
-                console.log($scope.data.time24);
-            }
-            return false;
-        };
 
         $scope.service = $stateParams.id;
         $scope.type = $stateParams.type;
@@ -1023,25 +1042,22 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
             $ionicLoading.hide();
         };
 
-        $scope.timePickerObject = {
-            inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
-            step: 15,  //Optional
-            format: 12,  //Optional
-            titleLabel: 'Start time',  //Optional
-            setLabel: 'Set',  //Optional
-            closeLabel: 'Close',  //Optional
-            setButtonType: 'button-positive',  //Optional
-            closeButtonType: 'button-stable',  //Optional
-            callback: function (val) {    //Mandatory
-                $scope.timePickerCallback(val);
-            }
-        };
+        $scope.data.startTimeSet = false;
 
+        $scope.takeStartTime = function(){
+            $scope.data.startTimeSet = true;
+        };
         // making post api call to the server by using angular based service
 
         $scope.conf = function () {
-            if(!$scope.data.time24)
+            if(!$scope.data.startTimeSet) {
                 return false;
+            }
+            $scope.data.startTime = ""+("0"+($scope.datetimeValue.getHours())).slice(-2)
+                + ":"+("0"+($scope.datetimeValue.getMinutes())).slice(-2) + ":00";
+            $scope.data.endTime = ""+("0"+($scope.datetimeValue.getHours()+parseInt($scope.data.hours))%24 ).slice(-2)
+                + ":"+("0"+($scope.datetimeValue.getMinutes())).slice(-2) + ":00";
+
             $scope.show();
             //$localstorage.set('name', $scope.data.name);
             //$localstorage.set('mobile', $scope.data.mobile);
@@ -1054,10 +1070,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker']
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
                         "user_id": $localstorage.get('user_id'),
+                        "start_datatime": $scope.datetimeValue+"",
                         "service_type": $scope.type,
                         "remarks": $scope.type + " this is request by mobile app",
-                        "start_time": $scope.data.time24,
-                        "end_time": ""+("0"+($scope.selectedTime.getUTCHours()+parseInt($scope.data.hours))%24 ).slice(-2) + ":00:00",
+                        "start_time": $scope.data.startTime,
+                        "end_time": $scope.data.endTime,
                         "address": $scope.data.address,
                         "priority": "" + 3,
                         "device_id": $cordovaDevice.getUUID()
