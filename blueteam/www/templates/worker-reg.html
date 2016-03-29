@@ -1,0 +1,79 @@
+<!-- name,mobile,service,gender,experience,hours -->
+<ion-view view-title="Worker Reg">
+    <ion-content class="padding">
+
+
+        <form ng-submit="workerReg()" name="confirm" >
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    I need a <b> {{service}}</b> on <i style="font-style: italic;">{{type}}</i> bases,<br/>
+
+                    <i style="font-style: italic;">at price of {{price}}.</i>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Name</span>
+                    <input type="text" name="name" placeholder="enter name" ng-model="data.worker_name" ng-minlength="1" required />
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Mobile</span>
+                    <input type="number" name="mobile" placeholder="mobile"
+                           ng-model="data.worker_mobile" ng-minlength="10" ng-maxlength="10" required />
+
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Service
+                    </div>
+                    <select name="service" ng-model="data.service">
+                        <option value="maid">Maid</option>
+                        <option value="cook">Cook</option>
+                        <option value="expert-cook">Expert Cook</option>
+                        <option value="babysitter">BabySitter</option>
+                        <option value="auto-driver">Automatic Driver</option>
+                        <option value="man-driver">Manual Driver</option>
+                    </select>
+                </label>
+
+                <div class="item " ion-datetime-picker am-pm ng-model="datetimeValue" ng-click="takeStartTime()">
+
+                    Start Date and Time
+                    {{datetimeValue| date: "dd-MM-yyyy h:mm a"}}
+                </div>
+
+
+
+                <label class="item item-input ">
+                    <span class="input-label">Hours</span>
+                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" required />
+
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Address</span>
+                    <textarea placeholder="enter address" name="address" ng-model="data.worker_address" rows="4" ng-minlength="1" required></textarea>
+                </label>
+
+
+                <div class="padding">
+
+                    <p ng-show="confirm.mobile.$error.minlength || confirm.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+
+
+                </div>
+
+                <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                       ng-disabled="confirm.$invalid||!data.startTimeSet">
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

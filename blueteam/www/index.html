@@ -79,7 +79,7 @@
                                placeholder="Password" ng-model="data.password" ng-minlength="3"  required >
                     </label>
 
-                    <label class="item item-input " ng-hide=registered ng-keypress="checkSamePwd()" >
+                    <label class="item item-input " ng-hide=registered ng-keypress="checkSamePwd()" ng-change="checkSamePwd()" >
                         <span class="input-label" >Conf. Password</span>
                         <input type="password" name="conf_password" id="conf_password"
                                placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" >
