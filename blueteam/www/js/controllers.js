@@ -271,9 +271,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.checkReg = function () {
             console.log("trying to check");
             if ($scope.checked == false && $scope.data.mobile != undefined) {
+                $scope.checked = true;
                 BlueTeam.checkMobile($scope.data.mobile)
                     .then(function (d) {
-                        $scope.checked = true;
+
                         console.log(d['root'].user.user_exist);
                         $scope.registered = d['root'].user.user_exist;
 
