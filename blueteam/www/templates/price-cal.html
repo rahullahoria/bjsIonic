@@ -10,12 +10,8 @@
                             Service
                         </div>
                         <select name="service" ng-model="data.service">
-                            <option value="maid">Maid</option>
-                            <option value="cook">Cook</option>
-                            <option value="expert-cook">Expert Cook</option>
-                            <option value="babysitter">BabySitter</option>
-                            <option value="auto-driver">Automatic Driver</option>
-                            <option value="man-driver">Manual Driver</option>
+                            <option value="{{ service }}" ng-repeat="service in montlhyServices" >{{ service | uppercase}}</option>
+
                         </select>
                     </label>
 
@@ -26,11 +22,11 @@
                     </label>
 
                     <label class="item item-input ">
+                        <span class="input-label">Start Time </span>
+                        <ionic-timepicker input-obj="timePickerObject" >
 
-                        <ionic-timepicker input-obj="timePickerObject">
-
-                            <button class="button button-block button-positive overflowShow">
-                                <standard-time-meridian etime='timePickerObject.inputEpochTime'>Start Time : {{data.time}}</standard-time-meridian>
+                            <button class="button button-block overflowShow" >
+                                <standard-time-meridian etime='timePickerObject.inputEpochTime'> {{data.time}}</standard-time-meridian>
                             </button>
                         </ionic-timepicker>
                     </label>
@@ -41,7 +37,7 @@
 
                     </label>
 
-                    <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                    <input class="button button-block button-calm" type="submit" name="need now" value="Confirm" nav-direction="forward"
                            ng-disabled="confirm.$invalid">
                 </div>
 

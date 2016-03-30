@@ -562,43 +562,50 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             }
         };
 
+        $scope.show();
+        BlueTeam.getServices("?type=monthly").then(function (d) {
+
+            $ionicHistory.clearHistory();
+            $scope.montlhyServices = d['root'];
+            console.log(JSON.stringify($scope.montlhyServices));
+            $scope.hide();
+        });
+
         // making post api call to the server by using angular based service
 
         $scope.cal = function () {
             $scope.show();
 
 
-            BlueTeam.getPrice($scope.data.service)
+            BlueTeam.calPrice($scope.data.service,
+                {
+                    "root": {
+                        "days": $scope.data.days,
+
+                        "selectedTime": $scope.selectedTime,
+                        "hours": $scope.data.hours
+                    }
+                }
+
+
+            )
                 .then(function (d) {
                     $scope.hide();
 
-                    $scope.prices = d['root'].cost;
+                    $scope.resp = d['root'];
 
-                    var noOfMaxDays = (parseInt($scope.data.days)>26 || parseInt($scope.data.days)<21)?26:(parseInt($scope.data.days));
 
-                    $scope.max = noOfMaxDays*parseInt($scope.prices[0].cost);
-                    for(var i = 1;i < $scope.data.hours;i++) {
-                        $scope.max = $scope.max + (noOfMaxDays * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
-                        console.log($scope.selectedTime.getUTCHours() + i);
-                    }
+                    $scope.max = $scope.resp.max;
 
-                    $scope.min = 21*parseInt($scope.prices[0].cost)   ;
-                    for(var i = 1;i < $scope.data.hours;i++) {
-                        $scope.min = $scope.min + (21 * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
-                        console.log($scope.selectedTime.getUTCHours() + i);
-                    }
+                    $scope.min = $scope.resp.min ;
 
-                    $scope.data.days = (parseInt($scope.data.days)<15)?15:$scope.data.days;
-                    $scope.forDays = parseInt($scope.data.days)*parseInt($scope.prices[0].cost)   ;
-                    for(var i = 1;i < $scope.data.hours;i++) {
-                        $scope.forDays = $scope.forDays + (parseInt($scope.data.days) * parseInt($scope.prices[($scope.selectedTime.getUTCHours() + i)%24].cost));
-                        console.log($scope.selectedTime.getUTCHours() + i);
-                    }
+                    $scope.data.days = $scope.resp.days;
+                    $scope.forDays = $scope.resp.forDays ;
+
 
                     //<strike>
-                    $scope.discount = ($scope.forDays>$scope.max)?$scope.forDays:false ;
-                    $scope.forDays = ($scope.forDays>$scope.max)?$scope.max:$scope.forDays;
-                    $scope.avg = ($scope.max + $scope.min)/2;
+                    $scope.discount = $scope.resp.discount ;
+                    $scope.avg = $scope.resp.avg;
 
                     console.log("max",$scope.max,$scope.min,$scope.avg,$scope.forDays);
                 });

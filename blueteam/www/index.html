@@ -52,14 +52,15 @@
 
         <ion-content >
             <div class="card " >
-                <center><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
+                <div style="text-align: center;"><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
                     <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
 
-                </center>
+                </div>
 
             </div>
-
+            <div style="text-align: center;"><h3>Login/Signup</h3></div>
             <div class="card" >
+
 
 
 
@@ -75,13 +76,13 @@
 
                     <label class="item item-input " >
                         <span class="input-label" >Password</span>
-                        <input type="password" name="password" id="password" ng-keypress="checkReg()"
+                        <input type="password" name="password" id="password" ng-keypress="checkReg()" ng-change="checkReg()"
                                placeholder="Password" ng-model="data.password" ng-minlength="3"  required >
                     </label>
 
-                    <label class="item item-input " ng-hide=registered ng-keypress="checkSamePwd()" ng-change="checkSamePwd()" >
+                    <label class="item item-input " ng-hide=registered   >
                         <span class="input-label" >Conf. Password</span>
-                        <input type="password" name="conf_password" id="conf_password"
+                        <input type="password" name="conf_password" id="conf_password" ng-keypress="checkSamePwd()"
                                placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" >
                     </label>
 
@@ -110,7 +111,7 @@
 
                         </div>
 
-                        <input class="button button-block button-positive"
+                        <input class="button button-block button-calm"
                                type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
                     </div>
 

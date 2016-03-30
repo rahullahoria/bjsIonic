@@ -5,11 +5,11 @@ angular.module('starter.services', [])
 
       var url = "https://blueteam.in/api";
       return {
-        getServices: function() {
+        getServices: function(type) {
           // $http returns a promise, which has a then function, which also returns a promise
-          var promise = $http.get(url+'/services').then(function (response) {
+          var promise = $http.get(url+'/services'+(type?type:"")).then(function (response) {
             // The then function here is an opportunity to modify the response
-            console.log(response);
+            //console.log(response);
             // The return value gets picked up by the then in the controller.
             return response.data;
           });
@@ -39,6 +39,18 @@ angular.module('starter.services', [])
           // Return the promise to the controller
           return promise;
         },
+        calPrice: function(service, data) {
+          // $http returns a promise, which has a then function, which also returns a promise
+          console.log(JSON.stringify(data));
+          var promise = $http.post(url+'/cal-price/'+service, data ).then(function (response) {
+            // The then function here is an opportunity to modify the response
+            console.log(JSON.stringify(response));
+            // The return value gets picked up by the then in the controller.
+            return response.data;
+          });
+          // Return the promise to the controller
+          return promise;
+        },
         checkMobile: function(mobile) {
           // $http returns a promise, which has a then function, which also returns a promise
           var promise = $http.get(url+'/check-mobile/'+mobile).then(function (response) {
@@ -54,7 +66,7 @@ angular.module('starter.services', [])
           // $http returns a promise, which has a then function, which also returns a promise
           var promise = $http.get(url+'/pricings/'+service).then(function (response) {
             // The then function here is an opportunity to modify the response
-            console.log(response);
+            console.log(JSON.stringify(response));
             // The return value gets picked up by the then in the controller.
             return response.data;
           });
@@ -65,7 +77,7 @@ angular.module('starter.services', [])
           // $http returns a promise, which has a then function, which also returns a promise
           var promise = $http.get(url+'/mysr/'+mobile).then(function (response) {
             // The then function here is an opportunity to modify the response
-            console.log(response);
+            console.log(JSON.stringify(response));
             // The return value gets picked up by the then in the controller.
             return response.data;
           });
