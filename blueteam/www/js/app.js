@@ -187,6 +187,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
             })
 
+            .state('tab.addworker', {
+                url: '/addworker',
+                views: {
+                    'addworker': {
+                        templateUrl: 'templates/add-worker.html',
+                        controller: 'AddworkerCtrl'
+                    }
+                }
+            })
+
         ;
 
         // if none of the above states are matched, use this as the fallback

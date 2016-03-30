@@ -1,0 +1,99 @@
+<ion-view view-title="{{service}} - {{type}}">
+    <ion-content class="padding">
+
+
+        <form ng-submit="addmorker()" name="addworker" >
+            <div class="list">
+                
+                <label class="item item-input ">
+                    <span class="input-label">Name</span>
+                    <input type="text" name="name" placeholder="enter name" ng-model="data.name" ng-minlength="3" required />
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Mobile</span>
+                    <input type="number" name="mobile" placeholder="mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Emergency Mobile</span>
+                    <input type="number" name="emergency_mobile" placeholder="mobile" ng-model="data.emergency_mobile" ng-minlength="10" ng-maxlength="10" />
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Gender </span>
+                    <select class='selectpicker' name='gender' ng-model="data.gender">  
+                        <option value='Male'>Male </option>
+                        <option value='Female'>Female</option>
+                        <option value='Other'>Other</option>
+                    </select>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Age</span>
+                    <input type="number" name="age" placeholder="age" ng-model="data.age" ng-minlength="2" ng-maxlength="3" />
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Birth Date</span>
+                    <input type="date" name="birth_date" placeholder="Birth date" ng-model="data.birth_date" required />
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Address</span>
+                    <textarea placeholder="enter address" name="address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Experience</span>
+                    <input type="number" name="experience" placeholder="experience" ng-model="data.experience" required />
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Education</span>
+                    <input type="text" name="education" placeholder="education" ng-model="data.education" />
+                </label>
+                <label class="item item-input ">
+                    <ionic-timepicker input-obj="timePickerObject">
+                        <button class="button button-block button-positive overflowShow">
+                            <standard-time-meridian etime='timePickerObject.inputEpochTime'>
+                                Start Time: {{data.time}}
+                            </standard-time-meridian>
+                        </button>
+                    </ionic-timepicker>
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Working Hours</span>
+                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" required />
+
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Remarks</span>
+                    <textarea placeholder="enter remarks" name="remarks" ng-model="data.remarks" rows="4" ng-minlength="1" required></textarea>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label"> Select Service </span>
+                    <select class='selectpicker' name='service' ng-model="data.service">  
+                        <option value='maid'>Maid </option>
+                        <option value='cook'>Cook</option>
+                        <option value='driver'>Driver</option>
+                        <option value='patient_care'>Patient Care</option>
+                        <option value='babysitter'>Babysitter</option>
+                        <option value='security'>Security Guard</option>
+                    </select>
+                </label>
+            <div class="padding">
+
+                <p ng-show="confirm.mobile.$error.minlength || confirm.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+
+
+            </div>
+
+            <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                   ng-disabled="confirm.$invalid||!data.time24">
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </ion-content>
+</ion-view>
