@@ -179,11 +179,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         }
     })
 
-    .controller('RegCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage, PhoneContactsFactory, $ionicPlatform, $cordovaDevice, BlueTeam) {
+    .controller('RegCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage,
+                                     PhoneContactsFactory, $ionicPlatform, $cordovaDevice, $cordovaLocalNotification, BlueTeam) {
 
 
-        $scope.data = {"name": "", "email": "", "mobile": ""};
-
+        $scope.data = {"name": "", "email": "", "mobile": "","password":""};
+        $scope.user = {"name": "", "email": "", "mobile": "", "password":""};
         console.log("regcont started");
         $scope.registered = true;
         $scope.checked = false;
@@ -296,6 +297,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
 
         $ionicPlatform.ready(function () {
+            $scope.scheduleSingleNotification = function () {
+                $cordovaLocalNotification.schedule({
+                    id: 1,
+                    title: 'Title here',
+                    text: 'Text here',
+                    data: {
+                        customProperty: 'custom value'
+                    }
+                }).then(function (result) {
+                    // ...
+                });
+            };
+            
             $scope.findContact = function () {
                 // var fields = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses", "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
 
@@ -426,6 +440,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         $localstorage.set('email', $scope.data.email);
                         $localstorage.set('type', "customer");
                         $localstorage.set('user_id', $scope.user.id);
+                        $scope.data.name = "";
+                        $scope.data.mobile = "";
+                        $scope.data.email = "";
+                        $scope.data.password = "";
+                        $scope.data.conf_password = "";
 
                         $scope.hide();
                         $state.go('tab.service-list');
@@ -919,10 +938,31 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
 
     })
-    .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicPlatform, $ionicModal, $timeout, $ionicHistory, $localstorage) {
+    .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicPlatform, $ionicModal, $timeout, $ionicHistory, $cordovaToast, $localstorage) {
 
+        $scope.count=0;
         $ionicPlatform.registerBackButtonAction(function (event) {
             if($state.current.name=="tab.service-list"){
+                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function(success) {
+                    // success
+                }, function (error) {
+                    // error
+                });
+
+                $scope.count++;
+                if($scope.count >= 3)
+                    navigator.app.exitApp();
+            }
+
+            if($state.current.name=="reg"){
+                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function(success) {
+                    // success
+                }, function (error) {
+                    // error
+                });
+
+                $scope.count++;
+                if($scope.count >= 3)
                 navigator.app.exitApp();
             }
             else {
@@ -930,11 +970,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             }
         }, 100);
 
-        $scope.customer = false;
+
         $scope.type = $localstorage.get('type');
         $scope.name = $localstorage.get('name');
-        if($scope.type == "customer")
+
             $scope.customer = true;
+        if($scope.type == "cem") {
+            $scope.cem = true;
+            $scope.customer = false;
+        }
+
         $scope.logout = function () {
             var logoutConfirmPopup = $ionicPopup.confirm({
                 title: 'Confirm Logout',
@@ -955,7 +1000,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         $ionicHistory.clearCache();
                         $ionicHistory.clearHistory();
 
-                    },300);
+
+                    },100);
                     $state.go('reg');
                 } else {
                     console.log('You are not sure');
