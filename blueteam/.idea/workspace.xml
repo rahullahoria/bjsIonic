@@ -2,32 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
     </list>
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,22 +36,22 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77832514">
-              <caret line="311" column="12" selection-start-line="311" selection-start-column="12" selection-end-line="311" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.51724136">
+              <caret line="604" column="32" selection-start-line="604" selection-start-column="25" selection-end-line="604" selection-end-column="32" />
               <folding>
                 <element signature="e#1070#1133#0" expanded="false" />
                 <element signature="e#1391#6447#0" expanded="false" />
-                <element signature="e#16239#16577#0" expanded="false" />
-                <element signature="e#16675#16958#0" expanded="false" />
-                <element signature="e#17161#17344#0" expanded="false" />
-                <element signature="e#21976#24041#0" expanded="false" />
-                <element signature="e#24146#24787#0" expanded="false" />
-                <element signature="e#24918#26881#0" expanded="false" />
-                <element signature="e#27003#27642#0" expanded="false" />
-                <element signature="e#27867#30649#0" expanded="false" />
-                <element signature="e#30754#31363#0" expanded="false" />
-                <element signature="e#31538#34101#0" expanded="false" />
-                <element signature="e#34430#38650#0" expanded="false" />
+                <element signature="e#16288#16626#0" expanded="false" />
+                <element signature="e#16724#17007#0" expanded="false" />
+                <element signature="e#17210#17393#0" expanded="false" />
+                <element signature="e#22080#24145#0" expanded="false" />
+                <element signature="e#24250#24891#0" expanded="false" />
+                <element signature="e#25022#26985#0" expanded="false" />
+                <element signature="e#27107#27746#0" expanded="false" />
+                <element signature="e#27971#30753#0" expanded="false" />
+                <element signature="e#30858#31467#0" expanded="false" />
+                <element signature="e#31642#34205#0" expanded="false" />
+                <element signature="e#34534#38754#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,9 +60,12 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="36.833332">
-              <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-              <folding />
+            <state vertical-scroll-proportion="-13.125">
+              <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+              <folding>
+                <element signature="n#platform#0;n#widget#0;n#!!top" expanded="false" />
+                <element signature="n#platform#1;n#widget#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="192" column="34" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -199,7 +179,6 @@
         <option value="$PROJECT_DIR$/www/templates/profile.html" />
         <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/templates/service-list.html" />
         <option value="$PROJECT_DIR$/www/templates/about.html" />
         <option value="$PROJECT_DIR$/www/templates/blueteam_verified.html" />
@@ -216,6 +195,7 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
@@ -266,8 +246,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -592,7 +572,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="26" width="1368" height="743" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
@@ -678,17 +658,17 @@
           <folding>
             <element signature="e#1070#1133#0" expanded="false" />
             <element signature="e#1391#6447#0" expanded="false" />
-            <element signature="e#16239#16577#0" expanded="false" />
-            <element signature="e#16675#16958#0" expanded="false" />
-            <element signature="e#17161#17344#0" expanded="false" />
-            <element signature="e#21976#24041#0" expanded="false" />
-            <element signature="e#24146#24787#0" expanded="false" />
-            <element signature="e#24918#26881#0" expanded="false" />
-            <element signature="e#27003#27642#0" expanded="false" />
-            <element signature="e#27867#30649#0" expanded="false" />
-            <element signature="e#30754#31363#0" expanded="false" />
-            <element signature="e#31538#34101#0" expanded="false" />
-            <element signature="e#34430#38650#0" expanded="false" />
+            <element signature="e#16288#16626#0" expanded="false" />
+            <element signature="e#16724#17007#0" expanded="false" />
+            <element signature="e#17210#17393#0" expanded="false" />
+            <element signature="e#22080#24145#0" expanded="false" />
+            <element signature="e#24250#24891#0" expanded="false" />
+            <element signature="e#25022#26985#0" expanded="false" />
+            <element signature="e#27107#27746#0" expanded="false" />
+            <element signature="e#27971#30753#0" expanded="false" />
+            <element signature="e#30858#31467#0" expanded="false" />
+            <element signature="e#31642#34205#0" expanded="false" />
+            <element signature="e#34534#38754#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -728,17 +708,17 @@
           <folding>
             <element signature="e#1070#1133#0" expanded="false" />
             <element signature="e#1391#6447#0" expanded="false" />
-            <element signature="e#16239#16577#0" expanded="false" />
-            <element signature="e#16675#16958#0" expanded="false" />
-            <element signature="e#17161#17344#0" expanded="false" />
-            <element signature="e#21976#24041#0" expanded="false" />
-            <element signature="e#24146#24787#0" expanded="false" />
-            <element signature="e#24918#26881#0" expanded="false" />
-            <element signature="e#27003#27642#0" expanded="false" />
-            <element signature="e#27867#30649#0" expanded="false" />
-            <element signature="e#30754#31363#0" expanded="false" />
-            <element signature="e#31538#34101#0" expanded="false" />
-            <element signature="e#34430#38650#0" expanded="false" />
+            <element signature="e#16288#16626#0" expanded="false" />
+            <element signature="e#16724#17007#0" expanded="false" />
+            <element signature="e#17210#17393#0" expanded="false" />
+            <element signature="e#22080#24145#0" expanded="false" />
+            <element signature="e#24250#24891#0" expanded="false" />
+            <element signature="e#25022#26985#0" expanded="false" />
+            <element signature="e#27107#27746#0" expanded="false" />
+            <element signature="e#27971#30753#0" expanded="false" />
+            <element signature="e#30858#31467#0" expanded="false" />
+            <element signature="e#31642#34205#0" expanded="false" />
+            <element signature="e#34534#38754#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -778,17 +758,17 @@
           <folding>
             <element signature="e#1070#1133#0" expanded="false" />
             <element signature="e#1391#6447#0" expanded="false" />
-            <element signature="e#16239#16577#0" expanded="false" />
-            <element signature="e#16675#16958#0" expanded="false" />
-            <element signature="e#17161#17344#0" expanded="false" />
-            <element signature="e#21976#24041#0" expanded="false" />
-            <element signature="e#24146#24787#0" expanded="false" />
-            <element signature="e#24918#26881#0" expanded="false" />
-            <element signature="e#27003#27642#0" expanded="false" />
-            <element signature="e#27867#30649#0" expanded="false" />
-            <element signature="e#30754#31363#0" expanded="false" />
-            <element signature="e#31538#34101#0" expanded="false" />
-            <element signature="e#34430#38650#0" expanded="false" />
+            <element signature="e#16288#16626#0" expanded="false" />
+            <element signature="e#16724#17007#0" expanded="false" />
+            <element signature="e#17210#17393#0" expanded="false" />
+            <element signature="e#22080#24145#0" expanded="false" />
+            <element signature="e#24250#24891#0" expanded="false" />
+            <element signature="e#25022#26985#0" expanded="false" />
+            <element signature="e#27107#27746#0" expanded="false" />
+            <element signature="e#27971#30753#0" expanded="false" />
+            <element signature="e#30858#31467#0" expanded="false" />
+            <element signature="e#31642#34205#0" expanded="false" />
+            <element signature="e#34534#38754#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1038,37 +1018,40 @@
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="192" column="34" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="36.833332">
-          <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-          <folding />
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding>
+            <element signature="n#platform#0;n#widget#0;n#!!top" expanded="false" />
+            <element signature="n#platform#1;n#widget#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77832514">
-          <caret line="311" column="12" selection-start-line="311" selection-start-column="12" selection-end-line="311" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.51724136">
+          <caret line="604" column="32" selection-start-line="604" selection-start-column="25" selection-end-line="604" selection-end-column="32" />
           <folding>
             <element signature="e#1070#1133#0" expanded="false" />
             <element signature="e#1391#6447#0" expanded="false" />
-            <element signature="e#16239#16577#0" expanded="false" />
-            <element signature="e#16675#16958#0" expanded="false" />
-            <element signature="e#17161#17344#0" expanded="false" />
-            <element signature="e#21976#24041#0" expanded="false" />
-            <element signature="e#24146#24787#0" expanded="false" />
-            <element signature="e#24918#26881#0" expanded="false" />
-            <element signature="e#27003#27642#0" expanded="false" />
-            <element signature="e#27867#30649#0" expanded="false" />
-            <element signature="e#30754#31363#0" expanded="false" />
-            <element signature="e#31538#34101#0" expanded="false" />
-            <element signature="e#34430#38650#0" expanded="false" />
+            <element signature="e#16288#16626#0" expanded="false" />
+            <element signature="e#16724#17007#0" expanded="false" />
+            <element signature="e#17210#17393#0" expanded="false" />
+            <element signature="e#22080#24145#0" expanded="false" />
+            <element signature="e#24250#24891#0" expanded="false" />
+            <element signature="e#25022#26985#0" expanded="false" />
+            <element signature="e#27107#27746#0" expanded="false" />
+            <element signature="e#27971#30753#0" expanded="false" />
+            <element signature="e#30858#31467#0" expanded="false" />
+            <element signature="e#31642#34205#0" expanded="false" />
+            <element signature="e#34534#38754#0" expanded="false" />
           </folding>
         </state>
       </provider>

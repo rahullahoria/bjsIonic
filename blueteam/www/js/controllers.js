@@ -300,8 +300,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             $scope.scheduleSingleNotification = function () {
                 $cordovaLocalNotification.schedule({
                     id: 1,
-                    title: 'Title here',
-                    text: 'Text here',
+                    title: 'Hi, got net request',
+                    text: 'Need maid',
                     data: {
                         customProperty: 'custom value'
                     }
@@ -309,7 +309,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     // ...
                 });
             };
-            
+
+            //$scope.scheduleSingleNotification();
+
             $scope.findContact = function () {
                 // var fields = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses", "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
 
@@ -600,8 +602,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 {
                     "root": {
                         "days": $scope.data.days,
-
-                        "selectedTime": $scope.selectedTime,
+                        "startHr":selectedTime.getUTCHours(),
+                        "selectedTime": $scope.time24,
                         "hours": $scope.data.hours
                     }
                 }
