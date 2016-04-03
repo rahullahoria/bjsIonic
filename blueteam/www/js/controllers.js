@@ -602,7 +602,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 {
                     "root": {
                         "days": $scope.data.days,
-                        "startHr":selectedTime.getUTCHours(),
+                        "startHr":$scope.selectedTime.getUTCHours(),
                         "selectedTime": $scope.time24,
                         "hours": $scope.data.hours
                     }
