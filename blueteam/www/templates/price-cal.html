@@ -1,8 +1,19 @@
 <ion-view view-title="Price Calculator by Shatkon Labs Pvt. Ltd." >
-    <ion-content class="padding">
+    <ion-content class="padding" style="margin-top: -50px">
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <h4>
+                    No service charge, No commission <br/> Pay per Use
+
+                </h4>
+                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21 days)</i>
+            </div>
+
+        </div>
 
         <div class="card" >
-            <form ng-submit="cal()" name="confirm">
+            <form  name="confirm">
                 <div class="list">
 
                     <label class="item item-input item-select">
@@ -25,7 +36,7 @@
                         <span class="input-label">Start Time </span>
                         <ionic-timepicker input-obj="timePickerObject" >
 
-                            <button class="button button-block overflowShow" >
+                            <button class="button button-block overflowShow" ng-click="timeSet()">
                                 <standard-time-meridian etime='timePickerObject.inputEpochTime'> {{data.time}}</standard-time-meridian>
                             </button>
                         </ionic-timepicker>
@@ -33,12 +44,12 @@
 
                     <label class="item item-input ">
                         <span class="input-label">No. of hours</span>
-                        <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="3" required />
+                        <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="2" required />
 
                     </label>
 
-                    <input class="button button-block button-calm" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                           ng-disabled="confirm.$invalid">
+                    <input class="button button-block button-calm" type="submit" ng-click="cal()" name="need now" value="Confirm" nav-direction="forward"
+                           ng-disabled="confirm.$invalid || !timeClicked">
                 </div>
 
             </form>
@@ -58,6 +69,17 @@
                                     <span class="large">&#8377;</span>{{forDays}}
                 </h4>
             </div>
+        </div>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <h4>
+                    No service charge, No commission <br/> Pay per Use
+
+                </h4>
+                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21 days)</i>
+            </div>
+
         </div>
 
         <div class='card'>

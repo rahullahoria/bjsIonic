@@ -506,6 +506,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
+        $scope.selectedTime.setHours(7);
         $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
             + "00" + " "
             + (($scope.selectedTime.getHours()>12)?"PM":"AM");
@@ -570,7 +571,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
 
         $scope.timePickerObject = {
-            inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+            inputEpochTime: (7 * 60 * 60),  //Optional
             step: 15,  //Optional
             format: 12,  //Optional
             titleLabel: 'Start time',  //Optional
@@ -581,6 +582,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             callback: function (val) {    //Mandatory
                 $scope.timePickerCallback(val);
             }
+        };
+
+        $scope.timeClicked = false;
+
+        $scope.timeSet = function(){
+          $scope.timeClicked = true;
         };
 
         $scope.show();
@@ -595,6 +602,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         // making post api call to the server by using angular based service
 
         $scope.cal = function () {
+            if(!$scope.timeClicked)
+                return false;
             $scope.show();
 
 
@@ -1028,6 +1037,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                                       $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
         //for datetime picker
         $scope.datetimeValue = new Date();
+        $scope.datetimeValue.setHours(7);
 
         $scope.data = {};
         $scope.data.hours = "";
