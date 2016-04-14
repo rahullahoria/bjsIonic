@@ -21,6 +21,7 @@
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
     <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-timepicker/dist/templates.js"></script>
     <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 
     <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
@@ -32,6 +33,68 @@
     <script src="js/phonecontacts.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script type="text/javascript" >
+        var myService;
+
+        document.addEventListener('deviceready', function() {
+            var serviceName = 'com.red_folder.phonegap.plugin.backgroundservice.sample.MyService';
+            var factory = cordova.require('com.red_folder.phonegap.plugin.backgroundservice.BackgroundService');
+            myService = factory.create(serviceName);
+
+            //getStatus();
+            go();
+        }, true);
+
+        function getStatus() {
+            myService.getStatus(function(r){displayResult(r)}, function(e){displayError(e)});
+        }
+
+        function displayResult(data) {
+            alert("Is service running: " + data.ServiceRunning);
+        }
+
+        function displayError(data) {
+            alert("We have an error");
+        }
+        function updateHandler(data) {
+            if (data.LatestResult != null) {
+                try {
+                    var resultMessage = document.getElementById("resultMessage");
+                    resultMessage.innerHTML = data.LatestResult.Message;
+                } catch (err) {
+                }
+            }
+        }
+
+        function go() {
+            myService.getStatus(function(r){startService(r)}, function(e){displayError(e)});
+        };
+
+        function startService(data) {
+            if (data.ServiceRunning) {
+                enableTimer(data);
+            } else {
+                myService.startService(function(r){enableTimer(r)}, function(e){displayError(e)});
+                myService.registerForBootStart(function(r){}, function(e){});
+            }
+        }
+
+        function enableTimer(data) {
+            if (data.TimerEnabled) {
+                registerForUpdates(data);
+            } else {
+                myService.enableTimer(60000, function(r){registerForUpdates(r)}, function(e){displayError(e)});
+            }
+        }
+
+        function registerForUpdates(data) {
+            if (!data.RegisteredForUpdates) {
+                myService.registerForUpdates(function(r){updateHandler(r)}, function(e){handleError(e)});
+            }
+        }
+
+    </script>
+
 </head>
 <body ng-app="starter">
 <!--

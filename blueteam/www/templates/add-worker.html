@@ -1,8 +1,8 @@
-<ion-view view-title="{{service}} - {{type}}">
+<ion-view view-title="Register Worker">
     <ion-content class="padding">
 
 
-        <form ng-submit="addmorker()" name="addworker" >
+        <form ng-submit="addworker()" name="addworker" >
             <div class="list">
                 
                 <label class="item item-input ">
@@ -38,6 +38,16 @@
                     <span class="input-label">Address</span>
                     <textarea placeholder="enter address" name="address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
                 </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Native Place</span>
+                    <textarea placeholder="enter address" name="address" ng-model="data.native_place" rows="4" ng-minlength="1" required></textarea>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Native Address</span>
+                    <textarea placeholder="enter address" name="address" ng-model="data.native_add" rows="4" ng-minlength="1" required></textarea>
+                </label>
+
                 <label class="item item-input ">
                     <span class="input-label"> Experience</span>
                     <input type="number" name="experience" placeholder="experience" ng-model="data.experience" required />
@@ -56,9 +66,25 @@
                     </ionic-timepicker>
                 </label>
 
+                <ionic-timepicker etime="slots[0].epochTime" format="12" step="15">
+                    <button class="button button-block button-positive"> {{slots[0].epochTime}} </button>
+                </ionic-timepicker>
+
                 <label class="item item-input ">
                     <span class="input-label">Working Hours</span>
                     <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" required />
+
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Bonus</span>
+                    <input type="number" name="bonus" placeholder="No. of bonus points" ng-model="data.bonus" min="1" max="5" step="0.5" ng-minlength="1" ng-maxlength="1" required />
+
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Salary Rs.</span>
+                    <input type="number" name="salary" placeholder="Salary like 5000" ng-model="data.salary" min="2000" max="15000" step="0.5" ng-minlength="1" ng-maxlength="2" required />
 
                 </label>
                 <label class="item item-input ">

@@ -190,7 +190,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             .state('tab.addworker', {
                 url: '/addworker',
                 views: {
-                    'addworker': {
+                    'information': {
                         templateUrl: 'templates/add-worker.html',
                         controller: 'AddworkerCtrl'
                     }
