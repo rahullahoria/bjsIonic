@@ -64,15 +64,32 @@ navigation history that also transitions its views in and out.
           Service Requests
         </ion-item>
 
+        <ion-item menu-close class="item item-icon-left" href="#/tab/scorecard" ng-hide="customer">
+          <span class="icon ion-calendar large" ></span>
+          Score Card
+        </ion-item>
+
         <ion-item menu-close class="item item-icon-left" href="#/tab/take-payment" ng-show="cem">
           <span class="icon ion-cash large"></span>
           Take Payment
         </ion-item>
 
         <ion-item menu-close href="#/tab/addworker" ng-show="cem">
-          <span class="ion-plus"></span>
+          <span class="icon ion-plus large"></span>
           Add New Worker
         </ion-item>
+
+        <ion-item menu-close href="#/tab/addworker" ng-show="customer">
+          <span class="icon ion-plus large"></span>
+          Verify Worker
+        </ion-item>
+
+        <ion-item menu-close href="#/tab/addworker" ng-show="cem">
+          <span class="icon ion-plus large"></span>
+          Add New Vender
+        </ion-item>
+
+
 
         <ion-item menu-close class="item item-icon-left" href="#/tab/blueteam_verified">
           <i class="icon ion-checkmark-round large"></i>
