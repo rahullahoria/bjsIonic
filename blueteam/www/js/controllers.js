@@ -831,6 +831,58 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
+    .controller('SeeRequestCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, $localstorage, BlueTeam) {
+
+        $scope.data = {};
+        $scope.user_id = $localstorage.get('user_id');
+        $scope.data.status = "open";
+        BlueTeam.getMysrByCEMId($scope.user_id,$scope.data.status)
+            .then(function (d) {
+
+                //$scope.hide();
+                //$ionicHistory.clearHistory();
+                //$state.go('finish');
+                $scope.srs = d['root']['srs'];
+                console.log(JSON.stringify($scope.srs));
+            });
+
+        // set the rate and max variables
+        $scope.rating = {};
+
+        $scope.rating.max = 5;
+
+
+        $scope.doRefresh = function() {
+            BlueTeam.getMysrByCEMId($scope.user_id,$scope.data.status)
+                .then(function (d) {
+
+                    //$scope.hide();
+                    //$ionicHistory.clearHistory();
+                    //$state.go('finish');
+                    $scope.srs = d['root']['srs'];
+
+                    console.log(JSON.stringify($scope.srs));
+                })
+                .finally(function() {
+                    // Stop the ion-refresher from spinning
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
+        };
+
+        $scope.toggleItem = function (item) {
+            if ($scope.isItemShown(item)) {
+                $scope.shownItem = null;
+            } else {
+                $scope.shownItem = item;
+            }
+        };
+        $scope.isItemShown = function (item) {
+            return $scope.shownItem === item;
+        };
+
+    })
+
+
     .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
 
         BlueTeam.getVerification()

@@ -1,0 +1,58 @@
+<ion-view view-title="Your Service Requests ( ID: {{user_id}} )" >
+    <ion-content class="padding" style="margin-top: -50px" >
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <ion-list>
+            <ion-item ng-repeat="sr in srs " class="item item-text-wrap">
+                <div>
+                    <div class="card">
+                        <h2>Id: {{sr.id}} <span class="pull-right">{{sr.creation}}</span></h2>
+                        <h3 >Name: {{sr.name}} </h3>
+                        <h3 >Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.worker_mobile}}"><span
+                                class="ion-android-call large"></span><b> +91 {{sr.mobile}} </b> </a> </h3>
+                        <h3>Service : {{sr.service | uppercase}} on {{sr.service_type}}</h3>
+                        <h3>address: {{sr.address}}</h3>
+                        <h3>remarks: {{sr.remarks}}</h3>
+
+                        <h3>Timings: {{sr.start_time}} - {{sr.end_time}}</h3>
+
+                    </div>
+                    <div class="card item item-thumbnail-left" href="#">
+
+                        <rating ng-show="sr.cem_rating"  ng-model="sr.cem_rating" max="rating.max" style="margin-left: -90px" ></rating>
+
+                    </div>
+                    <div class="card item item-thumbnail-left" href="#">
+                        <img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />
+                        <h3 ng-show="!sr.worker_name">No Worker Allotted</h3>
+                        <h3 ng-show="sr.worker_name">Worker Details:</h3>
+                        <h3 ng-show="sr.worker_name">{{sr.worker_name}} (ID: BT-15-{{sr.worker_id}})</h3>
+                        <h3 ng-show="sr.worker_name">Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.worker_mobile}}"><span
+                                    class="ion-android-call large"></span><b> +91 {{sr.worker_mobile}} </b> </a> </h3>
+                        <rating ng-show="sr.worker_name" ng-model="sr.worker_rating" ng-change="updateRating(sr.worker_id,sr.worker_rating)" max="rating.max" style="margin-left: -90px"></rating>
+
+                    </div>
+
+
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> For queries and issues. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span
+                            class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br/>
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')">info@blueteam.in</a><br/>
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
