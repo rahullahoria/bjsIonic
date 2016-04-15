@@ -1,0 +1,28 @@
+<ion-view view-title="Scores">
+
+    <ion-content has-header="true" class="padding">
+
+
+        <div class="card" ng-repeat="score in scores">
+
+
+            <h5>{{score.name | uppercase}}</h5>
+            <h5>{{score.t}}</h5>
+
+        </div>
+
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> For queries and issues. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span
+                            class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br/>
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')">info@blueteam.in</a><br/>
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

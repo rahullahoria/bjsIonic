@@ -192,7 +192,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 views: {
                     'information': {
                         templateUrl: 'templates/add-worker.html',
-                        controller: 'AddworkerCtrl'
+                        controller: 'AddWorkerCtrl'
+                    }
+                }
+            })
+
+            .state('tab.addvender', {
+                url: '/addvender',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/add-vender.html',
+                        controller: 'AddWorkerCtrl'
+                    }
+                }
+            })
+
+            .state('tab.seerequest', {
+                url: '/seerequest',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/see-request.html',
+                        controller: 'SeeRequestCtrl'
+                    }
+                }
+            })
+
+            .state('tab.scorecard', {
+                url: '/scorecard',
+                views: {
+                    'information': {
+                        templateUrl: 'templates/score-card.html',
+                        controller: 'ScoreCardCtrl'
                     }
                 }
             })

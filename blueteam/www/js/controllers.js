@@ -29,6 +29,35 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
+    .controller('ScoreCardCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
+
+        if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
+            $ionicHistory.clearHistory();
+            $state.go('reg');
+        }
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.show();
+
+        var temp = BlueTeam.getScore().then(function (d) {
+
+
+            $scope.scores =  d['root'];
+
+            $scope.hide();
+        });
+
+
+    })
+
     .controller('ContactCtrl', function ($scope, Contactlist) {
         $scope.contacts = Contactlist.getAllContacts();
     })
@@ -1031,8 +1060,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
-    .controller('AddworkerCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
-                                           $cordovaGeolocation, $localstorage, BlueTeam) {
+    .controller('AddWorkerCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
+                                           $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
 
         $scope.slots = [
             {epochTime: 12600, step: 15, format: 12},
@@ -1042,6 +1071,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.data = {};
 
 
+        $scope.type = $localstorage.get('type');
+
+
+
+        $scope.customer = true;
+        if($scope.type == "cem") {
+            $scope.cem = true;
+            $scope.customer = false;
+        }
 
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
@@ -1064,9 +1102,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
 
 
-        $scope.data.name = $localstorage.get('name');
-        $scope.data.mobile = parseInt($localstorage.get('mobile'));
-        $scope.data.address = $localstorage.get('address');
 
         $scope.position = {
             "coords": {
@@ -1140,21 +1175,42 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         // making post api call to the server by using angular based service
 
-        $scope.cal = function () {
-            if(!$scope.timeClicked)
-                return false;
+        $scope.addWorker = function () {
+
             $scope.show();
 
 
-            BlueTeam.calPrice($scope.data.service,
+            BlueTeam.postWorker(
+                {"root":
                 {
-                    "root": {
-                        "days": $scope.data.days,
-                        "startHr":$scope.selectedTime.getUTCHours(),
-                        "selectedTime": $scope.time24,
-                        "hours": $scope.data.hours
-                    }
-                }
+                    "name" : $scope.data.name,
+                    "mobile": $scope.data.mobile,
+                    "email": "",
+                    "type": $scope.data.type,
+                    "address": $scope.data.address,
+                    "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                    "device_id": $cordovaDevice.getUUID(),
+                    "ref_id": $localstorage.get('user_id'),
+                    "emergency_no": $scope.data.emergency_no,
+                    "native_place": $scope.data.native_place,
+                    "native_add": $scope.data.native_add,
+                    "dob": $scope.data.dob,
+                    "education": $scope.data.education,
+                    "experience": $scope.data.experience,
+                    "gender": $scope.data.gender,
+                    "remark": $scope.data.remark,
+                    "salary": $scope.data.salary,
+                    "bonus": $scope.data.bonus,
+                    "timings": [
+                        {
+                            "start_time": $scope.data.startTime,
+                            "end_time":$scope.data.startTime
+                        }
+                    ],
+                    "services": [2,3,4]
+
+                }}
+
 
 
                 )
@@ -1164,19 +1220,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     $scope.resp = d['root'];
 
 
-                    $scope.max = $scope.resp.max;
 
-                    $scope.min = $scope.resp.min ;
-
-                    $scope.data.days = $scope.resp.days;
-                    $scope.forDays = $scope.resp.forDays ;
-
-
-                    //<strike>
-                    $scope.discount = $scope.resp.discount ;
-                    $scope.avg = $scope.resp.avg;
-
-                    console.log("max",$scope.max,$scope.min,$scope.avg,$scope.forDays);
                 });
         };
 
