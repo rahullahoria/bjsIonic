@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/see-request.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/add-vender.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/score-card.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/add-worker.html" afterPath="$PROJECT_DIR$/www/templates/add-worker.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/service-list.html" afterPath="$PROJECT_DIR$/www/templates/service-list.html" />
     </list>
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +42,8 @@
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="873" column="25" selection-start-line="873" selection-start-column="25" selection-end-line="873" selection-end-column="25" />
+              <caret line="52" column="25" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="25" />
               <folding>
-                <element signature="e#236#1005#0" expanded="false" />
-                <element signature="e#1122#1771#0" expanded="false" />
                 <element signature="e#1836#1899#0" expanded="false" />
                 <element signature="e#2157#7213#0" expanded="false" />
                 <element signature="e#7463#16975#0" expanded="false" />
@@ -53,11 +54,11 @@
                 <element signature="e#23103#25168#0" expanded="false" />
                 <element signature="e#25273#25914#0" expanded="false" />
                 <element signature="e#26045#28008#0" expanded="false" />
-                <element signature="e#29761#30400#0" expanded="false" />
-                <element signature="e#30625#33407#0" expanded="false" />
-                <element signature="e#33512#34121#0" expanded="false" />
-                <element signature="e#34296#36859#0" expanded="false" />
-                <element signature="e#37080#42317#0" expanded="false" />
+                <element signature="e#28130#28769#0" expanded="false" />
+                <element signature="e#28994#31776#0" expanded="false" />
+                <element signature="e#31881#32490#0" expanded="false" />
+                <element signature="e#32665#35228#0" expanded="false" />
+                <element signature="e#35449#40686#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,27 +68,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="210" column="33" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="see-request.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/templates/see-request.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sr-list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/sr-list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.25">
-              <caret line="58" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <caret line="220" column="32" selection-start-line="220" selection-start-column="23" selection-end-line="220" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -106,8 +87,8 @@
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.392858">
-              <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="112" column="49" selection-start-line="112" selection-start-column="49" selection-end-line="112" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -143,11 +124,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.291667">
-              <caret line="61" column="93" selection-start-line="61" selection-start-column="93" selection-end-line="61" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.52478635">
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="price-cal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/price-cal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="26" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -195,13 +196,11 @@
         <option value="$PROJECT_DIR$/www/templates/add-vender.html" />
         <option value="$PROJECT_DIR$/www/templates/add-worker.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/service-list.html" />
         <option value="$PROJECT_DIR$/www/templates/score-card.html" />
-        <option value="$PROJECT_DIR$/www/templates/see-request.php" />
-        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
-        <option value="$PROJECT_DIR$/www/templates/see-request.html" />
       </list>
     </option>
   </component>
@@ -685,21 +684,15 @@
       <option name="project" value="LOCAL" />
       <updated>1460700495992</updated>
     </task>
-    <task id="LOCAL-00023" summary="add worker and vender pushed to server">
-      <created>1460700940883</created>
-      <option name="number" value="00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1460700940883</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="26" width="1368" height="743" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -750,11 +743,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -774,8 +774,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="63" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="65" />
           <folding>
-            <element signature="e#236#1005#0" expanded="false" />
-            <element signature="e#1122#1771#0" expanded="false" />
             <element signature="e#1836#1899#0" expanded="false" />
             <element signature="e#2157#7213#0" expanded="false" />
             <element signature="e#7463#16975#0" expanded="false" />
@@ -786,11 +784,11 @@
             <element signature="e#23103#25168#0" expanded="false" />
             <element signature="e#25273#25914#0" expanded="false" />
             <element signature="e#26045#28008#0" expanded="false" />
-            <element signature="e#29761#30400#0" expanded="false" />
-            <element signature="e#30625#33407#0" expanded="false" />
-            <element signature="e#33512#34121#0" expanded="false" />
-            <element signature="e#34296#36859#0" expanded="false" />
-            <element signature="e#37080#42317#0" expanded="false" />
+            <element signature="e#28130#28769#0" expanded="false" />
+            <element signature="e#28994#31776#0" expanded="false" />
+            <element signature="e#31881#32490#0" expanded="false" />
+            <element signature="e#32665#35228#0" expanded="false" />
+            <element signature="e#35449#40686#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,8 +826,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
-            <element signature="e#236#1005#0" expanded="false" />
-            <element signature="e#1122#1771#0" expanded="false" />
             <element signature="e#1836#1899#0" expanded="false" />
             <element signature="e#2157#7213#0" expanded="false" />
             <element signature="e#7463#16975#0" expanded="false" />
@@ -840,11 +836,11 @@
             <element signature="e#23103#25168#0" expanded="false" />
             <element signature="e#25273#25914#0" expanded="false" />
             <element signature="e#26045#28008#0" expanded="false" />
-            <element signature="e#29761#30400#0" expanded="false" />
-            <element signature="e#30625#33407#0" expanded="false" />
-            <element signature="e#33512#34121#0" expanded="false" />
-            <element signature="e#34296#36859#0" expanded="false" />
-            <element signature="e#37080#42317#0" expanded="false" />
+            <element signature="e#28130#28769#0" expanded="false" />
+            <element signature="e#28994#31776#0" expanded="false" />
+            <element signature="e#31881#32490#0" expanded="false" />
+            <element signature="e#32665#35228#0" expanded="false" />
+            <element signature="e#35449#40686#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -974,6 +970,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/sr-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/t&amp;c.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1095,6 +1098,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="49" selection-start-line="112" selection-start-column="49" selection-end-line="112" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1111,37 +1122,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/sr-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.25">
-          <caret line="58" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="210" column="33" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.291667">
-          <caret line="61" column="93" selection-start-line="61" selection-start-column="93" selection-end-line="61" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="873" column="25" selection-start-line="873" selection-start-column="25" selection-end-line="873" selection-end-column="25" />
+          <caret line="52" column="25" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="25" />
           <folding>
-            <element signature="e#236#1005#0" expanded="false" />
-            <element signature="e#1122#1771#0" expanded="false" />
             <element signature="e#1836#1899#0" expanded="false" />
             <element signature="e#2157#7213#0" expanded="false" />
             <element signature="e#7463#16975#0" expanded="false" />
@@ -1152,27 +1137,27 @@
             <element signature="e#23103#25168#0" expanded="false" />
             <element signature="e#25273#25914#0" expanded="false" />
             <element signature="e#26045#28008#0" expanded="false" />
-            <element signature="e#29761#30400#0" expanded="false" />
-            <element signature="e#30625#33407#0" expanded="false" />
-            <element signature="e#33512#34121#0" expanded="false" />
-            <element signature="e#34296#36859#0" expanded="false" />
-            <element signature="e#37080#42317#0" expanded="false" />
+            <element signature="e#28130#28769#0" expanded="false" />
+            <element signature="e#28994#31776#0" expanded="false" />
+            <element signature="e#31881#32490#0" expanded="false" />
+            <element signature="e#32665#35228#0" expanded="false" />
+            <element signature="e#35449#40686#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.392858">
-          <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="220" column="32" selection-start-line="220" selection-start-column="23" selection-end-line="220" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/see-request.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.52478635">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
         </state>
       </provider>
