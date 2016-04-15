@@ -103,10 +103,10 @@
 
             </div>
 
-                <input type="hidden" name="type" value="worker" />
+                <input type="hidden" name="type" ng-model="data.type" value="worker" />
 
                 <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                   ng-disabled="addworker-f.$invalid ||!data.time24">
+                   ng-disabled="addworker-f.$invalid ">
 
             </div>
         </form>
