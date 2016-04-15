@@ -14,51 +14,51 @@
                     <span class="input-label">Mobile</span>
                     <input type="number" name="mobile" placeholder="mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Emergency Mobile</span>
-                    <input type="number" name="emergency_mobile" placeholder="mobile" ng-show="cem" ng-model="data.emergency_mobile" ng-minlength="10" ng-maxlength="10" />
+                    <input type="number" name="emergency_mobile" placeholder="mobile" ng-model="data.emergency_mobile" ng-minlength="10" ng-maxlength="10" />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Gender </span>
-                    <select class='selectpicker' name='gender' ng-model="data.gender" ng-show="cem">
+                    <select class='selectpicker' name='gender' ng-model="data.gender" >
                         <option value='Male'>Male </option>
                         <option value='Female'>Female</option>
                         <option value='Other'>Other</option>
                     </select>
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Age</span>
-                    <input type="number" name="age" placeholder="age" ng-model="data.age" ng-show="cem" ng-minlength="2" ng-maxlength="3" />
+                    <input type="number" name="age" placeholder="age" ng-model="data.age" ng-minlength="2" ng-maxlength="3" />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Birth Date</span>
-                    <input type="date" name="birth_date" placeholder="Birth date" ng-show="cem" ng-model="data.birth_date" required />
+                    <input type="date" name="birth_date" placeholder="Birth date" ng-model="data.birth_date"  />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input "ng-show="cem">
                     <span class="input-label">Address</span>
-                    <textarea placeholder="enter address" name="address" ng-show="cem" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
+                    <textarea placeholder="enter address" name="address"  ng-model="data.address" rows="4" ng-minlength="1"></textarea>
                 </label>
 
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Native Place</span>
-                    <textarea placeholder="enter address" name="address" ng-show="cem" ng-model="data.native_place" rows="4" ng-minlength="1" required></textarea>
+                    <textarea placeholder="enter address" name="address" ng-model="data.native_place" rows="4" ng-minlength="1" ></textarea>
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Native Address</span>
-                    <textarea placeholder="enter address" name="address" ng-show="cem" ng-model="data.native_add" rows="4" ng-minlength="1" required></textarea>
+                    <textarea placeholder="enter address" name="address" ng-model="data.native_add" rows="4" ng-minlength="1" ></textarea>
                 </label>
 
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Experience</span>
-                    <input type="number" name="experience" ng-show="cem" placeholder="experience" ng-model="data.experience" required />
+                    <input type="number" name="experience" placeholder="experience" ng-model="data.experience" />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Education</span>
-                    <input type="text" ng-show="cem" name="education" placeholder="education" ng-model="data.education" />
+                    <input type="text"  name="education" placeholder="education" ng-model="data.education" />
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <ionic-timepicker input-obj="timePickerObject">
-                        <button class="button button-block button-positive overflowShow" ng-show="cem">
+                        <button class="button button-block button-positive overflowShow">
                             <standard-time-meridian etime='timePickerObject.inputEpochTime'>
                                 Start Time: {{data.time}}
                             </standard-time-meridian>
@@ -67,28 +67,28 @@
                 </label>
 
 
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Working Hours</span>
-                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-show="cem" ng-maxlength="2" required />
+                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" />
 
                 </label>
 
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Bonus</span>
-                    <input type="number" name="bonus" placeholder="No. of bonus points" ng-model="data.bonus" min="1" max="5" step="0.5" ng-minlength="1" ng-show="cem" ng-maxlength="1" required />
+                    <input type="number" name="bonus" placeholder="No. of bonus points" ng-model="data.bonus" min="1" max="5" step="0.5" ng-minlength="1" ng-maxlength="1" />
 
                 </label>
 
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Salary Rs.</span>
-                    <input type="number" name="salary" placeholder="Salary like 5000" ng-model="data.salary" min="2000" max="15000" step="0.5" ng-minlength="1" ng-show="cem" ng-maxlength="2" required />
+                    <input type="number" name="salary" placeholder="Salary like 5000" ng-model="data.salary" min="2000" max="15000" step="0.5" ng-minlength="1" ng-maxlength="2"  />
 
                 </label>
-                <label class="item item-input ">
+                <label class="item item-input " ng-show="cem">
                     <span class="input-label">Remarks</span>
-                    <textarea placeholder="enter remarks" name="remarks" ng-model="data.remarks" ng-show="cem" rows="4" ng-minlength="1" required></textarea>
+                    <textarea placeholder="enter remarks" name="remarks" ng-model="data.remarks" rows="4" ng-minlength="1"></textarea>
                 </label>
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-show="cem">
                     <div class="input-label">
                         Service
                     </div>
@@ -101,22 +101,15 @@
 
                 <p ng-show="addworker-f.mobile.$error.minlength || addworker-f.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
 
-
             </div>
 
                 <input type="hidden" name="type" value="worker" />
 
                 <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                   ng-disabled="addworker-f.$invalid||!data.time24">
+                   ng-disabled="addworker-f.$invalid ||!data.time24">
 
             </div>
         </form>
-
-
-
-
-
-
 
     </ion-content>
 </ion-view>
