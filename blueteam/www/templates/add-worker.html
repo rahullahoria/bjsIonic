@@ -26,10 +26,7 @@
                         <option value='Other'>Other</option>
                     </select>
                 </label>
-                <label class="item item-input " ng-show="cem">
-                    <span class="input-label"> Age</span>
-                    <input type="number" name="age" placeholder="age" ng-model="data.age" ng-minlength="2" ng-maxlength="3" />
-                </label>
+
                 <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Birth Date</span>
                     <input type="date" name="birth_date" placeholder="Birth date" ng-model="data.birth_date"  />
@@ -103,10 +100,10 @@
 
             </div>
 
-                <input type="hidden" name="type" value="worker" />
+                <input type="hidden" name="type" ng-model="data.type" value="worker" />
 
                 <input class="button button-block button-positive" type="submit" name="need now" value="Confirm" nav-direction="forward"
-                   ng-disabled="addworker-f.$invalid ||!data.time24">
+                   ng-disabled="addworker-f.$invalid ">
 
             </div>
         </form>

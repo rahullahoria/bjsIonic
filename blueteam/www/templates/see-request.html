@@ -1,4 +1,4 @@
-<ion-view view-title="Your Service Requests ( ID: {{user_id}} )" >
+<ion-view view-title="Service Requests Assigned to ( ID: {{user_id}} )" >
     <ion-content class="padding" style="margin-top: -50px" >
         <ion-refresher
             pulling-text="Pull to refresh..."
@@ -20,20 +20,35 @@
                         <h3>Timings: {{sr.start_time}} - {{sr.end_time}}</h3>
 
                     </div>
-                    <div class="card item item-thumbnail-left" href="#">
+                    <div class="card item " href="#">
 
-                        <rating ng-show="sr.cem_rating"  ng-model="sr.cem_rating" max="rating.max" style="margin-left: -90px" ></rating>
+                        <label ng-show="sr.cem_rating" class="item item-input " >
+                        <span class="input-label" >Your Rating </span>
+                        <rating   ng-model="sr.cem_rating" max="rating.max"  ></rating>
+                        </label>
+                        <label class="item item-input " >
+                            <span class="input-label" >Assign To </span>
+                            <input type="number" name="new_cem_id" placeholder="New CEM ID"
+                                   ng-model="sr.new_cem_id" ng-minlength="1" ng-maxlength="10" ng-change="updateCEM(sr.new_cem_id,sr.id)"  />
+
+                        </label>
 
                     </div>
                     <div class="card item item-thumbnail-left" href="#">
-                        <img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />
+                        <img ng-show="sr.worker_name" ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />
                         <h3 ng-show="!sr.worker_name">No Worker Allotted</h3>
                         <h3 ng-show="sr.worker_name">Worker Details:</h3>
                         <h3 ng-show="sr.worker_name">{{sr.worker_name}} (ID: BT-15-{{sr.worker_id}})</h3>
                         <h3 ng-show="sr.worker_name">Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.worker_mobile}}"><span
                                     class="ion-android-call large"></span><b> +91 {{sr.worker_mobile}} </b> </a> </h3>
-                        <rating ng-show="sr.worker_name" ng-model="sr.worker_rating" ng-change="updateRating(sr.worker_id,sr.worker_rating)" max="rating.max" style="margin-left: -90px"></rating>
+                        <rating ng-show="sr.worker_name" ng-model="sr.worker_rating"  max="rating.max" style="margin-left: -90px"></rating>
 
+                        <label class="item item-input " >
+                            <span class="input-label" >Add Worker</span>
+                            <input type="number" name="worker_id" placeholder="Worker ID"
+                                   ng-model="sr.worker_id" ng-minlength="1" ng-maxlength="10" ng-change="updateWorker(sr.worker_id,sr.id)"  />
+
+                        </label>
                     </div>
 
 

@@ -1241,9 +1241,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     "type": $scope.data.type,
                     "address": $scope.data.address,
                     "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                    "device_id": $cordovaDevice.getUUID(),
+                    /*"device_id": $cordovaDevice.getUUID(),*/
                     "ref_id": $localstorage.get('user_id'),
-                    "emergency_no": $scope.data.emergency_no,
+                    "emergency_no": $scope.data.emergency_mobile,
                     "native_place": $scope.data.native_place,
                     "native_add": $scope.data.native_add,
                     "dob": $scope.data.dob,
@@ -1269,9 +1269,28 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 .then(function (d) {
                     $scope.hide();
 
-                    $scope.resp = d['root'];
+                    $scope.resp = d['root'].user;
+                    if($scope.resp == "")
+                        alert("Failed! User already exists");
+                    else {
+                        $scope.data.name="";
+                        $scope.data.mobile = "";
+                        $scope.data.emergency_mobile="";
+                        $scope.data.type="";
+                        $scope.data.address="";
+                        $scope.data.native_place=""
+                        $scope.data.native_add="";
+                        $scope.data.dob="";
+                        $scope.data.education="";
+                        $scope.data.experience="";
+                        $scope.data.gender="";
+                        $scope.data.remark="";
+                        $scope.data.salary="";
+                        $scope.data.bonus="";
 
+                        alert("Registered Successfuly");
 
+                    }
 
                 });
         };
