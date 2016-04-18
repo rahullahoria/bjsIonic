@@ -5,12 +5,31 @@
             on-refresh="doRefresh()">
         </ion-refresher>
 
+        <div class="card">
+            <label class="item item-input ">
+                <span class="input-label"> Select Status </span>
+                <select class='selectpicker' name='status' ng-model="data.status">
+                    <option value='open' selected="selected">Open </option>
+                    <option value='paid'>Paid</option>
+                    <option value='due'>Due</option>
+                    <option value='issue'>Issue</option>
+                    <option value='followback'>Followback</option>
+                    <option value='feedback'>Feedback</option>
+
+                </select>
+
+                <span class="badge badge-assertive">{{srs.length}}</span>
+
+            </label>
+
+        </div>
+
         <ion-list>
             <ion-item ng-repeat="sr in srs " class="item item-text-wrap">
                 <div>
                     <div class="card">
                         <h2>Id: {{sr.id}} <span class="pull-right">{{sr.creation}}</span></h2>
-                        <h3 >Name: {{sr.name}} </h3>
+                        <h3 >Name: {{sr.name}} <span class="pull-right">Your Rating:{{sr.cem_rating?sr.cem_rating:"NA"}}</span></h3>
                         <h3 >Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.worker_mobile}}"><span
                                 class="ion-android-call large"></span><b> +91 {{sr.mobile}} </b> </a> </h3>
                         <h3>Service : {{sr.service | uppercase}} on {{sr.service_type}}</h3>
@@ -18,37 +37,61 @@
                         <h3>remarks: {{sr.remarks}}</h3>
 
                         <h3>Timings: {{sr.start_time}} - {{sr.end_time}}</h3>
+                        <label class="item item-input ">
+                            <span class="input-label"> Status </span>
+                            <select class='selectpicker' name='status' ng-model="sr.status">
+                                <option value='open' selected="selected">Open </option>
+                                <option value='paid'>Paid</option>
+                                <option value='due'>Due</option>
+                                <option value='issue'>Issue</option>
+                                <option value='followback'>Followback</option>
+                                <option value='feedback'>Feedback</option>
 
-                    </div>
-                    <div class="card item " href="#">
+                            </select>
 
-                        <label ng-show="sr.cem_rating" class="item item-input " >
-                        <span class="input-label" >Your Rating </span>
-                        <rating   ng-model="sr.cem_rating" max="rating.max"  ></rating>
+
                         </label>
+
+                        <button class="button button-positive button-small pull-right" ng-click="update('status',sr.status,sr.id)">
+                            U
+                        </button>
+                    </div>
+                    <div class="card " href="#">
+
+
                         <label class="item item-input " >
                             <span class="input-label" >Assign To </span>
                             <input type="number" name="new_cem_id" placeholder="New CEM ID"
-                                   ng-model="sr.new_cem_id" ng-minlength="1" ng-maxlength="10" ng-change="updateCEM(sr.new_cem_id,sr.id)"  />
+                                   ng-model="sr.new_cem_id" ng-minlength="1" ng-maxlength="10"   />
 
                         </label>
 
+
+                        <button class="button button-positive button-small pull-left" ng-click="update('new_cem_id',sr.new_cem_id,sr.id)">
+                            U
+                        </button>
+
+
                     </div>
-                    <div class="card item item-thumbnail-left" href="#">
-                        <img ng-show="sr.worker_name" ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />
+                    <div class="card">
+                        <!--<img ng-show="sr.worker_name" ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />-->
                         <h3 ng-show="!sr.worker_name">No Worker Allotted</h3>
                         <h3 ng-show="sr.worker_name">Worker Details:</h3>
-                        <h3 ng-show="sr.worker_name">{{sr.worker_name}} (ID: BT-15-{{sr.worker_id}})</h3>
+                        <h3 ng-show="sr.worker_name">{{sr.worker_name}} (ID: BT-15-{{sr.worker_id}})<span class="pull-right">Given Rating:{{sr.worker_rating?sr.worker_rating:"NA"}}</span></h3>
                         <h3 ng-show="sr.worker_name">Mobile:<a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{sr.worker_mobile}}"><span
                                     class="ion-android-call large"></span><b> +91 {{sr.worker_mobile}} </b> </a> </h3>
-                        <rating ng-show="sr.worker_name" ng-model="sr.worker_rating"  max="rating.max" style="margin-left: -90px"></rating>
 
                         <label class="item item-input " >
                             <span class="input-label" >Add Worker</span>
                             <input type="number" name="worker_id" placeholder="Worker ID"
-                                   ng-model="sr.worker_id" ng-minlength="1" ng-maxlength="10" ng-change="updateWorker(sr.worker_id,sr.id)"  />
+                                   ng-model="sr.worker_id" ng-minlength="1" ng-maxlength="10"   />
+
 
                         </label>
+
+                        <button class="button button-positive button-small pull-right" ng-click="update('user_worker_id',sr.worker_id,sr.id)">
+                            U
+                        </button>
                     </div>
 
 
