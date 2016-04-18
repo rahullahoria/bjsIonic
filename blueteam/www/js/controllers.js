@@ -1157,6 +1157,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             $scope.customer = false;
         }
 
+        if($scope.type != "customer")
+            $scope.customer = false;
+
         $scope.logout = function () {
             var logoutConfirmPopup = $ionicPopup.confirm({
                 title: 'Confirm Logout',
