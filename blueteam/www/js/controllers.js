@@ -50,7 +50,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         var temp = BlueTeam.getScore().then(function (d) {
 
 
-            $scope.scores =  d['root'];
+            $scope.scores =  d['root'].scores;
 
             $scope.hide();
         });

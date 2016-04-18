@@ -3,11 +3,21 @@
     <ion-content has-header="true" class="padding">
 
 
-        <div class="card" ng-repeat="score in scores">
+        <div class="card">
+            <div class="row header">
+                <div class="col-20"><b>ID</b></div>
+                <div class="col"><b>Name</b></div>
+                <div class="col"><b>Score</b></div>
+
+            </div>
+            <div class="row"  ng-repeat="score in scores">
+                <div class="col-20">{{score.id}}</div>
+                <div class="col">{{score.name | uppercase}}</div>
+                <div class="col">{{score.score| limitTo: 5}}</div>
+
+            </div>
 
 
-            <h5>{{score.name | uppercase}}</h5>
-            <h5>{{score.t}}</h5>
 
         </div>
 
