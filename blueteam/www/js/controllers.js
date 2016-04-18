@@ -1322,7 +1322,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     "name" : $scope.data.name,
                     "mobile": $scope.data.mobile,
                     "email": "",
-                    "type": $scope.data.type,
+                    "type1": $scope.data.type,
                     "address": $scope.data.address,
                     "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                     /*"device_id": $cordovaDevice.getUUID(),*/
