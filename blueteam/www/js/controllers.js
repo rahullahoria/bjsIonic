@@ -1387,8 +1387,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     .controller('BookCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
                                       $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
         //for datetime picker
+        console.log("start book ctrl");
         $scope.datetimeValue = new Date();
         $scope.datetimeValue.setHours(7);
+        $scope.datetimeValue.setMinutes(0);
 
         $scope.data = {};
         $scope.data.hours = "";
@@ -1462,6 +1464,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.data.startTimeSet = false;
 
         $scope.takeStartTime = function(){
+            console.log($scope.datetimeValue.toString(),$scope.data.drv.toString());
             $scope.data.startTimeSet = true;
         };
         // making post api call to the server by using angular based service
@@ -1470,10 +1473,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             if(!$scope.data.startTimeSet) {
                 return false;
             }
-            $scope.data.startTime = ""+("0"+($scope.datetimeValue.getHours())).slice(-2)
-                + ":"+("0"+($scope.datetimeValue.getMinutes())).slice(-2) + ":00";
-            $scope.data.endTime = ""+("0"+($scope.datetimeValue.getHours()+parseInt($scope.data.hours))%24 ).slice(-2)
-                + ":"+("0"+($scope.datetimeValue.getMinutes())).slice(-2) + ":00";
+            $scope.data.startTime = ""+("0"+($scope.data.drv.getHours())).slice(-2)
+                + ":"+("0"+($scope.data.drv.getMinutes())).slice(-2) + ":00";
+            $scope.data.endTime = ""+("0"+($scope.data.drv.getHours()+parseInt($scope.data.hours))%24 ).slice(-2)
+                + ":"+("0"+($scope.data.drv.getMinutes())).slice(-2) + ":00";
 
             $scope.show();
             //$localstorage.set('name', $scope.data.name);
@@ -1487,7 +1490,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
                         "user_id": $localstorage.get('user_id'),
-                        "start_datatime": $scope.datetimeValue+"",
+                        "start_datatime": $scope.data.drv+"",
                         "service_type": $scope.type,
                         "remarks": $scope.type + " this is request by mobile app",
                         "start_time": $scope.data.startTime,
