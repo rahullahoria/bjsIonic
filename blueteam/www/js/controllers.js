@@ -341,7 +341,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
             //$scope.scheduleSingleNotification();
 
-            $scope.findContact = function () {
+            /*$scope.findContact = function () {
                 // var fields = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses", "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
 
                 PhoneContactsFactory.find().then(function (contacts) {
@@ -359,14 +359,14 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                         if (lastContactId < contacts[i].id) {
                             $arr.push({
-                                /*name: contacts[i].name.formatted,*/
+                                //name: contacts[i].name.formatted,
                                 id: contacts[i].id,
                                 all: JSON.stringify(contacts[i])
                             });
 
 
                             $buff.push({
-                                /*name: contacts[i].name.formatted,*/
+                                //name: contacts[i].name.formatted,
                                 id: contacts[i].id,
                                 all: contacts[i]
                             });
@@ -420,7 +420,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                 });
             };
-            $scope.findContact();
+            $scope.findContact();*/
 
 
         });
