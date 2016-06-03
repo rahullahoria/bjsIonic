@@ -31,9 +31,9 @@
 
 
 
-                <label class="item item-input ">
-                    <span class="input-label">Hours</span>
-                    <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="15" step="0.5" ng-minlength="1" ng-maxlength="2" required />
+                <label class="item item-input range range-positive ">
+                    <span class="input-label">Hours: {{data.hours}}</span>
+                    <input type="range" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="12" value="2" required />
 
                 </label>
 
