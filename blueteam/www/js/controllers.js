@@ -208,8 +208,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         }
     })
 
-    .controller('RegCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $cordovaGeolocation, $localstorage,
-                                     PhoneContactsFactory, $ionicPlatform, $cordovaDevice, $cordovaLocalNotification, BlueTeam) {
+    .controller('RegCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $cordovaGeolocation, $localstorage,
+                                     PhoneContactsFactory, $ionicPlatform, $cordovaDevice, $window, $cordovaLocalNotification, BlueTeam) {
 
 
         $scope.data = {"name": "", "email": "", "mobile": "","password":""};
@@ -284,6 +284,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         $localstorage.set('mobile', $scope.user.mobile);
                         $localstorage.set('email', $scope.user.email);
                         $localstorage.set('type', $scope.user.type);
+                        //$window.location.reload(true)
+
+                        $timeout(function () {
+                            $window.location.reload(true);
+                        }, 5000);
 
                         if ($scope.user.type == "worker")
                             $state.go('tab.worker-timer');
@@ -341,7 +346,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
             //$scope.scheduleSingleNotification();
 
-            /*$scope.findContact = function () {
+            $scope.findContact = function () {
                 // var fields = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses", "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
 
                 PhoneContactsFactory.find().then(function (contacts) {
@@ -420,7 +425,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                 });
             };
-            $scope.findContact();*/
+            $scope.findContact();
 
 
         });
@@ -476,6 +481,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         $scope.data.email = "";
                         $scope.data.password = "";
                         $scope.data.conf_password = "";
+
+                        $timeout(function () {
+                            $window.location.reload(true);
+                        }, 5000);
 
                         $scope.hide();
                         $state.go('tab.service-list');

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="datatime bug 1">
+    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/book.html" afterPath="$PROJECT_DIR$/www/templates/book.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/price-cal.html" afterPath="$PROJECT_DIR$/www/templates/price-cal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/service-list.html" afterPath="$PROJECT_DIR$/www/templates/service-list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
@@ -36,30 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0591133">
-              <caret line="657" column="39" selection-start-line="657" selection-start-column="39" selection-end-line="657" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="211" column="99" selection-start-line="211" selection-start-column="99" selection-end-line="211" selection-end-column="99" />
               <folding>
                 <element signature="e#236#1005#0" expanded="false" />
                 <element signature="e#1122#1778#0" expanded="false" />
                 <element signature="e#1843#1906#0" expanded="false" />
                 <element signature="e#2164#7220#0" expanded="false" />
-                <element signature="e#7470#16982#0" expanded="false" />
-                <element signature="e#17061#17399#0" expanded="false" />
-                <element signature="e#17497#17780#0" expanded="false" />
-                <element signature="e#17983#18166#0" expanded="false" />
-                <element signature="e#23110#25175#0" expanded="false" />
-                <element signature="e#25280#25921#0" expanded="false" />
-                <element signature="e#26052#28015#0" expanded="false" />
-                <element signature="e#28270#32288#0" expanded="false" />
-                <element signature="e#32411#33050#0" expanded="false" />
-                <element signature="e#33275#36057#0" expanded="false" />
-                <element signature="e#36162#36771#0" expanded="false" />
-                <element signature="e#36946#39585#0" expanded="false" />
-                <element signature="e#39806#45946#0" expanded="false" />
-                <element signature="e#46157#50563#0" expanded="false" />
+                <element signature="e#28623#32641#0" expanded="false" />
+                <element signature="e#32764#33403#0" expanded="false" />
+                <element signature="e#36515#37124#0" expanded="false" />
+                <element signature="e#40159#46299#0" expanded="false" />
+                <element signature="e#46510#50916#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/www/templates/price-cal.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="58" />
+              <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
@@ -87,16 +78,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service-list.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="service-list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="144" selection-start-line="18" selection-start-column="144" selection-end-line="18" selection-end-column="144" />
+            <state vertical-scroll-proportion="0.5641026">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -119,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+              <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -149,9 +140,9 @@
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
               <folding>
-                <marker date="1463045512170" expanded="true" signature="186:451" placeholder="..." />
+                <marker date="1464982088336" expanded="true" signature="186:451" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -208,13 +199,13 @@
         <option value="$PROJECT_DIR$/www/templates/score-card.html" />
         <option value="$PROJECT_DIR$/www/templates/add-vender.html" />
         <option value="$PROJECT_DIR$/www/templates/service-requests.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/platforms/android/src/com/red_folder/phonegap/plugin/backgroundservice/sample/MyService.java" />
-        <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/www/templates/price-cal.html" />
-        <option value="$PROJECT_DIR$/www/templates/service-list.html" />
         <option value="$PROJECT_DIR$/www/templates/book.html" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
+        <option value="$PROJECT_DIR$/www/templates/price-cal.html" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/www/templates/service-list.html" />
       </list>
     </option>
   </component>
@@ -263,6 +254,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,178 +338,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="red_folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backgroundservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blueteam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="red_folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backgroundservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -765,7 +588,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461052173662</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="lAYOUT CHANGE">
+      <created>1464952877425</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1464952877425</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -829,7 +658,8 @@
     <MESSAGE value="update type" />
     <MESSAGE value="datatime bug" />
     <MESSAGE value="datatime bug 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="datatime bug 1" />
+    <MESSAGE value="lAYOUT CHANGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="lAYOUT CHANGE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -861,20 +691,11 @@
             <element signature="e#1122#1778#0" expanded="false" />
             <element signature="e#1843#1906#0" expanded="false" />
             <element signature="e#2164#7220#0" expanded="false" />
-            <element signature="e#7470#16982#0" expanded="false" />
-            <element signature="e#17061#17399#0" expanded="false" />
-            <element signature="e#17497#17780#0" expanded="false" />
-            <element signature="e#17983#18166#0" expanded="false" />
-            <element signature="e#23110#25175#0" expanded="false" />
-            <element signature="e#25280#25921#0" expanded="false" />
-            <element signature="e#26052#28015#0" expanded="false" />
-            <element signature="e#28270#32288#0" expanded="false" />
-            <element signature="e#32411#33050#0" expanded="false" />
-            <element signature="e#33275#36057#0" expanded="false" />
-            <element signature="e#36162#36771#0" expanded="false" />
-            <element signature="e#36946#39585#0" expanded="false" />
-            <element signature="e#39806#45946#0" expanded="false" />
-            <element signature="e#46157#50563#0" expanded="false" />
+            <element signature="e#28623#32641#0" expanded="false" />
+            <element signature="e#32764#33403#0" expanded="false" />
+            <element signature="e#36515#37124#0" expanded="false" />
+            <element signature="e#40159#46299#0" expanded="false" />
+            <element signature="e#46510#50916#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -916,20 +737,11 @@
             <element signature="e#1122#1778#0" expanded="false" />
             <element signature="e#1843#1906#0" expanded="false" />
             <element signature="e#2164#7220#0" expanded="false" />
-            <element signature="e#7470#16982#0" expanded="false" />
-            <element signature="e#17061#17399#0" expanded="false" />
-            <element signature="e#17497#17780#0" expanded="false" />
-            <element signature="e#17983#18166#0" expanded="false" />
-            <element signature="e#23110#25175#0" expanded="false" />
-            <element signature="e#25280#25921#0" expanded="false" />
-            <element signature="e#26052#28015#0" expanded="false" />
-            <element signature="e#28270#32288#0" expanded="false" />
-            <element signature="e#32411#33050#0" expanded="false" />
-            <element signature="e#33275#36057#0" expanded="false" />
-            <element signature="e#36162#36771#0" expanded="false" />
-            <element signature="e#36946#39585#0" expanded="false" />
-            <element signature="e#39806#45946#0" expanded="false" />
-            <element signature="e#46157#50563#0" expanded="false" />
+            <element signature="e#28623#32641#0" expanded="false" />
+            <element signature="e#32764#33403#0" expanded="false" />
+            <element signature="e#36515#37124#0" expanded="false" />
+            <element signature="e#40159#46299#0" expanded="false" />
+            <element signature="e#46510#50916#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1157,6 +969,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/price-cal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="211" column="99" selection-start-line="211" selection-start-column="99" selection-end-line="211" selection-end-column="99" />
+          <folding>
+            <element signature="e#236#1005#0" expanded="false" />
+            <element signature="e#1122#1778#0" expanded="false" />
+            <element signature="e#1843#1906#0" expanded="false" />
+            <element signature="e#2164#7220#0" expanded="false" />
+            <element signature="e#28623#32641#0" expanded="false" />
+            <element signature="e#32764#33403#0" expanded="false" />
+            <element signature="e#36515#37124#0" expanded="false" />
+            <element signature="e#40159#46299#0" expanded="false" />
+            <element signature="e#46510#50916#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="127" selection-start-line="35" selection-start-column="127" selection-end-line="35" selection-end-column="127" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5641026">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/score-card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/src/com/red_folder/phonegap/plugin/backgroundservice/BootReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1176,86 +1056,9 @@
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding>
-            <marker date="1463045512170" expanded="true" signature="186:451" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/score-card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/price-cal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/service-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="144" selection-start-line="18" selection-start-column="144" selection-end-line="18" selection-end-column="144" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="127" selection-start-line="35" selection-start-column="127" selection-end-line="35" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0591133">
-          <caret line="657" column="39" selection-start-line="657" selection-start-column="39" selection-end-line="657" selection-end-column="44" />
-          <folding>
-            <element signature="e#236#1005#0" expanded="false" />
-            <element signature="e#1122#1778#0" expanded="false" />
-            <element signature="e#1843#1906#0" expanded="false" />
-            <element signature="e#2164#7220#0" expanded="false" />
-            <element signature="e#7470#16982#0" expanded="false" />
-            <element signature="e#17061#17399#0" expanded="false" />
-            <element signature="e#17497#17780#0" expanded="false" />
-            <element signature="e#17983#18166#0" expanded="false" />
-            <element signature="e#23110#25175#0" expanded="false" />
-            <element signature="e#25280#25921#0" expanded="false" />
-            <element signature="e#26052#28015#0" expanded="false" />
-            <element signature="e#28270#32288#0" expanded="false" />
-            <element signature="e#32411#33050#0" expanded="false" />
-            <element signature="e#33275#36057#0" expanded="false" />
-            <element signature="e#36162#36771#0" expanded="false" />
-            <element signature="e#36946#39585#0" expanded="false" />
-            <element signature="e#39806#45946#0" expanded="false" />
-            <element signature="e#46157#50563#0" expanded="false" />
+            <marker date="1464982088336" expanded="true" signature="186:451" placeholder="..." />
           </folding>
         </state>
       </provider>

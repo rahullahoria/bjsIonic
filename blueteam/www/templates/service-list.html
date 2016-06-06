@@ -1,6 +1,6 @@
-<ion-view view-title="Book Now" >
+<ion-view view-title="Book Now">
 
-    <ion-content has-header="true"  class="padding" style="margin-top: -50px">
+    <ion-content has-header="true" class="padding" style="margin-top: -50px">
 
         <div style="text-align: center;">
             <p>
@@ -13,23 +13,26 @@
         <!--<div id="resultMessage">None yet</div>-->
 
         <div class="card row gallery ">
+            .
+            <div class="item item-divider text-center" >
+                BlueTeam Verified, Skilled & Experienced professionals.
+            </div>
+            .
+            <div class="item item-text-wrap">
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            BlueTeam Verified, Skilled &&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experienced professionals.
-            <div class="col col-33"  ng-repeat="service in services" style="float: left; display: block;">
+                <div class="col col-33" ng-repeat="service in services" style="float: left; display: block;">
 
-                <div class="">
-                    &nbsp;
-                    <a href="#/tab/service-list/{{service.name}}" nav-direction="forward" >
-                        <div style="text-align: center;">
-                            <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65" >
-                            <h5>{{service.name  | uppercase}}</h5>
-                        </div>
-                    </a>
+                    <div class="">
+                        &nbsp;
+                        <a href="#/tab/service-list/{{service.name}}" nav-direction="forward">
+                            <div style="text-align: center;">
+                                <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65">
+                                <h5>{{service.name | uppercase}}</h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class='card'>
@@ -38,7 +41,8 @@
                     No service charge, No commission <br/> Pay per Use
 
                 </h4>
-                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21 days)</i>
+                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21
+                    days)</i>
             </div>
 
         </div>
@@ -46,8 +50,9 @@
         <div class='card'>
             <div style="text-align: center;">
                 <i> For queries and issues. Please contact us at<br/>
-                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
-                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span
+                            class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br/>
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')">info@blueteam.in</a><br/>
                     <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
                 </i>
             </div>
