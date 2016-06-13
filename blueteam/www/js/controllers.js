@@ -1401,6 +1401,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.datetimeValue.setHours(7);
         $scope.datetimeValue.setMinutes(0);
 
+        $scope.type = $localstorage.get('type');
+        if($scope.type != "customer")
+            $scope.notCustomer = true;
+
         $scope.data = {};
         $scope.data.hours = "";
 
@@ -1505,6 +1509,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         "start_time": $scope.data.startTime,
                         "end_time": $scope.data.endTime,
                         "address": $scope.data.address,
+                        "remark": $scope.data.remark,
                         "priority": "" + 3,
                         "device_id": $cordovaDevice.getUUID()
                     }
