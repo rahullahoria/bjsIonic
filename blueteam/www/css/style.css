@@ -90,3 +90,7 @@ ul.rating li {
 ul.rating li i {
     font-size: 30px;
 }
+
+.item .row, .item .col {
+    padding: 0;
+}
