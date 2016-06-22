@@ -995,7 +995,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.rating.max = 5;
 
-        $scope.update = function(key,value,sr_id){
+        $scope.update = function(key,value,sr_id,index){
             var updateConfirmPopup = $ionicPopup.confirm({
                 title: 'Confirm Update',
                 template: 'Are you sure to Update?'
@@ -1019,9 +1019,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                             }
                         })
                         .then(function (d) {
-                            $timeout(function () {
+                            $scope.srs[index].dontshow = true;
+                            /*$timeout(function () {
                                 $window.location.reload(true);
-                            }, 10000);
+                            }, 10000);*/
                             //$scope.work.log_id = d['root'].id;
 
                         });
@@ -1298,7 +1299,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     })
 
     .controller('AddWorkerCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
-                                           $cordovaGeolocation, $localstorage, $cordovaDevice, BlueTeam) {
+                                           $cordovaGeolocation, $localstorage, $cordovaDevice, $cordovaBarcodeScanner, BlueTeam) {
 
         $scope.slots = [
             {epochTime: 12600, step: 15, format: 12},
@@ -1317,6 +1318,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             $scope.cem = true;
             $scope.customer = false;
         }
+
+        $scope.scanBarcode = function() {
+            $cordovaBarcodeScanner.scan().then(function(imageData) {
+                alert(imageData.text);
+                console.log("Barcode Format -> " + imageData.format);
+                console.log("Cancelled -> " + imageData.cancelled);
+            }, function(error) {
+                console.log("An error happened -> " + error);
+            });
+        };
 
         $scope.data.hours = "";
         $scope.selectedTime = new Date();

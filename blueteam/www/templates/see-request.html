@@ -28,7 +28,7 @@
         </div>
 
         <ion-list>
-            <ion-item ng-repeat="sr in srs " class="item item-text-wrap">
+            <ion-item ng-repeat="sr in srs " class="item item-text-wrap" ng-hide="srs[$index].dontshow">
                 <div>
                     <div class="card">
                         <div class="item item-divider text-center">
@@ -69,7 +69,7 @@
                             <div class="col">
                                 <div class="item-input-inset">
                                     <button class="button button-positive button-small pull-right"
-                                            ng-click="update('status',sr.status,sr.id)">
+                                            ng-click="update('status',sr.status,sr.id, $index)">
                                         U
                                     </button>
                                 </div>

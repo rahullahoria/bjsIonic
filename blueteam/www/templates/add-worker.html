@@ -1,7 +1,7 @@
 <ion-view view-title="Register Worker">
     <ion-content class="padding">
 
-
+        <button ng-click="scanBarcode()">Get worker Profile</button>
         <form ng-submit="addWorker()" name="addworker-f" >
             <div class="list">
                 
@@ -14,6 +14,8 @@
                     <span class="input-label">Mobile</span>
                     <input type="number" name="mobile" placeholder="mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
                 </label>
+
+
                 <label class="item item-input " ng-show="cem">
                     <span class="input-label"> Emergency Mobile</span>
                     <input type="number" name="emergency_mobile" placeholder="mobile" ng-model="data.emergency_mobile" ng-minlength="10" ng-maxlength="10" />
