@@ -628,6 +628,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 })
         };
 
+        $scope.calculateAge = function calculateAge(birthdayRaw) { // birthday is a date
+            var birthday = new Date(birthdayRaw);
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        };
+
         $scope.uploadPicture = function () {
             $ionicLoading.show({template: 'wait uploading the document, this may take a while ..'});
 
@@ -1487,6 +1494,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
 
         $scope.show();
+
+        $scope.calculateAge = function calculateAge(birthdayRaw) { // birthday is a date
+            var birthday = new Date(birthdayRaw);
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        };
 
         BlueTeam.getRefWorkers($scope.user_id)
             .then(function (d) {

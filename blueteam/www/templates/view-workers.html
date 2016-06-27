@@ -1,23 +1,68 @@
 <ion-view view-title="Profile">
-    <ion-content class="padding">
+    <ion-content class="padding" style="margin-top: -60px">
 
 
-        <div class="card " ng-repeat="worker in workers">
+        <div class="card " ng-repeat="worker in workers" ng-class="">
 
-            <div class="item item-divider">
-                <div >
-                    <img src="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.photo}}" height="100" width="100"/>
+            <div id="profile-bg">
+
+            </div>
+            <div id="content">
+                <div id="profile-info">
+                    <img id="profile-image" src="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.photo}}">
+                    <h3 id="profile-name">{{worker.name}} <i class="icon ion-checkmark-circled balanced"></i></h3>
+
+                    <span id="profile-description">
+                        <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{worker.mobile}}">
+                            <span class="ion-android-call large"></span>
+                            +91 {{worker.mobile}}
+                        </a> , {{worker.rating}}/5<span class="ion-star large"></span>, AGE: {{ calculateAge(worker.dob) }}
+                    </span>
+
+                    <h4><span class="ion-android-home large"></span> {{worker.address}}, {{worker.area}} </h4>
+                    <h5> Emergency <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{worker.emergency_no}}">
+                        <span class="ion-android-call large"></span>
+                        +91 {{worker.emergency_no}}
+                    </a>
+                    </h5>
                 </div>
-                {{worker.name}} - {{worker.mobile}}
             </div>
+
             <div class="item item-text-wrap">
+                <H2>
+                    Documents:
+                </H2>
+                <a CLASS="button-small"
+                        href="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.adhar_card}}"
+                   ng-show="worker.adhar_card != '0' && worker.adhar_card != null">
+                    <span class="ion-archive large"></span> Adhar Card
+                </a><br/>
+                <a CLASS="button-small"
+                   href="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.voter_id}}" ng-show="worker.voter_id != '0' && worker.voter_id != null">
+                    <span class="ion-archive large"></span> Voter Card
+                </a><br/>
+                <a CLASS="button-small"
+                   href="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.pan_card}}" ng-show="worker.pan_card != '0' && worker.pan_card != null">
+                    <span class="ion-archive large"></span> Pan Card
+                </a><br/>
+                <a CLASS="button-small"
+                   href="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.driving_license}}" ng-show="worker.driving_license != '0' && worker.driving_license != null">
+                    <span class="ion-archive large"></span> Driving License
+                </a><br/>
 
-                Rating: {{worker.rating}}/5
+                <h3 ng-show="(worker.driving_license == '0' && worker.driving_license == null)
+                            && (worker.pan_card == '0' && worker.pan_card == null)
+                            && (worker.voter_id == '0' && worker.voter_id == null)
+                            && (worker.adhar_card == '0' && worker.adhar_card == null) ">
+                    No Document Uploaded
+                </h3>
+
 
             </div>
-
 
         </div>
+
+
 
 
     </ion-content>
