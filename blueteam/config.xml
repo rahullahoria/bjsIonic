@@ -78,6 +78,8 @@ High skilled, Background verified, experienced and certified professional.
   <allow-intent href="mailto:*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="http://*/*"/>
+  <allow-intent href="content://*/*"/>
+  <allow-intent href="file://*/*"/>
   <allow-intent href="https://*/*"/>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>

@@ -60,6 +60,54 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
             })
 
+            .state('tab.contact-us', {
+
+                url: '/contact-us',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/contact-us.html',
+                        controller: 'ContactUsCtrl'
+                    }
+                }
+
+            })
+
+            .state('tab.digieye', {
+
+                url: '/digieye',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/digieye.html',
+                        controller: 'DigieyeCtrl'
+                    }
+                }
+
+            })
+
+            .state('tab.register-worker', {
+
+                url: '/register-worker',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/register-worker.html',
+                        controller: 'DigieyeCtrl'
+                    }
+                }
+
+            })
+
+            .state('tab.view-workers', {
+
+                url: '/view-workers',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/view-workers.html',
+                        controller: 'VWCtrl'
+                    }
+                }
+
+            })
+
             .state('tab.service-list', {
                 url: '/service-list',
                 views: {

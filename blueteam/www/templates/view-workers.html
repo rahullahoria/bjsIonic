@@ -1,0 +1,24 @@
+<ion-view view-title="Profile">
+    <ion-content class="padding">
+
+
+        <div class="card " ng-repeat="worker in workers">
+
+            <div class="item item-divider">
+                <div >
+                    <img src="http://api.file-dog.shatkonlabs.com/files/rahul/{{worker.photo}}" height="100" width="100"/>
+                </div>
+                {{worker.name}} - {{worker.mobile}}
+            </div>
+            <div class="item item-text-wrap">
+
+                Rating: {{worker.rating}}/5
+
+            </div>
+
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

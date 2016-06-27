@@ -1,0 +1,104 @@
+<ion-view view-title="DigiEYE with BlueTeam">
+    <ion-content class="padding" style="margin-top: -50px">
+
+        <div class="card " >
+
+            <div class="item item-divider">
+                Register worker
+            </div>
+            <div class="item item-text-wrap">
+
+                <form ng-submit="addWorker()" name="addworker-f">
+                    <div class="list">
+
+                        <label class="item item-input ">
+                            <span class="input-label">Name</span>
+                            <input type="text" name="name" placeholder="enter name" ng-model="data.name"
+                                   ng-minlength="3"
+                                   required/>
+                        </label>
+
+                        <label class="item item-input ">
+                            <span class="input-label">Mobile</span>
+                            <input type="number" name="mobile" placeholder="mobile" ng-model="data.mobile"
+                                   ng-minlength="10"
+                                   ng-maxlength="10" required/>
+                        </label>
+
+
+                        <label class="item item-input ">
+                            <span class="input-label"> Gender </span>
+                            <select class='selectpicker' name='gender' ng-model="data.gender">
+                                <option value='Male'>Male</option>
+                                <option value='Female'>Female</option>
+                                <option value='Other'>Other</option>
+                            </select>
+                        </label>
+
+
+                        <div class="list">
+
+                            <div class="item ">
+                                Worker Pic
+                                <a class="button pull-right"  ng-click="takePicture('p');"><span
+                                        class="icon ion-android-camera large calm"></span></a>
+                                <a class="button pull-right" ng-click="selectPicture('p')"><span
+                                        class="icon ion-images large calm"></span></a>
+                            </div><div class="item ">
+                            Voter Card
+
+                            <a class="button pull-right" ng-click="takePicture('vc');"><span
+                                    class="icon ion-android-camera large calm"></span></a>
+                            <a class="button pull-right" ng-click="selectPicture('vc')"><span
+                                    class="icon ion-images large calm"></span></a>
+                        </div><div class="item ">
+                            Adhar Card
+
+                            <a class="button pull-right" ng-click="takePicture('ac');"><span
+                                    class="icon ion-android-camera large calm"></span></a>
+                            <a class="button pull-right" ng-click="selectPicture('ac')"><span
+                                    class="icon ion-images large calm"></span></a>
+                        </div><div class="item ">
+
+                            Driving License
+
+                            <a class="button pull-right" ng-click="takePicture('dl');"><span
+                                    class="icon ion-android-camera large calm"></span></a>
+                            <a class="button pull-right" ng-click="selectPicture('dl')"><span
+                                    class="icon ion-images large calm"></span></a>
+                        </div><div class="item ">
+
+                            Pan Card
+
+                            <a class="button pull-right" ng-click="takePicture('pc');"><span
+                                    class="icon ion-android-camera large calm"></span></a>
+                            <a class="button pull-right" ng-click="selectPicture('pc')"><span
+                                    class="icon ion-images large calm"></span></a>
+
+
+                        </div>
+                            <div class="padding">
+
+                                <p ng-show="addworker-f.mobile.$error.minlength || addworker-f.mobile.$error.maxlength">*
+                                    Mobile No.
+                                    show be of 10 digit.</p>
+
+                            </div>
+
+                            <input type="hidden" name="type" ng-model="data.type" ng-init="data.type ='worker'"/>
+
+                            <input class="button button-block button-positive" type="submit" name="need now"
+                                   value="Register Him"
+                                   nav-direction="forward"
+                                   ng-disabled="addworker-f.$invalid ">
+
+                        </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

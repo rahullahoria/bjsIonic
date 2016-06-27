@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker','ion-datetime-picker','ionic.rating'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker', 'ion-datetime-picker', 'ionic.rating'])
 
     .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
@@ -50,7 +50,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         var temp = BlueTeam.getScore().then(function (d) {
 
 
-            $scope.scores =  d['root'].scores;
+            $scope.scores = d['root'].scores;
 
             $scope.hide();
         });
@@ -212,8 +212,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                                      PhoneContactsFactory, $ionicPlatform, $cordovaDevice, $window, $cordovaLocalNotification, BlueTeam) {
 
 
-        $scope.data = {"name": "", "email": "", "mobile": "","password":""};
-        $scope.user = {"name": "", "email": "", "mobile": "", "password":""};
+        $scope.data = {"name": "", "email": "", "mobile": "", "password": ""};
+        $scope.user = {"name": "", "email": "", "mobile": "", "password": ""};
         console.log("regcont started");
         $scope.registered = true;
         $scope.checked = false;
@@ -432,7 +432,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
 
         if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('email') === undefined ||
-                $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
+            $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
 
         } else {
             $ionicHistory.clearHistory();
@@ -448,7 +448,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 $scope.checkReg();
                 return;
             }
-            if ($scope.registered){
+            if ($scope.registered) {
                 $scope.login();
                 return;
             }
@@ -494,6 +494,276 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
     })
 
+    .controller('DigieyeCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
+                                         $cordovaGeolocation, $localstorage, $cordovaDevice, $cordovaBarcodeScanner,
+                                         $cordovaFileTransfer, $cordovaCamera, BlueTeam) {
+
+        $scope.data = {};
+
+
+        $scope.type = $localstorage.get('type');
+
+
+        $scope.customer = true;
+        if ($scope.type == "cem") {
+            $scope.cem = true;
+            $scope.customer = false;
+        }
+
+        $scope.scanBarcode = function () {
+            $cordovaBarcodeScanner.scan().then(function (imageData) {
+                //alert(imageData.text);
+
+                BlueTeam.getUserById(imageData.text)
+                    .then(function (d) {
+
+                        $scope.QrUser = d['root']['workers'][0];
+
+                        console.log(JSON.stringify($scope.QrUser));
+                    })
+                    .finally(function () {
+                        // Stop the ion-refresher from spinning
+                        $scope.$broadcast('scroll.refreshComplete');
+                    });
+
+                console.log("Barcode Format -> " + imageData.text);
+                console.log("Barcode Format -> " + imageData.format);
+                console.log("Cancelled -> " + imageData.cancelled);
+            }, function (error) {
+                console.log("An error happened -> " + error);
+            });
+        };
+
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+        // to get current location of the user
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+
+                $scope.position = position;
+
+            }, function (err) {
+                // error
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+            });
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        // image upload
+
+        $scope.data = {"ImageURI": "Select Image"};
+        $scope.takePicture = function (type1) {
+            console.log("take Pic Got clicked", type1);
+            $scope.uploadeType = type1;
+            var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.FILE_URL,
+                sourceType: Camera.PictureSourceType.CAMERA
+            };
+            $cordovaCamera.getPicture(options).then(
+                function (imageData) {
+                    $scope.picData = imageData;
+                    $scope.ftLoad = true;
+                    $localstorage.set('fotoUp', imageData);
+
+                    $ionicLoading.show({template: 'wait...', duration: 500});
+                    $scope.uploadPicture();
+                },
+                function (err) {
+                    $ionicLoading.show({template: 'Error...', duration: 500});
+                })
+        }
+
+        $scope.selectPicture = function (type1) {
+
+            $scope.uploadeType = type1;
+
+            var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+            };
+
+            $cordovaCamera.getPicture(options).then(
+                function (imageURI) {
+                    window.resolveLocalFileSystemURL(imageURI, function (fileEntry) {
+
+                        $scope.picData = fileEntry.toURL();
+                        $scope.ftLoad = true;
+                        $scope.uploadPicture();
+                        console.log($scope.picData);
+                        //var image = document.getElementById('myImage');
+                        //image.src = fileEntry.nativeURL;
+                    });
+                    $ionicLoading.show({template: 'wait...', duration: 500});
+                },
+                function (err) {
+                    $ionicLoading.show({template: 'error...', duration: 500});
+                })
+        };
+
+        $scope.uploadPicture = function () {
+            $ionicLoading.show({template: 'wait uploading the document, this may take a while ..'});
+
+            var fileURL = $scope.picData;
+
+            var options = new FileUploadOptions();
+            options.fileKey = "fileToUpload";
+            options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1) + ".jpg";
+            options.mimeType = "image/jpeg";
+            options.chunkedMode = true;
+
+            var params = {};
+            params.username = "rahul";
+            params.password = "rahul";
+
+            options.params = params;
+
+            var ft = new FileTransfer();
+            ft.upload(
+                fileURL,
+                encodeURI("http://api.file-dog.shatkonlabs.com/files/rahul"),
+                viewUploadedPictures,
+                function (error) {
+                    $ionicLoading.show({
+                        template: 'Something went wrong ...'
+                    });
+                    $ionicLoading.hide();
+                },
+                options);
+        };
+
+        var viewUploadedPictures = function (response) {
+            console.log(JSON.stringify(response), "hi", response.response);
+            $ionicLoading.show({template: 'trying to load the pic ...'});
+            server = "http://api.file-dog.shatkonlabs.com/files/rahul/" + JSON.parse(response.response).file.id;
+
+            if($scope.uploadeType == "p") $scope.data.photo = JSON.parse(response.response).file.id;
+            if($scope.uploadeType == "vc") $scope.data.voter_card = JSON.parse(response.response).file.id;
+            if($scope.uploadeType == "pc") $scope.data.pan_card = JSON.parse(response.response).file.id;
+            if($scope.uploadeType == "ac") $scope.data.adhar_card = JSON.parse(response.response).file.id;
+            if($scope.uploadeType == "dl") $scope.data.driving_license = JSON.parse(response.response).file.id;
+
+            $scope.picData = server;
+            $scope.ftLoad = true;
+            console.log($scope.picData);
+
+            $ionicLoading.hide();
+        }
+
+        $scope.viewPictures = function () {
+            $ionicLoading.show({template: 'Sto cercando le tue foto...'});
+            server = "http://www.yourdomain.com/upload.php";
+            if (server) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState === 4) {
+                        if (xmlhttp.status === 200) {
+                            document.getElementById('server_images').innerHTML = xmlhttp.responseText;
+                        }
+                        else {
+                            $ionicLoading.show({template: 'Errore durante il caricamento...', duration: 1000});
+                            return false;
+                        }
+                    }
+                };
+                xmlhttp.open("GET", server, true);
+                xmlhttp.send()
+            }
+            ;
+            $ionicLoading.hide();
+        };
+
+        $scope.addWorker = function () {
+
+            $scope.show();
+
+
+            BlueTeam.postWorker(
+                {
+                    "root": {
+                        "name": $scope.data.name,
+                        "mobile": $scope.data.mobile,
+                        "photo": $scope.data.photo,
+                        "voter_card": $scope.data.voter_card,
+                        "pan_card": $scope.data.pan_card,
+                        "adhar_card": $scope.data.adhar_card,
+                        "driving_license": $scope.data.driving_license,
+
+                        "type1": $scope.data.type,
+
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        /*"device_id": $cordovaDevice.getUUID(),*/
+                        "ref_id": $localstorage.get('user_id'),
+
+                        "gender": $scope.data.gender
+
+
+                    }
+                }
+                )
+                .then(function (d) {
+                    $scope.hide();
+
+                    $scope.resp = d['root'].user;
+                    if ($scope.resp == "")
+                        alert("Failed! User already exists");
+                    else {
+                        $scope.data.voter_card = "";
+                        $scope.data.pan_card = "";
+                        $scope.data.adhar_card = "";
+                        $scope.data.driving_license = "";
+                        $scope.data.name = "";
+                        $scope.data.mobile = "";
+                        $scope.data.emergency_mobile = "";
+                        $scope.data.type = "";
+                        $scope.data.address = "";
+                        $scope.data.native_place = ""
+                        $scope.data.native_add = "";
+                        $scope.data.dob = "";
+                        $scope.data.education = "";
+                        $scope.data.experience = "";
+                        $scope.data.gender = "";
+                        $scope.data.remark = "";
+                        $scope.data.salary = "";
+                        $scope.data.bonus = "";
+
+                        alert("Registered Successfuly");
+
+                    }
+
+                });
+        };
+
+
+    })
+
 
     .controller('ServiceTypeCtrl', function ($scope, $state, $stateParams) {
 
@@ -529,9 +799,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     })
     .controller('SurveyCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams) {
 
-        $scope.goodAns = ["B","A","B","B","B","B","B","A"];
+        $scope.goodAns = ["B", "A", "B", "B", "B", "B", "B", "A"];
         $scope.showQ = true;
-        $scope.postSurvey = function(){
+        $scope.postSurvey = function () {
             $scope.showQ = false;
 
         };
@@ -542,13 +812,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.data = {};
 
 
-
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
         $scope.selectedTime.setHours(7);
-        $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
+        $scope.data.time = ("0" + ($scope.selectedTime.getHours() % 12)).slice(-2) + ':'
             + "00" + " "
-            + (($scope.selectedTime.getHours()>12)?"PM":"AM");
+            + (($scope.selectedTime.getHours() > 12) ? "PM" : "AM");
         $scope.data.time24 = "";
 
         $scope.timePickerCallback = function (val) {
@@ -557,8 +826,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             } else {
                 var selectedTime = $scope.selectedTime = new Date(val * 1000);
                 console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
-                $scope.data.time24 = ("0"+selectedTime.getUTCHours()).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + ':00' ;
-                $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
+                $scope.data.time24 = ("0" + selectedTime.getUTCHours()).slice(-2) + ':' + ("0" + selectedTime.getUTCMinutes()).slice(-2) + ':00';
+                $scope.data.time = ("0" + (parseInt(selectedTime.getUTCHours()) % 12)).slice(-2) + ':' + ("0" + selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours() > 12) ? "PM" : "AM");
                 console.log($scope.data.time24);
             }
         };
@@ -625,8 +894,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.timeClicked = false;
 
-        $scope.timeSet = function(){
-          $scope.timeClicked = true;
+        $scope.timeSet = function () {
+            $scope.timeClicked = true;
         };
 
         $scope.show();
@@ -641,7 +910,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         // making post api call to the server by using angular based service
 
         $scope.cal = function () {
-            if(!$scope.timeClicked)
+            if (!$scope.timeClicked)
                 return false;
             $scope.show();
 
@@ -650,14 +919,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 {
                     "root": {
                         "days": $scope.data.days,
-                        "startHr":$scope.selectedTime.getUTCHours(),
+                        "startHr": $scope.selectedTime.getUTCHours(),
                         "selectedTime": $scope.time24,
                         "hours": $scope.data.hours
                     }
                 }
-
-
-            )
+                )
                 .then(function (d) {
                     $scope.hide();
 
@@ -666,17 +933,17 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                     $scope.max = $scope.resp.max;
 
-                    $scope.min = $scope.resp.min ;
+                    $scope.min = $scope.resp.min;
 
                     $scope.data.days = $scope.resp.days;
-                    $scope.forDays = $scope.resp.forDays ;
+                    $scope.forDays = $scope.resp.forDays;
 
 
                     //<strike>
-                    $scope.discount = $scope.resp.discount ;
+                    $scope.discount = $scope.resp.discount;
                     $scope.avg = $scope.resp.avg;
 
-                    console.log("max",$scope.max,$scope.min,$scope.avg,$scope.forDays);
+                    console.log("max", $scope.max, $scope.min, $scope.avg, $scope.forDays);
                 });
         };
 
@@ -823,13 +1090,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.rating.max = 5;
 
-        $scope.updateRating = function($user_id,$rating){
+        $scope.updateRating = function ($user_id, $rating) {
             BlueTeam.updateRating({
                     "root": {
                         "customer_id": $scope.user_id,
                         "user_id": $user_id,
                         "rating": "" + $rating/*,
-                        "device_id": $cordovaDevice.getUUID()*/
+                         "device_id": $cordovaDevice.getUUID()*/
                     }
                 })
                 .then(function (d) {
@@ -837,7 +1104,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     $scope.doRefresh();
                 });
         };
-        $scope.doRefresh = function() {
+        $scope.doRefresh = function () {
             BlueTeam.getMysr($localstorage.get('mobile'))
                 .then(function (d) {
 
@@ -848,7 +1115,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                     console.log(JSON.stringify($scope.srs));
                 })
-                .finally(function() {
+                .finally(function () {
                     // Stop the ion-refresher from spinning
                     $scope.$broadcast('scroll.refreshComplete');
                 });
@@ -857,20 +1124,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.data.feedback_text = null;
 
 
-
         // An elaborate, custom popup
-        $scope.inform =  function () {
+        $scope.inform = function () {
             var sendInfoPopup = $ionicPopup.show({
                 template: '<input type="text" ng-model="data.feedback_text"/>',
                 title: 'Please Type what you inform about?',
                 subTitle: 'You can inform here about the worker holiday or anything you want to communicate to BlueTeam.',
                 scope: $scope,
                 buttons: [
-                    { text: 'Cancel' },
+                    {text: 'Cancel'},
                     {
                         text: '<b>Send</b>',
                         type: 'button-positive',
-                        onTap: function(e) {
+                        onTap: function (e) {
                             if (!$scope.data.feedback_text) {
                                 //don't allow the user to close unless he enters wifi password
                                 e.preventDefault();
@@ -884,9 +1150,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 ]
             });
 
-            sendInfoPopup.then(function(res) {
-                console.log("tep",res);
-                if(res){
+            sendInfoPopup.then(function (res) {
+                console.log("tep", res);
+                if (res) {
                     $scope.feedback();
                 }
             });
@@ -912,8 +1178,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     //$scope.services = d['data']['services'];
                 });
         };
-
-
 
 
         $scope.toggleItem = function (item) {
@@ -980,7 +1244,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             });
 
 
-        BlueTeam.getMysrByCEMId($scope.user_id,$scope.data.status)
+        BlueTeam.getMysrByCEMId($scope.user_id, $scope.data.status)
             .then(function (d) {
 
                 //$scope.hide();
@@ -995,7 +1259,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.rating.max = 5;
 
-        $scope.update = function(key,value,sr_id,index){
+        $scope.update = function (key, value, sr_id, index) {
             var updateConfirmPopup = $ionicPopup.confirm({
                 title: 'Confirm Update',
                 template: 'Are you sure to Update?'
@@ -1013,7 +1277,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                                 "sr_id": sr_id,
                                 "user_id": $localstorage.get('user_id'),
                                 "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                                "key":key,
+                                "key": key,
                                 "value": value,
                                 "device_id": $cordovaDevice.getUUID()
                             }
@@ -1021,8 +1285,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         .then(function (d) {
                             $scope.srs[index].dontshow = true;
                             /*$timeout(function () {
-                                $window.location.reload(true);
-                            }, 10000);*/
+                             $window.location.reload(true);
+                             }, 10000);*/
                             //$scope.work.log_id = d['root'].id;
 
                         });
@@ -1035,8 +1299,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         };
 
-        $scope.doRefresh = function() {
-            BlueTeam.getMysrByCEMId($scope.user_id,$scope.data.status)
+        $scope.doRefresh = function () {
+            BlueTeam.getMysrByCEMId($scope.user_id, $scope.data.status)
                 .then(function (d) {
 
                     //$scope.hide();
@@ -1046,7 +1310,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                     console.log(JSON.stringify($scope.srs));
                 })
-                .finally(function() {
+                .finally(function () {
                     // Stop the ion-refresher from spinning
                     $scope.$broadcast('scroll.refreshComplete');
                 });
@@ -1066,7 +1330,22 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     })
 
 
-    .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+    .controller('BlueteamVerifiedTypeCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.show();
 
         BlueTeam.getVerification()
             .then(function (d) {
@@ -1076,6 +1355,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 //$state.go('finish');
                 $scope.pre = d['root']['pre'];
                 $scope.process = d['root']['process'];
+                $scope.hide();
             });
 
         $scope.toggleItem = function (item) {
@@ -1142,11 +1422,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
 
 
-
         // making post api call to the server by using angular based service
 
         /*
-        * {"root":
+         * {"root":
          {
          "sr_id": "2",
          "amount": "2000",
@@ -1188,9 +1467,66 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
-    .controller('F&QCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+    .controller('VWCtrl', function ($scope, $state, $ionicLoading, $localstorage, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+        $scope.user_id = $localstorage.get('user_id');
 
         $scope.items = null;
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.show();
+
+        BlueTeam.getRefWorkers($scope.user_id)
+            .then(function (d) {
+
+                $scope.hide();
+                $scope.workers = d['root']['workers'];
+            });
+
+        $scope.toggleItem = function (item) {
+            if ($scope.isItemShown(item)) {
+                $scope.shownItem = null;
+            } else {
+                $scope.shownItem = item;
+            }
+        };
+        $scope.isItemShown = function (item) {
+            return $scope.shownItem === item;
+        };
+
+
+    })
+
+    .controller('F&QCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+        $scope.items = null;
+
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.show();
 
         BlueTeam.getFaq()
             .then(function (d) {
@@ -1198,6 +1534,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                 //$scope.hide();
                 //$ionicHistory.clearHistory();
                 //$state.go('finish');
+                $scope.hide();
                 $scope.items = d['root']['faqs'];
             });
 
@@ -1214,32 +1551,38 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
 
     })
+    .controller('ContactUsCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+
+
+    })
+
+
     .controller('TabCtrl', function ($scope, $state, $ionicPopup, $cordovaSocialSharing, $ionicPlatform, $ionicModal, $timeout, $ionicHistory, $cordovaToast, $localstorage) {
 
-        $scope.count=0;
+        $scope.count = 0;
         $ionicPlatform.registerBackButtonAction(function (event) {
-            if($state.current.name=="tab.service-list"){
-                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function(success) {
+            if ($state.current.name == "tab.service-list") {
+                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function (success) {
                     // success
                 }, function (error) {
                     // error
                 });
 
                 $scope.count++;
-                if($scope.count >= 3)
+                if ($scope.count >= 3)
                     navigator.app.exitApp();
             }
 
-            if($state.current.name=="reg"){
-                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function(success) {
+            if ($state.current.name == "reg") {
+                $cordovaToast.showLongBottom('Press 2 more time to exit').then(function (success) {
                     // success
                 }, function (error) {
                     // error
                 });
 
                 $scope.count++;
-                if($scope.count >= 3)
-                navigator.app.exitApp();
+                if ($scope.count >= 3)
+                    navigator.app.exitApp();
             }
             else {
                 navigator.app.backHistory();
@@ -1250,13 +1593,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.type = $localstorage.get('type');
         $scope.name = $localstorage.get('name');
 
-            $scope.customer = true;
-        if($scope.type == "cem") {
+        $scope.customer = true;
+        if ($scope.type == "cem") {
             $scope.cem = true;
             $scope.customer = false;
         }
 
-        if($scope.type != "customer")
+        if ($scope.type != "customer")
             $scope.customer = false;
 
         $scope.logout = function () {
@@ -1280,7 +1623,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         $ionicHistory.clearHistory();
 
 
-                    },100);
+                    }, 100);
                     $state.go('reg');
                 } else {
                     console.log('You are not sure');
@@ -1299,7 +1642,8 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     })
 
     .controller('AddWorkerCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $stateParams,
-                                           $cordovaGeolocation, $localstorage, $cordovaDevice, $cordovaBarcodeScanner, BlueTeam) {
+                                           $cordovaGeolocation, $localstorage, $cordovaDevice, $cordovaBarcodeScanner,
+                                           $cordovaFileTransfer, $cordovaCamera, BlueTeam) {
 
         $scope.slots = [
             {epochTime: 12600, step: 15, format: 12},
@@ -1312,29 +1656,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.type = $localstorage.get('type');
 
 
-
         $scope.customer = true;
-        if($scope.type == "cem") {
+        if ($scope.type == "cem") {
             $scope.cem = true;
             $scope.customer = false;
         }
 
-        $scope.scanBarcode = function() {
-            $cordovaBarcodeScanner.scan().then(function(imageData) {
-                alert(imageData.text);
-                console.log("Barcode Format -> " + imageData.format);
-                console.log("Cancelled -> " + imageData.cancelled);
-            }, function(error) {
-                console.log("An error happened -> " + error);
-            });
-        };
 
         $scope.data.hours = "";
         $scope.selectedTime = new Date();
         $scope.selectedTime.setHours(7);
-        $scope.data.time = ("0"+($scope.selectedTime.getHours()%12)).slice(-2) + ':'
+        $scope.data.time = ("0" + ($scope.selectedTime.getHours() % 12)).slice(-2) + ':'
             + "00" + " "
-            + (($scope.selectedTime.getHours()>12)?"PM":"AM");
+            + (($scope.selectedTime.getHours() > 12) ? "PM" : "AM");
         $scope.data.time24 = "";
 
         $scope.timePickerCallback = function (val) {
@@ -1343,12 +1677,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             } else {
                 var selectedTime = $scope.selectedTime = new Date(val * 1000);
                 console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
-                $scope.data.time24 = ("0"+selectedTime.getUTCHours()).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + ':00' ;
-                $scope.data.time = ("0"+(parseInt( selectedTime.getUTCHours())%12)).slice(-2) + ':' + ("0"+selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours()>12)?"PM":"AM");
+                $scope.data.time24 = ("0" + selectedTime.getUTCHours()).slice(-2) + ':' + ("0" + selectedTime.getUTCMinutes()).slice(-2) + ':00';
+                $scope.data.time = ("0" + (parseInt(selectedTime.getUTCHours()) % 12)).slice(-2) + ':' + ("0" + selectedTime.getUTCMinutes()).slice(-2) + " " + ((selectedTime.getUTCHours() > 12) ? "PM" : "AM");
                 console.log($scope.data.time24);
             }
         };
-
 
 
         $scope.position = {
@@ -1392,6 +1725,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             $ionicLoading.hide();
         };
 
+
         $scope.timePickerObject = {
             inputEpochTime: (7 * 60 * 60),  //Optional
             step: 15,  //Optional
@@ -1408,7 +1742,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.timeClicked = false;
 
-        $scope.timeSet = function(){
+        $scope.timeSet = function () {
             $scope.timeClicked = true;
         };
 
@@ -1429,60 +1763,58 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
 
             BlueTeam.postWorker(
-                {"root":
                 {
-                    "name" : $scope.data.name,
-                    "mobile": $scope.data.mobile,
-                    "email": "",
-                    "type1": $scope.data.type,
-                    "address": $scope.data.address,
-                    "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                    /*"device_id": $cordovaDevice.getUUID(),*/
-                    "ref_id": $localstorage.get('user_id'),
-                    "emergency_no": $scope.data.emergency_mobile,
-                    "native_place": $scope.data.native_place,
-                    "native_add": $scope.data.native_add,
-                    "dob": $scope.data.dob,
-                    "education": $scope.data.education,
-                    "experience": $scope.data.experience,
-                    "gender": $scope.data.gender,
-                    "remark": $scope.data.remark,
-                    "salary": $scope.data.salary,
-                    "bonus": $scope.data.bonus,
-                    "timings": [
-                        {
-                            "start_time": $scope.data.startTime,
-                            "end_time":$scope.data.startTime
-                        }
-                    ],
-                    "services": [2,3,4]
+                    "root": {
+                        "name": $scope.data.name,
+                        "mobile": $scope.data.mobile,
+                        "email": "",
+                        "type1": $scope.data.type,
+                        "address": $scope.data.address,
+                        "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        /*"device_id": $cordovaDevice.getUUID(),*/
+                        "ref_id": $localstorage.get('user_id'),
+                        "emergency_no": $scope.data.emergency_mobile,
+                        "native_place": $scope.data.native_place,
+                        "native_add": $scope.data.native_add,
+                        "dob": $scope.data.dob,
+                        "education": $scope.data.education,
+                        "experience": $scope.data.experience,
+                        "gender": $scope.data.gender,
+                        "remark": $scope.data.remark,
+                        "salary": $scope.data.salary,
+                        "bonus": $scope.data.bonus,
+                        "timings": [
+                            {
+                                "start_time": $scope.data.startTime,
+                                "end_time": $scope.data.startTime
+                            }
+                        ],
+                        "services": [2, 3, 4]
 
-                }}
-
-
-
+                    }
+                }
                 )
                 .then(function (d) {
                     $scope.hide();
 
                     $scope.resp = d['root'].user;
-                    if($scope.resp == "")
+                    if ($scope.resp == "")
                         alert("Failed! User already exists");
                     else {
-                        $scope.data.name="";
+                        $scope.data.name = "";
                         $scope.data.mobile = "";
-                        $scope.data.emergency_mobile="";
-                        $scope.data.type="";
-                        $scope.data.address="";
-                        $scope.data.native_place=""
-                        $scope.data.native_add="";
-                        $scope.data.dob="";
-                        $scope.data.education="";
-                        $scope.data.experience="";
-                        $scope.data.gender="";
-                        $scope.data.remark="";
-                        $scope.data.salary="";
-                        $scope.data.bonus="";
+                        $scope.data.emergency_mobile = "";
+                        $scope.data.type = "";
+                        $scope.data.address = "";
+                        $scope.data.native_place = ""
+                        $scope.data.native_add = "";
+                        $scope.data.dob = "";
+                        $scope.data.education = "";
+                        $scope.data.experience = "";
+                        $scope.data.gender = "";
+                        $scope.data.remark = "";
+                        $scope.data.salary = "";
+                        $scope.data.bonus = "";
 
                         alert("Registered Successfuly");
 
@@ -1502,7 +1834,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.datetimeValue.setMinutes(0);
 
         $scope.type = $localstorage.get('type');
-        if($scope.type != "customer")
+        if ($scope.type != "customer")
             $scope.notCustomer = true;
 
         $scope.data = {};
@@ -1576,20 +1908,20 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         $scope.data.startTimeSet = false;
 
-        $scope.takeStartTime = function(){
-            console.log($scope.datetimeValue.toString(),$scope.data.drv.toString());
+        $scope.takeStartTime = function () {
+            console.log($scope.datetimeValue.toString(), $scope.data.drv.toString());
             $scope.data.startTimeSet = true;
         };
         // making post api call to the server by using angular based service
 
         $scope.conf = function () {
-            if(!$scope.data.startTimeSet) {
+            if (!$scope.data.startTimeSet) {
                 return false;
             }
-            $scope.data.startTime = ""+("0"+($scope.data.drv.getHours())).slice(-2)
-                + ":"+("0"+($scope.data.drv.getMinutes())).slice(-2) + ":00";
-            $scope.data.endTime = ""+("0"+($scope.data.drv.getHours()+parseInt($scope.data.hours))%24 ).slice(-2)
-                + ":"+("0"+($scope.data.drv.getMinutes())).slice(-2) + ":00";
+            $scope.data.startTime = "" + ("0" + ($scope.data.drv.getHours())).slice(-2)
+                + ":" + ("0" + ($scope.data.drv.getMinutes())).slice(-2) + ":00";
+            $scope.data.endTime = "" + ("0" + ($scope.data.drv.getHours() + parseInt($scope.data.hours)) % 24 ).slice(-2)
+                + ":" + ("0" + ($scope.data.drv.getMinutes())).slice(-2) + ":00";
 
             $scope.show();
             //$localstorage.set('name', $scope.data.name);
@@ -1603,7 +1935,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                         "requirements": $scope.service,
                         "user_id": $localstorage.get('user_id'),
-                        "start_datatime": $scope.data.drv+"",
+                        "start_datatime": $scope.data.drv + "",
                         "service_type": $scope.type,
                         "remarks": $scope.type + " by mobile app," + $scope.data.remark,
                         "start_time": $scope.data.startTime,

@@ -1,0 +1,44 @@
+<ion-view view-title="DigiEYE">
+    <ion-content class="padding" style="margin-top: -50px">
+        <div style="text-align: center;">
+            <img src="http://api.file-dog.shatkonlabs.com/files/rahul/24" height="150"/>
+        </div>
+
+        <ion-list>
+
+            <ion-item  class="item item-icon-left" ng-click="scanBarcode()">
+                <span class="icon ion-android-call large calm"> </span>
+                Scan Worker QR Code
+            </ion-item>
+
+            <ion-item  class="item item-icon-left" ng-href="#/tab/register-worker">
+                <span class="icon ion-email large calm"></span>
+                Register Worker
+            </ion-item>
+
+            <ion-item  class="item item-icon-left" ng-href="#/tab/view-workers" >
+                <span class="icon ion-cloud large calm"></span>
+                View Your Worker
+            </ion-item>
+        </ion-list>
+
+        <div class="card " href="#" ng-show="QrUser.mobile">
+
+            <div class="item item-divider">
+                {{QrUser.name}} - {{QrUser.mobile}}
+            </div>
+            <div class="item item-text-wrap">
+
+                Rating: {{QrUser.rating}}/5
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </ion-content>
+</ion-view>
