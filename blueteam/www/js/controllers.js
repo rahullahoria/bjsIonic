@@ -513,7 +513,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.scanBarcode = function () {
             $cordovaBarcodeScanner.scan().then(function (imageData) {
                 //alert(imageData.text);
-
+                if(imageData.text)
                 BlueTeam.getUserById(imageData.text)
                     .then(function (d) {
 

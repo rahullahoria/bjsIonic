@@ -30,7 +30,11 @@
             <div id="content">
                 <div id="profile-info">
                     <img id="profile-image" src="http://api.file-dog.shatkonlabs.com/files/rahul/{{QrUser.photo}}">
-                    <h3 id="profile-name">{{QrUser.name}} <i class="icon ion-checkmark-circled balanced"></i></h3>
+                    <h3 id="profile-name">
+                        {{QrUser.name}}
+                        <i class="icon ion-checkmark-circled balanced" ng-show="QrUser.status != 'rejected'"></i>
+                        <i class="icon ion-close-circled assertive" ng-show="QrUser.status == 'rejected'">
+                    </h3>
 
                     <span id="profile-description">
                         <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{QrUser.mobile}}">
