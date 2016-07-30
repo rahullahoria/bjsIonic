@@ -2,7 +2,9 @@
 
 
 
-a {text-decoration: none;}
+a {
+    text-decoration: none !important;
+}
 
 .gallery {
     -webkit-flex-wrap: wrap;

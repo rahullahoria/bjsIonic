@@ -12,25 +12,23 @@
 
         <!--<div id="resultMessage">None yet</div>-->
 
-        <div class="card row gallery ">
-            .
+        <div class="card">
+
             <div class="item item-divider text-center" >
                 BlueTeam Verified, Skilled & Experienced professionals.
             </div>
-            .
+
             <div class="item item-text-wrap">
 
-                <div class="col col-33" ng-repeat="service in services" style="float: left; display: block;">
+                <div class="col col-33" ng-repeat="service in services" style="float: left; display: block;text-align: center;">
 
-                    <div class="">
-                        &nbsp;
-                        <a href="#/tab/service-list/{{service.name}}" nav-direction="forward">
-                            <div style="text-align: center;">
+                        <a  href="#/tab/service-list/{{service.name}}" nav-direction="forward" style="text-decoration: none !important;">
+
                                 <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65">
                                 <h5>{{service.name | uppercase}}</h5>
-                            </div>
+
                         </a>
-                    </div>
+
                 </div>
             </div>
         </div>
