@@ -303,8 +303,8 @@
 <script type="text/ng-template" id="finish.html">
     <ion-view view-title="Request Sent">
         <ion-content>
-            <div class="card">
-                <center>
+            <div class="card" ng-show="data.meeting">
+                <div style="text-align: center;">
                     <b>Thank You</b><br/>
                     <p>
                         Your request has been submitted.<br/>
@@ -314,17 +314,56 @@
 
 
 
-                </center>
+                </div>
+            </div>
+
+            <div class="card" ng-show="!data.meeting">
+                <div style="text-align: center;">
+                        <img src="http://api.file-dog.shatkonlabs.com/files/rahul/55" height="100" style="border-radius: 15px;"/>
+
+                    <b>Hi, I am Vikas Nagar. </b><br/>
+                    <p>
+                        I got assigned as your CEM (Client Engagement Manager).<br/>
+                        I need to make sure you don't face any problem in process of taking service from BlueTeam.<br/>
+                        I want to meet regarding this Service Request, which you have just given.<br/>
+                        Please give me a meeting time in form bellow. So, I can make sure you don't face any problem.<br/>
+                    </p>
+
+                    <div class="item " ion-datetime-picker am-pm ng-model="datetimeValue" disablepreviousdates ng-click="takeStartTime()">
+
+                        Start Date and Time
+                        {{data.drv =datetimeValue| date: "dd-MM-yyyy h:mm a"}}
+
+                    </div>
+
+                    <div class="padding">
+
+                        <p ng-show="error">Please fix meeting time, <i>by clicking it</i></p>
+
+
+                    </div>
+
+                    <button class="button button-positive button-small pull-left"
+                            ng-click="meeting()">
+                        Lets Meet
+                    </button>
+
+
+
+
+
+
+                </div>
             </div>
 
             <div class="card">
-                <center>
+                <div style="text-align: center;">
                     <i> In case of any problem. Please contact us at<br/>
                         <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
                         <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
                         <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
                     </i>
-                </center>
+                </div>
             </div>
 
         </ion-content>
