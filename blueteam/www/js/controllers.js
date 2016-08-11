@@ -425,7 +425,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
                 });
             };
-            $scope.findContact();
+            //$scope.findContact();
 
 
         });
@@ -788,7 +788,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
-    .controller('FinishCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, $ionicLoading, $timeout,
+    .controller('FinishCtrl', function ($scope, $state, $window, $ionicHistory, $timeout, $stateParams, $ionicLoading, $timeout,
                                         $localstorage, $cordovaDevice, BlueTeam) {
         //hi, I am Vikas Nagar. I got assigned as your CEM (Client Engagement Manager).
         // I need to make sure you don't face any problem in process of taking service from BlueTeam.
@@ -796,18 +796,24 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         // Please give me a meeting time in form bellow. So that I can make sure you don't face any problem:
 
         // Lets Meet.
+        $scope.data = {};
+
+        $scope.datetimeValue = new Date();
+        $scope.datetimeValue.setHours(7);
+        $scope.datetimeValue.setMinutes(0);
+
         $scope.data.name = $localstorage.get('name');
         $scope.data.mobile = parseInt($localstorage.get('mobile'));
         $scope.data.address = $localstorage.get('address');
         $scope.data.cem_id = 3;
 
-        if(window.service_type == 'monthly') {
+        if(window.service_type == 'Monthly') {
             $scope.data.meeting = false;
             $scope.waitTime = 3000;
         }
         else {
             $scope.data.meeting = true;
-            $scope.waitTime = 10000;
+            $scope.waitTime = 8000;
         }
 
         $scope.show = function () {
@@ -853,7 +859,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     $scope.hide();
                     $ionicHistory.clearHistory();
                     window.service_type == '';
-                    $state.go('finish');
+                    $timeout(function () {
+                        $window.location.reload(true);
+                    }, 1000);
                     //$scope.services = d['data']['services'];
                 });
 

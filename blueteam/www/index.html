@@ -114,6 +114,8 @@
             <div class="card " >
                 <div style="text-align: center;"><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
                     <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
+                    <p><b>Book Now</b><br/>
+                    Maid|Cook|Driver|Babysitter</p>
 
                 </div>
 
@@ -320,7 +322,7 @@
             <div class="card" ng-show="!data.meeting">
                 <div style="text-align: center;">
                         <img src="http://api.file-dog.shatkonlabs.com/files/rahul/55" height="100" style="border-radius: 15px;"/>
-
+                    <br/>
                     <b>Hi, I am Vikas Nagar. </b><br/>
                     <p>
                         I got assigned as your CEM (Client Engagement Manager).<br/>
@@ -331,7 +333,7 @@
 
                     <div class="item " ion-datetime-picker am-pm ng-model="datetimeValue" disablepreviousdates ng-click="takeStartTime()">
 
-                        Start Date and Time
+                        Meeting Time
                         {{data.drv =datetimeValue| date: "dd-MM-yyyy h:mm a"}}
 
                     </div>
