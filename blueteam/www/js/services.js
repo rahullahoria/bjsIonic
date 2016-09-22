@@ -16,6 +16,17 @@ angular.module('starter.services', [])
                 // Return the promise to the controller
                 return promise;
             },
+            getAreas: function () {
+                // $http returns a promise, which has a then function, which also returns a promise
+                var promise = $http.get(url + '/areas' ).then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    //console.log(response);
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
             getWork: function (worker_id) {
                 // $http returns a promise, which has a then function, which also returns a promise
                 var promise = $http.get(url + '/work/' + worker_id + "?current_time=" + new Date()).then(function (response) {
@@ -233,6 +244,18 @@ angular.module('starter.services', [])
                 var promise = $http.post(url + '/payment', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(response);
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
+            searchWorker: function (area, service) {
+                // $http returns a promise, which has a then function, which also returns a promise
+                console.log(JSON.stringify(data));
+                var promise = $http.get(url + '/worker/search?area_id=' + area + '&service=' + service, data).then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
