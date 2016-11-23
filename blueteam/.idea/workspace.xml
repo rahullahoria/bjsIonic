@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/img/banner-for-SMS_campaign.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/img/customerstalking.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/img/ebilling-Icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/img/email-campaign.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/img/homepage.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/templates/get_feedback.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam partner/www/templates/invoice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/not_customer_registor_worker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-    </list>
+    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="" />
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
