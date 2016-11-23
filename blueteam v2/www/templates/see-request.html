@@ -1,0 +1,146 @@
+<ion-view view-title="Service Requests Assigned to ( ID: {{user_id}} )">
+    <ion-content class="padding" style="margin-top: -50px">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="card">
+            <div class="item item-divider text-center">
+                <label class="item item-input ">
+
+                    <span class="input-label"> Select Status </span>
+                    <select class='selectpicker' name='status' ng-model="data.status">
+                        <option value='open' selected="selected">Open</option>
+                        <option value='paid'>Paid</option>
+                        <option value='due'>Due</option>
+                        <option value='issue'>Issue</option>
+                        <option value='followback'>Followback</option>
+                        <option value='feedback'>Feedback</option>
+
+                    </select>
+
+                    <span class="badge badge-assertive">{{srs.length}}</span>
+
+                </label>
+            </div>
+
+        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="sr in srs " class="item item-text-wrap" ng-hide="srs[$index].dontshow">
+                <div>
+                    <div class="card">
+                        <div class="item item-divider text-center">
+                            Id: {{sr.id}}, User ID: {{sr.c_user_id}} on {{sr.creation}}
+                        </div>
+
+                        <div class="item item-text-wrap">
+                            <h3>Name: {{sr.name}} <span class="pull-right">Your Rating:{{sr.cem_rating?sr.cem_rating:"NA"}}</span>
+                            </h3>
+                            <h3>Mobile:<a class="icon-left ion-ios7-telephone"
+                                          ng-href="tel: +91 {{sr.mobile}}"><span
+                                    class="ion-android-call large"></span><b> +91 {{sr.mobile}} </b> </a></h3>
+                            <h3>Service : {{sr.service | uppercase}} on {{sr.service_type}}</h3>
+                            <h3>address: {{sr.address}}</h3>
+                            <h3>remarks: {{sr.remarks}}</h3>
+                            <h3>Timings: {{sr.start_time}} - {{sr.end_time}}</h3>
+                        </div>
+
+                        <div class="item row">
+                            <div class="col">
+                                <label class="item-input item-select">
+
+                                    <div class="input-label"> Status</div>
+                                    <select class='selectpicker' name='status' ng-model="sr.status">
+                                        <option value='open' selected="selected">Open</option>
+                                        <option value='paid'>Paid</option>
+                                        <option value='due'>Due</option>
+                                        <option value='issue'>Issue</option>
+                                        <option value='followback'>Followback</option>
+                                        <option value='feedback'>Feedback</option>
+
+                                    </select>
+
+
+                                </label>
+                            </div>
+
+                            <div class="col">
+                                <div class="item-input-inset">
+                                    <button class="button button-positive button-small pull-right"
+                                            ng-click="update('status',sr.status,sr.id, $index)">
+                                        U
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card " href="#">
+
+                        <div class="item item-divider">
+                            Assign to some other CEM
+                            </div>
+                        <div class="item item-text-wrap">
+                            <div class="item-input-inset">
+                                <label class="item-input-wrapper">
+
+                                    <input type="number" name="new_cem_id" placeholder="New CEM ID"
+                                           ng-model="sr.new_cem_id" ng-minlength="1" ng-maxlength="10"/>
+
+                                </label>
+
+
+                                <button class="button button-positive button-small pull-left"
+                                        ng-click="update('new_cem_id',sr.new_cem_id,sr.id)">
+                                    U
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="card">
+                        <!--<img ng-show="sr.worker_name" ng-src="img/ms-icon-144x144.png" class="img-rounded" style="width: 50px;height: 50px;border-radius: 4px " />-->
+                        <h3 ng-show="!sr.worker_name">No Worker Allotted</h3>
+                        <h3 ng-show="sr.worker_name">Worker Details:</h3>
+                        <h3 ng-show="sr.worker_name">{{sr.worker_name}} (ID: BT-15-{{sr.worker_id}})<span
+                                class="pull-right">Given Rating:{{sr.worker_rating?sr.worker_rating:"NA"}}</span></h3>
+                        <h3 ng-show="sr.worker_name">Mobile:<a class="icon-left ion-ios7-telephone"
+                                                               ng-href="tel: +91 {{sr.worker_mobile}}"><span
+                                class="ion-android-call large"></span><b> +91 {{sr.worker_mobile}} </b> </a></h3>
+
+                        <label class="item item-input ">
+                            <span class="input-label">Add Worker</span>
+                            <input type="number" name="worker_id" placeholder="Worker ID"
+                                   ng-model="sr.worker_id" ng-minlength="1" ng-maxlength="10"/>
+
+
+                        </label>
+
+                        <button class="button button-positive button-small pull-right"
+                                ng-click="update('user_worker_id',sr.worker_id,sr.id)">
+                            U
+                        </button>
+                    </div>
+
+
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> For queries and issues. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span
+                            class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br/>
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')">info@blueteam.in</a><br/>
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

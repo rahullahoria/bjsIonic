@@ -1,0 +1,151 @@
+<ion-view view-title="Choose Service Provider">
+    <ion-content class="padding" style="
+    overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
+    background-image: url('https://i.kinja-img.com/gawker-media/image/upload/s--WVHyLqZL--/jmch4t1sxk7gr7jr3tv9.jpg');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+    margin-top: -50px">
+
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-left" ng-repeat="plan in plans "
+                      type="item-text-wrap" href="#/tab/service/{{service}}/type/{{plan.name}}">
+                <!-- <img ng-src="{{service.img}}"> -->
+                <i class="icon ion-ios-stopwatch large calm" ng-show="plan.name != 'Monthly'"></i>
+                <i class="icon ion-calendar large calm" ng-show="plan.name == 'Monthly'"></i>
+                <h2>{{plan.name}}</h2>
+                <i style="font-style: italic;font-size: 0.8em;">{{plan.price}}</i>
+            </ion-item>
+
+
+        </ion-list>
+
+        <div class="list card" ng-repeat="serviceProvider in serviceProviders" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item"><B>{{ serviceProvider.name }}</B><span class="item-note">{{ serviceProvider.experience/12 }} Year Experience</span> </div>
+
+            <div class="item item-avatar item-button-right">
+                <img src="http://api.file-dog.shatkonlabs.com/files/rahul/{{ serviceProvider.profile_pic_id }}" width="100px">
+                <button class="button button-calm button-outline icon-left ion-star"
+                   onclick="window.open('mailto:info@blueteam.in','_system')"> Book</button>
+
+                <p>Reliability : 304/400</p>
+                <p>Quality : 374/450</p>
+                <h2>Price : {{ serviceProvider.price }} {{ (serviceProvider.hourly== "yes") ? "Rs/hr":"" }}
+                </h2>
+
+
+            </div>
+
+
+
+        </div>
+<!--
+        <div class="list card" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item"><B>Sham Lal</B><span class="item-note">1.2 Year Experience</span> </div>
+
+            <div class="item item-avatar item-button-right">
+                <img src="img/ms-icon-144x144.png" width="100px">
+                <button class="button button-calm button-outline icon-left ion-star"
+                        onclick="window.open('mailto:info@blueteam.in','_system')"> Book</button>
+
+                <p>Reliability : 204/240</p>
+                <p>Quality : 74/150</p>
+                <h2>Price : 1500 Rs/hr
+                </h2>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="list card" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item"><B>Anil Lal</B><span class="item-note">2 Year Experience</span> </div>
+
+            <div class="item item-avatar item-button-right">
+                <img src="img/ms-icon-144x144.png" width="100px">
+                <button class="button button-calm button-outline icon-left ion-star"
+                        onclick="window.open('mailto:info@blueteam.in','_system')"> Book</button>
+
+                <p>Reliability : 404/500</p>
+                <p>Quality : 174/250</p>
+                <h2>Price : 1800 Rs/hr
+                </h2>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="list card" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item"><B>Golu Singh</B><span class="item-note">0.8 Year Experience</span> </div>
+
+            <div class="item item-avatar item-button-right">
+                <img src="img/ms-icon-144x144.png" width="100px">
+                <button class="button button-calm button-outline icon-left ion-star"
+                        onclick="window.open('mailto:info@blueteam.in','_system')"> Book</button>
+
+                <p>Reliability : 104/300</p>
+                <p>Quality : 372/450</p>
+                <h2>Price : 1200 Rs/hr
+                </h2>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="list card" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item"><B>Rahul Lahoria</B><span class="item-note">2 Year Experience</span> </div>
+
+            <div class="item item-avatar item-button-right">
+                <img src="img/ms-icon-144x144.png" width="100px">
+                <button class="button button-calm button-outline icon-left ion-star"
+                        onclick="window.open('mailto:info@blueteam.in','_system')"> Book</button>
+
+                <p>Reliability : 304/400</p>
+                <p>Quality : 374/450</p>
+                <h2>Price : 2000 Rs/hr
+                </h2>
+
+
+            </div>
+
+
+
+        </div>-->
+
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

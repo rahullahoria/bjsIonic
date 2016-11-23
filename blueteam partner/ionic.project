@@ -1,0 +1,12 @@
+{
+  "name": "blueteam helper",
+  "app_id": "83d72b54",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

@@ -1,0 +1,112 @@
+<ion-view view-title="Price Calculator by Shatkon Labs Pvt. Ltd." >
+    <ion-content class="padding" style="margin-top: -50px">
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <h4>
+                    No service charge, No commission <br/> Pay per Use
+
+                </h4>
+                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21 days)</i>
+            </div>
+
+        </div>
+
+        <div class="card" >
+            <form  name="confirm">
+                <div class="list">
+
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Service
+                        </div>
+                        <select name="service" ng-model="data.service">
+                            <option value="{{ service }}" ng-repeat="service in montlhyServices" >{{ service | uppercase}}</option>
+
+                        </select>
+                    </label>
+
+                    <label class="item item-input ">
+                        <span class="input-label">Days</span>
+                        <input type="number" name="days" placeholder="Days" ng-model="data.days" ng-minlength="1" ng-maxlength="2" required />
+
+                    </label>
+
+                    <label class="item item-input ">
+                        <span class="input-label">Start Time </span>
+                        <ionic-timepicker input-obj="timePickerObject" >
+
+                            <button class="button button-block overflowShow" ng-click="timeSet()">
+                                <standard-time-meridian etime='timePickerObject.inputEpochTime'> {{data.time}}</standard-time-meridian>
+                            </button>
+                        </ionic-timepicker>
+                    </label>
+
+                    <label class="item item-input ">
+                        <span class="input-label">No. of hours</span>
+                        <input type="number" name="hours" placeholder="No. of hours" ng-model="data.hours" ng-minlength="1" ng-maxlength="2" required />
+
+                    </label>
+
+                    <input class="button button-block button-calm" type="submit" ng-click="cal()" name="need now" value="Confirm" nav-direction="forward"
+                           ng-disabled="confirm.$invalid || !timeClicked">
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class='card' ng-show="max">
+            <div style="text-align: center;">
+                <h3>BlueTeam Verified + Pay Per User</h3>
+                <h4>
+                Max Charges : <span class="large">&#8377;</span>{{max}}<br/>
+                Min Charges : <span class="large">&#8377;</span>{{min}}<br/>
+                <b>Avg Charges : <span class="large">&#8377;</span>{{avg}}</b><br/>
+
+                For {{data.days}} days Charges :
+                        <span style="text-decoration: line-through;" ng-show=discount>
+                            <span class="large">&#8377;</span>{{discount}}</span>
+                                    <span class="large">&#8377;</span>{{forDays}}
+                </h4>
+            </div>
+        </div>
+
+        <div class='card' ng-show="max">
+            <div style="text-align: center;">
+                <h3>BlueTeam Verified + Pay Per User + Reliability</h3>
+                <h4>
+                    Max Charges : <span class="large">&#8377;</span>{{resp.reliability_max}}<br/>
+                    Min Charges : <span class="large">&#8377;</span>{{resp.reliability_min}}<br/>
+                    <b>Avg Charges : <span class="large">&#8377;</span>{{resp.reliability_avg}}</b><br/>
+
+                    For {{data.days}} days Charges :
+                        <span style="text-decoration: line-through;" ng-show=discount>
+                            <span class="large">&#8377;</span>{{resp.reliability_discount}}</span>
+                    <span class="large">&#8377;</span>{{resp.reliability_forDays}}
+                </h4>
+            </div>
+        </div>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <h4>
+                    No service charge, No commission <br/> Pay per Use
+
+                </h4>
+                <i style="font-style: italic;font-size: 0.8em">pay only as much as days you use (minimum pay 21 days)</i>
+            </div>
+
+        </div>
+
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> For queries and issues. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

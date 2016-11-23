@@ -1,0 +1,82 @@
+<ion-view view-title="BlueTeam Partner">
+
+    <ion-content has-header="true" class="padding" style="
+    overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
+    background-image: url('./img/homepage.jpg');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+    margin-top: -50px">
+
+
+<!-- invite other helper code -->
+
+        <div class="card" style="border-left: 3px solid greenyellow;">
+
+            <a href="#/tab/invoice" nav-direction="forward"
+               style="text-decoration: none !important;">
+
+            <div class="item item-text-wrap">
+                <div><B>Send Bill</B></div>
+                <img src="./img/ebilling-Icon.png" style="max-width: 100%">
+
+            </div>
+            </a>
+        </div>
+
+        <div class="card" style="border-left: 3px solid cornflowerblue;">
+            <a href="#/tab/get_feedback" nav-direction="forward"
+               style="text-decoration: none !important;">
+
+                <div class="item item-text-wrap">
+                    <div><B>Get Feedback</B></div>
+                    <img src="./img/customerstalking.png" style="max-width: 100%">
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card" style="border-left: 3px solid firebrick;">
+            <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+               style="text-decoration: none !important;">
+
+                <div class="item item-text-wrap">
+                    <div><B>Sms Campaigning (Credit: 1000)</B></div>
+                    <img src="./img/banner-for-SMS_campaign.jpg" style="max-width: 100%">
+
+                </div>
+            </a>
+
+            <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+               style="text-decoration: none !important;">
+
+                <div class="item item-text-wrap">
+                    <div><B>Email Campaigning (Credit: 2000)</B></div>
+                    <img src="./img/email-campaign.jpg" style="max-width: 100%">
+
+                </div>
+            </a>
+        </div>
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; font-src data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <title></title>
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development)  -->
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-timepicker/dist/templates.js"></script>
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+
+    <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+    <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+    <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/phonecontacts.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script type="text/javascript" >
+        var myService;
+
+        document.addEventListener('deviceready', function() {
+            var serviceName = 'com.red_folder.phonegap.plugin.backgroundservice.sample.MyService';
+            var factory = cordova.require('com.red_folder.phonegap.plugin.backgroundservice.BackgroundService');
+            myService = factory.create(serviceName);
+
+            //getStatus();
+            go();
+        }, true);
+
+        function getStatus() {
+            myService.getStatus(function(r){displayResult(r)}, function(e){displayError(e)});
+        }
+
+        function displayResult(data) {
+            alert("Is service running: " + data.ServiceRunning);
+        }
+
+        function displayError(data) {
+            alert("We have an error");
+        }
+        function updateHandler(data) {
+            if (data.LatestResult != null) {
+                try {
+                    var resultMessage = document.getElementById("resultMessage");
+                    resultMessage.innerHTML = data.LatestResult.Message;
+                } catch (err) {
+                }
+            }
+        }
+
+        function go() {
+            myService.getStatus(function(r){startService(r)}, function(e){displayError(e)});
+        };
+
+        function startService(data) {
+            if (data.ServiceRunning) {
+                enableTimer(data);
+            } else {
+                myService.startService(function(r){enableTimer(r)}, function(e){displayError(e)});
+                myService.registerForBootStart(function(r){}, function(e){});
+            }
+        }
+
+        function enableTimer(data) {
+            if (data.TimerEnabled) {
+                registerForUpdates(data);
+            } else {
+                myService.enableTimer(60000, function(r){registerForUpdates(r)}, function(e){displayError(e)});
+            }
+        }
+
+        function registerForUpdates(data) {
+            if (!data.RegisteredForUpdates) {
+                myService.registerForUpdates(function(r){updateHandler(r)}, function(e){handleError(e)});
+            }
+        }
+
+    </script>
+
+</head>
+<body ng-app="starter">
+<!--
+  The nav bar that will be updated as we navigate between views.
+-->
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button nav-direction="back">
+    </ion-nav-back-button>
+</ion-nav-bar>
+<!--
+  The views will be rendered in the <ion-nav-view> directive below
+  Templates are in the /templates folder (but you could also
+  have templates inline in this html file if you'd like).
+-->
+
+<script type="text/ng-template" id="register.html">
+    <ion-view hide-nav-bar="true" >
+
+        <ion-content >
+            <div class="card " >
+                <div style="text-align: center;"><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
+                    <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
+                    <p><b>Book Now</b><br/>
+                    Maid|Cook|Driver|Babysitter</p>
+
+                </div>
+
+            </div>
+            <div style="text-align: center;"><h3>Login/Signup</h3></div>
+            <div class="card" >
+
+
+
+
+                <form ng-submit="regUser()" name="register" >
+
+
+
+                    <label class="item item-input " >
+                        <span class="input-label" >Mobile</span>
+                        <input type="number" name="mobile"
+                               placeholder="Mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required >
+                    </label>
+
+                    <label class="item item-input " >
+                        <span class="input-label" >Password</span>
+                        <input type="password" name="password" id="password" ng-keypress="checkReg()" ng-change="checkReg()"
+                               placeholder="Password" ng-model="data.password" ng-minlength="3"  required >
+                    </label>
+
+                    <label class="item item-input " ng-hide=registered   >
+                        <span class="input-label" >Conf. Password</span>
+                        <input type="password" name="conf_password" id="conf_password" ng-keypress="checkSamePwd()"
+                               placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" >
+                    </label>
+
+                    <label class="item item-input " ng-hide=registered >
+                        <span class="input-label" >Full Name</span>
+                        <input type="text"  name="name"
+                               placeholder="Full Name" ng-model="data.name"  >
+                    </label>
+
+                    <label class="item item-input " ng-hide=registered >
+
+                        <span class="input-label" >Email</span>
+                        <input type="email" name="email"
+                               placeholder="Email" ng-model="data.email" >
+                    </label>
+
+
+
+                    <div class="padding">
+
+                        <div  ng-show="register.$error">
+                          <span class="item item-assertive msg-error" ng-show="pwdError">
+                            Passwords don't match.
+                          </span>
+                            <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>
+
+                        </div>
+
+                        <input class="button button-block button-calm"
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                    </div>
+
+
+
+                </form>
+            </div>
+        </ion-content>
+    </ion-view>
+
+</script>
+
+
+<script type="text/ng-template" id="survey.html">
+    <ion-view hide-nav-bar="true" >
+
+        <ion-content >
+            <div class="card " ng-show="showQ">
+                <center>
+                    <p><i style="font-style: italic;font-size: 0.8em">1 min survey please...</i></p>
+
+                </center>
+
+            </div>
+
+            <div class="card " ng-hide="showQ">
+                <center><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
+                    <p>
+                        <i style="font-style: italic;font-size: 2.0em">Welcome To BlueTeam</i></p>
+                    You will Not face any problem with BlueTeam Family
+
+                </center>
+                Such as:
+                <ol>
+                    <li ng-show="!q1">Timing problem</li>
+                    <li ng-show="q2">No Holidays</li>
+                </ol>
+
+            </div>
+
+
+            <div class="card" ng-show="showQ">
+
+
+
+                <form ng-submit="postSurvey()" name="survey" >
+
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook is coming on time daily?<br/>
+                        <ion-list>
+                            <ion-radio name="q1" ng-model="q1" ng-value=true>yes</ion-radio>
+                            <ion-radio name="q1" ng-model="q1" ng-value=false>no</ion-radio>
+                        </ion-list>
+
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook taking uninformed holidays/leave?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q2" ng-model="q2" ng-value=true>yes</ion-radio>
+                            <ion-radio name="q2" ng-model="q2" ng-value=false>no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your maid/cook provide replacement while taking leave?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q3" ng-model="q3" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q3" ng-model="q3" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your cook/maid work as per as your needs?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q4" ng-model="q4" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q4" ng-model="q4" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your worker is police verified and previous employment verified?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q5" ng-model="q5" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q5" ng-model="q5" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Does your worker is trained?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q6" ng-model="q6" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q6" ng-model="q6" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Are you satisfied with the cook/maid work at your home?
+                        <br/>
+                        <ion-list>
+                            <ion-radio name="q7" ng-model="q7" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q7" ng-model="q7" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+                    <label class="item item-text-wrap" >
+                        Have you paid service or security charges to any agency/agent for cook/maid?<br/>
+                        <ion-list>
+                            <ion-radio name="q8" ng-model="q8" ng-value="'A'">yes</ion-radio>
+                            <ion-radio name="q8" ng-model="q8" ng-value="'B'">no</ion-radio>
+                        </ion-list>
+                    </label>
+
+                    <div class="padding">
+
+
+
+                        <input class="button button-block button-positive"
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                    </div>
+
+
+
+                </form>
+            </div>
+        </ion-content>
+    </ion-view>
+
+</script>
+
+<script type="text/ng-template" id="finish.html">
+    <ion-view view-title="Request Sent">
+        <ion-content>
+            <div class="card" ng-show="data.meeting">
+                <div style="text-align: center;">
+                    <b>Thank You</b><br/>
+                    <p>
+                        Your request has been submitted.<br/>
+                        You will get a conformation message.
+                    </p>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="card" ng-show="!data.meeting">
+                <div style="text-align: center;">
+                        <img src="http://api.file-dog.shatkonlabs.com/files/rahul/55" height="100" style="border-radius: 15px;"/>
+                    <br/>
+                    <b>Hi, I am Vikas Nagar. </b><br/>
+                    <p>
+                        I got assigned as your CEM (Client Engagement Manager).<br/>
+                        I need to make sure you don't face any problem in process of taking service from BlueTeam.<br/>
+                        I want to meet regarding this Service Request, which you have just given.<br/>
+                        Please give me a meeting time in form bellow. So, I can make sure you don't face any problem.<br/>
+                    </p>
+
+                    <div class="item " ion-datetime-picker am-pm ng-model="datetimeValue" disablepreviousdates ng-click="takeStartTime()">
+
+                        Meeting Time
+                        {{data.drv =datetimeValue| date: "dd-MM-yyyy h:mm a"}}
+
+                    </div>
+
+                    <div class="padding">
+
+                        <p ng-show="error">Please fix meeting time, <i>by clicking it</i></p>
+
+
+                    </div>
+
+                    <button class="button button-positive button-small pull-left"
+                            ng-click="meeting()">
+                        Lets Meet
+                    </button>
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="text-align: center;">
+                    <i> In case of any problem. Please contact us at<br/>
+                        <a href="tel:+91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+                        <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
+                        <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                    </i>
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</script>
+
+<ion-nav-view></ion-nav-view>
+
+
+<script src="cordova.js"></script>
+
+</body>
+</html>
