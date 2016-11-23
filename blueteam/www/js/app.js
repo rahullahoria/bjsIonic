@@ -117,6 +117,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
+
+            .state('tab.present_workers', {
+                url: '/present_workers',
+                templateUrl: 'templates/present_workers.html',
+                controller: 'PresentWorkersCtrl'
+            })
+
+            .state('tab.area', {
+                url: '/area',
+                templateUrl: 'templates/select_area.html',
+                controller: 'AreasCtrl'
+            })
+            
             .state('tab.F&Q', {
                 url: '/F&Q',
                 views: {

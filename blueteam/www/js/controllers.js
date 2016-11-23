@@ -207,7 +207,134 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             }
         }
     })
+    .controller('PresentWorkersCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+        $scope.data.name = $localstorage.get('name');
+        $scope.data.mobile = parseInt($localstorage.get('mobile'));
+        $scope.data.address = $localstorage.get('address');
 
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+        // to get current location of the user
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+
+                $scope.position = position;
+
+            }, function (err) {
+                // error
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+            });
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.calculateAge = function calculateAge(birthdayRaw) { // birthday is a date
+            var birthday = new Date(birthdayRaw);
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        };
+        $scope.show();
+
+    })
+
+    .controller('AreasCtrl', function ($scope, $state, $ionicHistory, $timeout, $stateParams, BlueTeam) {
+        
+        $scope.data.name = $localstorage.get('name');
+        $scope.data.mobile = parseInt($localstorage.get('mobile'));
+        $scope.data.address = $localstorage.get('address');
+
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+        // to get current location of the user
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+
+                $scope.position = position;
+
+            }, function (err) {
+                // error
+                console.log(JSON.stringify(err));
+                $scope.position = {
+                    "coords": {
+                        "longitude": null,
+                        "latitude": null
+                    }
+                };
+            });
+        $scope.show = function () {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            $timeout(function () {
+                $scope.hide();
+            }, 5000);
+
+        };
+        $scope.hide = function () {
+            $ionicLoading.hide();
+        };
+
+        
+        $scope.show();
+
+        BlueTeam.getAreas().then(function (d) {
+
+            $ionicHistory.clearHistory();
+            $scope.areas = d['root'];
+            console.log(JSON.stringify($scope.areas));
+            $scope.hide();
+        });
+        BlueTeam.getServices("?type=monthly").then(function (d) {
+
+            $ionicHistory.clearHistory();
+            $scope.montlhyServices = d['root'];
+            console.log(JSON.stringify($scope.montlhyServices));
+            $scope.hide();
+        });
+        $scope.searchWorker = function () {
+            BlueTeam.searchWorker($scope.data.area, $scope.data.service)
+                .then(function (d) {
+                    $scope.hide();
+                    $ionicHistory.clearHistory();
+                    $state.go('finish');
+                    //$scope.services = d['data']['services'];
+                });
+        };
+    })
     .controller('RegCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $cordovaGeolocation, $localstorage,
                                      PhoneContactsFactory, $ionicPlatform, $cordovaDevice, $window, $cordovaLocalNotification, BlueTeam) {
 
