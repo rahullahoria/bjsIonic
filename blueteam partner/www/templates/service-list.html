@@ -11,6 +11,18 @@
 
 
 <!-- invite other helper code -->
+        <div class="card" style="border-left: 3px solid greenyellow;">
+            <div class="item item-text-wrap">
+
+
+            <p>Reliability Score: {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)</p>
+            <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p>
+            <h2> This month Income: {{ serviceProviderD.amount }} Rs</h2>
+
+
+
+        </div>
+            </div>
 
         <div class="card" style="border-left: 3px solid greenyellow;">
 

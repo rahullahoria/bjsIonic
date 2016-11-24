@@ -165,6 +165,18 @@ angular.module('starter.services', [])
                 return promise;
             },
 
+            getMonthlyIncome: function (id) {
+                // $http returns a promise, which has a then function, which also returns a promise
+                var promise = $http.get('http://api.sp.blueteam.in/service_provider/'+ id + '/invoice').then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    console.log(JSON.stringify(response));
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
+
             search: function (keywords) {
                 // $http returns a promise, which has a then function, which also returns a promise
                 var promise = $http.get('http://api.sp.blueteam.in/search/'+ keywords).then(function (response) {
@@ -237,6 +249,29 @@ angular.module('starter.services', [])
                     return response.data;
                 });
                 // Return the promise to the controller
+                return promise;
+            },
+
+            getServiceProvider: function (id) {
+                var promise = $http.get('http://api.sp.blueteam.in/service_provider/'+ id).then(function (response) {
+
+                    console.log(JSON.stringify(response));
+
+                    return response.data;
+                });
+
+                return promise;
+            },
+            //api.wazir.shatkonlabs.com/feedbacks/1/bt-sp-2/count
+
+            getServiceProviderScore: function (id) {
+                var promise = $http.get('http://api.wazir.shatkonlabs.com/feedbacks/1/bt-sp-'+id+'/count').then(function (response) {
+
+                    console.log(JSON.stringify(response));
+
+                    return response.data;
+                });
+
                 return promise;
             },
 

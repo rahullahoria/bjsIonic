@@ -285,12 +285,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
-            .state('tab.scorecard', {
-                url: '/scorecard',
+            .state('tab.monthly-income', {
+                url: '/monthly_income',
                 views: {
                     'information': {
-                        templateUrl: 'templates/score-card.html',
-                        controller: 'ScoreCardCtrl'
+                        templateUrl: 'templates/monthly-income.html',
+                        controller: 'MonthlyIncomeCtrl'
                     }
                 }
             })

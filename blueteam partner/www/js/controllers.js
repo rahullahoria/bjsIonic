@@ -26,16 +26,38 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
             });
         };
        //scope.show();
-/*
 
-        var temp = BlueTeam.getServices().then(function (d) {
 
-            $ionicHistory.clearHistory();
-            $scope.services = window.services = d['root'];
-            console.log(JSON.stringify($scope.services));
-            $scope.hide();
+        var temp = BlueTeam.getServiceProvider(1).then(function (d) {
+
+            $scope.serviceProviderD = d.service_provider[0];
+            console.log(JSON.stringify($scope.serviceProviderD));
+
         });
+        //getServiceProviderScore
+        var temp = BlueTeam.getServiceProviderScore(1).then(function (d) {
 
+            $scope.serviceProviderQuility = d.counts;
+            //'complain','suggestion','appreciation','marvelous'
+            var add = 0;
+            $scope.serviceProviderQuilityScore = 0;
+            $scope.serviceProviderQuilityScoreTotal = 0;
+            for(var i = 0; i < $scope.serviceProviderQuility.length; i++ ) {
+                if($scope.serviceProviderQuility[i].type == "complain")
+                    add = 1;
+                if($scope.serviceProviderQuility[i].type == "suggestion")
+                    add = 2;
+                if($scope.serviceProviderQuility[i].type == "appreciation")
+                    add = 3;
+                if($scope.serviceProviderQuility[i].type == "marvelous")
+                    add = 4;
+                $scope.serviceProviderQuilityScore += add*$scope.serviceProviderQuility[i].count;
+                $scope.serviceProviderQuilityScoreTotal += 4*$scope.serviceProviderQuility[i].count;
+            }
+            console.log(JSON.stringify($scope.serviceProviderD));
+
+        });
+        /*
         //getServiceProviders
 
         var temp = BlueTeam.getServiceProviderServices().then(function (d) {
@@ -243,12 +265,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
     })
 
-    .controller('ScoreCardCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
+    .controller('MonthlyIncomeCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
-        if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
+        /*if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
             $ionicHistory.clearHistory();
             $state.go('reg');
-        }
+        }*/
 
         $scope.show = function () {
             $ionicLoading.show({
@@ -258,13 +280,20 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         $scope.hide = function () {
             $ionicLoading.hide();
         };
+        $scope.thisMonthTotal = 0;
 
         $scope.show();
 
-        var temp = BlueTeam.getScore().then(function (d) {
+        var temp = BlueTeam.getMonthlyIncome(1).then(function (d) {
 
 
-            $scope.scores = d['root'].scores;
+            $scope.invoices = d.invoices;
+
+            for(var i =0; i < $scope.invoices.length; i++){
+                //new Date(millis)
+                $scope.invoices[i].creation = new Date($scope.invoices[i].creation);
+                $scope.thisMonthTotal += 1*$scope.invoices[i].amount ;
+            }
 
             $scope.hide();
         });
