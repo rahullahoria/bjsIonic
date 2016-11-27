@@ -17,7 +17,7 @@
 
             <p>Reliability Score: {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)</p>
             <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p>
-            <h2> This month Income: {{ serviceProviderD.amount }} Rs</h2>
+            <h2> This month Income: &#8377; {{ serviceProviderD.amount }}</h2>
 
 
 
@@ -50,21 +50,35 @@
         </div>
 
         <div class="card" style="border-left: 3px solid firebrick;">
-            <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+            <a ng-click="createCampaigning('sms')" nav-direction="forward"
                style="text-decoration: none !important;">
 
                 <div class="item item-text-wrap">
-                    <div><B>Sms Campaigning (Credit: 1000)</B></div>
+                    <div>
+                        <B>
+                            Sms Campaigning (Credit: {{serviceProviderD.sms_credit}})
+                        </B>
+                        <span class="item-note">
+                            {{serviceProviderD.campaign_credit_status}}
+                        </span>
+                    </div>
                     <img src="./img/banner-for-SMS_campaign.jpg" style="max-width: 100%">
 
                 </div>
             </a>
 
-            <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+            <a ng-click="createCampaigning('email')" nav-direction="forward"
                style="text-decoration: none !important;">
 
                 <div class="item item-text-wrap">
-                    <div><B>Email Campaigning (Credit: 2000)</B></div>
+                    <div>
+                        <B>
+                            Email Campaigning (Credit: {{ serviceProviderD.email_credit }})
+                        </B>
+                        <span class="item-note">
+                            {{serviceProviderD.campaign_credit_status}}
+                        </span>
+                    </div>
                     <img src="./img/email-campaign.jpg" style="max-width: 100%">
 
                 </div>

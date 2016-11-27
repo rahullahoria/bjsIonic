@@ -226,6 +226,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
+            .state('tab.campaign', {
+                url: '/campaign/:type/limit/:limit',
+                views: {
+                    'book': {
+                        templateUrl: 'templates/campaign.html',
+                        controller: 'CampaignCtrl'
+                    }
+                }
+            })
+
             .state('tab.get_feedback', {
                 url: '/get_feedback',
                 views: {

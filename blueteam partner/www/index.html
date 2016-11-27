@@ -29,6 +29,13 @@
     <script src="js/app.js"></script>
     <script src="js/phonecontacts.js"></script>
     <script src="js/controllers.js"></script>
+
+    <script src="js/controllers/ServiceListCtrl.js"></script>
+    <script src="js/controllers/GetFeedbackCtrl.js"></script>
+    <script src="js/controllers/InvoiceCtrl.js"></script>
+    <script src="js/controllers/MonthlyIncomeCtrl.js"></script>
+    <script src="js/controllers/RegCtrl.js"></script>
+
     <script src="js/services.js"></script>
     <script type="text/javascript" >
         var myService;
@@ -112,19 +119,47 @@
 
         <ion-content >
             <div class="card " >
-                <div style="text-align: center;"><img ng-src="img/ms-icon-144x144.png" class="img-rounded" style="max-width: 100%;" >
-                    <p><i style="font-style: italic;font-size: 0.8em">to give you Releif</i></p>
-                    <p><b>Book Now</b><br/>
-                    Maid|Cook|Driver|Babysitter</p>
+                <div style="text-align: center;"><img ng-src="img/login.png" class="img-rounded" style="max-width: 100%;" >
+                    <p><i style="font-style: italic;font-size: 0.8em">Let's Grow with Technology</i></p>
 
                 </div>
 
             </div>
-            <div style="text-align: center;"><h3>Login/Signup</h3></div>
-            <div class="card" >
+            <div style="text-align: center;"><h3>Partner Login/Signup</h3></div>
+            <div class="card" ng-hide="!basicRegDone">
+
+                <form ng-submit="regUserServices()" name="registerService" >
+
+                    <div class="list" ng-repeat="service in userService">
+                        <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
+                        {{ service.name | uppercase}}
+
+                        <label class="item item-input " >
+                            <span class="input-label" >Price</span>
+                            <input type="number" name="price"
+                                   placeholder="price" ng-model="userServices[$index].price" ng-minlength="10" ng-maxlength="10" required >
+                        </label>
+
+                        <ion-checkbox ng-model="userServices[$index].hourly">Price Hourly Based</ion-checkbox>
+                        <ion-checkbox ng-model="userServices[$index].negotiable">Price Negotiable</ion-checkbox>
 
 
+                    </div>
 
+                    <div class="padding">
+
+                        <span class="item item-assertive msg-error" ng-show="error">
+                            {{error}}
+                          </span>
+
+                        <input class="button button-block button-calm"
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="card" ng-hide="basicRegDone">
 
                 <form ng-submit="regUser()" name="register" >
 
@@ -133,42 +168,96 @@
                     <label class="item item-input " >
                         <span class="input-label" >Mobile</span>
                         <input type="number" name="mobile"
-                               placeholder="Mobile" ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required >
+                               placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10" required >
                     </label>
 
                     <label class="item item-input " >
                         <span class="input-label" >Password</span>
                         <input type="password" name="password" id="password" ng-keypress="checkReg()" ng-change="checkReg()"
-                               placeholder="Password" ng-model="data.password" ng-minlength="3"  required >
+                               placeholder="Password" ng-model="user.password" ng-minlength="6"  required >
                     </label>
 
-                    <label class="item item-input " ng-hide=registered   >
+                    <label class="item item-input "  ng-hide="registered"  >
                         <span class="input-label" >Conf. Password</span>
                         <input type="password" name="conf_password" id="conf_password" ng-keypress="checkSamePwd()"
-                               placeholder="Password" ng-model="data.conf_password" ng-minlength="3"  pw-check="data.password" >
+                               placeholder="Password" ng-model="user.conf_password" ng-minlength="6"  pw-check="data.password" >
                     </label>
 
-                    <label class="item item-input " ng-hide=registered >
+                    <label class="item item-input " ng-hide="registered" >
                         <span class="input-label" >Full Name</span>
                         <input type="text"  name="name"
-                               placeholder="Full Name" ng-model="data.name"  >
+                               placeholder="Full Name" ng-model="user.name"  >
                     </label>
 
-                    <label class="item item-input " ng-hide=registered >
+                    <div class="item " ng-hide="registered" >
+                        Profile Pic
+                        <a class="button pull-right"  ng-click="takePicture();"><span
+                                class="icon ion-android-camera large calm"></span></a>
+                        <a class="button pull-right" ng-click="selectPicture()"><span
+                                class="icon ion-images large calm"></span></a>
+                    </div>
 
-                        <span class="input-label" >Email</span>
-                        <input type="email" name="email"
-                               placeholder="Email" ng-model="data.email" >
+                    <label class="item item-input " ng-hide="registered" >
+
+                        <span class="input-label" >Address</span>
+                        <input type="text" name="email"
+                               placeholder="Address" ng-model="user.address" >
+                    </label>
+
+                    <label class="item item-input " ng-hide="registered" >
+                        <span class="input-label" >Experience</span>
+                        <input type="number" name="experience"
+                               placeholder="in months" ng-model="user.experience" ng-minlength="1" ng-maxlength="2" required >
+                    </label>
+
+
+
+                    <label class="item item-input item-select" ng-hide="registered" >
+                        <div class="input-label">
+                            Service
+                        </div>
+                        <select name="service" ng-model="user.services" multiple>
+                            <option value="{{ service.id }}" ng-repeat="service in serviceProviders" >
+                                <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
+                                {{ service.name | uppercase}}
+                            </option>
+
+                        </select>
+                    </label>
+
+                    <label class="item item-input item-select" ng-hide="registered">
+                        <div class="input-label">
+                            City
+                        </div>
+                        <select name="city" ng-model="user.city_id" ng-hide="registered">
+                            <option value="{{ city.id }}" ng-repeat="city in cities" >{{ city.name | uppercase}}</option>
+
+                        </select>
+                    </label>
+
+                    <label class="item item-input item-select" ng-hide="registered">
+                        <div class="input-label">
+                            Area
+                        </div>
+                        <select name="area" ng-model="user.area_id" ng-click="getAreas()">
+                            <option value="{{ area.id }}" ng-repeat="area in areas" >{{ area.name | uppercase}}</option>
+
+                        </select>
                     </label>
 
 
 
                     <div class="padding">
 
+                        <span class="item item-assertive msg-error" ng-show="error">
+                            {{error}}
+                          </span>
+
                         <div  ng-show="register.$error">
                           <span class="item item-assertive msg-error" ng-show="pwdError">
                             Passwords don't match.
                           </span>
+
                             <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>
 
                         </div>
@@ -321,7 +410,7 @@
 
             <div class="card" ng-show="!data.meeting">
                 <div style="text-align: center;">
-                        <img src="http://api.file-dog.shatkonlabs.com/files/rahul/55" height="100" style="border-radius: 15px;"/>
+                    <img src="http://api.file-dog.shatkonlabs.com/files/rahul/55" height="100" style="border-radius: 15px;"/>
                     <br/>
                     <b>Hi, I am Vikas Nagar. </b><br/>
                     <p>
