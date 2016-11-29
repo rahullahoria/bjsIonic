@@ -9,9 +9,17 @@ angular.module('starter.controllers')
         console.log("start book ctrl");
         $scope.data = {};
 
-        $scope.data.name = $localstorage.get('name');
-        $scope.data.mobile = parseInt($localstorage.get('mobile'));
-        $scope.data.address = $localstorage.get('address');
+        if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
+            $ionicHistory.clearHistory();
+            $state.go('reg');
+            return;
+        }
+
+        console.log($localstorage.get('user'));
+        $scope.user = JSON.parse($localstorage.get('user'));
+        $scope.user_id = $localstorage.get('user_id');
+        $scope.services = JSON.parse($localstorage.get('services'));
+
         $scope.position = {
             "coords": {
                 "longitude": null,
@@ -68,7 +76,7 @@ angular.module('starter.controllers')
                     "customer_name": $scope.data.name,
                     "customer_mobile": "" + $scope.data.mobile,
                     "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                    "service_id": 2,
+                    "service_id": $scope.data.service_id,
                     "user_id": $localstorage.get('user_id'),
                     "user_type": $localstorage.get('type'),
                     "amount": $scope.data.amount,

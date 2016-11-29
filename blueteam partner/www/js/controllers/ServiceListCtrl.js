@@ -9,15 +9,17 @@ angular.module('starter.controllers')
 
                 //JSON.parse()
 
-                var temp = $localstorage.get('user');
-                if ($localstorage.get('user') === undefined || $localstorage.get('user') === "") {
+
+                if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
                     $ionicHistory.clearHistory();
                     $state.go('reg');
                     return;
                 }
 
                 console.log($localstorage.get('user'));
-                //    $scope.user = JSON.parse($localstorage.get('user'));
+                $scope.user = JSON.parse($localstorage.get('user'));
+                $scope.user_id = $localstorage.get('user_id');
+                $scope.services = JSON.parse($localstorage.get('services'));
                 $scope.campaignRequest = {};
 
 
@@ -85,7 +87,7 @@ angular.module('starter.controllers')
 
                     console.log(JSON.stringify($scope.position));
                     //$scope.campaignRequest.location = $scope.position.coords.latitude + ',' + $scope.position.coords.longitude;
-                    BlueTeam.createCampaigningRequest(1,$scope.campaignRequest)
+                    BlueTeam.createCampaigningRequest($scope.user_id,$scope.campaignRequest)
                         .then(function (d) {
                             $scope.hide();
 
@@ -111,20 +113,23 @@ angular.module('starter.controllers')
                 //scope.show();
 
 
-                BlueTeam.getServiceProvider(1).then(function (d) {
+                BlueTeam.getServiceProvider($scope.user_id).then(function (d) {
 
                     $scope.serviceProviderD = d.service_provider[0];
+                    $scope.serviceProviderD.reliability_score += 3;
+                    $scope.serviceProviderD.reliability_score *= 1;
+                    $scope.serviceProviderD.reliability_count += 1;
                     console.log(JSON.stringify($scope.serviceProviderD));
 
                 });
                 //getServiceProviderScore
-                BlueTeam.getServiceProviderScore(1).then(function (d) {
+                BlueTeam.getServiceProviderScore($scope.user_id).then(function (d) {
 
                     $scope.serviceProviderQuility = d.counts;
                     //'complain','suggestion','appreciation','marvelous'
                     var add = 0;
-                    $scope.serviceProviderQuilityScore = 0;
-                    $scope.serviceProviderQuilityScoreTotal = 0;
+                    $scope.serviceProviderQuilityScore = 3;
+                    $scope.serviceProviderQuilityScoreTotal = 4;
                     for(var i = 0; i < $scope.serviceProviderQuility.length; i++ ) {
                         if($scope.serviceProviderQuility[i].type == "complain")
                             add = 1;

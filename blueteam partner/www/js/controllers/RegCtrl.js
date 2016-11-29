@@ -18,6 +18,12 @@ angular.module('starter.controllers')
         $scope.registered = true;
         $scope.checked = false;
 
+        $scope.user.profile_pic_id = 0;
+        $scope.user.area_id = 0;
+        $scope.user.city_id = 0;
+
+
+
         $scope.position = {
             "coords": {
                 "longitude": null,
@@ -76,36 +82,31 @@ angular.module('starter.controllers')
 
             $scope.show();
             BlueTeam.loginUser({
-                    "root": {
+
                         "gps_location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                        "mobile": $scope.data.mobile,
-                        "password": $scope.data.password,
+                        "mobile": $scope.user.mobile,
+                        "password": $scope.user.password,
                         "device_id": $cordovaDevice.getUUID()
 
-                    }
+
                 })
                 .then(function (d) {
 
                     //setObject
-                    $scope.user = d['root'].user;
-                    console.log(JSON.stringify($scope.user));
                     $scope.hide();
-                    if ($scope.user.user_exist == true) {
-                        $localstorage.set('name', $scope.user.name);
-                        $localstorage.set('user_id', $scope.user.id);
-                        $localstorage.set('mobile', $scope.user.mobile);
-                        $localstorage.set('email', $scope.user.email);
-                        $localstorage.set('type', $scope.user.type);
-                        //$window.location.reload(true)
+
+                    if (d.user.id) {
+
+                        $localstorage.set('user', JSON.stringify(d.user));
+                        $localstorage.set('user_id', d.user.id);
+                        $localstorage.set('services', JSON.stringify(d.user.services));
 
                         $timeout(function () {
                             $window.location.reload(true);
                         }, 5000);
+                        $state.go('tab.service-list');
 
-                        if ($scope.user.type == "worker")
-                            $state.go('tab.worker-timer');
-                        else
-                            $state.go('tab.service-list');
+
 
                     } else {
                         $scope.pwdError = true;
@@ -367,13 +368,62 @@ angular.module('starter.controllers')
         }
 
         $scope.basicRegDone = false;
-        $scope.userService = [];
+        $scope.userServices = [];
 
         $scope.regUserServices = function(){
 
+
+            BlueTeam.regUserServices($scope.user.id,$scope.userServices)
+                .then(function (d) {
+
+                    //setObject
+                    $localstorage.set('services', JSON.stringify($scope.userServices));
+                    $scope.basicRegDone = true;
+
+
+
+                    if(d.error){
+
+                        $scope.error = d.error;
+
+                    }
+
+                    $scope.hide();
+                    $timeout(function () {
+                     $window.location.reload(true);
+                     }, 5000);
+
+
+                     $state.go('tab.service-list');
+
+                });
         };
 
+
         $scope.regUser = function () {
+
+            if($scope.user.name == ""){
+                $scope.error = "please enter your name";
+                return;
+            }
+            if($scope.user.profile_pic_id == 0){
+                    $scope.error = "please select your profile picture";
+                return;
+            }
+
+            if($scope.user.services.length == 0){
+                $scope.error = "please select at least 1 service";
+                return;
+            }
+            if($scope.user.city_id == 0){
+                $scope.error = "please select your city";
+                return;
+            }
+            if($scope.user.area_id == 0){
+                $scope.error = "please select your area";
+                return;
+            }
+            $scope.error = null;
             if ($scope.checked == false) {
                 $scope.checkReg();
                 return;
@@ -394,8 +444,11 @@ angular.module('starter.controllers')
                 BlueTeam.regUser($scope.user)
                     .then(function (d) {
 
+                        $scope.hide();
                         //setObject
-                        $localstorage.set('user', JSON.stringify(d.service_provider));
+                        $localstorage.set('user', JSON.stringify(d.service_providers));
+                        $localstorage.set('user_id', d.service_providers.id);
+
                         $scope.basicRegDone = true;
 
                         for(var i=0; i<$scope.user.services.length; i++){
@@ -407,15 +460,20 @@ angular.module('starter.controllers')
                                     temp.name = $scope.serviceProviders[j].name;
                                     temp.pic_id = $scope.serviceProviders[j].pic_id;
 
-                                    $scope.userService.push(temp);
+                                    $scope.userServices.push(temp);
 
                                 }
                             }
 
 
                         }
-                        console.log(JSON.stringify($scope.registerService));
-                        $scope.user = {};
+                        console.log(JSON.stringify($scope.userServices));
+
+                        console.log(JSON.stringify(d.service_providers));
+                        d.service_providers.mobile = d.service_providers.mobile*1;
+                        d.service_providers.experience = d.service_providers.experience*1;
+
+                        $scope.user = d.service_providers;
 
 
                         if(d.error){
@@ -424,7 +482,7 @@ angular.module('starter.controllers')
 
                         }
 
-                        $scope.hide();
+
                         /*$timeout(function () {
                             $window.location.reload(true);
                         }, 5000);

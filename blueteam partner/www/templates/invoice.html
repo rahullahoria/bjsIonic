@@ -31,9 +31,18 @@
                     </label>
 
                     <label class="item item-input item-stacked-label ">
-                        <span class="input-label">Service</span>
-                        <input type="text" name="service" placeholder="enter service" ng-model="data.service" ng-minlength="1" required />
+                        <span class="input-label">Select Service</span>
+
                     </label>
+                    <ion-list>
+                        <ion-radio ng-model="data.service_id" ng-value="'{{service.service_id}}'" ng-repeat="service in services">
+                            <i class="icon"><img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="20" height="20">
+                            </i>
+                                {{service.name | uppercase}}
+                        </ion-radio>
+
+                    </ion-list>
+
 
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Amount</span>

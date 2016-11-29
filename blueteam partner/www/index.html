@@ -30,6 +30,8 @@
     <script src="js/phonecontacts.js"></script>
     <script src="js/controllers.js"></script>
 
+    <script src="js/controllers/TabCtrl.js"></script>
+    <script src="js/controllers/T&CCtrl.js"></script>
     <script src="js/controllers/ServiceListCtrl.js"></script>
     <script src="js/controllers/GetFeedbackCtrl.js"></script>
     <script src="js/controllers/InvoiceCtrl.js"></script>
@@ -118,7 +120,7 @@
     <ion-view hide-nav-bar="true" >
 
         <ion-content >
-            <div class="card " >
+            <div class="" >
                 <div style="text-align: center;"><img ng-src="img/login.png" class="img-rounded" style="max-width: 100%;" >
                     <p><i style="font-style: italic;font-size: 0.8em">Let's Grow with Technology</i></p>
 
@@ -128,16 +130,19 @@
             <div style="text-align: center;"><h3>Partner Login/Signup</h3></div>
             <div class="card" ng-hide="!basicRegDone">
 
+                Services Details
+
                 <form ng-submit="regUserServices()" name="registerService" >
 
-                    <div class="list" ng-repeat="service in userService">
+                    <div class="list" ng-repeat="service in userServices">
+                        <hr/>
                         <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
                         {{ service.name | uppercase}}
 
                         <label class="item item-input " >
                             <span class="input-label" >Price</span>
-                            <input type="number" name="price"
-                                   placeholder="price" ng-model="userServices[$index].price" ng-minlength="10" ng-maxlength="10" required >
+                            <input type="number" name="price{{$index}}"
+                                   placeholder="price" ng-model="userServices[$index].price" ng-minlength="2" ng-maxlength="6" required >
                         </label>
 
                         <ion-checkbox ng-model="userServices[$index].hourly">Price Hourly Based</ion-checkbox>
@@ -153,7 +158,7 @@
                           </span>
 
                         <input class="button button-block button-calm"
-                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="registerService.$invalid">
                     </div>
 
                 </form>
@@ -195,19 +200,20 @@
                                 class="icon ion-android-camera large calm"></span></a>
                         <a class="button pull-right" ng-click="selectPicture()"><span
                                 class="icon ion-images large calm"></span></a>
+                        <i class="icon ion-checkmark-circled balanced" ng-show="(user.profile_pic_id != 0)"></i>
                     </div>
 
-                    <label class="item item-input " ng-hide="registered" >
+                    <!--<label class="item item-input " ng-hide="registered" >
 
                         <span class="input-label" >Address</span>
                         <input type="text" name="email"
                                placeholder="Address" ng-model="user.address" >
                     </label>
-
+-->
                     <label class="item item-input " ng-hide="registered" >
                         <span class="input-label" >Experience</span>
                         <input type="number" name="experience"
-                               placeholder="in months" ng-model="user.experience" ng-minlength="1" ng-maxlength="2" required >
+                               placeholder="in months" ng-model="user.experience" ng-minlength="1" ng-maxlength="2">
                     </label>
 
 
@@ -262,13 +268,34 @@
 
                         </div>
 
+                        <div class="button-bar">
                         <input class="button button-block button-calm"
-                               type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="register.$invalid">
+                               type="submit" name="submit" value="{{ registered?'Login':'Register'}}" nav-direction="forward" ng-disabled="register.$invalid">
+                        <button class="button button-block button-energized"
+                                 ng-click="registered=!registered;" >{{ registered?'Register':'Login'}}</button>
+                            </div>
                     </div>
 
 
 
                 </form>
+            </div>
+            <div class='card'>
+                <div class="item item-text-wrap">
+                    <div style="text-align: center;">
+                        <i> For queries and issues
+                        </i>
+                        <div class="button-bar">
+                            <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                               ng-href="tel: +91 9599075355"> Call</a>
+                            <a class="button button-small button-full ion-email"
+                               onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                            <a class="button button-small button-full ion-cloud"
+                               onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </ion-content>
     </ion-view>

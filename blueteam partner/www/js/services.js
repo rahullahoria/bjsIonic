@@ -405,7 +405,21 @@ angular.module('starter.services', [])
                 console.log(JSON.stringify(data));
                 var promise = $http.post(urlSP + '/service_provider', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
-                    console.log(response);
+                    console.log(JSON.stringify(response));
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
+            regUserServices: function (userId, data) {
+                // $http returns a promise, which has a then function, which also returns a promise
+                var services = {"services":data};
+
+                console.log(JSON.stringify(services));
+                var promise = $http.post(urlSP + '/service_provider/'+userId+'/services', services).then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
@@ -416,9 +430,9 @@ angular.module('starter.services', [])
                 // $http returns a promise, which has a then function, which also returns a promise
 
                 console.log(JSON.stringify(data));
-                var promise = $http.post(url + '/login', data).then(function (response) {
+                var promise = $http.post(urlSP + '/auth', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
-                    console.log(response);
+                    console.log(JSON.stringify(response.data));
                     // The return value gets picked up by the then in the controller.
                     return response.data;
                 });

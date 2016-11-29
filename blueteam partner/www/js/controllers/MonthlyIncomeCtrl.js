@@ -6,10 +6,16 @@ angular.module('starter.controllers')
 
     .controller('MonthlyIncomeCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, BlueTeam) {
 
-        /*if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
-         $ionicHistory.clearHistory();
-         $state.go('reg');
-         }*/
+        if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
+            $ionicHistory.clearHistory();
+            $state.go('reg');
+            return;
+        }
+
+        console.log($localstorage.get('user'));
+        $scope.user = JSON.parse($localstorage.get('user'));
+        $scope.user_id = $localstorage.get('user_id');
+        $scope.services = JSON.parse($localstorage.get('services'));
 
         $scope.show = function () {
             $ionicLoading.show({
@@ -23,7 +29,7 @@ angular.module('starter.controllers')
 
         $scope.show();
 
-        BlueTeam.getMonthlyIncome(1).then(function (d) {
+        BlueTeam.getMonthlyIncome($scope.user_id).then(function (d) {
 
 
             $scope.invoices = d.invoices;

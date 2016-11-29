@@ -13,11 +13,12 @@
 <!-- invite other helper code -->
         <div class="card" style="border-left: 3px solid greenyellow;">
             <div class="item item-text-wrap">
+                <h2>Hello, {{user.name}}</h2>
 
 
             <p>Reliability Score: {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)</p>
             <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p>
-            <h2> This month Income: &#8377; {{ serviceProviderD.amount }}</h2>
+            <h2> This month Income: &#8377; {{ serviceProviderD.amount*1 }}</h2>
 
 
 

@@ -9,6 +9,17 @@ angular.module('starter.controllers')
         //for datetime picker
         console.log("start get feedback ctrl");
 
+        if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
+            $ionicHistory.clearHistory();
+            $state.go('reg');
+            return;
+        }
+
+        console.log($localstorage.get('user'));
+        $scope.user = JSON.parse($localstorage.get('user'));
+        $scope.user_id = $localstorage.get('user_id');
+        $scope.services = JSON.parse($localstorage.get('services'));
+
         $scope.data = {};
 
         $scope.data.name = $localstorage.get('name');
@@ -68,7 +79,7 @@ angular.module('starter.controllers')
                     "customer_name": $scope.data.name,
                     "customer_mobile": "" + $scope.data.mobile,
                     "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                    "service_id": 1,
+                    "service_id": $scope.data.service_id,
                     "user_id": $localstorage.get('user_id'),
                     "user_type": $localstorage.get('type'),
                     "device_id": $cordovaDevice.getUUID()
