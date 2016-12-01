@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta http-equiv="Content-Security-Policy" content="default-src *; font-src data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+
     <title></title>
 
 
@@ -269,9 +270,9 @@
                         </div>
 
                         <div class="button-bar">
-                        <input class="button button-block button-calm"
+                        <input class="button button-calm"
                                type="submit" name="submit" value="{{ registered?'Login':'Register'}}" nav-direction="forward" ng-disabled="register.$invalid">
-                        <button class="button button-block button-energized"
+                        <button class="button button-outline button-energized"
                                  ng-click="registered=!registered;" >{{ registered?'Register':'Login'}}</button>
                             </div>
                     </div>

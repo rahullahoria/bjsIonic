@@ -20,6 +20,8 @@ angular.module('starter.controllers')
         $scope.user_id = $localstorage.get('user_id');
         $scope.services = JSON.parse($localstorage.get('services'));
 
+        $scope.data.service_id = $scope.services[0].service_id;
+
         $scope.position = {
             "coords": {
                 "longitude": null,
@@ -71,9 +73,10 @@ angular.module('starter.controllers')
             $scope.show();
 
             console.log(JSON.stringify($scope.position));
-            BlueTeam.sendInvoice({
+            BlueTeam.sendInvoice($scope.user_id, {
 
                     "customer_name": $scope.data.name,
+                    "send_bill": $scope.data.send_bill,
                     "customer_mobile": "" + $scope.data.mobile,
                     "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
                     "service_id": $scope.data.service_id,
@@ -87,7 +90,8 @@ angular.module('starter.controllers')
                 .then(function (d) {
                     $scope.hide();
                     $scope.data = {};
-                    $cordovaToast.showLongBottom('Bill Sent, Successfully').then(function (success) {
+                    var temp = ($scope.data.send_bill)?'Sent':'Added';
+                    $cordovaToast.showLongBottom('Bill '+temp+', Successfully').then(function (success) {
                         // success
                     }, function (error) {
                         // error

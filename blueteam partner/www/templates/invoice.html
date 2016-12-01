@@ -34,8 +34,9 @@
                         <span class="input-label">Select Service</span>
 
                     </label>
-                    <ion-list>
-                        <ion-radio ng-model="data.service_id" ng-value="'{{service.service_id}}'" ng-repeat="service in services">
+                    <ion-list radio-group>
+
+                        <ion-radio ng-model="data.service_id"  ng-value="'{{service.service_id}}'" ng-repeat="service in services">
                             <i class="icon"><img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="20" height="20">
                             </i>
                                 {{service.name | uppercase}}
@@ -65,8 +66,13 @@
 
                     </div>
 
-                    <input class="button button-block button-calm" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                    <div class="padding button-bar">
+                    <input class="button button-calm" type="submit" name="need now" ng-click="data.send_bill=true" value="Send Bill" nav-direction="forward"
                            ng-disabled="confirm.$invalid">
+
+                    <input class="button button-outline button-calm" type="submit" ng-click="data.send_bill=false" name="need now" value="Add Bill" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
+                        </div>
 
                 </div>
             </form>

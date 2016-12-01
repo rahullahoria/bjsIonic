@@ -36,9 +36,16 @@ angular.module('starter.controllers')
             }
         }, 100);
 
+        if ($localstorage.get('user_id') !== undefined && $localstorage.get('user_id') !== "") {
+            $scope.user = JSON.parse($localstorage.get('user'));
+            $scope.user_id = $localstorage.get('user_id');
+            $scope.services = JSON.parse($localstorage.get('services'));
+        }
 
-        $scope.type = $localstorage.get('type');
-        $scope.name = $localstorage.get('name');
+
+
+        /*$scope.type = $localstorage.get('type');
+        $scope.name = $localstorage.get('name');*/
 
         $scope.customer = true;
         if ($scope.type == "cem") {

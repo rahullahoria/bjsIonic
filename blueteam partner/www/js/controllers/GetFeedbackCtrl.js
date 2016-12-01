@@ -74,7 +74,7 @@ angular.module('starter.controllers')
             $scope.show();
 
             console.log(JSON.stringify($scope.position));
-            BlueTeam.feedbackRequest({
+            BlueTeam.feedbackRequest($scope.user_id, {
 
                     "customer_name": $scope.data.name,
                     "customer_mobile": "" + $scope.data.mobile,

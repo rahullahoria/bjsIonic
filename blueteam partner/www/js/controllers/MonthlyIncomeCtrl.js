@@ -27,21 +27,24 @@ angular.module('starter.controllers')
         };
         $scope.thisMonthTotal = 0;
 
-        $scope.show();
+        $scope.doRefresh = function(){
+            BlueTeam.getMonthlyIncome($scope.user_id).then(function (d) {
 
-        BlueTeam.getMonthlyIncome($scope.user_id).then(function (d) {
+                $scope.show();
 
+                $scope.invoices = d.invoices;
 
-            $scope.invoices = d.invoices;
+                for(var i =0; i < $scope.invoices.length; i++){
+                    //new Date(millis)
+                    $scope.invoices[i].creation = new Date($scope.invoices[i].creation);
+                    $scope.thisMonthTotal += 1*$scope.invoices[i].amount ;
+                }
 
-            for(var i =0; i < $scope.invoices.length; i++){
-                //new Date(millis)
-                $scope.invoices[i].creation = new Date($scope.invoices[i].creation);
-                $scope.thisMonthTotal += 1*$scope.invoices[i].amount ;
-            }
+                $scope.hide();
+            });
+        }
 
-            $scope.hide();
-        });
+        $scope.doRefresh();
 
 
     });

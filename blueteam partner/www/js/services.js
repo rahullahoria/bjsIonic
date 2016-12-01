@@ -214,17 +214,7 @@ angular.module('starter.services', [])
                 return promise;
             },
 
-            getScore: function () {
-                // $http returns a promise, which has a then function, which also returns a promise
-                var promise = $http.get(url + '/get-score').then(function (response) {
-                    // The then function here is an opportunity to modify the response
-                    console.log(JSON.stringify(response));
-                    // The return value gets picked up by the then in the controller.
-                    return response.data;
-                });
-                // Return the promise to the controller
-                return promise;
-            },
+
 
             getVerification: function () {
                 // $http returns a promise, which has a then function, which also returns a promise
@@ -251,10 +241,10 @@ angular.module('starter.services', [])
                 return promise;
             },
 
-            feedbackRequest: function (data) {
+            feedbackRequest: function (id, data) {
                 // $http returns a promise, which has a then function, which also returns a promise
                 console.log(JSON.stringify(data));
-                var promise = $http.post(urlSP + '/service_provider/1/feedback_request', data).then(function (response) {
+                var promise = $http.post(urlSP + '/service_provider/'+id+'/feedback_request', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
@@ -264,10 +254,10 @@ angular.module('starter.services', [])
                 return promise;
             },
 
-            sendInvoice: function (data) {
+            sendInvoice: function (id,data) {
                 // $http returns a promise, which has a then function, which also returns a promise
                 console.log(JSON.stringify(data));
-                var promise = $http.post(urlSP + '/service_provider/1/invoice', data).then(function (response) {
+                var promise = $http.post(urlSP + '/service_provider/'+id+'/invoice', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
@@ -304,6 +294,17 @@ angular.module('starter.services', [])
 
             getServiceProviderScore: function (id) {
                 var promise = $http.get(urlWazir + '/feedbacks/1/bt-sp-'+id+'/count').then(function (response) {
+
+                    console.log(JSON.stringify(response));
+
+                    return response.data;
+                });
+
+                return promise;
+            },
+
+            getLocationDetails: function (id) {
+                var promise = $http.get(urlWazir + '/location/-'+id).then(function (response) {
 
                     console.log(JSON.stringify(response));
 

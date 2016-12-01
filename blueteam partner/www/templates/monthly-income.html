@@ -1,5 +1,6 @@
 <ion-view view-title="Monthly Income">
 
+
     <ion-content has-header="true" class="padding" style="
     overflow-y: hidden ! important;
         overflow-x: hidden ! important;
@@ -8,6 +9,10 @@
     background-repeat: no-repeat;
         background-position: top;
         margin-top: -50px">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
 
 
         <div class="card" style="margin-top: 100px;" ng-show="(invoices.length != 0)">

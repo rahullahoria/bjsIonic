@@ -42,15 +42,15 @@ navigation history that also transitions its views in and out.
     <!-- Side Menu (left) -->
     <ion-side-menu side="left">
         <ion-header-bar class="bar-calm">
-            <img ng-src="img/ms-icon-144x144.png" class="title-image" width="43" height="43"
+            <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{user.profile_pic_id}}" class="title-image" width="43" height="43"
                  style="border-radius: 4px "/>
-            <h1 class="title">BlueTeam</h1>
+            <h1 class="title">BlueTeam Partner</h1>
 
 
         </ion-header-bar>
 
         <ion-header-bar class="bar-subheader bar-calm">
-            <h1 class="title">Hello, {{name | uppercase}}</h1>
+            <h1 class="title">{{user.name | uppercase}}</h1>
         </ion-header-bar>
         <ion-content>
             <ion-list>
