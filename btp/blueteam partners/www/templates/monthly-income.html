@@ -1,0 +1,81 @@
+<ion-view view-title="Monthly Income">
+
+
+    <ion-content has-header="true" class="padding" style="
+
+        overflow-x: hidden ! important;
+    background-image: url('./img/moneyimage.jpg');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+        margin-top: -50px">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+
+        <div class="card" style="margin-top: 100px;" ng-show="(invoices.length != 0)">
+            <div class="row header">
+                <div class="col col-10"><b>ID</b></div>
+                <div class="col col-70"><b>Customer</b></div>
+                <div class="col col-20"><b>Amount</b></div>
+
+            </div>
+            <hr/>
+            <div class="row"  ng-repeat="invoice in invoices">
+                <div class="col col-10">{{ $index+1 }}</div>
+                <div class="col col-70">
+                    {{ invoice.customer_name | uppercase}}
+                    <span class="item-note" style="font-style: italic;"> on {{ invoice.creation | date:'dd-MM-yyyy' }}</span>
+                </div>
+
+                <div class="col col-20">&#8377;{{ invoice.amount| limitTo: 5}} </div>
+
+            </div>
+            <hr/>
+            <div class="row header ">
+                <div class="col col-10"><b>#</b></div>
+                <div class="col col-70"><b>Total</b></div>
+                <div class="col col-20"><b>&#8377;{{ thisMonthTotal }}</b></div>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class='card' style="margin-top: 200px;" ng-show="(invoices.length == 0)">
+            <div class="item item-text-wrap">
+                <span class="item item-assertive msg-error" >
+                            Sorry! No Invoice found
+                          </span>
+                <p><hr/>
+            You have not given any bill/invoice till now.
+                Please give bills to every customer of yours.<br/><br/>
+                So, we can give you best reports.
+                </p>
+            </div>
+        </div>
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

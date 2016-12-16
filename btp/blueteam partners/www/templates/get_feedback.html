@@ -1,0 +1,82 @@
+<ion-view view-title="Feedback Invitation">
+    <ion-content class="padding" style="
+
+        overflow-x: hidden ! important;
+    background-image: url('./img/customerstalking.png');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+        margin-top: -50px">
+
+        <div class="card" style="border-left: 3px solid lightgreen;">
+            <div class="item item-text-wrap">
+                Customer will receive a SMS which will have link to give feedback!
+            </div>
+
+        </div>
+        <div class="card" style="border-left: 3px solid greenyellow;">
+            <form ng-submit="feedbackInvitation()" name="confirm" >
+                <div class="list">
+
+                    <label class="item item-input item-stacked-label ">
+                        <span class="input-label">Name</span>
+                        <input type="text" name="name" placeholder="enter name" ng-model="data.name" ng-minlength="1" required />
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Mobile</span>
+                        <input type="number" name="mobile" placeholder="mobile"
+                               ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
+
+                    </label>
+                    <label class="item item-input item-stacked-label ">
+                        <span class="input-label">Select Service</span>
+
+                    </label>
+                    <ion-list>
+                        <ion-radio ng-model="data.service_id" ng-value="'{{service.service_id}}'" ng-repeat="service in services">
+                            <i class="icon"><img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="20" height="20">
+                            </i>
+                            {{service.name | uppercase}}
+                        </ion-radio>
+
+                    </ion-list>
+
+
+                    <div class="padding">
+
+                        <p ng-show="confirm.mobile.$error.minlength || confirm.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+
+
+                    </div>
+
+                    <input class="button button-block button-calm" type="submit" name="need now" value="Confirm" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
+
+                </div>
+            </form>
+        </div>
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; font-src data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+
+  <title></title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <! — add more libraries →
+  <script src="lib/ngstorage/ngStorage.min.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+  <script src="lib/ionic-timepicker/dist/templates.js"></script>
+  <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+
+  <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+  <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+  <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/controllers/TabCtrl.js"></script>
+  <script src="js/controllers/T&CCtrl.js"></script>
+  <script src="js/controllers/ServiceListCtrl.js"></script>
+  <script src="js/controllers/GetFeedbackCtrl.js"></script>
+  <script src="js/controllers/InvoiceCtrl.js"></script>
+  <script src="js/controllers/MonthlyIncomeCtrl.js"></script>
+  <script src="js/controllers/RegCtrl.js"></script>
+  <script src="js/controllers/MapCtrl.js"></script>
+
+
+  <script src="js/services.js"></script><!--
+  <script src="js/services/BlueTeamService.js"></script>
+  <script src="js/services/BTPartnerService.js"></script>
+  <script src="js/services/CallLogService.js"></script>
+  <script src="js/services/LocalStorageService.js"></script>
+  <script src="js/services/WazirService.js"></script>-->
+
+
+
+</head>
+<body ng-app="starter">
+<ion-pane>
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button nav-direction="back">
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+
+  <script type="text/ng-template" id="register.html">
+    <ion-view hide-nav-bar="true" >
+
+      <ion-content >
+        <div class="" >
+          <div style="text-align: center;"><img ng-src="img/login.png" class="img-rounded" style="max-width: 100%;" >
+            <p><i style="font-style: italic;font-size: 0.8em">Let's Grow with Technology</i></p>
+
+          </div>
+
+        </div>
+        <div style="text-align: center;"><h3>Partner Login/Signup</h3></div>
+        <div class="card" ng-hide="!basicRegDone">
+
+          Services Details
+
+          <form ng-submit="regUserServices()" name="registerService" >
+
+            <div class="list" ng-repeat="service in userServices">
+              <hr/>
+              <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
+              {{ service.name | uppercase}}
+
+              <label class="item item-input " >
+                <span class="input-label" >Price</span>
+                <input type="number" name="price{{$index}}"
+                       placeholder="price" ng-model="userServices[$index].price" ng-minlength="2" ng-maxlength="6" required >
+              </label>
+
+              <ion-checkbox ng-model="userServices[$index].hourly">Price Hourly Based</ion-checkbox>
+              <ion-checkbox ng-model="userServices[$index].negotiable">Price Negotiable</ion-checkbox>
+
+
+            </div>
+
+            <div class="padding">
+
+                        <span class="item item-assertive msg-error" ng-show="error">
+                            {{error}}
+                          </span>
+
+              <input class="button button-block button-calm"
+                     type="submit" name="submit" value="Go Blue" nav-direction="forward" ng-disabled="registerService.$invalid">
+            </div>
+
+          </form>
+
+        </div>
+        <div class="card" ng-hide="basicRegDone">
+
+          <form ng-submit="regUser()" name="register" >
+
+
+
+            <label class="item item-input " >
+              <span class="input-label" >Mobile</span>
+              <input type="number" name="mobile"
+                     placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10" required >
+            </label>
+
+            <label class="item item-input " >
+              <span class="input-label" >Password</span>
+              <input type="password" name="password" id="password" ng-keypress="checkReg()" ng-change="checkReg()"
+                     placeholder="Password" ng-model="user.password" ng-minlength="6"  required >
+            </label>
+
+            <label class="item item-input "  ng-hide="registered"  >
+              <span class="input-label" >Conf. Password</span>
+              <input type="password" name="conf_password" id="conf_password" ng-keypress="checkSamePwd()"
+                     placeholder="Password" ng-model="user.conf_password" ng-minlength="6"  pw-check="data.password" >
+            </label>
+
+            <label class="item item-input " ng-hide="registered" >
+              <span class="input-label" >Full Name</span>
+              <input type="text"  name="name"
+                     placeholder="Full Name" ng-model="user.name"  >
+            </label>
+
+            <label class="item item-input " ng-hide="registered" >
+              <span class="input-label" >Organization</span>
+              <input type="text"  name="organization"
+                     placeholder="name of organization, else blank if none" ng-model="user.organization"  >
+            </label>
+
+            <div class="item " ng-hide="registered" >
+              Profile Pic
+              <a class="button pull-right"  ng-click="takePicture();"><span
+                      class="icon ion-android-camera large calm"></span></a>
+              <a class="button pull-right" ng-click="selectPicture()"><span
+                      class="icon ion-images large calm"></span></a>
+              <i class="icon ion-checkmark-circled balanced" ng-show="(user.profile_pic_id != 0)"></i>
+            </div>
+
+            <!--<label class="item item-input " ng-hide="registered" >
+
+                <span class="input-label" >Address</span>
+                <input type="text" name="email"
+                       placeholder="Address" ng-model="user.address" >
+            </label>
+-->
+            <label class="item item-input " ng-hide="registered" >
+              <span class="input-label" >Experience</span>
+              <input type="number" name="experience"
+                     placeholder="in months" ng-model="user.experience" ng-minlength="1" ng-maxlength="2">
+            </label>
+
+
+
+            <label class="item item-input item-select" ng-hide="registered" >
+              <div class="input-label">
+                Service
+              </div>
+              <select name="service" ng-model="user.services" multiple>
+                <option value="{{ service.id }}" ng-repeat="service in serviceProviders" >
+                  <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
+                  {{ service.name | uppercase}}
+                </option>
+
+              </select>
+            </label>
+
+
+            <div class="padding">
+
+                        <span class="item item-assertive msg-error" ng-show="error">
+                            {{error}}
+                          </span>
+
+              <div  ng-show="register.$error">
+                          <span class="item item-assertive msg-error" ng-show="pwdError">
+                            Passwords don't match.
+                          </span>
+
+                <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>
+
+              </div>
+
+              <div class="button-bar">
+                <input class="button button-calm"
+                       type="submit" name="submit" value="{{ registered?'Login':'Register'}}" nav-direction="forward" ng-disabled="register.$invalid">
+                <button class="button button-outline button-energized"
+                        ng-click="registered=!registered;" >{{ registered?'Register':'Login'}}</button>
+              </div>
+            </div>
+
+
+
+          </form>
+        </div>
+        <div class='card'>
+          <div class="item item-text-wrap">
+            <div style="text-align: center;">
+              <i> For queries and issues
+              </i>
+              <div class="button-bar">
+                <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                   ng-href="tel: +91 9599075355"> Call</a>
+                <a class="button button-small button-full ion-email"
+                   onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                <a class="button button-small button-full ion-cloud"
+                   onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-view>
+
+  </script>
+  <script type="text/ng-template" id="map.html">
+    <ion-view hide-nav-bar="true" >
+
+      <ion-content style="margin-top: -50px">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <div id="map" data-tap-disabled="true">
+
+        </div>
+      </ion-content>
+      <ion-footer-bar class="bar-dark">
+        <a ng-click="centerOnMe()" class="button button-icon icon ion-location">Find Me</a>
+        <a ng-click="updateLocation()" class="button button-icon button-calm icon-right ion-arrow-right-b">Next</a>
+      </ion-footer-bar>
+
+    </ion-view>
+
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVq_N_uJLaBm3pYRIZfz3gy-7A-iqFfTg&libraries=places"
+          async defer></script>
+
+  <ion-nav-view>
+
+
+  </ion-nav-view>
+</ion-pane>
+
+
+<script src="cordova.js"></script>
+</body>
+</html>

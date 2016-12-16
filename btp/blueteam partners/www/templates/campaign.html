@@ -1,0 +1,64 @@
+<ion-view view-title="Campaign Details">
+    <ion-content class="padding" style="
+    overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
+    background-image: url('./img/ebilling-Icon.png');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+        margin-top: -50px">
+
+        <div class="card" style="border-left: 3px solid lightgreen;">
+            <div class="item item-text-wrap">
+                Get More Customers
+            </div>
+
+        </div>
+        <div class="card" style="border-left: 3px solid greenyellow;">
+            <form ng-submit="conf()" name="confirm" >
+                <div class="list">
+
+
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Amount</span>
+                        <input type="number" name="Amount" placeholder="amount"
+                               ng-model="campaignRequest.amount" ng-minlength="2" ng-maxlength="6" required />
+
+                    </label>
+
+
+
+
+
+
+                    <input class="button button-block button-calm" type="submit" name="Create" value="Confirm" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
+
+                </div>
+            </form>
+        </div>
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>
