@@ -3,85 +3,160 @@
     <ion-content has-header="true" class="padding" style="
     
         overflow-x: hidden ! important;
-    background-image: url('./img/homepage.jpg');
+    background-image: url('./img/fintec.jpg');
     background-size:     contain;                      /* <------ */
     background-repeat: no-repeat;
         background-position: top;
     margin-top: -50px">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
 
 
-<!-- invite other helper code -->
-        <div class="card" style="border-left: 3px solid greenyellow;">
-            <div class="item item-text-wrap">
-                <h2> This month Income: &#8377; {{ serviceProviderD.amount*1 }}</h2>
-
-            <p>Reliability Score: {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)</p>
-            <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p>
-                <h2>Coupon Code:{{ user.name| limitTo: 4 }}#{{user_id}}</h2>
-
-
-        </div>
-            </div>
-
-        <div class="card" style="border-left: 3px solid greenyellow;">
-
-            <a href="#/tab/invoice" nav-direction="forward"
-               style="text-decoration: none !important;">
+        <!-- invite other helper code -->
+        <div class="card" style="border-left: 3px solid #33cd5f;">
 
             <div class="item item-text-wrap">
-                <div><B>Send Bill</B></div>
-                <img src="./img/ebilling-Icon.png" style="max-width: 100%">
+                <a href="#/tab/monthly_income" style="text-decoration: blink;">
+                <div class="row " style="background-color: #11c1f3">
+
+                    <div class="col-50 ">
+                        <h2 > Income:</h2>
+                    </div>
+                    <div class="col-50 text-right">
+                    <h2> {{ serviceProviderD.amount*1 | currency:"&#8377;" }}</h2>
+                    </div>
+                    </div>
+
+
+                <div class="row" style="background-color: #ffc900">
+
+                    <div href="#/tab/monthly_income" class="col-50">
+                        <h2 > Expanses:</h2>
+                    </div>
+                    <div class="col-50 text-right">
+                        <h2>  {{ serviceProviderD.amount_expanse*1 | currency:"&#8377;" }}</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="background-color: {{ ((serviceProviderD.amount*1 - serviceProviderD.amount_expanse*1) >0)?'#33cd5f':'#ef473a' }} ">
+
+                    <div href="#/tab/monthly_income" class="col-50">
+                        <h2 > {{ ((serviceProviderD.amount*1 - serviceProviderD.amount_expanse*1) >0)?'Profit':'Loss' }}:</h2>
+                    </div>
+                    <div class="col-50 text-right">
+                        <h2>{{ serviceProviderD.amount*1 - serviceProviderD.amount_expanse*1 | currency:"&#8377;"  }}</h2>
+                    </div>
+                </div>
+                <hr>
+                </a>
+                <div class="row">
+                <div class="col-50">
+                    Reliability Score:
+                </div>
+                    <div class="col-50">
+                    {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)
+                </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-50">
+                    Quality Score:</div><div class="col-50"> {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)
+                </div></div>
+                        <div class="row">
+                            <div class="col-50">
+                    Coupon Code:</div><div class="col-50">{{ user.name| limitTo: 4 }}#{{user_id}}
+
+                </div>
+                            </div>
+
 
             </div>
-            </a>
         </div>
 
-        <div class="card" style="border-left: 3px solid cornflowerblue;">
-            <a href="#/tab/get_feedback" nav-direction="forward"
-               style="text-decoration: none !important;">
+        <div class="row" >
+            <div class="card col col-50">
+                <a href="#/tab/invoice" nav-direction="forward"
+                   style="text-decoration: none !important;">
 
-                <div class="item item-text-wrap">
-                    <div><B>Get Feedback</B></div>
-                    <img src="./img/customerstalking.png" style="max-width: 100%">
+                    <div class="item item-text-wrap">
+                        <div><span class="icon ion-clipboard large "></span> <B>Send Bill</B></div>
+                        <img src="./img/ebilling-Icon.png" style="max-width: 100%">
 
-                </div>
-            </a>
+                    </div>
+                </a>
+            </div>
+            <div class="card col col-50">
+                <a href="#/tab/expanse" nav-direction="forward"
+                   style="text-decoration: none !important;">
+
+                    <div class="item item-text-wrap">
+                        <div><span class="icon ion-calendar large "></span><B> Add Expanse</B></div>
+                        <img src="./img/eyeglass_planning.jpg" style="max-width: 100%">
+
+                    </div>
+                </a>
+            </div>
+
         </div>
 
-        <div class="card" style="border-left: 3px solid firebrick;">
-            <a ng-click="createCampaigning('sms')" nav-direction="forward"
-               style="text-decoration: none !important;">
 
-                <div class="item item-text-wrap">
-                    <div>
-                        <B>
-                            Sms Campaigning (Credit: {{serviceProviderD.sms_credit}})
-                        </B>
-                        <span class="item-note">
+
+        <div class="row-center" >
+            <div class="col col-50 col-offset-25">
+                <a href="#/tab/get_feedback" nav-direction="forward"
+                   style="text-decoration: none !important;">
+
+                    <div class="item item-text-wrap">
+                        <div><span class="icon ion-chatbubbles large "></span> <B>Get Feedback</B></div>
+                        <img src="./img/customerstalking.png" style="max-width: 100%">
+
+                    </div>
+                </a>
+            </div>
+            <div class="col col-50">
+
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="card col col-50">
+                <a ng-click="createCampaigning('sms')" nav-direction="forward"
+                   style="text-decoration: none !important;">
+
+                    <div class="item item-text-wrap">
+                        <div>
+                            <B>
+                                <span class="icon ion-android-phone-portrait large "></span>  Sms <span class="icon ion-paper-airplane large "></span><!--Campaigning (Credit: {{serviceProviderD.sms_credit}})-->
+                            </B>
+           <!--             <span class="item-note">
                             {{serviceProviderD.campaign_credit_status}}
                         </span>
+           -->             </div>
+                        <img src="./img/banner-for-SMS_campaign.jpg" style="max-width: 100%">
+
                     </div>
-                    <img src="./img/banner-for-SMS_campaign.jpg" style="max-width: 100%">
+                </a>
+            </div>
+            <div class="card col col-50">
+                <a ng-click="createCampaigning('email')" nav-direction="forward"
+                   style="text-decoration: none !important;">
 
-                </div>
-            </a>
-
-            <a ng-click="createCampaigning('email')" nav-direction="forward"
-               style="text-decoration: none !important;">
-
-                <div class="item item-text-wrap">
-                    <div>
-                        <B>
-                            Email Campaigning (Credit: {{ serviceProviderD.email_credit }})
-                        </B>
-                        <span class="item-note">
+                    <div class="item item-text-wrap">
+                        <div>
+                            <B>
+                                <span class="icon ion-email large "></span>    Email <span class="icon ion-paper-airplane large "></span> <!--Campaigning (Credit: {{ serviceProviderD.email_credit }})-->
+                            </B>
+               <!--         <span class="item-note">
                             {{serviceProviderD.campaign_credit_status}}
                         </span>
-                    </div>
-                    <img src="./img/email-campaign.jpg" style="max-width: 100%">
+               -->         </div>
+                        <img src="./img/email-campaign.jpg" style="max-width: 100%">
 
-                </div>
-            </a>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class='card'>

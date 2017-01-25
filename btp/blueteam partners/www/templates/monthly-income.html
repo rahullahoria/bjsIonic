@@ -1,4 +1,4 @@
-<ion-view view-title="Monthly Income">
+<ion-view view-title="Business Analysis">
 
 
     <ion-content has-header="true" class="padding" style="
@@ -11,11 +11,87 @@
         margin-top: -50px">
         <ion-refresher
                 pulling-text="Pull to refresh..."
-                on-refresh="doRefresh()">
+                on-refresh="doRefresh(monthYear)">
         </ion-refresher>
 
 
-        <div class="card" style="margin-top: 100px;" ng-show="(invoices.length != 0)">
+
+      <div class="card" ng-controller="MonthlyIncomeCtrl">
+          Yearly Report
+          <hr>
+        <canvas id="bar" class="card chart chart-bar" data="graph.data" chart-colours="graph.colors" labels="graph.labels"
+                series='graph.series' chart-legend="legend" >
+
+        </canvas>
+        </div>
+        <div class="card"  ng-show="(months.length != 0)">
+
+            <div ng-repeat="month in months">
+                <div class="row header" ng-click="doRefresh('{{ month.year  }}-{{ month.month }}-01');">
+                    <div class="col col-20" ><b>{{ info.months[month.month-1]|limitTo:3 }}-{{ month.year|limitTo:-2 }}</b></div>
+                    <div class="col col-40" style="background-color: #11c1f3"><b>In : {{ month.amount | currency:"&#8377;"}}</b></div>
+                    <div class="col col-40" style="background-color: #ffc900"><b>Out : {{ month.expanse_amount| currency:"&#8377;" }}</b></div>
+
+
+                </div>
+                <hr/>
+            </div>
+
+        </div>
+<!--
+        <div ng-controller="bar">
+            <h4 style="text-align: center">Expanse Division</h4>
+            <canvas id="doughnut2" class="chart chart-doughnut"
+                    chart-data="data" chart-labels="labels" height="100px"
+                    chart-legend="legend">
+            </canvas>
+        </div>-->
+
+        <div ng-controller="pie">
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick" height="1px">
+            </canvas>
+        </div>
+
+        <div class="card" >
+        <hr>
+        <h3 style="text-align: center">{{ info.months[loadDateArr[1]-1] }}, {{ loadDateArr[0] }} Report</h3>
+        <hr>
+        </div>
+
+        <div class="card" ng-controller="lots">
+            <h4 style="text-align: center">Incoming Outgoing Ratio</h4>
+            {{ JSON.stringify(output)}}
+            <canvas id="doughnut" class="chart chart-doughnut"
+                    chart-data="data" chart-labels="labels" height="200px" chart-colours="graph.colors"
+                    options="options"
+                    chart-legend="legend">
+            </canvas>
+        </div>
+        <div class="card" ng-controller="bar">
+            <h4 style="text-align: center">Income Division</h4>
+            <canvas id="doughnut3" class="chart chart-doughnut"
+                    chart-data="bar.data" chart-labels="bar.labels" height="200px"
+                    chart-legend="legend">
+            </canvas>
+        </div>
+        <div class="card" ng-controller="repartition">
+            <h4 style="text-align: center">Expanse Division</h4>
+            <canvas id="doughnut2" class="chart chart-doughnut"
+                    chart-data="repartition.data" chart-labels="repartition.labels" height="200px"
+                    chart-legend="legend">
+            </canvas>
+        </div>
+
+
+
+
+
+
+        <div class="card"  ng-show="(invoices.length != 0)">
+            For: {{ (monthYear == "")?'Current Month':monthYear }}
+            <hr>
             <div class="row header">
                 <div class="col col-10"><b>ID</b></div>
                 <div class="col col-70"><b>Customer</b></div>
@@ -26,7 +102,9 @@
             <div class="row"  ng-repeat="invoice in invoices">
                 <div class="col col-10">{{ $index+1 }}</div>
                 <div class="col col-70">
-                    {{ invoice.customer_name | uppercase}}
+                    <a style="text-decoration: none;"
+                       ng-href="tel: +91 {{invoice.customer_mobile}}"> {{ invoice.customer_name | uppercase}}</a>
+
                     <span class="item-note" style="font-style: italic;"> on {{ invoice.creation | date:'dd-MM-yyyy' }}</span>
                 </div>
 

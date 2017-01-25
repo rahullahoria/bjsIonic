@@ -1,0 +1,149 @@
+<ion-view view-title="Expanse Details">
+    <ion-content class="padding" style="
+
+        overflow-x: hidden ! important;
+    background-image: url('./img/ebilling-Icon.png');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+        margin-top: -50px">
+
+        <div class="card" style="border-left: 3px solid lightgreen;">
+            <div class="item item-text-wrap">
+                Expanse will be recieved by SMS
+            </div>
+
+        </div>
+        <div class="card" style="border-left: 3px solid greenyellow;">
+            <form ng-submit="conf()" name="confirm" >
+                <div class="list">
+
+                    <label class="item item-input item-stacked-label "
+                           ng-class="{ 'has-errors' : (confirm.name.$invalid || !v.name),
+                                'no-errors' : (!confirm.name.$invalid && v.name)}">
+                        <span class="input-label">Name</span>
+                        <input type="text" name="name" placeholder="Rahul Lahoria" ng-change="valIP()" ng-model="data.name" ng-minlength="1" required />
+                    </label>
+
+                    <div class="error-container" ng-messages="confirm.name.$error"
+                          >
+
+                        <div class="error" ng-message="minlength">
+                            <i class="ion-information-circled"></i>
+                            Min length is 6
+                        </div>
+                        <div class="error" ng-message="maxlength">
+                            <i class="ion-information-circled"></i>
+                            Max length is 12
+                        </div>
+                    </div>
+
+                    <label class="item item-input item-stacked-label"
+                           ng-class="{ 'has-errors' : (confirm.mobile.$invalid || !v.mobile) ,
+                                'no-errors' : (!confirm.mobile.$invalid && v.mobile)}">
+                        <span class="input-label">Mobile</span>
+                        <input type="number" name="mobile" placeholder="Eg. 9599075355" ng-change="valIP()"
+                               ng-model="data.mobile" ng-minlength="10" ng-maxlength="10" required />
+
+                    </label>
+                    <div class="error-container" ng-messages="confirm.mobile.$error">
+                        <div class="error" ng-message="required">
+                            <i class="ion-information-circled"></i>
+                            Mobile No is Required
+                        </div>
+                        <div class="error" ng-message="minlength">
+                            <i class="ion-information-circled"></i>
+                            Mobile No should be of min 10 digit
+                        </div>
+                        <div class="error" ng-message="maxlength">
+                            <i class="ion-information-circled"></i>
+                            Mobile No should be of max 10 digit
+                        </div>
+                    </div>
+
+
+
+
+                    <label class="item item-input item-select" ng-hide="registered"
+                           ng-class="{ 'has-errors' : !v.type, 'no-errors' : v.type}">
+                        <div class="input-label">
+                            Type*
+                        </div>
+                        <select name="service" ng-model="data.type" ng-change="valIP()">
+                            <option value="{{ type }}"  ng-repeat="type in expanseTypes" >
+                                <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
+                                {{ type | uppercase}}
+                            </option>
+
+                        </select>
+                    </label>
+
+
+
+
+
+                    <label class="item item-input item-stacked-label"
+                           ng-class="{ 'has-errors' : (confirm.amount.$invalid || !v.amount) ,
+                                    'no-errors' : (!confirm.amount.$invalid && v.amount) }">
+                        <span class="input-label">Amount</span>
+                        <input type="number" id="amount" name="Amount" placeholder="Eg: 736" ng-change="valIP()"
+                               ng-model="data.amount" ng-minlength="2" ng-maxlength="10" required />
+
+                    </label>
+
+                    <div class="error-container" ng-messages="confirm.amount.$error">
+
+                        <div class="error" ng-message="minlength">
+                            <i class="ion-information-circled"></i>
+                            Min length is 1, In months
+                        </div>
+                        <div class="error" ng-message="maxlength">
+                            <i class="ion-information-circled"></i>
+                            Max length is 99, In months
+                        </div>
+                    </div>
+
+
+
+                    <div class="padding">
+
+                        <p ng-show="confirm.mobile.$error.minlength || confirm.mobile.$error.maxlength">* Mobile No. show be of 10 digit.</p>
+
+
+                    </div>
+
+                    <div class="padding button-bar">
+                    <input class="button button-calm" type="submit" name="need now" ng-click="data.send_expanse=true" value="Send Details" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
+
+                    <input class="button button-outline button-calm" type="submit" ng-click="data.send_expanse=false" name="need now" value="Add Expanse" nav-direction="forward"
+                           ng-disabled="confirm.$invalid">
+                        </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>

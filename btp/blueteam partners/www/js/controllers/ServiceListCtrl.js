@@ -4,7 +4,7 @@
 angular.module('starter.controllers')
 
     .controller('ServiceListCtrl',
-        [ '$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$cordovaToast','$cordovaDevice','BlueTeam',
+        [ '$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$cordovaToast', '$cordovaDevice','BlueTeam',
             function ($scope, $state, $ionicPopup, $ionicLoading, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $cordovaToast, $cordovaDevice, BlueTeam) {
 
                 //JSON.parse()
@@ -16,11 +16,22 @@ angular.module('starter.controllers')
                     return;
                 }
 
+
                 console.log($localstorage.get('user'));
                 $scope.user = JSON.parse($localstorage.get('user'));
+                if($scope.user.gps_location){
+
+                }
+                else {
+                    $state.go('map');
+                    return;
+                }
                 $scope.user_id = $localstorage.get('user_id');
                 $scope.services = JSON.parse($localstorage.get('services'));
                 $scope.campaignRequest = {};
+
+
+
 
 
                 //$scope.campaignRequest.device = $cordovaDevice.getUUID();
@@ -113,38 +124,45 @@ angular.module('starter.controllers')
                 //scope.show();
 
 
-                BlueTeam.getServiceProvider($scope.user_id).then(function (d) {
+                $scope.doRefresh = function() {
+                    BlueTeam.getServiceProvider($scope.user_id).then(function (d) {
 
-                    $scope.serviceProviderD = d.service_provider[0];
-                    $scope.serviceProviderD.reliability_score += 3;
-                    $scope.serviceProviderD.reliability_score *= 1;
-                    $scope.serviceProviderD.reliability_count += 1;
-                    console.log(JSON.stringify($scope.serviceProviderD));
+                        $scope.serviceProviderD = d.service_provider[0];
+                        $scope.serviceProviderD.reliability_score += 3;
+                        $scope.serviceProviderD.reliability_score *= 1;
+                        $scope.serviceProviderD.reliability_count += 1;
+                        console.log(JSON.stringify($scope.serviceProviderD));
 
-                });
-                //getServiceProviderScore
-                BlueTeam.getServiceProviderScore($scope.user_id).then(function (d) {
+                    });
 
-                    $scope.serviceProviderQuility = d.counts;
-                    //'complain','suggestion','appreciation','marvelous'
-                    var add = 0;
-                    $scope.serviceProviderQuilityScore = 3;
-                    $scope.serviceProviderQuilityScoreTotal = 4;
-                    for(var i = 0; i < $scope.serviceProviderQuility.length; i++ ) {
-                        if($scope.serviceProviderQuility[i].type == "complain")
-                            add = 1;
-                        if($scope.serviceProviderQuility[i].type == "suggestion")
-                            add = 2;
-                        if($scope.serviceProviderQuility[i].type == "appreciation")
-                            add = 3;
-                        if($scope.serviceProviderQuility[i].type == "marvelous")
-                            add = 4;
-                        $scope.serviceProviderQuilityScore += add*$scope.serviceProviderQuility[i].count;
-                        $scope.serviceProviderQuilityScoreTotal += 4*$scope.serviceProviderQuility[i].count;
-                    }
-                    console.log(JSON.stringify($scope.serviceProviderD));
+                    //getServiceProviderScore
+                    BlueTeam.getServiceProviderScore($scope.user_id).then(function (d) {
 
-                });
+                        $scope.serviceProviderQuility = d.counts;
+                        //'complain','suggestion','appreciation','marvelous'
+                        var add = 0;
+                        $scope.serviceProviderQuilityScore = 3;
+                        $scope.serviceProviderQuilityScoreTotal = 4;
+                        for (var i = 0; i < $scope.serviceProviderQuility.length; i++) {
+                            if ($scope.serviceProviderQuility[i].type == "complain")
+                                add = 1;
+                            if ($scope.serviceProviderQuility[i].type == "suggestion")
+                                add = 2;
+                            if ($scope.serviceProviderQuility[i].type == "appreciation")
+                                add = 3;
+                            if ($scope.serviceProviderQuility[i].type == "marvelous")
+                                add = 4;
+                            $scope.serviceProviderQuilityScore += add * $scope.serviceProviderQuility[i].count;
+                            $scope.serviceProviderQuilityScoreTotal += 4 * $scope.serviceProviderQuility[i].count;
+                        }
+                        console.log(JSON.stringify($scope.serviceProviderD));
 
+                    }).finally(function () {
+                        // Stop the ion-refresher from spinning
+                        $scope.$broadcast('scroll.refreshComplete');
+                    });
+
+                };
+                $scope.doRefresh();
 
             }]);

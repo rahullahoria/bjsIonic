@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-timepicker', 'ion-datetime-picker','ionic.rating'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
+            'ionic-timepicker', 'ngMessages', 'ion-datetime-picker','ionic.rating','chart.js'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -256,6 +257,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
+            .state('tab.expanse', {
+                url: '/expanse',
+                views: {
+                    'book': {
+                        templateUrl: 'templates/expanse.html',
+                        controller: 'ExpanseCtrl'
+                    }
+                }
+            })
+
             .state('finish', {
                 url: '/finish',
 
@@ -311,3 +322,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         $urlRouterProvider.otherwise('/tab/service-list');
         //$urlRouterProvider.otherwise('/tab/worker-timer');
     });
+

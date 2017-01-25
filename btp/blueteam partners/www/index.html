@@ -21,16 +21,20 @@
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
+
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
   <link href="css/ionic.app.css" rel="stylesheet">
   -->
+
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
   <! — add more libraries →
-  <script src="lib/ngstorage/ngStorage.min.js"></script>
+
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
   <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
 
   <script src="lib/ionic-timepicker/dist/templates.js"></script>
   <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
@@ -38,6 +42,11 @@
   <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
   <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
   <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+    <script src="lib/byhand/Chart.min.js"></script>
+
+    <script src="lib/byhand/angular-chart.min.js"></script>
+
+
 
 
   <!-- your app's js -->
@@ -48,6 +57,7 @@
   <script src="js/controllers/ServiceListCtrl.js"></script>
   <script src="js/controllers/GetFeedbackCtrl.js"></script>
   <script src="js/controllers/InvoiceCtrl.js"></script>
+  <script src="js/controllers/ExpanseCtrl.js"></script>
   <script src="js/controllers/MonthlyIncomeCtrl.js"></script>
   <script src="js/controllers/RegCtrl.js"></script>
   <script src="js/controllers/MapCtrl.js"></script>
@@ -123,40 +133,107 @@
 
           <form ng-submit="regUser()" name="register" >
 
+              <div class="list">
 
 
-            <label class="item item-input " >
-              <span class="input-label" >Mobile</span>
-              <input type="number" name="mobile"
-                     placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10" required >
+            <label class="item item-input"
+                   ng-class="{ 'has-errors' : (register.mobile.$invalid || !v.mobile) ,
+                                'no-errors' : (!register.mobile.$invalid && v.mobile)}">
+              <span class="input-label" >Mobile*</span>
+              <input type="number" name="mobile" id="mobile" ng-keypress="valIP()"
+                     placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10" >
             </label>
 
-            <label class="item item-input " >
-              <span class="input-label" >Password</span>
+                  <div class="error-container" ng-messages="register.mobile.$error">
+                      <div class="error" ng-message="required">
+                          <i class="ion-information-circled"></i>
+                          Mobile No is Required
+                      </div>
+                      <div class="error" ng-message="minlength">
+                          <i class="ion-information-circled"></i>
+                          Mobile No should be of min 10 digit
+                      </div>
+                      <div class="error" ng-message="maxlength">
+                          <i class="ion-information-circled"></i>
+                          Mobile No should be of max 10 digit
+                      </div>
+                  </div>
+
+
+            <label class="item item-input "
+                   ng-class="{ 'has-errors' : (register.password.$invalid || !v.password),
+                                'no-errors' : (!register.password.$invalid && v.password)}">
+              <span class="input-label" >Password*</span>
               <input type="password" name="password" id="password" ng-keypress="checkReg()" ng-change="checkReg()"
-                     placeholder="Password" ng-model="user.password" ng-minlength="6"  required >
+                     placeholder="Password" ng-model="user.password" ng-minlength="6" ng-maxlength="12" >
             </label>
 
-            <label class="item item-input "  ng-hide="registered"  >
-              <span class="input-label" >Conf. Password</span>
-              <input type="password" name="conf_password" id="conf_password" ng-keypress="checkSamePwd()"
-                     placeholder="Password" ng-model="user.conf_password" ng-minlength="6"  pw-check="data.password" >
-            </label>
+                  <div class="error-container" ng-messages="register.password.$error">
+                      <div class="error" ng-message="required">
+                          <i class="ion-information-circled"></i>
+                          Password is Required
+                      </div>
+                      <div class="error" ng-message="minlength">
+                          <i class="ion-information-circled"></i>
+                          Min length is 6
+                      </div>
+                      <div class="error" ng-message="maxlength">
+                          <i class="ion-information-circled"></i>
+                          Max length is 12
+                      </div>
+                  </div>
 
-            <label class="item item-input " ng-hide="registered" >
-              <span class="input-label" >Full Name</span>
-              <input type="text"  name="name"
-                     placeholder="Full Name" ng-model="user.name"  >
+            <label class="item item-input "  ng-hide="registered"
+                   ng-class="{ 'has-errors' : (register.conf_password.$invalid || !v.conf_password),
+                        'no-errors' : (!register.conf_password.$invalid && v.conf_password)}">
+              <span class="input-label" >Conf. Password*</span>
+              <input type="password" name="conf_password" id="conf_password" ng-change="valIP()"
+                     placeholder="Password" ng-model="user.conf_password" ng-minlength="6" ng-maxlength="12" >
             </label>
+                  <div class="error-container" ng-messages="register.conf_password.$error">
 
-            <label class="item item-input " ng-hide="registered" >
+
+                      <div class="error" ng-message="pw-check">
+                          <i class="ion-information-circled"></i>
+                          Min length is 6
+                      </div>
+                      <div class="error" ng-message="maxlength">
+                          <i class="ion-information-circled"></i>
+                          Max length is 12
+                      </div>
+                  </div>
+
+            <label class="item item-input " ng-hide="registered"
+                   ng-class="{ 'has-errors' : (register.name.$invalid || !v.name),
+                                'no-errors' : (!register.name.$invalid && v.name)}"                     >
+              <span class="input-label" >Full Name*</span>
+              <input type="text"  name="name" id="name" ng-change="valIP()"
+                     placeholder="Full Name" ng-model="user.name" ng-minlength="6"  >
+            </label>
+                  <div class="error-container" ng-messages="register.name.$error">
+
+                      <div class="error" ng-message="minlength">
+                          <i class="ion-information-circled"></i>
+                          Min length is 6
+                      </div>
+                      <div class="error" ng-message="maxlength">
+                          <i class="ion-information-circled"></i>
+                          Max length is 12
+                      </div>
+                  </div>
+
+            <label class="item item-input " ng-hide="registered"
+                   >
               <span class="input-label" >Organization</span>
-              <input type="text"  name="organization"
+              <input type="text"  name="organization" id="organization"
                      placeholder="name of organization, else blank if none" ng-model="user.organization"  >
             </label>
 
-            <div class="item " ng-hide="registered" >
-              Profile Pic
+
+
+            <div class="item " ng-hide="registered"
+                 ng-class="{ 'has-errors' : (user.profile_pic_id == 0), 'no-errors' : (user.profile_pic_id != 0)}">
+              Profile Pic*
               <a class="button pull-right"  ng-click="takePicture();"><span
                       class="icon ion-android-camera large calm"></span></a>
               <a class="button pull-right" ng-click="selectPicture()"><span
@@ -171,19 +248,33 @@
                        placeholder="Address" ng-model="user.address" >
             </label>
 -->
-            <label class="item item-input " ng-hide="registered" >
-              <span class="input-label" >Experience</span>
-              <input type="number" name="experience"
+            <label class="item item-input " ng-hide="registered"
+                   ng-class="{ 'has-errors' : (register.experience.$invalid || !v.experience) ,
+                                    'no-errors' : (!register.experience.$invalid && v.experience) }">
+              <span class="input-label" >Experience*</span>
+              <input type="number" name="experience" id="experience" ng-change="valIP()"
                      placeholder="in months" ng-model="user.experience" ng-minlength="1" ng-maxlength="2">
             </label>
+                  <div class="error-container" ng-messages="register.experience.$error">
+
+                      <div class="error" ng-message="minlength">
+                          <i class="ion-information-circled"></i>
+                          Min length is 1, In months
+                      </div>
+                      <div class="error" ng-message="maxlength">
+                          <i class="ion-information-circled"></i>
+                          Max length is 99, In months
+                      </div>
+                  </div>
 
 
 
-            <label class="item item-input item-select" ng-hide="registered" >
+            <label class="item item-input item-select" ng-hide="registered"
+                   ng-class="{ 'has-errors' : !v.services, 'no-errors' : v.services}">
               <div class="input-label">
-                Service
+                Service*
               </div>
-              <select name="service" ng-model="user.services" multiple>
+              <select name="service" ng-model="user.services" multiple ng-change="valIP()">
                 <option value="{{ service.id }}" ng-repeat="service in serviceProviders" >
                   <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
                   {{ service.name | uppercase}}
@@ -192,10 +283,16 @@
               </select>
             </label>
 
+                  <label class="item item-input " ng-hide=registered >
+                      <span class="input-label" >Coupon Code</span>
+                      <input type="text"  name="coupon"
+                             placeholder="eg. rahu#97" ng-model="user.coupon"  >
+                  </label>
+
 
             <div class="padding">
 
-                        <span class="item item-assertive msg-error" ng-show="error">
+                     <!--   <span class="item item-assertive msg-error" ng-show="error">
                             {{error}}
                           </span>
 
@@ -206,17 +303,19 @@
 
                 <p class="item item-assertive" ng-show="register.mobile.$error.minlength || register.mobile.$error.maxlength" >Mobile No. should be of 10 digit.</p>
 
-              </div>
+              </div>-->
+
 
               <div class="button-bar">
                 <input class="button button-calm"
-                       type="submit" name="submit" value="{{ registered?'Login':'Register'}}" nav-direction="forward" ng-disabled="register.$invalid">
+                       type="submit" name="submit" value="{{ registered?'Login':'Register'}}" nav-direction="forward" ng-disabled="(!goReg ||  !goLogin || register.$invalid  )">
                 <button class="button button-outline button-energized"
                         ng-click="registered=!registered;" >{{ registered?'Register':'Login'}}</button>
               </div>
             </div>
 
 
+                  </div>
 
           </form>
         </div>
@@ -241,10 +340,11 @@
     </ion-view>
 
   </script>
+
   <script type="text/ng-template" id="map.html">
     <ion-view hide-nav-bar="true" >
 
-      <ion-content style="margin-top: -50px">
+      <ion-content style="margin-top: 0px">
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <div id="map" data-tap-disabled="true">
 

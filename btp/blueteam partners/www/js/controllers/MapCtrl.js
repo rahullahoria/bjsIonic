@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
     .controller('MapCtrl', function($scope, $state, $localstorage, $stateParams, $cordovaGeolocation,
-                                    $ionicPlatform,$compile,$ionicLoading,BlueTeam) {
+                                    $ionicPlatform,$compile,$ionicLoading,$timeout,$window,BlueTeam) {
     var options = {timeout: 10000, enableHighAccuracy: false};
         console.log("inside map controller");
         $ionicPlatform.ready(function () {
@@ -113,16 +113,20 @@ angular.module('starter.controllers')
                 return;
             }
 
+
             /*$scope.loading = $ionicLoading.show({
                 content: 'Getting current location...',
                 showBackdrop: false
             });
 
+
             setTimeout($scope.loading.hide, 2000);*/
+
+            console.log("trying to find user");
 
             navigator.geolocation.getCurrentPosition(function(pos) {
                 $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-                $scope.loading.hide();
+                //$scope.loading.hide();
             }, function(error) {
                 alert('Unable to get location: ' + error.message);
             });

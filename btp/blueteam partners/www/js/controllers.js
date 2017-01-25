@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker', 'ion-datetime-picker', 'ionic.rating'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker', 'ion-datetime-picker', 'ionic.rating','chart.js'])
 
 
     .controller('ServiceTypeCtrl', function ($scope, $state, $stateParams,BlueTeam) {

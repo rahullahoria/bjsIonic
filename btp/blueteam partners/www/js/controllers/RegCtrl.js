@@ -5,7 +5,7 @@ angular.module('starter.controllers')
 
 
     .controller('RegCtrl', function ($scope, $state, $ionicLoading, $timeout, $ionicHistory, $cordovaGeolocation, $localstorage,
-                                     $ionicPlatform, $cordovaDevice, $window, $cordovaLocalNotification, $cordovaNetwork, $cordovaCamera, BlueTeam) {
+                                     $ionicPlatform, $cordovaDevice, $ionicPopup, $window, $cordovaLocalNotification, $cordovaNetwork, $cordovaCamera, BlueTeam) {
 
 
         console.log("regcont started");
@@ -14,13 +14,60 @@ angular.module('starter.controllers')
 
         $scope.user = {};
         $scope.data = {};
+        $scope.v = {};
+        $scope.v.mobile = false;
+        $scope.v.password = false;
+        $scope.v.conf_password = false;
+        $scope.v.name = false;
 
+        $scope.v.experience = false;
+        $scope.v.services = false;
+
+
+        console.log('reg',register.mobile.$invalid,$scope.v.mobile);
         $scope.registered = true;
         $scope.checked = false;
 
         $scope.user.profile_pic_id = 0;
         $scope.user.area_id = 0;
         $scope.user.city_id = 0;
+
+        $scope.goReg = true;
+        $scope.goLogin = false;
+        $scope.valIP = function(){
+
+
+            if($scope.user.mobile  != undefined){
+                $scope.v.mobile = $scope.goLogin = true;
+            }else
+                $scope.v.mobile = $scope.goLogin = false;
+            if($scope.user.password  != undefined){
+                $scope.v.password = $scope.goLogin = true;
+            }else
+                $scope.v.password = $scope.goLogin = false;
+            if(!$scope.registered){
+
+                if($scope.user.conf_password  != undefined && $scope.user.password == $scope.user.conf_password){
+
+                    $scope.v.conf_password =  $scope.goReg = true;
+                }else
+                    $scope.v.conf_password = $scope.goReg = false;
+                if($scope.user.name  != undefined){
+                    $scope.v.name = $scope.goReg = true;
+                }else
+                    $scope.v.name = $scope.goReg = false;
+                if($scope.user.experience  != undefined){
+                    $scope.v.experience = $scope.goReg = true;
+                }else
+                    $scope.v.experience = $scope.goReg = false;
+                if($scope.user.services  != undefined && $scope.user.services.length != 0){
+
+                    $scope.v.services = $scope.goReg = true;
+                }else
+                    $scope.v.services = $scope.goReg = false;
+            }
+
+        };
 
 
 
@@ -71,6 +118,9 @@ angular.module('starter.controllers')
 
                     if (d.user.id) {
 
+                        if(d.user.lat && d.user.lat != "" && d.user.lat != null)
+                        d.user.gps_location = d.user.lat+","+ d.user.lng;
+
                         $localstorage.set('user', JSON.stringify(d.user));
                         $localstorage.set('user_id', d.user.id);
                         $localstorage.set('services', JSON.stringify(d.user.services));
@@ -91,6 +141,7 @@ angular.module('starter.controllers')
 
         }
         $scope.checkReg = function () {
+            $scope.valIP();
             console.log("trying to check");
             if ($scope.checked == false && $scope.user.mobile != undefined) {
                 $scope.checked = true;
@@ -99,6 +150,7 @@ angular.module('starter.controllers')
 
                         console.log(d.status);
                         if(d.status == false){
+                            //register.experience.$invalid = false;
                             BlueTeam.getServiceProviderServices("").then(function (d) {
 
 
@@ -109,28 +161,28 @@ angular.module('starter.controllers')
 
 
 
-/*
-                            BlueTeam.getCities().then(function (d) {
-                                console.log($scope.position.coords.latitude + ',' + $scope.position.coords.longitude);
-                                if($scope.position.coords.latitude)
-                                    BlueTeam.getLocationDetails($scope.position.coords.latitude + ',' + $scope.position.coords.longitude).then(function (d) {
-                                        $scope.user.city_id = d.location_details.city.id;
-                                        $scope.user.area_id = d.location_details.area.id;
-                                        BlueTeam.getCityAreas($scope.user.city_id).then(function (d) {
+                            /*
+                             BlueTeam.getCities().then(function (d) {
+                             console.log($scope.position.coords.latitude + ',' + $scope.position.coords.longitude);
+                             if($scope.position.coords.latitude)
+                             BlueTeam.getLocationDetails($scope.position.coords.latitude + ',' + $scope.position.coords.longitude).then(function (d) {
+                             $scope.user.city_id = d.location_details.city.id;
+                             $scope.user.area_id = d.location_details.area.id;
+                             BlueTeam.getCityAreas($scope.user.city_id).then(function (d) {
 
-                                            $scope.areas = d.areas;
+                             $scope.areas = d.areas;
 
-                                            console.log(JSON.stringify($scope.areas));
+                             console.log(JSON.stringify($scope.areas));
 
-                                        });
+                             });
 
-                                    });
+                             });
 
-                                $scope.cities = d.cities;
-                                console.log(JSON.stringify($scope.serviceProviders));
+                             $scope.cities = d.cities;
+                             console.log(JSON.stringify($scope.serviceProviders));
 
-                            });
-*/
+                             });
+                             */
                         }
                         $scope.registered = d.status;
 
@@ -154,49 +206,49 @@ angular.module('starter.controllers')
 
 
         $ionicPlatform.ready(function () {
-           /* if($scope.geolocation) {
-                var locationService = $scope.geolocation; // native HTML5 geolocation
-            }
-            else {
-                var locationService = navigator.geolocation; // cordova geolocation plugin
-            }
+            /* if($scope.geolocation) {
+             var locationService = $scope.geolocation; // native HTML5 geolocation
+             }
+             else {
+             var locationService = navigator.geolocation; // cordova geolocation plugin
+             }
 
-            locationService.getCurrentPosition(
-                function(pos) {
-                    console.log("location inv",JSON.stringify(pos));
+             locationService.getCurrentPosition(
+             function(pos) {
+             console.log("location inv",JSON.stringify(pos));
 
-                },
-                function(error) {
-                    console.log("location inv",JSON.stringify(error.__proto__.message))
+             },
+             function(error) {
+             console.log("location inv",JSON.stringify(error.__proto__.message))
 
-                },
-                {enableHighAccuracy: false, timeout: 15000}
-            );
+             },
+             {enableHighAccuracy: false, timeout: 15000}
+             );
 
-            var options = { enableHighAccuracy: false };
+             var options = { enableHighAccuracy: false };
 
-            console.log("location by nav",JSON.stringify(
-            navigator.geolocation.getCurrentPosition(function (position) {
-
-
-                $scope.position = position;
-                console.log("location by navigator",JSON.stringify(position));
+             console.log("location by nav",JSON.stringify(
+             navigator.geolocation.getCurrentPosition(function (position) {
 
 
-            }, function (err) {
-
-                console.log("error in geting location by navigator",err,JSON.stringify(err.message));
-                $scope.position = {
-                    "coords": {
-                        "longitude": null,
-                        "latitude": null
-                    }
-                };
+             $scope.position = position;
+             console.log("location by navigator",JSON.stringify(position));
 
 
-            }, options)));
+             }, function (err) {
 
-           */
+             console.log("error in geting location by navigator",err,JSON.stringify(err.message));
+             $scope.position = {
+             "coords": {
+             "longitude": null,
+             "latitude": null
+             }
+             };
+
+
+             }, options)));
+
+             */
             cordova.plugins.diagnostic.isLocationEnabled(function(enabled){
                 console.log("Location setting is " + (enabled ? "enabled" : "disabled"));
             }, function(error){
@@ -231,27 +283,27 @@ angular.module('starter.controllers')
 
                     });
                 /*var watchOptions = {
-                    timeout : 3000,
-                    enableHighAccuracy: true // may cause errors if true
-                };
+                 timeout : 3000,
+                 enableHighAccuracy: true // may cause errors if true
+                 };
 
-                var watch = $cordovaGeolocation.watchPosition(watchOptions);
-                watch.then(
-                    null,
-                    function(err) {
-                        console.log("error in geting location",err,JSON.stringify(err));
-                        // error
-                    },
-                    function(position) {
-                        $scope.position = position;
+                 var watch = $cordovaGeolocation.watchPosition(watchOptions);
+                 watch.then(
+                 null,
+                 function(err) {
+                 console.log("error in geting location",err,JSON.stringify(err));
+                 // error
+                 },
+                 function(position) {
+                 $scope.position = position;
 
-                        console.log("location",JSON.stringify(position));
-                        var lat  = position.coords.latitude;
-                        var long = position.coords.longitude;
-                        watch.clearWatch();
-                    });
+                 console.log("location",JSON.stringify(position));
+                 var lat  = position.coords.latitude;
+                 var long = position.coords.longitude;
+                 watch.clearWatch();
+                 });
 
-*/
+                 */
 
             }, function(error){
                 console.error("The following error occurred: "+error);
@@ -527,24 +579,11 @@ angular.module('starter.controllers')
                 return;
             }
 
-            if($scope.user.name == ""){
-                $scope.error = "please enter your name";
-                return;
-            }
-            if($scope.user.profile_pic_id == 0){
-                $scope.error = "please select your profile picture";
-                return;
-            }
-
-            if($scope.user.services.length == 0){
-                $scope.error = "please select at least 1 service";
-                return;
-            }
-
-            $scope.error = null;
-
 
             if ($scope.user.password == $scope.user.conf_password) {
+                if($scope.user.organization == undefined || $scope.user.organization.length == 0){
+                    $scope.user.organization = $scope.user.name;
+                }
 
                 $scope.show();
 
