@@ -20,7 +20,9 @@ angular.module('starter.controllers')
         $scope.user_id = $localstorage.get('user_id');
         $scope.services = JSON.parse($localstorage.get('services'));
 
-        $scope.data.service_id = $scope.services[0].service_id;
+        console.log($localstorage.get('services'));
+
+        $scope.data.service_id = $scope.services[0].id;
 
         $scope.position = {
             "coords": {

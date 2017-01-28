@@ -1,0 +1,32 @@
+<ion-view view-title="Feedback :)">
+    <ion-content class="padding">
+
+
+        <form ng-submit="feedback()" name="feedback-form">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+
+                    <i style="font-style: italic;">We will be really happy to hear from you.</i>
+                </label>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label"> Feedback</span>
+                    <textarea placeholder="Feedback" name="feedback" ng-model="data.feedback_text" rows="4" ng-minlength="1" required></textarea>
+                </label>
+            </div>
+
+            <input class="button button-block button-calm" type="submit" name="Submit" value="Submit" nav-direction="forward"
+                   ng-disabled="confirm.$invalid">
+
+        </form>
+        <div class='card'>
+            <div style="text-align: center;">
+                <i> For queries and issues. Please contact us at<br/>
+                    <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 9599075355"><span class="ion-android-call large"></span><b> +91 9599075355 </b> </a> <br />
+                    <a href="#" onclick="window.open('mailto:info@blueteam.in','_system')" >info@blueteam.in</a><br />
+                    <a href="#" onclick="window.open('http://www.BlueTeam.in','_system')"> www.BlueTeam.in </a>
+                </i>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

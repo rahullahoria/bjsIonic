@@ -1,20 +1,86 @@
 angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker', 'ion-datetime-picker', 'ionic.rating'])
 
-    .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, BlueTeam) {
+    .controller('ServiceListCtrl', function ($scope, $state, $ionicLoading, $ionicHistory,
+                                             $localstorage, $ionicPopup, $ionicPlatform,
+                                             $cordovaGeolocation, $ionicSlideBoxDelegate, BlueTeam) {
 
-        /*if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
+        if ($localstorage.get('name') === undefined || $localstorage.get('mobile') === undefined || $localstorage.get('name') === "" || $localstorage.get('mobile') === "") {
             $ionicHistory.clearHistory();
             $state.go('reg');
-        }*/
+        }
 
         $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
             });
         };
+
+
+        $ionicPlatform.ready(function () {
+
+            //$scope.getLocation();
+        });
+
+
         $scope.hide = function () {
             $ionicLoading.hide();
         };
+
+        $scope.position = {
+            "coords": {
+                "longitude": null,
+                "latitude": null
+            }
+        };
+
+        var posOptions = {
+            timeout: 10000,
+            enableHighAccuracy: false
+        };
+        $scope.getLocation = function() {
+            alert('getting location');
+            //console.log('trying');
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                console.log('i am in');
+                $scope.position = pos;
+                alert((pos.coords.latitude, pos.coords.longitude));
+                console.log(pos.coords.latitude, pos.coords.longitude);
+                //$scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+                //$scope.loading.hide();
+            }, function(error) {
+                console.log('i am error');
+                alert('Unable to get location: ' + error.message);
+            });
+            console.log(JSON.stringify( $scope.position));
+            /*if($scope.position.coords.longitude == null)
+            setTimeout($scope.getLocation, 5000);
+
+            $cordovaGeolocation
+                .getCurrentPosition(posOptions)
+                .then(function (position) {
+
+
+                    $scope.position = position;
+                    console.log(JSON.stringify(position));
+
+                }, function (err) {
+                    //setTimeout($scope.getLocation, 10);
+
+                    console.log(JSON.stringify(err.message));
+                    $scope.position = {
+                        "coords": {
+                            "longitude": null,
+                            "latitude": null
+                        }
+                    };
+
+
+                });*/
+        };
+
+
+
+
 
         $scope.search = function (){
             console.log($scope.search.keywords);
@@ -27,7 +93,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         };
         $scope.show();
 
-        var temp = BlueTeam.getServices().then(function (d) {
+        BlueTeam.getServices().then(function (d) {
 
             $ionicHistory.clearHistory();
             $scope.services = window.services = d['root'];
@@ -37,11 +103,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         //getServiceProviders
 
-        var temp = BlueTeam.getServiceProviderServices().then(function (d) {
+        BlueTeam.getServiceProviderServices().then(function (d) {
 
             $ionicHistory.clearHistory();
             $scope.serviceProviders = d.allServices;
             console.log(JSON.stringify($scope.serviceProviders));
+            $scope.hide();
+        });
+
+        BlueTeam.getHotServices().then(function (d) {
+
+            $ionicHistory.clearHistory();
+            $scope.hotService = d.allServices;
+            console.log(JSON.stringify($scope.hotService));
             $scope.hide();
         });
 
@@ -811,24 +885,49 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
     .controller('ServiceTypeCtrl', function ($scope, $state, $stateParams,BlueTeam) {
 
 
-        if (window.services === undefined)
-            $state.go('tab.service-list');
-
-        for (i = 0; i < window.services.length; i++) {
-            if (window.services[i].name == $stateParams.id) {
-                $scope.plans = window.services[i].plans;
-            }
-        }
-
-        var temp = BlueTeam.getServiceProviders($stateParams.id).then(function (d) {
+        BlueTeam.getServiceProviders($stateParams.id).then(function (d) {
 
             //$ionicHistory.clearHistory();
             $scope.serviceProviders = d.service_providers;
+
+            for(var i = 0;i < $scope.serviceProviders.length;i++){
+                this.temp = i;
+                $scope.serviceProviders[i].quality_score = 3;
+                $scope.serviceProviders[i].quality_count = 1;
+
+                BlueTeam.getServiceProviderScore($scope.serviceProviders[i].id).then(function (d) {
+
+                    var serviceProviderQuility = d.counts;
+                    //'complain','suggestion','appreciation','marvelous'
+                    var add = 0;
+
+                    for(var j = 0; j < serviceProviderQuility.length; j++ ) {
+                        if(serviceProviderQuility[j].type == "complain")
+                            add = 1;
+                        if(serviceProviderQuility[j].type == "suggestion")
+                            add = 2;
+                        if(serviceProviderQuility[j].type == "appreciation")
+                            add = 3;
+                        if(serviceProviderQuility[j].type == "marvelous")
+                            add = 4;
+                        $scope.serviceProviders[this.temp].quality_score += add*serviceProviderQuility[j].count;
+                        $scope.serviceProviders[this.temp].quality_count += serviceProviderQuility[j].count*1;
+                        //console.log($scope.serviceProviders[this.temp].quality_score,$scope.serviceProviders[this.temp].quality_count);
+                    }
+                    //console.log(JSON.stringify($scope.serviceProviderD));
+
+                });
+
+            }
             console.log(JSON.stringify($scope.serviceProviders));
             //$scope.hide();
         });
 
-        $scope.service = $stateParams.id;
+
+
+        $scope.serviceId = $stateParams.id;
+        $scope.serviceName = $stateParams.name;
+        $scope.img = $stateParams.img;
 
     })
 
@@ -1983,7 +2082,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
 
         for (i = 0; i < window.services.length; i++) {
 
-            if (window.services[i].name == $stateParams.id) {
+            if (window.services[i].name == $stateParams.name) {
 
                 for (j = 0; j < window.services[i].plans.length; j++) {
 
@@ -1996,8 +2095,10 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
         }
 
 
-        $scope.service = $stateParams.id;
+        $scope.serviceId = $stateParams.id;
+        $scope.serviceName = $stateParams.name;
         $scope.type = $stateParams.type;
+        $scope.serviceProviderId = $stateParams.serviceProviderId;
         window.service_type = $scope.type;
         $scope.data.name = $localstorage.get('name');
         $scope.data.mobile = parseInt($localstorage.get('mobile'));
@@ -2071,11 +2172,13 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                         "name": $scope.data.name,
                         "mobile": "" + $scope.data.mobile,
                         "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
-                        "requirements": $scope.service,
+                        "requirements": $scope.serviceName,
+                        "service_id": $scope.serviceId,
                         "user_id": $localstorage.get('user_id'),
                         "user_type": $localstorage.get('type'),
                         "start_datatime": $scope.data.drv + "",
                         "service_type": $scope.type,
+                        "service_provider_id": $scope.serviceProviderId,
                         "remarks": $scope.type + " by mobile app," + $scope.data.remark,
                         "start_time": $scope.data.startTime,
                         "end_time": $scope.data.endTime,

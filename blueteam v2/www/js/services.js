@@ -4,6 +4,8 @@ angular.module('starter.services', [])
         // Might use a resource here that returns a JSON array
 
         var url = "https://blueteam.in/api";
+        var urlWazir = "https://blueteam.in/wazir_api";
+        var urlSP = "https://blueteam.in/sp_api";
         return {
             getServices: function (type) {
                 // $http returns a promise, which has a then function, which also returns a promise
@@ -143,7 +145,29 @@ angular.module('starter.services', [])
 
             getServiceProviderServices: function () {
                 // $http returns a promise, which has a then function, which also returns a promise
-                var promise = $http.get('http://api.sp.blueteam.in/services?category=true').then(function (response) {
+                var promise = $http.get(urlSP+'/services?category=true').then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    console.log(JSON.stringify(response));
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
+            getServiceProviderScore: function (id) {
+                var promise = $http.get(urlWazir + '/feedbacks/1/bt-sp-'+id+'/count').then(function (response) {
+
+                    console.log(JSON.stringify(response));
+
+                    return response.data;
+                });
+
+                return promise;
+            },
+
+            getHotServices: function () {
+                // $http returns a promise, which has a then function, which also returns a promise
+                var promise = $http.get(urlSP+'/services?type=hot').then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
@@ -155,7 +179,7 @@ angular.module('starter.services', [])
 
             getServiceProviders: function (id) {
                 // $http returns a promise, which has a then function, which also returns a promise
-                var promise = $http.get('http://api.sp.blueteam.in/service/'+ id).then(function (response) {
+                var promise = $http.get(urlSP+'/service/'+ id).then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.
@@ -167,7 +191,7 @@ angular.module('starter.services', [])
 
             search: function (keywords) {
                 // $http returns a promise, which has a then function, which also returns a promise
-                var promise = $http.get('http://api.sp.blueteam.in/search/'+ keywords).then(function (response) {
+                var promise = $http.get(urlSP+'/search/'+ keywords).then(function (response) {
                     // The then function here is an opportunity to modify the response
                     console.log(JSON.stringify(response));
                     // The return value gets picked up by the then in the controller.

@@ -4,12 +4,46 @@
 angular.module('starter.controllers')
 
     .controller('ServiceListCtrl',
-        [ '$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$cordovaToast', '$cordovaDevice','BlueTeam',
-            function ($scope, $state, $ionicPopup, $ionicLoading, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $cordovaToast, $cordovaDevice, BlueTeam) {
+        [ '$scope','$ionicPlatform', '$state', '$ionicPopup', '$ionicLoading', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$cordovaToast', '$cordovaLocalNotification','$cordovaDevice','BlueTeam',
+            function ($scope, $ionicPlatform, $state, $ionicPopup, $ionicLoading, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $cordovaToast,$cordovaLocalNotification, $cordovaDevice, BlueTeam) {
 
                 //JSON.parse()
 
 
+                $ionicPlatform.ready(function () {
+
+
+                    console.log("I am in ready");
+                    $scope.scheduleEveryMinuteNotification = function () {
+                        $cordovaLocalNotification.schedule({
+                            id: 2,
+                            title: 'Title here',
+                            text: 'Text here',
+                            every: 'minute'
+                        }).then(function (result) {
+                            console.log('every min',JSON.stringify(result));
+                            
+
+                        });
+                    };
+                    $scope.scheduleSingleNotification = function () {
+                        $cordovaLocalNotification.schedule({
+                            id: 1,
+                            title: 'Warning',
+                            text: 'Youre so sexy!',
+                            data: {
+                                customProperty: 'custom value'
+                            }
+                        }).then(function (result) {
+                            console.log('Notification 1 triggered');
+                        });
+                    };
+
+                    $scope.scheduleSingleNotification();
+
+                    $scope.scheduleEveryMinuteNotification();
+
+                });
                 if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
                     $ionicHistory.clearHistory();
                     $state.go('reg');

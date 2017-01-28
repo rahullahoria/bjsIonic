@@ -1,4 +1,4 @@
-<ion-view view-title="{{service | uppercase}} - {{type}}">
+<ion-view view-title="{{serviceName | uppercase}} - {{type}}">
     <ion-content class="padding" style="
     overflow-y: hidden ! important;
         overflow-x: hidden ! important;
@@ -10,7 +10,7 @@
 
 <div class="card" style="border-left: 3px solid lightgreen;">
     <div class="item item-text-wrap">
-        I need a <b> {{service}}</b> on <i style="font-style: italic;">{{type}}</i> bases,<br/>
+        I need a <b> {{serviceName}}</b> on <i style="font-style: italic;">{{type}}</i> bases,<br/>
 
         <i style="font-style: italic;">at price of {{price}}.</i>
         </div>
@@ -37,14 +37,15 @@
 
                    <span class="input-label"> Date & Time:</span>
                     {{data.drv =datetimeValue| date: "dd-MM-yyyy h:mm a"}}
+                    <i class="icon "></i>
 
                 </div>
 
 
 
-                <label class="item item-input range range-positive  item-stacked-label">
+                <label class="item item-input range range-positive  item-stacked-label" ng-show="(type == 'Monthly')">
                     <span class="input-label">&nbsp; Hours: {{data.hours}}</span>
-                    <input type="range" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="12" value="2" required />
+                    <input type="range" name="hours" placeholder="No. of hours" ng-model="data.hours" min="1" max="12" value="2"  />
 
                 </label>
 
@@ -53,7 +54,7 @@
                     <textarea placeholder="enter address" name="address" ng-model="data.address" rows="4" ng-minlength="1" required></textarea>
                 </label>
 
-                <label class="item item-input item-stacked-label" ng-show="notCustomer">
+                <label class="item item-input item-stacked-label" >
                     <span class="input-label">Remark</span>
                     <textarea placeholder="enter any other info" name="remark" ng-model="data.remark" rows="4" ></textarea>
                 </label>

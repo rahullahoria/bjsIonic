@@ -1,6 +1,6 @@
 <ion-view view-title="Book Now">
 
-    <ion-content has-header="true" class="padding" style="
+    <ion-content class="padding" style="
                                                         overflow-y: hidden ! important;
                                                             overflow-x: hidden ! important;
                                                         background-image: url('https://i.kinja-img.com/gawker-media/image/upload/s--WVHyLqZL--/jmch4t1sxk7gr7jr3tv9.jpg');
@@ -86,7 +86,7 @@
                 <div class="col col-33" ng-repeat="service in services"
                      style="float: left; display: block;text-align: center;">
 
-                    <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+                    <a href="#/tab/service/{{service.id}}/{{service.name}}/type/Monthly/service_provider/0" nav-direction="forward"
                        style="text-decoration: none !important;">
 
                         <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65">
@@ -104,13 +104,13 @@
             <div class="item item-text-wrap">
                 <div><B>Hot Services</B></div>
 
-                <div class="col col-33" ng-repeat="service in services"
+                <div class="col col-25" ng-repeat="service in hotService"
                      style="float: left; display: block;text-align: center;">
 
-                    <a href="#/tab/service-list/{{service.name}}" nav-direction="forward"
+                    <a href="#/tab/map/service/{{service.id}}/{{service.name}}/catagory_img/986" nav-direction="forward"
                        style="text-decoration: none !important;">
 
-                        <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65">
+                        <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="50" height="50">
                         <h5>{{service.name | uppercase}}</h5>
 
                     </a>
@@ -129,7 +129,7 @@
                         <div ng-repeat="service in serviceProvider.services"
                              style="width: 80px; height: 80px;float: left; display: block;text-align: center;">
 
-                            <a href="#/tab/service-list/{{service.id}}" nav-direction="forward"
+                            <a href="#/tab/map/service/{{service.id}}/{{service.name}}/catagory_img/{{serviceProvider.img}}" nav-direction="forward"
                                style="text-decoration: none !important;">
 
                                 <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}"

@@ -1,0 +1,174 @@
+<ion-view view-title="Book Now">
+
+    <ion-content class="padding" style="overflow-x: hidden ! important;
+                                                        background-image: url('https://i.kinja-img.com/gawker-media/image/upload/s--WVHyLqZL--/jmch4t1sxk7gr7jr3tv9.jpg');
+                                                        background-size:     contain;                      /* <------ */
+                                                        background-repeat: no-repeat;
+                                                            background-position: top;
+                                                        margin-top: -50px"
+    >
+
+        <div class="list list-inset">
+            <form ng-submit="search()" name="confirm">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" ng-model="search.keywords" placeholder="Search">
+                </label>
+            </form>
+        </div>
+
+        <div class="w3-content" style="max-width:400px;text-align: center;color: #ffffff;">
+
+            <div class="mySlides" style="background-color: #0a9dc7">
+                Replacement on Time
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                No Communication Issue
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                All Workers Verification
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                Pay Per Use
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                We Selection Best Workers for Your Needs
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                No Salary Distribution Overhead
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                We Hear & Resolves Your all the Problems
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                No Service Charge or Commission
+            </div>
+            <div class="mySlides" style="background-color: #0a9dc7">
+                Full Transparency
+            </div>
+
+        </div>
+
+        <div class="card" style="border-left: 3px solid cornflowerblue;" ng-show="searchResults">
+
+
+            <div class="item item-text-wrap">
+                <div><B>Search Results</B></div>
+
+                <div class="col col-33" ng-repeat="service in searchResults"
+                     style="width: 80px; height: 80px;float: left; display: block;text-align: center;">
+
+                    <a href="#/tab/map/service/{{service.id}}/{{service.name}}/type/Direct-Service/catagory_img/0" nav-direction="forward"
+                       style="text-decoration: none !important;">
+
+                        <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}"
+                             class="img-rounded" width="40" height="40">
+                        <h5>{{service.name | uppercase}}</h5>
+
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="card" style="border-left: 3px solid cornflowerblue;">
+
+
+            <div class="item item-text-wrap">
+                <div><B>One Touch Services</B></div>
+
+                <div class="col col-33" ng-repeat="service in services"
+                     style="float: left; display: block;text-align: center;">
+
+                    <a href="#/tab/map/service/{{service.id}}/{{service.name}}/type/Monthly/catagory_img/0" nav-direction="forward"
+                       style="text-decoration: none !important;">
+
+                        <img ng-src="{{service.img_url}}" class="img-rounded" width="65" height="65">
+                        <h5>{{service.name | uppercase}}</h5>
+
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 3px solid firebrick;">
+
+
+            <div class="item item-text-wrap">
+                <div><B>Hot Services</B></div>
+
+                <div class="col col-33" ng-repeat="service in hotService"
+                     style="float: left; display: block;text-align: center;height: 80px">
+
+                    <a href="#/tab/map/service/{{service.id}}/{{service.name}}/type/Direct-Service/catagory_img/986" nav-direction="forward"
+                       style="text-decoration: none !important;">
+
+                        <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}" class="img-rounded" width="45" height="45">
+                        <h5>{{service.name | uppercase}}</h5>
+
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card" ng-repeat="serviceProvider in serviceProviders" ng-show="serviceProvider.services.length&&serviceProvider.services.length != 0" style="border-left: 3px solid lightgreen;">
+            <b> {{ serviceProvider.name }}
+            </b>
+            <div class="item item-text-wrap" style="overflow-x: hidden ! important;
+                                                        background-image: url('http://api.file-dog.shatkonlabs.com/files/rahul/{{serviceProvider.img}}');
+                                                        background-size:     cover;                      /* <------ */
+                                                        background-repeat: no-repeat;
+                                                            background-position: top;
+                                                            margin-left: -20px;
+                                                            margin-right: -20px;
+
+                                                        ">
+                <ion-scroll direction="x" style="width: auto; height: 100px">
+                    <div style="width: 2000px">
+                        <div class="card" ng-repeat="service in serviceProvider.services"
+                             style="width: 80px; height: 80px;float: left; display: block;text-align: center;">
+
+                            <a href="#/tab/map/service/{{service.id}}/{{service.name}}/type/Direct-Service/catagory_img/{{serviceProvider.img}}" nav-direction="forward"
+                               style="text-decoration: none !important;">
+
+                                <img ng-src="http://api.file-dog.shatkonlabs.com/files/rahul/{{service.pic_id}}"
+                                     class="img-rounded" width="50" height="50">
+                                <h5>{{service.name | uppercase}}</h5>
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </ion-scroll>
+            </div>
+        </div>
+
+        <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.phonecontacts', 'ionic-timepicker', 'ion-datetime-picker','ionic.rating'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.phonecontacts',
+    'ionic-timepicker', 'ion-datetime-picker','ionic.rating'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -117,6 +118,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
+
+
+            .state('tab.map', {
+                url: '/map/service/:id/:name/catagory_img/:img',
+                views: {
+                    'service-list': {
+                        templateUrl: 'templates/map.html',
+                        controller: 'MapCtrl'
+                    }
+                }
+            })
+
             .state('tab.F&Q', {
                 url: '/F&Q',
                 views: {
@@ -197,7 +210,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             })
 
             .state('tab.service-type', {
-                url: '/service-list/:id',
+                url: '/service-list/:id/:name/catagory_img/:img',
                 views: {
                     'service-type': {
                         templateUrl: 'templates/service-type.html',
@@ -217,7 +230,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             })
 
             .state('tab.book', {
-                url: '/service/:id/type/:type',
+                url: '/service/:name/:id/type/:type/service_provider/:serviceProviderId',
                 views: {
                     'book': {
                         templateUrl: 'templates/book.html',

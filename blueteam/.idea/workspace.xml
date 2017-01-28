@@ -1,7 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="" />
+    <list default="true" id="2ffcfc52-77df-414f-872d-50d40ad6d5bd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam v2/www/js/controllers/MapCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../blueteam v2/www/templates/map.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/AboutCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/AddWorkerCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/BlueteamVerifiedTypeCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/BookCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/ContactUsCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/DigieyeCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/F&amp;QCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/FeedbackCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/FinishCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/MapCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/RegCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/SeeRequestCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/ServiceListCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/ServiceRequestCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/ServiceTypeCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/T&amp;CCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/TabCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/controllers/VWCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services/BTPartnerService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services/BlueTeamService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services/CallLogService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services/LocalStorageService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/js/services/WazirService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/add-worker.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/blueteam_verified.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/book.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/contact-us.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/digieye.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/f&amp;qs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/feedback.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/map.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/register-worker.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/see-request.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/service-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/service-requests.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/service-type.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/t&amp;c.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/tabs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bt2/blueteam/www/templates/view-workers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/ExpanseCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/templates/expanse.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../blueteam partner/www/img/ionic11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_loaders.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_split-pane.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-animation.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/LICENSE.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-hdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-ldpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-mdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-land-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/resources/splash.png" afterPath="$PROJECT_DIR$/../blueteam v2/resources/splash.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js.gzip" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js.gzip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.eot" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.ttf" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.woff" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam partner/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../blueteam partner/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam partner/config.xml" afterPath="$PROJECT_DIR$/../blueteam partner/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam partner/www/js/controllers/InvoiceCtrl.js" afterPath="$PROJECT_DIR$/../blueteam partner/www/js/controllers/InvoiceCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam partner/www/templates/invoice.html" afterPath="$PROJECT_DIR$/../blueteam partner/www/templates/invoice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam partner/www/templates/service-list.html" afterPath="$PROJECT_DIR$/../blueteam partner/www/templates/service-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../blueteam v2/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/config.xml" afterPath="$PROJECT_DIR$/../blueteam v2/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/css/ionic.app.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/css/ionic.app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/css/ionic.app.min.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/css/ionic.app.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/css/style.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/index.html" afterPath="$PROJECT_DIR$/../blueteam v2/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/js/app.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/js/controllers.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/js/services.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.min.js.map" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/angular-animate.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/index.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-animate/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.min.js.map" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/angular-sanitize.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/index.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular-sanitize/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular-csp.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular-csp.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/angular.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/index.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/angular/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/LICENSE" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/gulpfile.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/release/ion-datetime-picker.min.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/release/ion-datetime-picker.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/release/ion-datetime-picker.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/release/ion-datetime-picker.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker-i18n.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker-i18n.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker-popup.html" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker-popup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ion-datetime-picker/src/picker.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/css/ionic.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/css/ionic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/css/ionic.min.css" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/css/ionic.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.svg" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/fonts/ionicons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic-angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic-angular.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic-angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.bundle.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/js/ionic.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_action-sheet.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_action-sheet.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_animations.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_animations.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_backdrop.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_backdrop.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_badge.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_badge.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_bar.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_bar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_button-bar.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_button-bar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_button.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_button.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_checkbox.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_checkbox.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_form.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_form.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_grid.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_grid.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_items.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_items.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_list.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_list.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_loading.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_loading.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_menu.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_mixins.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_mixins.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_modal.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_modal.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_platform.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_platform.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_popover.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_popover.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_popup.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_popup.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_progress.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_progress.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_radio.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_radio.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_range.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_range.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_refresher.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_refresher.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_scaffolding.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_scaffolding.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_select.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_select.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_slide-box.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_slide-box.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_spinner.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_spinner.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_tabs.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_tabs.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_toggle.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_toggle.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_transitions.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_transitions.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_type.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_type.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_util.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_util.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_variables.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionic.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionic.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-font.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-font.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-icons.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-icons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-variables.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/_ionicons-variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/ionicons.scss" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ionic/scss/ionicons/ionicons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/CHANGELOG.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/LICENSE" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova-mocks.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova-mocks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova.min.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/dist/ng-cordova.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/ngCordova/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/platform.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/platform.js/platform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/.bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/LICENSE" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/README.md" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/bower.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/package.json" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/text.js" afterPath="$PROJECT_DIR$/../blueteam v2/www/lib/requirejs-text/text.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/templates/book.html" afterPath="$PROJECT_DIR$/../blueteam v2/www/templates/book.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/templates/service-list.html" afterPath="$PROJECT_DIR$/../blueteam v2/www/templates/service-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../blueteam v2/www/templates/service-type.html" afterPath="$PROJECT_DIR$/../blueteam v2/www/templates/service-type.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/bower.json" afterPath="$PROJECT_DIR$/../btp/blueteam partners/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/config.xml" afterPath="$PROJECT_DIR$/../btp/blueteam partners/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/package.json" afterPath="$PROJECT_DIR$/../btp/blueteam partners/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/css/style.css" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/index.html" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/app.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/MapCtrl.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/MapCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/MonthlyIncomeCtrl.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/MonthlyIncomeCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/RegCtrl.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/RegCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/ServiceListCtrl.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/controllers/ServiceListCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/js/services.js" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/templates/monthly-income.html" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/templates/monthly-income.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../btp/blueteam partners/www/templates/service-list.html" afterPath="$PROJECT_DIR$/../btp/blueteam partners/www/templates/service-list.html" />
+    </list>
     <ignored path="blueteam.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -39,44 +248,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="183" column="57" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="57" />
-              <folding />
+            <state vertical-scroll-proportion="0.71311474">
+              <caret line="1331" column="16" selection-start-line="1331" selection-start-column="16" selection-end-line="1334" selection-end-column="19" />
+              <folding>
+                <element signature="e#11511#21359#0" expanded="false" />
+                <element signature="e#15694#18773#0" expanded="false" />
+                <element signature="e#31716#32054#0" expanded="false" />
+                <element signature="e#35506#35698#0" expanded="false" />
+                <element signature="e#35901#40513#0" expanded="false" />
+                <element signature="e#40674#42739#0" expanded="false" />
+                <element signature="e#48811#52910#0" expanded="false" />
+                <element signature="e#53048#54048#0" expanded="false" />
+                <element signature="e#54273#57055#0" expanded="false" />
+                <element signature="e#57189#58466#0" expanded="false" />
+                <element signature="e#58586#59556#0" expanded="false" />
+                <element signature="e#59666#59675#0" expanded="false" />
+                <element signature="e#59852#62508#0" expanded="false" />
+                <element signature="e#62834#69153#0" expanded="false" />
+                <element signature="e#70588#70705#0" expanded="false" />
+                <element signature="e#70779#70855#0" expanded="false" />
+                <element signature="e#70967#71082#0" expanded="false" />
+                <element signature="e#71210#71367#0" expanded="false" />
+                <element signature="e#71420#71608#0" expanded="false" />
+                <element signature="e#71644#71689#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <file leaf-file-name="phonecontacts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/phonecontacts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.024590164">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="54" selection-end-column="26" />
-              <folding>
-                <element signature="e#7490#17338#0" expanded="false" />
-                <element signature="e#11673#14752#0" expanded="false" />
-                <element signature="e#27695#28033#0" expanded="false" />
-                <element signature="e#31485#31677#0" expanded="false" />
-                <element signature="e#31880#36492#0" expanded="false" />
-                <element signature="e#36653#38718#0" expanded="false" />
-                <element signature="e#39629#44535#0" expanded="false" />
-                <element signature="e#44790#48889#0" expanded="false" />
-                <element signature="e#49027#50027#0" expanded="false" />
-                <element signature="e#50252#53034#0" expanded="false" />
-                <element signature="e#53168#54445#0" expanded="false" />
-                <element signature="e#54565#55535#0" expanded="false" />
-                <element signature="e#55645#55654#0" expanded="false" />
-                <element signature="e#55831#58487#0" expanded="false" />
-                <element signature="e#58813#65132#0" expanded="false" />
-                <element signature="e#66567#66684#0" expanded="false" />
-                <element signature="e#66758#66834#0" expanded="false" />
-                <element signature="e#66946#67061#0" expanded="false" />
-                <element signature="e#67189#67346#0" expanded="false" />
-                <element signature="e#67399#67587#0" expanded="false" />
-                <element signature="e#67623#67668#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -203,10 +411,10 @@
         <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
         <option value="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/templates/not_customer_registor_worker.html" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -255,7 +463,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -327,6 +534,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -646,10 +854,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="27" width="1370" height="743" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306003" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -850,13 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/phonecontacts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/sideMenus.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1000,8 +1201,7 @@
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="183" column="57" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="57" />
-          <folding />
+          <caret line="194" column="57" selection-start-line="194" selection-start-column="57" selection-end-line="194" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1010,36 +1210,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024590164">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="54" selection-end-column="26" />
-          <folding>
-            <element signature="e#7490#17338#0" expanded="false" />
-            <element signature="e#11673#14752#0" expanded="false" />
-            <element signature="e#27695#28033#0" expanded="false" />
-            <element signature="e#31485#31677#0" expanded="false" />
-            <element signature="e#31880#36492#0" expanded="false" />
-            <element signature="e#36653#38718#0" expanded="false" />
-            <element signature="e#39629#44535#0" expanded="false" />
-            <element signature="e#44790#48889#0" expanded="false" />
-            <element signature="e#49027#50027#0" expanded="false" />
-            <element signature="e#50252#53034#0" expanded="false" />
-            <element signature="e#53168#54445#0" expanded="false" />
-            <element signature="e#54565#55535#0" expanded="false" />
-            <element signature="e#55645#55654#0" expanded="false" />
-            <element signature="e#55831#58487#0" expanded="false" />
-            <element signature="e#58813#65132#0" expanded="false" />
-            <element signature="e#66567#66684#0" expanded="false" />
-            <element signature="e#66758#66834#0" expanded="false" />
-            <element signature="e#66946#67061#0" expanded="false" />
-            <element signature="e#67189#67346#0" expanded="false" />
-            <element signature="e#67399#67587#0" expanded="false" />
-            <element signature="e#67623#67668#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1096,6 +1266,43 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="54" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/phonecontacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71311474">
+          <caret line="1331" column="16" selection-start-line="1331" selection-start-column="16" selection-end-line="1334" selection-end-column="19" />
+          <folding>
+            <element signature="e#11511#21359#0" expanded="false" />
+            <element signature="e#15694#18773#0" expanded="false" />
+            <element signature="e#31716#32054#0" expanded="false" />
+            <element signature="e#35506#35698#0" expanded="false" />
+            <element signature="e#35901#40513#0" expanded="false" />
+            <element signature="e#40674#42739#0" expanded="false" />
+            <element signature="e#48811#52910#0" expanded="false" />
+            <element signature="e#53048#54048#0" expanded="false" />
+            <element signature="e#54273#57055#0" expanded="false" />
+            <element signature="e#57189#58466#0" expanded="false" />
+            <element signature="e#58586#59556#0" expanded="false" />
+            <element signature="e#59666#59675#0" expanded="false" />
+            <element signature="e#59852#62508#0" expanded="false" />
+            <element signature="e#62834#69153#0" expanded="false" />
+            <element signature="e#70588#70705#0" expanded="false" />
+            <element signature="e#70779#70855#0" expanded="false" />
+            <element signature="e#70967#71082#0" expanded="false" />
+            <element signature="e#71210#71367#0" expanded="false" />
+            <element signature="e#71420#71608#0" expanded="false" />
+            <element signature="e#71644#71689#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

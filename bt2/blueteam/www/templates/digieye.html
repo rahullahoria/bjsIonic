@@ -1,0 +1,59 @@
+<ion-view view-title="DigiEYE">
+    <ion-content class="padding" style="margin-top: -50px">
+        <div style="text-align: center;">
+            <img src="http://api.file-dog.shatkonlabs.com/files/rahul/24" height="150"/>
+        </div>
+
+        <ion-list>
+
+            <ion-item class="item item-icon-left" ng-click="scanBarcode()">
+                <span class="icon ion-social-codepen large calm"> </span>
+                Scan Worker QR Code
+            </ion-item>
+
+            <ion-item class="item item-icon-left" ng-href="#/tab/register-worker">
+                <span class="icon ion-person-add large calm"></span>
+                Register Worker
+            </ion-item>
+
+            <ion-item class="item item-icon-left" ng-href="#/tab/view-workers">
+                <span class="icon ion-person-stalker large calm"></span>
+                View Your Worker
+            </ion-item>
+        </ion-list>
+
+        <div class="card " ng-show="QrUser.mobile" ng-class="">
+
+            <div id="profile-bg">
+
+            </div>
+            <div id="content">
+                <div id="profile-info">
+                    <img id="profile-image" src="http://api.file-dog.shatkonlabs.com/files/rahul/{{QrUser.photo}}">
+                    <h3 id="profile-name">
+                        {{QrUser.name}}
+                        <i class="icon ion-checkmark-circled balanced" ng-show="QrUser.status != 'rejected'"></i>
+                        <i class="icon ion-close-circled assertive" ng-show="QrUser.status == 'rejected'">
+                    </h3>
+
+                    <span id="profile-description">
+                        <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{QrUser.mobile}}">
+                            <span class="ion-android-call large"></span>
+                            +91 {{QrUser.mobile}}
+                        </a> , {{QrUser.rating}}/5<span class="ion-star large"></span>, AGE: {{ calculateAge(QrUser.dob) }}
+                    </span>
+
+                    <h4><span class="ion-android-home large"></span> {{QrUser.address}}, {{QrUser.area}} </h4>
+                    <h5> Emergency <a class="icon-left ion-ios7-telephone" ng-href="tel: +91 {{QrUser.emergency_no}}">
+                        <span class="ion-android-call large"></span>
+                        +91 {{QrUser.emergency_no}}
+                    </a>
+                    </h5>
+                </div>
+            </div>
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

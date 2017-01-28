@@ -17,7 +17,7 @@
 
             <p>Reliability Score: {{ serviceProviderD.reliability_score}}/{{ serviceProviderD.reliability_count*4 }} ({{ serviceProviderD.reliability_score/(serviceProviderD.reliability_count*4)*100| limitTo: 4 }} %)</p>
             <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p>
-
+                <h2>Coupon Code:{{ user.name| limitTo: 4 }}#{{user_id}}</h2>
 
 
         </div>
