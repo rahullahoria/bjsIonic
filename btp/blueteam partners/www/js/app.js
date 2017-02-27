@@ -73,17 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
 
             })
 
-            .state('tab.digieye', {
 
-                url: '/digieye',
-                views: {
-                    'service-list': {
-                        templateUrl: 'templates/digieye.html',
-                        controller: 'DigieyeCtrl'
-                    }
-                }
-
-            })
 
             .state('tab.register-worker', {
 
@@ -138,25 +128,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
                 }
             })
 
-            .state('tab.price_cal', {
-                url: '/price_cal',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/price-cal.html',
-                        controller: 'PriceCalCtrl'
-                    }
-                }
-            })
-
-            .state('tab.feedback', {
-                url: '/feedback',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/feedback.html',
-                        controller: 'FeedbackCtrl'
-                    }
-                }
-            })
 
             .state('tab.t&c', {
                 url: '/t&c',
@@ -168,15 +139,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
                 }
             })
 
-            .state('tab.take-payment', {
-                url: '/take-payment',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/take-payment.html',
-                        controller: 'TakePaymentCtrl'
-                    }
-                }
-            })
             .state('tab.service-requests', {
                 url: '/service-requests',
                 views: {
@@ -187,15 +149,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
                 }
             })
 
-            .state('tab.worker-timer', { //8588824759
-                url: '/worker-timer',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/worker-timer.html',
-                        controller: 'WorkerTimerCtrl'
-                    }
-                }
-            })
 
             .state('tab.service-type', {
                 url: '/service-list/:id',
@@ -207,25 +160,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
                 }
             })
 
-            .state('tab.blueteam_verified', {
-                url: '/blueteam_verified',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/blueteam_verified.html',
-                        controller: 'BlueteamVerifiedTypeCtrl'
-                    }
-                }
-            })
 
-            .state('tab.book', {
-                url: '/service/:id/type/:type',
-                views: {
-                    'book': {
-                        templateUrl: 'templates/book.html',
-                        controller: 'BookCtrl'
-                    }
-                }
-            })
 
             .state('tab.campaign', {
                 url: '/campaign/:type/limit/:limit',
@@ -276,25 +211,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',
 
             })
 
-            .state('tab.addworker', {
-                url: '/addworker',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/add-worker.html',
-                        controller: 'AddWorkerCtrl'
-                    }
-                }
-            })
-
-            .state('tab.addvender', {
-                url: '/addvender',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/add-vender.html',
-                        controller: 'AddWorkerCtrl'
-                    }
-                }
-            })
 
             .state('tab.seerequest', {
                 url: '/seerequest',
